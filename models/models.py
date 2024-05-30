@@ -38,8 +38,10 @@ class Model(Base):
     # either a user id or a system ID
     creation_user_id = MetaDataColumn(Integer)
     modification_user_id = MetaDataColumn(Integer)  # either a user id or a system ID
+    deletion_user_id = MetaDataColumn(Integer)  # either a user id or a system ID
     insertion_timestamp = MetaDataColumn(DATETIME(fsp=6), nullable=False, server_default=text("CURRENT_TIMESTAMP(6)"))
     modification_timestamp = MetaDataColumn(DATETIME(fsp=6), nullable=False, server_default=text("CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)"))
+    deletion_timestamp = MetaDataColumn(DATETIME(fsp=6))
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -171,10 +173,14 @@ class MenuGroup(Model):
     __tablename__ = 'menu_group'
 
     menu_group_id = Column(Integer, primary_key=True)
-    
-    plan_id = Column(Integer)
     menu_group_name = Column(String(128))
 
+class PlanMenuGroupMap(Model):
+    __tablename__ = 'plan_menu_group_map'
+
+    plan_menu_group_map_id = Column(Integer, primary_key=True)
+    plan_id = Column(Integer)
+    menu_group_id = Column(Integer)
 # ----------------------------------------------------------------------------------------------------------------------
 
 class KitchenProfile(Model):

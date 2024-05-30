@@ -13,6 +13,7 @@ from datetime import datetime, timedelta
 from sqlalchemy import create_engine, text
 from botocore.exceptions import ClientError
 from dotenv import load_dotenv
+from flask import g
 
 ENGINES = {}
 ENGINE_KWARGS = {'pool_pre_ping': True, 'pool_size': 250, 'pool_recycle': 600, 'isolation_level': 'READ COMMITTED'}
@@ -128,7 +129,7 @@ def jq_prepare_update_statement(table_name, one_row_dict, condition, user_id):
 
     return (query.format(table_name, columns[:-2], where), values_list)
 
-def jq_prepare_update_statement_v2(table_name, one_row_dict, condition,g):
+def jq_prepare_update_statement_v2(table_name, one_row_dict, condition, g):
     one_row_dict["tenant_id"] = g.tenant_id
     one_row_dict["modification_user_id"] = g.user_id
     one_row_dict["modification_timestamp"] = datetime.now()
@@ -140,9 +141,12 @@ def jq_prepare_update_statement_v2(table_name, one_row_dict, condition,g):
     columns = ""
     for i in one_dict.keys():
         columns = columns + i + " = " + '%s, '
-    where = ''.join(condition.keys()) + " = " + ''.join(['%s'] * len(condition))
+    where_conditions = []
+    for key, value in condition.items():
+        where_conditions.append(f"{key} = %s")
+    where = ' AND '.join(where_conditions)
     values_list = list(one_dict.values())
-    values_list.append(''.join(condition.values()))
+    values_list.extend(list(condition.values()))
 
     return (query.format(table_name, columns[:-2], where), values_list)
 
@@ -697,3 +701,58 @@ def get_utc_time_from_local_time(time_local, default_timezone_offset_hour):
 def get_random_alphanumeric_string(length):
     result_str = ''.join(random.choice(string.ascii_uppercase + string.digits) for i in range(length))
     return result_str
+
+def create_new_single_db_entry(one_dict, table_name, capture_tenant = True):
+    if capture_tenant:
+        query,params = jq_prepare_insert_statement_v2(table_name,one_dict,g)
+    else:
+        one_dict["meta_status"] = 'active'
+        query,params = jq_prepare_insert_statement(table_name,one_dict)
+    db_engine = get_db_engine()
+    with db_engine.connect() as conn:
+        result = conn.execute(query,params)
+    if result:
+        last_entry_id = result.lastrowid
+        return last_entry_id
+    return False
+
+def update_single_db_entry(one_dict, table_name, condition, capture_tenant = True):
+    if capture_tenant:
+        query,params = jq_prepare_update_statement_v2(table_name,one_dict,condition,g)
+    else:
+        query,params = jq_prepare_update_statement(table_name, one_dict, condition, None) 
+    db_engine = get_db_engine()
+    with db_engine.connect() as conn:
+        result = conn.execute(query,params)
+    if result:
+        update_status = result.rowcount
+        return update_status
+    return False
+
+def get_specific_columns_by_id(entity_id_list,table,column_name_str, capture_tenant = True):
+    sub_query = ""
+    if capture_tenant:
+        sub_query = f" AND tenant_id = {g.tenant_id}"
+    query = text(f"""
+        SELECT
+            {column_name_str}
+        FROM
+            {table}
+        WHERE
+            {table}_id IN ({entity_id_list})
+        AND
+            meta_status = 'active'
+        {sub_query}
+    """)
+    db_engine = get_db_engine()
+    with db_engine.connect() as conn:
+        result_tuple = conn.execute(query).fetchall()
+        return [dict(row) for row in result_tuple]
+
+def create_archive_record(table_name, record_id):
+    one_row_data = get_specific_columns_by_id(str(record_id), table_name, "*")
+    if len(one_row_data) <=0:
+        return False
+
+    status = create_new_single_db_entry(one_row_data[0],"archive_"+table_name,True)
+    return status

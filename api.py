@@ -2,21 +2,17 @@ import os
 import json
 import logging
 
-import sentry_sdk
-from sentry_sdk.integrations.flask import FlaskIntegration
 from flask_mysqldb import MySQL
-from flask import Flask, request
+from flask import Flask, request, g
 from flask_restful import Api
 from dotenv import load_dotenv
 
-from utils import jqaccess_control_engine, json_encoder
+from utils import json_encoder
 
 # ===============================================================================
 # import API Blueprints
 # ===============================================================================
-from access_management.access_management import access_management_blueprint
-from user_management.user_management import user_management_blueprint
-from role_management.role_management import role_management_blueprint
+from brand_profile_management.brand_profile_management import brand_profile_management_blueprint
 
 # import Environment variables
 load_dotenv(override=True)
@@ -41,9 +37,7 @@ elif os.environ.get('ENV') == 'production':
 # ===============================================================================
 # API blueprints registration
 # ===============================================================================
-app.register_blueprint(access_management_blueprint, url_prefix=base_api_url)
-app.register_blueprint(user_management_blueprint, url_prefix=base_api_url)
-app.register_blueprint(role_management_blueprint, url_prefix=base_api_url)
+app.register_blueprint(brand_profile_management_blueprint, url_prefix=base_api_url)
 
 # ===============================================================================
 # Gunicorn settings
@@ -51,18 +45,6 @@ app.register_blueprint(role_management_blueprint, url_prefix=base_api_url)
 gunicorn_logger = logging.getLogger('gunicorn.error')  # pylint: disable=invalid-name
 app.debug = os.environ.get('DEBUG')
 app.logger.setLevel(logging.DEBUG)
-
-# ===============================================================================
-# Sentry settings
-# ===============================================================================
-if os.getenv("MYSQL_HOST") != "127.0.0.1" and os.environ.get('SENTRY_DSN'):
-    sentry_sdk.init(
-        dsn=os.getenv("SENTRY_DSN"),
-        integrations=[FlaskIntegration()],
-        traces_sample_rate=os.getenv("SENTRY_TRACES_SAMPLE", 1.0),
-        sample_rate=os.getenv("SENTRY_TRACES_SAMPLE", 1.0),
-        environment=os.getenv('ENV')
-    )
 
 # ===============================================================================
 # Redis settings
@@ -85,12 +67,6 @@ app.sql = MySQL(app)
 # ===============================================================================
 @app.before_request
 def before_request():
-
-    # Check Tag Exists
-    if 'uuid' in request.headers.keys():
-        with sentry_sdk.configure_scope() as scope:
-            scope.set_tag("uuid", request.headers['uuid'])
-
     if request.method == 'OPTIONS':
         return
 
@@ -99,7 +75,10 @@ def before_request():
     app.logger.debug('REQUEST Headers: %s', json.dumps(request.headers, default=str))
     app.logger.debug('REQUEST Body: %s', request.data)
 
+
     if request.path.startswith('/api/') and request.url_rule:
+        g.user_id = 1
+        g.tenant_id = 1
         return
 
 # ====================================================================================

@@ -48,3 +48,10 @@ def landscape():
     #             with db_engine.connect() as conn:
     #                 conn.execute(query, params)
 
+
+@pytest.fixture(scope="session", autouse=True)
+def content_team_headers():
+    yield {
+        
+    }
+        
