@@ -1,0 +1,38 @@
+{
+    "payment_method_name": "card",
+    "payable_amount": 200,
+    "tip_amount": 0,
+    "currency_name": "aed",
+    "customer_details": {
+        "email": "merchant_customer@gmail.com",
+        "phone_nr": null,
+        "first_name": null,
+        "last_name": null,
+        "remote_id": 123,
+        "stripe_customer_id": null,
+        "customer_contact_method": "sms"
+    },
+    "employee_details": {
+        "email": "merchant_employee@gmail.com",
+        "phone_nr": null,
+        "first_name": null,
+        "last_name": null,
+        "remote_id": 123
+    },
+    "remote_transaction_id": 1123,
+    "redirect_url_success": "",
+    "redirect_url_error": "",
+    "payment_link_expiry_duration": 15,
+    "expiry_duration_measurement_name": "seconds",
+    "item_list": [
+        {
+            "external_item_id": 1,
+            "display_name_en": "fries",
+            "default_price": 100,
+            "currency_name": "aed",
+            "quantity": 1,
+            "offer_section": null,
+            "modifier_section": null
+        }
+    ]
+}

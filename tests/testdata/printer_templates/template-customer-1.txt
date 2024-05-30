@@ -1,0 +1,34 @@
+<C>[[BRAND_NAME]]
+<C>[[MERCHANT_ADDRESS]]
+<C>Tel: [[MERCHANT_PHONE]]
+
+<C>TAX INVOICE
+<C>TRN: [[MERCHANT_TRN]]
+
+================================================
+<C>** ORDER NOTES ** 
+<C>[[ORDER_NOTES]]
+================================================
+
+Order: [[ORDER_NUMBER]] 
+Ext Order: [[EXT_ORDER_NUMBER]]
+Order Date: [[TIMESTAMP]] [[PAID_P]]
+Marketplace: [[MARKETPLACE_NAME]]
+Service: [[FULFILLMENT_TYPE]]
+================================================
+Qty           Description                  Price
+================================================
+[[ITEM_LIST]]
+================================================
+
+<R>Subtotal: [[SUBTOTAL]]
+[[DISCOUNT_AMOUNT]]
+[[TIP_AMOUNT]]
+<R>Delivery: [[DELIVERY_CHARGE]]
+[[SURCHARGE_AMOUNT]]
+
+<R>Total : [[TOTAL_PRICE]]
+<R>VAT 5%: [[TAX_AMOUNT]]
+
+[[PAYMENT_METHOD]]
+================================================

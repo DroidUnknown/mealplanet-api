@@ -1,0 +1,3 @@
+merchant_id|tax_name|tax_name_ar|tax_description|tax_value|percentage_p|tax_inclusive_p|country_id|currency_id|meta_status
+1|vat|||5|1|1|1|1|active
+2|vat|||5|1|1|1|1|active

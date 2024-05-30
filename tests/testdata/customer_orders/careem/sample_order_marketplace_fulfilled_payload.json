@@ -1,0 +1,500 @@
+{
+    "id": 57093138,
+    "order_type": "food",
+    "domain": "food",
+    "business_type": "restaurants",
+    "user_id": 4555658,
+    "basket_id": 286173097,
+    "city_id": 1,
+    "delivery_id": 42637087,
+    "payment_id": null,
+    "delivery_type": "careem",
+    "merchant_pay_type": "prepaid",
+    "language": "en",
+    "payment_type": "wallet",
+    "payment_status": "success",
+    "items_count": 1,
+    "unavailable_items_count": 0,
+    "status": "pending",
+    "is_doorstep_delivery": false,
+    "promo_code": "MAN10",
+    "promotion_discount": 4,
+    "created_at": "2023-07-24T11:17:04+00:00",
+    "pending_at": "2023-07-24T11:17:06+00:00",
+    "scheduled_at": null,
+    "accepted_at": "2023-07-24T11:17:46+00:00",
+    "delivered_at": null,
+    "cancelled_at": null,
+    "expected_arrival": {
+        "display": "precise",
+        "precise": "2023-07-24T12:02:04+00:00",
+        "from": "2023-07-24T11:57:04+00:00",
+        "to": "2023-07-24T12:07:04+00:00"
+    },
+    "instructions": "",
+    "cash_in": 0,
+    "cash_out": 0,
+    "captain_cash_collected": null,
+    "total_price": "33.600",
+    "attributes": {
+        "id": 44885563,
+        "order_id": 57093138,
+        "meta_data": {
+            "pos": "1",
+            "platform": "ios",
+            "device_id": "70EF8078-F86C-4BBF-9631-D319D17ED52F",
+            "smart_3ds": false,
+            "app_version": "16.8.0",
+            "include_tax": "1",
+            "included_tax": "0",
+            "use_wallet_balance": false
+        },
+        "created_at": "2023-07-24 11:17:04",
+        "updated_at": "2023-07-24 11:17:06"
+    },
+    "cancellation_reason_id": null,
+    "cancellation_reason": "",
+    "cancelled_by": "",
+    "source": "SUPERAPP",
+    "is_scheduled": false,
+    "prepare_time": null,
+    "pickup_time": null,
+    "initial_eta": 45,
+    "promised_eta": "2023-07-24T12:05:04+00:00",
+    "surge_confirmation_id": null,
+    "charge_amount": "33.600",
+    "hold_amount": 0,
+    "item_replacement_accepted": false,
+    "settlement_reference": "FOOD_57093138",
+    "price": {
+        "show_promo_code": true,
+        "original": 40,
+        "sub_total": 32.4,
+        "total": 32.4,
+        "delivery_fee": 0,
+        "service_fee": null,
+        "tax": 0,
+        "tax_percentage": 0,
+        "discount": 0,
+        "extra_fee": 0,
+        "merchant_promotion_discount": 4,
+        "promotion_discount": 4,
+        "promo_code_discount": 0,
+        "total_discount": 4,
+        "promotion_discount_value": 4,
+        "promo_code_discount_value": 3.6,
+        "free_delivery_discount_value": 0
+    },
+    "delivery": {
+        "id": 42637087,
+        "booking_id": "AEGPKCATVP10GCQ",
+        "order_id": 57093138,
+        "solutions_reference": 1788083111,
+        "status": "UPCOMING",
+        "tracking": null,
+        "captain": null,
+        "status_log": [
+            {
+                "delivery_id": 42637087,
+                "status": "PENDING",
+                "created_at": "2023-07-24T11:17:47+00:00"
+            },
+            {
+                "delivery_id": 42637087,
+                "status": "UPCOMING",
+                "created_at": "2023-07-24T11:17:47+00:00"
+            }
+        ]
+    },
+    "merchant": {
+        "id": 123456,
+        "company_id": 592,
+        "brand_id": 592,
+        "name": "test branch 1",
+        "name_localized": "test branch 1",
+        "description": "",
+        "description_localized": "",
+        "status_id": 1,
+        "offline_until": "",
+        "currency_id": 1,
+        "currency": {
+            "id": 1,
+            "code": "AED",
+            "name": "Dirham",
+            "name_localized": "Dirham",
+            "label": "AED",
+            "label_localized": "AED",
+            "position": "left",
+            "decimals": 2,
+            "purchasing_power_index": 1,
+            "name_short": "Dirhams",
+            "cents_100": true
+        },
+        "priority": 0,
+        "contract_id": 1017693,
+        "express": "no",
+        "dispatching_delay": 0,
+        "delivery_delay_type": "slowpoke",
+        "target_acceptance_time": 90,
+        "business_type": "restaurants",
+        "is_tax_registered": true,
+        "registered_tax": 5,
+        "location_uuid": null,
+        "location_provider": null,
+        "location_source_uuid": null,
+        "address": {
+            "city_id": 1,
+            "city_name": "Dubai",
+            "city_name_localized": "Dubai",
+            "restricted_area_id": null,
+            "restricted_area_name": "",
+            "restricted_area_name_localized": "",
+            "area_id": 31,
+            "area_name": "",
+            "area_name_localized": "",
+            "lat": "25.00000",
+            "lng": "55.000000",
+            "address": "",
+            "address_localized": "",
+            "address_note": "",
+            "address_note_localized": ""
+        },
+        "delivery": {
+            "delivery_type": "careem",
+            "delivery_charge": "7",
+            "delivery_distance": "7500",
+            "preparation_time": "10",
+            "min_order_amount": "0",
+            "price_per_person": "50",
+            "kitchen_capacity": ""
+        },
+        "status": {
+            "id": 1,
+            "name": "Active",
+            "description": "Merchants are active on the platform, and accepting orders"
+        },
+        "company": {
+            "id": 592,
+            "name": "",
+            "country_id": 1,
+            "name_localized": "",
+            "description": "",
+            "description_localized": "",
+            "contacts": [
+                {
+                    "id": 123123,
+                    "merchant_id": 0,
+                    "company_id": 123,
+                    "city_id": 0,
+                    "title": "outletManager",
+                    "name": "test user 1",
+                    "email": "test@test.com",
+                    "mobile": "13213131",
+                    "mobile_code": "971",
+                    "address": "",
+                    "priority": 0,
+                    "send_delivery_information": 1,
+                    "send_finance_information": 1
+                }
+            ]
+        },
+        "media": [],
+        "merchant_status_expiries": [],
+        "contacts": null,
+        "contract": null,
+        "merchant_has_shifts": null,
+        "merchant_has_tags": null,
+        "merchant_type": "normal",
+        "hdl_enabled": false,
+        "auto_accept_orders": false
+    },
+    "items": [
+        {
+            "id": 98353206,
+            "count": 1,
+            "comment": null,
+            "item_id": 1912620143,
+            "user_id": 4555658,
+            "name": "Yummy Chicken",
+            "name_localized": {
+                "ar": "دجاج",
+                "en": "Yummy Chicken"
+            },
+            "description": "yummy delicious wrap",
+            "description_localized": {
+                "ar": "",
+                "en": "yummy delicious wrap"
+            },
+            "active": true,
+            "category_id": 1014820837,
+            "category_name": "Wrap",
+            "category_name_localized": {
+                "ar": "راب",
+                "en": "Wrap"
+            },
+            "replaced_item_id": null,
+            "price": {
+                "original": 32,
+                "discount": 3.2,
+                "total": 28.8,
+                "total_with_options": 36,
+                "original_with_options": 40
+            },
+            "menu_item": {
+                "id": 1912620143,
+                "link": "careemfood://restaurants/11234/menu/items/12344123",
+                "item": "Yummy Chicken",
+                "item_localized": {
+                    "ar": "دجاج",
+                    "en": "Yummy Chicken"
+                },
+                "description": "yummy delicious wrap",
+                "description_localized": {
+                    "ar": "",
+                    "en": "yummy delicious wrap"
+                },
+                "price": {
+                    "total": 28.8,
+                    "discount": 3.2,
+                    "original": 32,
+                    "tax_percentage": null,
+                    "discount_percentage": 10
+                },
+                "active": true,
+                "image_url": "https://careem-catalog-media.imgix.net/catalogs/ceff7b123444.jpg",
+                "upc": "",
+                "item_location": {
+                    "row": null,
+                    "zone": null,
+                    "aisle": null,
+                    "section": null
+                }
+            },
+            "groups": [
+                {
+                    "id": 1080347141,
+                    "name": "Choice Of Dough",
+                    "name_localized": {
+                        "ar": "اختيار العجين",
+                        "en": "Choice Of Dough"
+                    },
+                    "description": "",
+                    "description_localized": {
+                        "en": ""
+                    },
+                    "type": "",
+                    "min": 0,
+                    "max": 0,
+                    "options": [
+                        {
+                            "id": 102022655,
+                            "option_id": 1912620145,
+                            "count": 1,
+                            "name": "White Dough",
+                            "name_localized": {
+                                "ar": "عجينه بيضاء",
+                                "en": "White Dough"
+                            },
+                            "order": 0,
+                            "price": {
+                                "original": 0,
+                                "discount": 0,
+                                "total": 0
+                            },
+                            "menu_option": {
+                                "id": 1912620145,
+                                "item": "White Dough",
+                                "item_localized": {
+                                    "ar": "عجينه بيضاء",
+                                    "en": "White Dough"
+                                },
+                                "order": 999,
+                                "price": {
+                                    "total": 0,
+                                    "discount": 0,
+                                    "original": 0
+                                }
+                            },
+                            "count_per_item": 1
+                        }
+                    ]
+                },
+                {
+                    "id": 1080347145,
+                    "name": "Choice Of Side",
+                    "name_localized": {
+                        "ar": "اختيار الجانب",
+                        "en": "Choice Of Side"
+                    },
+                    "description": "",
+                    "description_localized": {
+                        "en": ""
+                    },
+                    "type": "",
+                    "min": 0,
+                    "max": 0,
+                    "options": [
+                        {
+                            "id": 102022656,
+                            "option_id": 1912620161,
+                            "count": 1,
+                            "name": "Vegetables Plate",
+                            "name_localized": {
+                                "ar": "صحن خضراوات",
+                                "en": "Vegetables Plate"
+                            },
+                            "order": 0,
+                            "price": {
+                                "original": 8,
+                                "discount": 0.8,
+                                "total": 7.2
+                            },
+                            "menu_option": {
+                                "id": 1912620161,
+                                "item": "Vegetables Plate",
+                                "item_localized": {
+                                    "ar": "صحن خضراوات",
+                                    "en": "Vegetables Plate"
+                                },
+                                "order": 998,
+                                "price": {
+                                    "total": 7.2,
+                                    "discount": 0.8,
+                                    "original": 8
+                                }
+                            },
+                            "count_per_item": 1
+                        }
+                    ]
+                }
+            ],
+            "options": [
+                {
+                    "id": 102022655,
+                    "count": 1,
+                    "count_per_item": 1,
+                    "name": "Sour Dough",
+                    "name_localized": {
+                        "ar": "عجينه بيضاء",
+                        "en": "Sour Dough"
+                    },
+                    "price": {
+                        "original": 0,
+                        "discount": 0,
+                        "total": 0
+                    },
+                    "menu_option": {
+                        "id": 1912620145,
+                        "item": "Sour Dough",
+                        "item_localized": {
+                            "ar": "عجينه بيضاء",
+                            "en": "Sour Dough"
+                        },
+                        "order": 999,
+                        "price": {
+                            "total": 0,
+                            "discount": 0,
+                            "original": 0
+                        }
+                    }
+                },
+                {
+                    "id": 102022656,
+                    "count": 1,
+                    "count_per_item": 1,
+                    "name": "Vegan Plate",
+                    "name_localized": {
+                        "ar": "صحن خضراوات",
+                        "en": "Vegan Plate"
+                    },
+                    "price": {
+                        "original": 8,
+                        "discount": 0.8,
+                        "total": 7.2
+                    },
+                    "menu_option": {
+                        "id": 1912620161,
+                        "item": "Vegan Plate",
+                        "item_localized": {
+                            "ar": "صحن خضراوات",
+                            "en": "Vegan Plate"
+                        },
+                        "order": 998,
+                        "price": {
+                            "total": 7.2,
+                            "discount": 0.8,
+                            "original": 8
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "payment": [
+        {
+            "type": "wallet",
+            "is_pre_auth": 0
+        }
+    ],
+    "pickup_address": {
+        "id": 1012710,
+        "type": "pickup",
+        "name": "test branch 1",
+        "street": "Address in dubai, UAE",
+        "area": "dubai",
+        "building": "test branch 1",
+        "unit_number": "",
+        "city": "Dubai",
+        "city_id": 1,
+        "note": "merchant_mapped_address",
+        "location": {
+            "lat": 25.0000000,
+            "lng": 55.0000000
+        }
+    },
+    "dropoff_address": {
+        "id": 6550263,
+        "type": "dropoff",
+        "name": "Home - Casa Alisha - Casadora - Dubai - Dubai",
+        "nickname": "Home",
+        "street": "Casadora",
+        "area": "Casadora - Dubai",
+        "building": "Casa Hobeika",
+        "number": "748",
+        "city": "Dubai",
+        "city_id": null,
+        "note": "user_mapped_address",
+        "location": {
+            "lat": 25.0344181060791,
+            "lng": 55.283172607421875
+        }
+    },
+    "currency": {
+        "id": 1,
+        "code": "AED",
+        "name": "Dirham",
+        "name_localized": "Dirham",
+        "label": "AED",
+        "label_localized": "AED",
+        "position": "left",
+        "decimals": 2,
+        "purchasing_power_index": 1,
+        "name_short": "Dirhams",
+        "cents_100": true
+    },
+    "proof_of_delivery": null,
+    "group_order_owners": [],
+    "pricing_components": null,
+    "payment_info": {
+        "primary": {
+            "amount": "33.600",
+            "type": "wallet"
+        },
+        "secondary": {
+            "amount": null,
+            "type": null
+        }
+    },
+    "delivery_time_state_type": null,
+    "customer": null
+}

@@ -1,0 +1,23 @@
+[
+    {
+        "external_review_id": 4,
+        "customer_review_text": "Excellent service and support!",
+        "customer_review_rating": 5,
+        "reviewer_name": "Sarah Davis",
+        "review_timestamp": "2023-10-04T14:15:00"
+    },
+    {
+        "external_review_id": 5,
+        "customer_review_text": "Decent quality, fair price.",
+        "customer_review_rating": 4,
+        "reviewer_name": "Michael Wilson",
+        "review_timestamp": "2023-10-04T15:30:00"
+    },
+    {
+        "external_review_id": 6,
+        "customer_review_text": "Not satisfied with the product, needs improvement.",
+        "customer_review_rating": 2,
+        "reviewer_name": "Emily Thompson",
+        "review_timestamp": "2023-10-04T16:45:00"
+    }
+]

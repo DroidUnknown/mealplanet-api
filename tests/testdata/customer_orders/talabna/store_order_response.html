@@ -1,0 +1,2219 @@
+<style>
+    .select2-container--open {
+    z-index: 99999999999999;
+}
+</style>
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Title -->
+    <title>Order Details</title>
+    <!-- Favicon -->
+        <link rel="shortcut icon" href="">
+    <link rel="icon" type="image/x-icon" href="https://talabna.s3.me-central-1.amazonaws.com/business/2023-01-31-63d94af76b6bc.png">
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="https://talabna.ae/assets/admin/css/vendor.min.css">
+    <link rel="stylesheet" href="https://talabna.ae/assets/admin/vendor/icon-set/style.css">
+    <!-- CSS Front Template -->
+    <link rel="stylesheet" href="https://talabna.ae/assets/admin/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://talabna.ae/assets/admin/css/theme.minc619.css?v=1.0">
+    <link rel="stylesheet" href="https://talabna.ae/assets/admin/css/style.css">
+    <!-- Provider Panel Update CSS -->
+    <link rel="stylesheet" href="https://talabna.ae/assets/admin/css/vendor.css">
+        <link rel="stylesheet" href="https://talabna.ae/assets/admin/css/order-timeline.css">
+    <link rel="stylesheet" href=
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+
+    <script src="https://talabna.ae/assets/admin/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
+    <link rel="stylesheet" href="https://talabna.ae/assets/admin/css/toastr.css">
+</head>
+
+<body class="footer-offset">
+    <div class="pre--loader">
+    </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="loading" class="initial-hidden">
+                <div class="loading--1">
+                    <img width="200" src="https://talabna.ae/assets/admin/img/loader.gif">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Builder -->
+<div id="styleSwitcherDropdown" class="hs-unfold-content sidebar sidebar-bordered sidebar-box-shadow w-35rem">
+    <div class="card card-lg border-0 h-100">
+        <div class="card-header align-items-start">
+            <div class="mr-2">
+                <h3 class="card-header-title">Front Builder</h3>
+                <p>Customize your overview page layout. Choose the one that best fits your needs.</p>
+            </div>
+
+            <!-- Toggle Button -->
+            <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-ghost-dark" href="javascript:;"
+               data-hs-unfold-options='{
+                  "target": "#styleSwitcherDropdown",
+                  "type": "css-animation",
+                  "animationIn": "fadeInRight",
+                  "animationOut": "fadeOutRight",
+                  "hasOverlay": true,
+                  "smartPositionOff": true
+                 }'>
+                <i class="tio-clear tio-lg"></i>
+            </a>
+            <!-- End Toggle Button -->
+        </div>
+
+        <!-- Body -->
+        <div class="card-body sidebar-scrollbar">
+            <h4 class="mb-1">Layout skins <span id="js-builder-disabled" class="badge badge-soft-danger opacity-0">Disabled</span></h4>
+            <p>3 kinds of layout skins to choose from.</p>
+
+            <div class="row gx-2 mb-5">
+                <!-- Custom Radio -->
+                <div class="col-4 text-center">
+                    <div class="text-center">
+                        <div class="custom-checkbox-card mb-2">
+                            <input type="radio" class="custom-checkbox-card-input" name="layoutSkinsRadio"
+                                   id="layoutSkinsRadio1" checked value="default">
+                            <label class="custom-checkbox-card-label" for="layoutSkinsRadio1">
+                                <img class="custom-checkbox-card-img"
+                                     src="https://talabna.ae/assets/admin/svg/layouts/layouts-sidebar-default.svg"
+                                     alt="Image Description">
+                            </label>
+                            <span class="custom-checkbox-card-text">Default</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Custom Radio -->
+
+                <!-- Custom Radio -->
+                <div class="col-4 text-center">
+                    <div class="text-center">
+                        <div class="custom-checkbox-card mb-2">
+                            <input type="radio" class="custom-checkbox-card-input" name="layoutSkinsRadio"
+                                   id="layoutSkinsRadio2" value="navbar-dark">
+                            <label class="custom-checkbox-card-label" for="layoutSkinsRadio2">
+                                <img class="custom-checkbox-card-img"
+                                     src="https://talabna.ae/assets/admin/svg/layouts/layouts-sidebar-dark.svg"
+                                     alt="Image Description">
+                            </label>
+                            <span class="custom-checkbox-card-text">Dark</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Custom Radio -->
+
+                <!-- Custom Radio -->
+                <div class="col-4 text-center">
+                    <div class="text-center">
+                        <div class="custom-checkbox-card mb-2">
+                            <input type="radio" class="custom-checkbox-card-input" name="layoutSkinsRadio"
+                                   id="layoutSkinsRadio3" value="navbar-light">
+                            <label class="custom-checkbox-card-label" for="layoutSkinsRadio3">
+                                <img class="custom-checkbox-card-img"
+                                     src="https://talabna.ae/assets/admin/svg/layouts/layouts-sidebar-light.svg"
+                                     alt="Image Description">
+                            </label>
+                            <span class="custom-checkbox-card-text">Light</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Custom Radio -->
+            </div>
+            <!-- End Row -->
+
+            <h4 class="mb-1">Sidebar layout options</h4>
+            <p>Choose between standard navigation sizing, mini or even compact with icons.</p>
+
+            <div class="row gx-2 mb-5">
+                <!-- Custom Radio -->
+                <div class="col-4 text-center">
+                    <div class="text-center">
+                        <div class="custom-checkbox-card mb-2">
+                            <input type="radio" class="custom-checkbox-card-input" name="sidebarLayoutOptions"
+                                   id="sidebarLayoutOptions1" checked value="default">
+                            <label class="custom-checkbox-card-label" for="sidebarLayoutOptions1">
+                                <img class="custom-checkbox-card-img"
+                                     src="https://talabna.ae/assets/admin/svg/layouts/sidebar-default-classic.svg"
+                                     alt="Image Description">
+                            </label>
+                            <span class="custom-checkbox-card-text">Default</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Custom Radio -->
+
+                <!-- Custom Radio -->
+                <div class="col-4 text-center">
+                    <div class="text-center">
+                        <div class="custom-checkbox-card mb-2">
+                            <input type="radio" class="custom-checkbox-card-input" name="sidebarLayoutOptions"
+                                   id="sidebarLayoutOptions2" value="navbar-vertical-aside-compact-mode">
+                            <label class="custom-checkbox-card-label" for="sidebarLayoutOptions2">
+                                <img class="custom-checkbox-card-img"
+                                     src="https://talabna.ae/assets/admin/svg/layouts/sidebar-compact.svg"
+                                     alt="Image Description">
+                            </label>
+                            <span class="custom-checkbox-card-text">Compact</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Custom Radio -->
+
+                <!-- Custom Radio -->
+                <div class="col-4 text-center">
+                    <div class="text-center">
+                        <div class="custom-checkbox-card mb-2">
+                            <input type="radio" class="custom-checkbox-card-input" name="sidebarLayoutOptions"
+                                   id="sidebarLayoutOptions3" value="navbar-vertical-aside-mini-mode">
+                            <label class="custom-checkbox-card-label" for="sidebarLayoutOptions3">
+                                <img class="custom-checkbox-card-img"
+                                     src="https://talabna.ae/assets/admin/svg/layouts/sidebar-mini.svg"
+                                     alt="Image Description">
+                            </label>
+                            <span class="custom-checkbox-card-text">Mini</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Custom Radio -->
+            </div>
+            <!-- End Row -->
+
+            <h4 class="mb-1">Header layout options</h4>
+            <p>Choose the primary navigation of your header layout.</p>
+
+            <div class="row gx-2">
+                <!-- Custom Radio -->
+                <div class="col-4 text-center">
+                    <div class="text-center">
+                        <div class="custom-checkbox-card mb-2">
+                            <input type="radio" class="custom-checkbox-card-input" name="headerLayoutOptions"
+                                   id="headerLayoutOptions1" value="single">
+                            <label class="custom-checkbox-card-label" for="headerLayoutOptions1">
+                                <img class="custom-checkbox-card-img"
+                                     src="https://talabna.ae/assets/admin/svg/layouts/header-default-fluid.svg"
+                                     alt="Image Description">
+                            </label>
+                            <span class="custom-checkbox-card-text">Default (Fluid)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Custom Radio -->
+
+                <!-- Custom Radio -->
+                <div class="col-4 text-center">
+                    <div class="text-center">
+                        <div class="custom-checkbox-card mb-2">
+                            <input type="radio" class="custom-checkbox-card-input" name="headerLayoutOptions"
+                                   id="headerLayoutOptions2" value="single-container">
+                            <label class="custom-checkbox-card-label" for="headerLayoutOptions2">
+                                <img class="custom-checkbox-card-img"
+                                     src="https://talabna.ae/assets/admin/svg/layouts/header-default-container.svg"
+                                     alt="Image Description">
+                            </label>
+                            <span class="custom-checkbox-card-text">Default (Container)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Custom Radio -->
+
+                <!-- Custom Radio -->
+                <div class="col-4 text-center">
+                    <div class="text-center">
+                        <div class="custom-checkbox-card mb-2">
+                            <input type="radio" class="custom-checkbox-card-input" name="headerLayoutOptions"
+                                   id="headerLayoutOptions3" value="double">
+                            <label class="custom-checkbox-card-label" for="headerLayoutOptions3">
+                                <img class="custom-checkbox-card-img"
+                                     src="https://talabna.ae/assets/admin/svg/layouts/header-double-line-fluid.svg"
+                                     alt="Image Description">
+                            </label>
+                            <span class="custom-checkbox-card-text">Double line (Fluid)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Custom Radio -->
+
+                <!-- Custom Radio -->
+                <div class="col-4 text-center mt-2">
+                    <div class="text-center">
+                        <div class="custom-checkbox-card mb-2">
+                            <input type="radio" class="custom-checkbox-card-input" name="headerLayoutOptions"
+                                   id="headerLayoutOptions4" value="double-container">
+                            <label class="custom-checkbox-card-label" for="headerLayoutOptions4">
+                                <img class="custom-checkbox-card-img"
+                                     src="https://talabna.ae/assets/admin/svg/layouts/header-double-line-container.svg"
+                                     alt="Image Description">
+                            </label>
+                            <span class="custom-checkbox-card-text">Double line (Container)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Custom Radio -->
+            </div>
+            <!-- End Row -->
+        </div>
+        <!-- End Body -->
+
+        <!-- Footer -->
+        <div class="card-footer">
+            <div class="row gx-2">
+                <div class="col">
+                    <button type="button" id="js-builder-reset" class="btn btn-block btn-lg btn-white">
+                        <i class="tio-restore"></i> Reset
+                    </button>
+                </div>
+                <div class="col">
+                    <button type="button" id="js-builder-preview" class="btn btn-block btn-lg btn-primary">
+                        <i class="tio-visible"></i> Preview
+                    </button>
+                </div>
+            </div>
+            <!-- End Row -->
+        </div>
+        <!-- End Footer -->
+    </div>
+</div>
+<!-- End Builder -->
+
+<!-- JS Preview mode only -->
+<div id="headerMain" class="d-none">
+    <header id="header"
+            class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-flush navbar-container navbar-bordered">
+        <div class="navbar-nav-wrap">
+            <div class="navbar-brand-wrapper">
+                <!-- Logo Div-->
+                                <a class="navbar-brand" href="https://talabna.ae/stores" aria-label="">
+                    <img class="navbar-brand-logo logo--design"
+                         onerror="this.src='https://talabna.ae/assets/admin/img/160x160/img1.jpg'"
+                         src="https://talabna.s3.me-central-1.amazonaws.com/restaurant/2023-07-14-64b1061145e50.png" alt="Logo">
+                    <img class="navbar-brand-logo-mini logo--design"
+                         onerror="this.src='https://talabna.ae/assets/admin/img/160x160/img1.jpg'"
+                         src="https://talabna.s3.me-central-1.amazonaws.com/restaurant/2023-07-14-64b1061145e50.png"
+                         alt="Logo">
+                </a>
+                <!-- End Logo -->
+            </div>
+            <div class="navbar-nav-wrap-content-left ml-auto d--xl-none">
+                <!-- Navbar Vertical Toggle -->
+                <button type="button" class="js-navbar-vertical-aside-toggle-invoker close">
+                    <i class="tio-first-page navbar-vertical-aside-toggle-short-align" data-toggle="tooltip"
+                    data-placement="right" title="Collapse"></i>
+                    <i class="tio-last-page navbar-vertical-aside-toggle-full-align"
+                    data-template='<div class="tooltip d-none d-sm-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'></i>
+                </button>
+                <!-- End Navbar Vertical Toggle -->
+            </div>
+
+
+            <!-- Secondary Content -->
+            <div class="navbar-nav-wrap-content-right flex-grow-1">
+                <!-- Navbar -->
+                <ul class="navbar-nav align-items-center flex-row justify-content-end">
+                    <li class="nav-item d-none d-sm-inline-block mr-4">
+                        <!-- Notification -->
+                        <div class="hs-unfold">
+                            <a class="js-hs-unfold-invoker btn btn-icon btn-soft-secondary rounded-circle"
+                               href="https://talabna.ae/stores/message/list">
+                                <i class="tio-messages-outlined"></i>
+                                                                                            </a>
+                        </div>
+                        <!-- End Notification -->
+                    </li>
+                    <li class="nav-item">
+                        <!-- Notification -->
+                        <div class="hs-unfold">
+                            <a class="js-hs-unfold-invoker btn btn-icon navbar--cart btn-soft-secondary rounded-circle"
+                               href="https://talabna.ae/stores/order/list/pending">
+                                <i class="tio-shopping-basket-outlined"></i>
+                                
+                            </a>
+                        </div>
+                        <!-- End Notification -->
+                    </li>
+
+                    <li class="nav-item nav--item">
+                        <!-- Account -->
+                        <div class="hs-unfold">
+                            <a class="js-hs-unfold-invoker navbar-dropdown-account-wrapper p-0" href="javascript:;"
+                               data-hs-unfold-options='{
+                                     "target": "#accountNavbarDropdown",
+                                     "type": "css-animation"
+                                   }'>
+
+                                <div class="cmn--media right-dropdown-icon d-flex align-items-center">
+                                    <div class="media-body pl-0 pr-2">
+                                        <span class="card-title h5 text-right pr-2">
+                                            Jhone
+                                        </span>
+                                        <span class="card-text card--text">info@durumchu.com</span>
+                                    </div>
+                                    <div class="avatar avatar-sm avatar-circle">
+                                        <img class="avatar-img" onerror="this.src='https://talabna.ae/assets/admin/img/160x160/img1.jpg'"
+                                        src="https://talabna.s3.me-central-1.amazonaws.com/vendor/"
+                                        alt="Image Description">
+                                        <span class="avatar-status avatar-sm-status avatar-status-success"></span>
+                                    </div>
+                                </div>
+
+                            </a>
+
+                            <div id="accountNavbarDropdown"
+                                 class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu navbar-dropdown-account w-16rem">
+                                <div class="dropdown-item-text">
+                                    <div class="media cmn--media align-items-center">
+                                        <div class="avatar avatar-sm avatar-circle mr-2">
+                                            <img class="avatar-img"
+                                                 onerror="this.src='https://talabna.ae/assets/admin/img/160x160/img1.jpg'"
+                                                 src="https://talabna.s3.me-central-1.amazonaws.com/vendor/"
+                                                 alt="Owner image">
+                                        </div>
+                                        <div class="media-body">
+                                            <span class="card-title h5">Jhone</span>
+                                            <span class="card-text">info@durumchu.com</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="https://talabna.ae/stores/profile/view">
+                                    <span class="text-truncate pr-2" title="Settings">Settings</span>
+                                </a>
+
+                                <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="javascript:" onclick="Swal.fire({
+                                    title: 'Do you want to logout ',
+                                    showDenyButton: true,
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#FC6A57',
+                                    cancelButtonColor: '#363636',
+                                    confirmButtonText: 'Yes',
+                                    cancelButtonText: 'Cancel',
+                                    }).then((result) => {
+                                    if (result.value) {
+                                                                                location.href='https://talabna.ae/stores/auth/logout';
+                                                                            } else{
+                                    Swal.fire('Canceled', '', 'info')
+                                    }
+                                    })">
+                                    <span class="text-truncate pr-2" title="Sign out">Sign Out</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End Account -->
+                    </li>
+                </ul>
+                <!-- End Navbar -->
+            </div>
+            <!-- End Secondary Content -->
+        </div>
+    </header>
+</div>
+<div id="headerFluid" class="d-none"></div>
+<div id="headerDouble" class="d-none"></div>
+<div id="sidebarMain" class="d-none">
+    <aside
+        class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered">
+        <div class="navbar-vertical-container">
+            <div class="navbar-brand-wrapper justify-content-between">
+                <!-- Logo -->
+                <div class="sidebar-logo-container">
+                                        <a class="navbar-brand pt-0 pb-0" href="https://talabna.ae/stores" aria-label="Front">
+                        <img class="navbar-brand-logo"
+                            onerror="this.src='https://talabna.ae/assets/admin/img/160x160/img2.jpg'"
+                            src="https://talabna.s3.me-central-1.amazonaws.com/restaurant/2023-07-14-64b1061145e50.png"
+                            alt="Logo">
+                        <img class="navbar-brand-logo-mini"
+                            onerror="this.src='https://talabna.ae/assets/admin/img/160x160/img2.jpg'"
+                            src="https://talabna.s3.me-central-1.amazonaws.com/restaurant/2023-07-14-64b1061145e50.png" alt="Logo">
+                        <div class="ps-2">
+                            <h6>
+                                Durumchu Restau...
+                            </h6>
+                        </div>
+                    </a>
+                    <!-- End Logo -->
+
+                    <!-- Navbar Vertical Toggle -->
+                    <button type="button"
+                            class="js-navbar-vertical-aside-toggle-invoker navbar-vertical-aside-toggle btn btn-icon btn-xs btn-ghost-dark">
+                        <i class="tio-clear tio-lg"></i>
+                    </button>
+                    <!-- End Navbar Vertical Toggle -->
+                </div>
+                <div class="navbar-nav-wrap-content-left ml-auto d-none d-xl-block">
+                    <!-- Navbar Vertical Toggle -->
+                    <button type="button" class="js-navbar-vertical-aside-toggle-invoker close">
+                        <i class="tio-first-page navbar-vertical-aside-toggle-short-align" data-toggle="tooltip"
+                        data-placement="right" title="Collapse"></i>
+                        <i class="tio-last-page navbar-vertical-aside-toggle-full-align"
+                        data-template='<div class="tooltip d-none d-sm-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'></i>
+                    </button>
+                    <!-- End Navbar Vertical Toggle -->
+                </div>
+
+            </div>
+
+            <!-- Content -->
+            <div class="navbar-vertical-content text-capitalize bg-334257">
+                <ul class="navbar-nav navbar-nav-lg nav-tabs">
+                    <!-- Dashboards -->
+                    <li class="pt-4"></li>
+                    <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link"
+                            href="https://talabna.ae/stores" title="Dashboard">
+                            <i class="tio-home-vs-1-outlined nav-icon"></i>
+                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                Dashboard
+                            </span>
+                        </a>
+                    </li>
+                    <!-- End Dashboards -->
+
+                                        <!-- POS -->
+                    <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link" href="https://talabna.ae/stores/pos" title="POS"
+                        >
+                            <i class="tio-shopping nav-icon"></i>
+                            <span
+                                class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">POS</span>
+                        </a>
+                    </li>
+                    <!-- End POS -->
+                    
+                    <li class="nav-item">
+                        <small
+                            class="nav-subtitle">Promotions</small>
+                        <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+                    </li>
+                    <!-- Campaign -->
+                                        <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:" title="Campaign">
+                            <i class="tio-image nav-icon"></i>
+                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Campaign</span>
+                        </a>
+                        <ul class="js-navbar-vertical-aside-submenu nav nav-sub initial-hidden">
+                            <li class="nav-item ">
+                                <a class="nav-link " href="https://talabna.ae/stores/campaign/list" title="Basic Campaign">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate">Basic Campaign</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="https://talabna.ae/stores/campaign/item/list" title="Item Campaign">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate">Item Campaign</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                                        <!-- End Campaign -->
+
+
+                <!-- Coupon -->
+
+
+
+
+
+
+
+
+
+
+
+                <!-- End Coupon -->
+
+
+                                        <li class="nav-item">
+                        <small class="nav-subtitle" title="Order Section">Order Management</small>
+                        <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+                    </li>
+
+                    <!-- Order -->
+                    <li class="navbar-vertical-aside-has-menu active">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                            title="Orders">
+                            <i class="tio-shopping-cart nav-icon"></i>
+                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                Orders
+                            </span>
+                        </a>
+
+
+                                                
+
+
+
+                        <ul class="js-navbar-vertical-aside-submenu nav nav-sub d-block">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="https://talabna.ae/stores/order/list/all" title="All Order">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate sidebar--badge-container">
+                                        All
+                                        <span class="badge badge-soft-info badge-pill ml-1">
+                                            2
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="https://talabna.ae/stores/order/list/pending" title="Pending">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate sidebar--badge-container">
+                                        Pending 
+                                            <span class="badge badge-soft-success badge-pill ml-1">
+                                                                                        0
+                                                                                    </span>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item ">
+                                <a class="nav-link " href="https://talabna.ae/stores/order/list/confirmed" title="Confirmed">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate sidebar--badge-container">
+                                        Confirmed
+                                            <span class="badge badge-soft-success badge-pill ml-1">
+                                            0
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item ">
+                                <a class="nav-link" href="https://talabna.ae/stores/order/list/cooking" title="Cooking">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate sidebar--badge-container">
+                                        Cooking
+                                        <span class="badge badge-soft-info badge-pill ml-1">
+                                            1
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="https://talabna.ae/stores/order/list/ready_for_delivery" title="Ready For Delivery">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate sidebar--badge-container">
+                                        Ready for delivery
+                                        <span class="badge badge-soft-info badge-pill ml-1">
+                                            0
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="https://talabna.ae/stores/order/list/food_on_the_way" title="Out For Delivery">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate sidebar--badge-container">
+                                        Out For Delivery
+                                        <span class="badge badge-soft-info badge-pill ml-1">
+                                            0
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="https://talabna.ae/stores/order/list/delivered"  title="Delivered">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate sidebar--badge-container">
+                                        Delivered
+                                            <span class="badge badge-soft-success badge-pill ml-1">
+                                            0
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="https://talabna.ae/stores/order/list/canceled"
+                                   title="Canceled Orders">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate sidebar--badge-container">
+                                            Canceled
+                                            <span class="badge badge-soft-danger badge-pill ml-1">
+                                                1
+                                            </span>
+                                        </span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="https://talabna.ae/stores/order/list/refunded"  title="Refunded">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate sidebar--badge-container">
+                                        Refunded
+                                            <span class="badge badge-soft-danger bg-light badge-pill ml-1">
+                                            0
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="https://talabna.ae/stores/order/list/refund_requested"  title="Refund Requested">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate sidebar--badge-container">
+                                        Refund Requested
+                                            <span class="badge badge-soft-danger bg-light badge-pill ml-1">
+                                            0
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="https://talabna.ae/stores/order/list/scheduled" title="Scheduled">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate sidebar--badge-container">
+                                        Scheduled
+                                        <span class="badge badge-soft-info badge-pill ml-1">
+                                            0
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- End Order -->
+                                        <li class="nav-item">
+                        <small
+                            class="nav-subtitle">Item Management</small>
+                        <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+                    </li>
+                    <!-- End AddOn -->
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- Food -->
+                    <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:" title="Item"
+                        >
+                            <i class="tio-premium-outlined nav-icon"></i>
+                            <span
+                                class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Items</span>
+                        </a>
+                        <ul class="js-navbar-vertical-aside-submenu nav nav-sub initial-hidden">
+
+
+
+
+
+
+
+
+                            <li class="nav-item ">
+                                <a class="nav-link " href="https://talabna.ae/stores/food/list"  title="Item List">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate">List</span>
+                                </a>
+                            </li>
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            
+                             <li class="nav-item ">
+                                <a class="nav-link " href="https://talabna.ae/stores/food/admin-approval"  title="Admin approval List">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate">waiting approval List</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- End Food -->
+                                        <!-- AddOn -->
+                                        <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link"
+                            href="https://talabna.ae/stores/addon/add-new" title="Addons"
+                        >
+                            <i class="tio-add-circle-outlined nav-icon"></i>
+                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                Addons
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <!-- DeliveryMan -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- End DeliveryMan -->
+
+
+                    <!-- Business Section-->
+                    <li class="nav-item">
+                        <small class="nav-subtitle"
+                                title="Business Section">Business Management</small>
+                        <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+                    </li>
+
+                                        <li class="navbar-vertical-aside-has-menu ">
+                        <a class="nav-link " href="https://talabna.ae/stores/business-settings/restaurant-setup" title="Store Config"
+                        >
+                            <span class="tio-settings nav-icon"></span>
+                            <span
+                                class="text-truncate">Store Config</span>
+                        </a>
+                    </li>
+                    
+                                        <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link"
+                            href="https://talabna.ae/stores/restaurant/view"
+                            title="My Store">
+                            <i class="tio-home nav-icon"></i>
+                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                My Store
+                            </span>
+                        </a>
+                    </li>
+                                        <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link"
+                            href="https://talabna.ae/stores/subscription"
+                            title="My Subscriptions">
+                            <i class="tio-crown nav-icon"></i>
+                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                My Subscriptions
+                            </span>
+                        </a>
+                    </li>
+                                        
+                                        <!-- Business Settings -->
+                    <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link"
+                            href="https://talabna.ae/stores/profile/bank-view"
+                            title="My Bank Info">
+                            <i class="tio-shop nav-icon"></i>
+                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                My Bank Info
+                            </span>
+                        </a>
+                    </li>
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- End RestaurantWallet -->
+                                        <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link"
+                            href="https://talabna.ae/stores/reviews" title="Reviews"
+                        >
+                            <i class="tio-star-outlined nav-icon"></i>
+                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                Reviews
+                            </span>
+                        </a>
+                    </li>
+                                        <!-- End RestaurantWallet -->
+                                        <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link"
+                            href="https://talabna.ae/stores/message/list" title="Chat"
+                        >
+                            <i class="tio-chat nav-icon"></i>
+                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                Chat
+                            </span>
+                        </a>
+                    </li>
+                                        <!-- End Business Settings -->
+
+
+                    <!-- Start Expenses -->
+                    <li class="nav-item">
+                        <small class="nav-subtitle"
+                               title="finance">Finance Management</small>
+                        <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+                    </li>
+
+
+                    
+                        <li class="navbar-vertical-aside-has-menu ">
+                            <a class="js-navbar-vertical-aside-menu-link nav-link"
+                               href="https://talabna.ae/stores/report/payments"
+                               title="List Payment">
+                                <i class="tio-panorama-vs nav-icon"></i>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                            List Payment
+                                        </span>
+                            </a>
+                        </li>
+                        <li
+                            class="navbar-vertical-aside-has-menu ">
+                            <a class="js-navbar-vertical-aside-menu-link nav-link"
+                               href="https://talabna.ae/stores/report/view-expenses"
+                               title="View expenses">
+                                <i class="tio-exposure nav-icon"></i>
+                                <span
+                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">View
+                                    expenses</span>
+                            </a>
+                        </li>
+
+                        <li
+                            class="navbar-vertical-aside-has-menu ">
+                            <a class="js-navbar-vertical-aside-menu-link nav-link"
+                               href="https://talabna.ae/stores/report/full-report"
+                               title="Store Report">
+                                <i class="tio-table nav-icon"></i>
+                                <span
+                                    class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Store Report</span>
+                            </a>
+                        </li>
+                    
+
+                    <!-- Report-->
+                    <li class="nav-item">
+                        <small class="nav-subtitle" title="Report Section">Report Section</small>
+                        <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+                    </li>
+
+                                        <li class="navbar-vertical-aside-has-menu ">
+                        <a class="nav-link " href="https://talabna.ae/stores/report/expense-report" title="Expense Report">
+                            <span class="tio-money nav-icon"></span>
+                            <span class="text-truncate">Expense Report</span>
+                        </a>
+                    </li>
+
+                    <li class="navbar-vertical-aside-has-menu ">
+                        <a class="nav-link " href="https://talabna.ae/stores/report/order-report"
+                           title="Order Report">
+                            <span class="tio-money nav-icon"></span>
+                            <span class="text-truncate">Order Report</span>
+                        </a>
+                    </li>
+                                        <!-- Employee-->
+                    <li class="nav-item">
+                        <small class="nav-subtitle" title="Employee Section">Employee Section</small>
+                        <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+                    </li>
+
+                                        <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link" href="https://talabna.ae/stores/custom-role/create"
+                        title="Employee Role">
+                            <i class="tio-incognito nav-icon"></i>
+                            <span
+                                class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Employee Role</span>
+                        </a>
+                    </li>
+                    
+                                        <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:"
+                        title="Employees">
+                            <i class="tio-user nav-icon"></i>
+                            <span
+                                class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Employees</span>
+                        </a>
+                        <ul class="js-navbar-vertical-aside-submenu nav nav-sub initial-hidden">
+                            <li class="nav-item ">
+                                <a class="nav-link " href="https://talabna.ae/stores/employee/add-new" title="Add New Employee">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate">Add New Employee</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="https://talabna.ae/stores/employee/list" title="Employee List">
+                                    <span class="tio-circle nav-indicator-icon"></span>
+                                    <span class="text-truncate">List</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                                        <!-- End Employee -->
+
+                    <!-- Support-->
+                    <li class="nav-item">
+                        <small class="nav-subtitle" title="Support Section">Support Section</small>
+                        <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+                    </li>
+
+                    <li class="navbar-vertical-aside-has-menu ">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link" href="https://talabna.ae/stores/support"
+                           title="Support">
+                            <i class="tio-headphones nav-icon"></i>
+                            <span
+                                class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Support</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item pt-100px">
+
+                    </li>
+                </ul>
+            </div>
+            <!-- End Content -->
+        </div>
+    </aside>
+</div>
+
+<div id="sidebarCompact" class="d-none">
+
+</div>
+
+
+
+
+<!-- END ONLY DEV -->
+
+<main id="content" role="main" class="main pointer-event">
+    <!-- Content -->
+        <div class="content container-fluid item-box-page">
+
+    <div class="page-header d-print-none">
+
+            <h1 class="page-header-title text-capitalize">
+                <div class="card-header-icon d-inline-flex mr-2 img">
+                    <img src="https://talabna.ae/assets/admin/img/orders.png" alt="public">
+                </div>
+                <span>
+                    Order Details
+                </span>
+                <div class="d-flex ml-auto">
+                    <a class="btn btn-icon btn-sm btn-soft-primary rounded-circle mr-1"
+                        href="https://talabna.ae/stores/order/details/124203" data-toggle="tooltip"
+                        data-placement="top" title="Previous order">
+                        <i class="tio-chevron-left m-0"></i>
+                    </a>
+                    <a class="btn btn-icon btn-sm btn-soft-primary rounded-circle"
+                        href="https://talabna.ae/stores/order/details/124205" data-toggle="tooltip"
+                        data-placement="top" title="Next order">
+                        <i class="tio-chevron-right m-0"></i>
+                    </a>
+                </div>
+            </h1>
+        </div>
+
+
+        <div class="row g-1" id="printableArea">
+            <div class="col-lg-8 order-print-area-left">
+                <!-- Card -->
+                <div class="card mb-3 mb-lg-5">
+                    <!-- Header -->
+                    <div class="card-header border-0 align-items-start flex-wrap">
+                        <div class="order-invoice-left">
+                            <h1 class="page-header-title mt-2">
+                                <span>
+                                    Order #124204
+                                </span>
+
+                                
+                                                                <a class="btn btn--primary m-2 print--btn d-sm-none ml-auto" href="https://talabna.ae/stores/order/generate-invoice/124204">
+                                    <i class="tio-print mr-1"></i>
+                                </a>
+                                                            </h1>
+                            <span class="mt-2 d-block">
+                                <i class="tio-date-range"></i>
+                                27 Feb 2024 14:02
+                            </span>
+                                                                                                                                                                            <div class="d-flex">
+                                    <h6 class="text--title">Rider Reached Restaurant: &nbsp;</h6>
+                                    <h6 class="text-info">Tue, Feb 27, 2024 2:34 PM</h6>
+                                </div>
+                                                        <div class="hs-unfold mt-2">
+                                <button class="btn order--details-btn-sm btn--primary btn-outline-primary btn--sm" data-toggle="modal" data-target="#timelineModal">
+                                    <i class="tio-time"></i>
+                                    <span class="ml-1">show order timeline</span>
+                                </button>
+                            </div>
+                                                    </div>
+                        <div class="order-invoice-right">
+                            <div class="d-none d-sm-flex flex-wrap ml-auto align-items-center justify-content-end m-n-5rem">
+                                <a class="btn btn--primary m-2 print--btn" href="https://talabna.ae/stores/order/generate-invoice/124204">
+                                    <i class="tio-print mr-1"></i> Print Invoice
+                                </a>
+                                                            </div>
+                            <div class="text-right mt-3 order-invoice-right-contents text-capitalize">
+                                <h6>
+                                    <span>Status :</span>
+                                                                            <span class="badge badge-soft-warning ml-2 ml-sm-3">
+                                            Cooking
+                                        </span>
+                                                                    </h6>
+                                <h6>
+                                    <span>
+                                    Payment Method :</span>
+                                    <strong>
+                                    Digital payment</strong>
+                                </h6>
+                                <h6>
+                                    <span>Order Type :</span>
+                                    <strong class="text--title">Delivery</strong>
+                                </h6>
+                                <h6>
+                                    <span>Payment Status :</span>
+                                                                            <strong class="text-success">
+                                            Paid
+                                        </strong>
+                                                                    </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Header -->
+
+                    <!-- Body -->
+                    <div class="card-body p-0">
+                                                <div class="table-responsive">
+                            <table class="table table-borderless table-thead-bordered table-nowrap card-table dataTable no-footer mb-0">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Item Details</th>
+                                        <th>Addons</th>
+                                        <th>item price</th>
+                                        <th>Quantity</th>
+                                        <th class="text-right">Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                                                                                                                                                                                                                    <tr>
+                                            <td>
+                                                <div class="media">
+                                                    <a class="avatar mr-3 cursor-pointer initial-80"
+                                                        href="https://talabna.ae/stores/food/view/85775">
+                                                        <img class="img-fluid rounded initial-80" src="https://talabna.s3.me-central-1.amazonaws.com/product/2023-07-16-64b3ef41a0e3f.png" onerror="this.src='https://talabna.ae/assets/admin/img/100x100/1.png'"
+                                                            alt="Image Description">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <div>
+                                                            <strong class="line--limit-1">
+                                                                                                                                    The Kebab Dürüm (urfa Dürüm)
+                                                                
+                                                            </strong>
+
+                                                                                                                        
+
+                                                                                                                            <span class="d-block text-capitalize">
+                                                                        <strong>
+                                                                    level of chili -
+                                                                        </strong>
+                                                                </span>
+                                                                                                                                <span class="d-block text-capitalize">
+                                                                    &nbsp;   &nbsp; No spicy :
+                                                                    <strong>0.00 AED</strong>
+                                                                    </span>
+                                                                
+
+                                                                                                                                                                                        
+
+
+
+
+
+
+
+                                                            
+                                                                                                                                                                                        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                                                            </td>
+                                            <td> <h5>34.00 AED</h5></td>
+                                            <td>1</td>
+                                            <td>
+                                                <div class="text-right">
+                                                                                                        <h5>
+                                                        34.00 AED
+                                                    </h5>
+                                                                                                    </div>
+                                            </td>
+                                        </tr>
+                                                                                                                                                                                    </tbody>
+                            </table>
+                        </div>
+                                                <div class="px-4">
+                            <div class="row justify-content-md-end mb-3">
+                                <div class="col-md-9 col-lg-8">
+                                    <dl class="row text-sm-right">
+                                        <dt class="col-sm-6">items Price:
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            34.00 AED</dd>
+                                        <dt class="col-sm-6">Addon Cost:
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            0.00 AED
+                                            <hr>
+                                        </dd>
+
+                                        <dt class="col-sm-6">Subtotal
+                                                                        (TAX Included)
+                                                                                :</dt>
+                                        <dd class="col-sm-6">
+                                            34.00 AED
+                                        </dd>
+                                        <dt class="col-sm-6">Discount:</dt>
+                                        <dd class="col-sm-6">
+                                            - 0.00 AED
+                                        </dd>
+                                        <dt class="col-sm-6">Coupon
+                                            Discount:
+                                        </dt>
+                                        <dd class="col-sm-6">
+                                            - 0.00 AED</dd>
+                                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        <dt class="col-sm-6">Total:</dt>
+                                        <dd class="col-sm-6">
+                                            34.00 AED
+                                        </dd>
+                                    </dl>
+                                    <!-- End Row -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Row -->
+                    </div>
+                    <!-- End Body -->
+                </div>
+                <!-- End Card -->
+            </div>
+
+            <div class="col-lg-4 order-print-area-right">
+                <!-- Card -->
+                                <div class="card mb-2">
+                    <!-- Header -->
+                    <div class="card-header border-0 py-0">
+                        <h4 class="card-header-title border-bottom py-3 m-0  w-100 text-center">Order Setup</h4>
+                    </div>
+                    <!-- End Header -->
+
+                    <!-- Body -->
+
+                    <div class="card-body">
+                        <!-- Unfold -->
+                                                                        <div class="order-btn-wraper">
+                                                            <a class="btn btn-sm btn--primary w-100 mb-3"
+                                    onclick="order_status_change_alert('https://talabna.ae/stores/order/status?id=124204&amp;order_status=handover','Change status to ready for handover  ')"
+                                    href="javascript:">Make Ready for Handover</a>
+
+                                                    </div>
+                        <!-- End Unfold -->
+                                                                                    <h5 class="card-title mb-3">
+                                    <span class="card-header-icon">
+                                        <i class="tio-user"></i>
+                                    </span>
+                                    <span>
+                                        Delivery Man Information
+                                    </span>
+                                </h5>
+                                <div class="media align-items-center deco-none customer--information-single" href="javascript:">
+                                    <div class="avatar avatar-circle">
+                                        <img class="avatar-img  initial-81" onerror="this.src='https://talabna.ae/assets/admin/img/160x160/img3.png'"
+                                            src="https://talabna.s3.me-central-1.amazonaws.com/delivery-man/2023-12-08-6572eba1deb4c.png"
+                                            alt="Image Description">
+                                    </div>
+                                    <div class="media-body">
+                                        <span class="fz--14px text--title font-semibold text-hover-primary d-block">
+                                            Muhammad Kashif (S,B) Arshad
+                                        </span>
+                                        <span class="d-block">
+                                            <strong class="text--title font-semibold">
+                                                342
+                                            </strong>
+                                            Orders
+                                        </span>
+                                        <span class="d-block">
+                                            <a class="text--title font-semibold" href="tel:+971524793836">
+                                                <strong>
+                                                    kashifarshadzds1234@gmail.com
+                                                </strong>
+                                            </a>
+                                        </span>
+                                        <span class="d-block">
+                                            <strong class="text--title font-semibold">
+                                            </strong>
+                                            +971524793836
+                                        </span>
+                                    </div>
+                                </div>
+
+                                                                    <hr>
+                                                                        <div class="d-flex justify-content-between align-items-center">
+                                        <h5>Last Location</h5>
+                                    </div>
+                                                                            <span class="d-block">
+                                            <a target="_blank"
+                                                href="http://maps.google.com/maps?z=12&t=m&q=loc:25.1006023+55.1720616">
+                                                <i class="tio-poi"></i> <br>
+                                            </a>
+                                        </span>
+                                                                                                                                            </div>
+                </div>
+                                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">
+                            <span class="card-header-icon">
+                                <i class="tio-user"></i>
+                            </span>
+                            <span>
+                                Customer Information
+                            </span>
+                        </h5>
+                                                    <div class="media align-items-center deco-none customer--information-single" href="javascript:">
+                                <div class="avatar avatar-circle">
+                                    <img class="avatar-img  initial-81"
+                                        onerror="this.src='https://talabna.ae/assets/admin/img/resturant-panel/customer.png'"
+                                        src="https://talabna.s3.me-central-1.amazonaws.com/profile/"
+                                        alt="Image Description">
+                                </div>
+                                <div class="media-body">
+                                    <span class="fz--14px text--title font-semibold text-hover-primary d-block">
+                                        Aasim Alkayani
+                                    </span>
+                                    <span class="d-block">
+                                        <strong class="text--title font-semibold">
+                                        5
+                                        </strong>
+                                        Orders
+                                    </span>
+                                    <span class="d-block">
+                                        <a class="text--title font-semibold" href="tel:+971504435779">
+                                            <strong>
+                                                +971504435779
+                                            </strong>
+                                        </a>
+                                    </span>
+                                    <span class="d-block">
+                                        <strong class="text--title font-semibold">
+                                        </strong>
+                                        Aasim.alkayani@gmail.com
+                                    </span>
+                                </div>
+                            </div>
+                                            </div>
+                </div>
+                                    <div class="card mt-2">
+                        <div class="card-body">
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-title">
+                                    <span class="card-header-icon">
+                                        <i class="tio-user"></i>
+                                    </span>
+                                    <span>
+                                        Delivery Information
+                                    </span>
+                                </h5>
+                                
+                            </div>
+                                                    </div>
+                    </div>
+                            </div>
+        </div>
+        <!-- End Row -->
+    </div>
+
+    <!-- Modal -->
+    <div id="shipping-address-modal" class="modal fade" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalTopCoverTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <!-- Header -->
+                <div class="modal-top-cover bg-dark text-center">
+                    <figure class="position-absolute right-0 bottom-0 left-0 mb-n-1">
+                        <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                            viewBox="0 0 1920 100.1">
+                            <path fill="#fff" d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z" />
+                        </svg>
+                    </figure>
+
+                    <div class="modal-close">
+                        <button type="button" class="btn btn-icon btn-sm btn-ghost-light" data-dismiss="modal"
+                            aria-label="Close">
+                            <svg width="16" height="16" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="currentColor"
+                                    d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- End Header -->
+
+                <div class="modal-top-cover-icon">
+                    <span class="icon icon-lg icon-light icon-circle icon-centered shadow-soft">
+                        <i class="tio-location-search"></i>
+                    </span>
+                </div>
+
+                                            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+
+    <!--Show order timeline Modal -->
+    <div class="modal fade" id="timelineModal" tabindex="-1" role="dialog" aria-labelledby="timelineModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="timelineModalLabel">
+                        Order Timeline
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="container">
+                            <ul class="timeline">
+
+                                                                    <li class="timeline start">
+                                        <div class="time">
+                                            <span>14:03</span>
+                                        </div>
+                                        <div class="icon done"></div>
+                                        <div class="panel">
+                                            <span>Order Received</span>
+                                            
+                                        </div>
+                                    </li>
+                                
+                                                                    <li class="timeline done">
+                                        <div class="time">
+                                            <span>14:18</span>
+                                        </div>
+                                        <div class="icon done"></div>
+                                        <div class="panel">
+                                            <span>Order Accepted</span>
+                                        </div>
+                                    </li>
+                                
+                                                                    <li class="timeline working">
+                                        <div class="time">
+                                            <span>14:18</span>
+                                        </div>
+                                        <div class="icon working"></div>
+                                        <div class="panel">
+                                            <span>Order is Processing</span>
+                                        </div>
+                                    </li>
+                                
+                                                                    <li class="timeline waiting">
+                                        <div class="time">
+                                            <span>--:--</span>
+                                        </div>
+                                        <div class="icon"></div>
+                                        <div class="panel">
+                                            <span>Order ready to pick up</span>
+                                        </div>
+                                    </li>
+                                
+                                                                    <li class="timeline done">
+                                        <div class="time">
+                                            <span>14:34</span>
+                                        </div>
+                                        <div class="icon done"></div>
+                                        <div class="panel">
+                                            <span>Rider ready to pick up</span>
+                                        </div>
+                                    </li>
+                                
+                                                                    <li class="timeline waiting">
+                                        <div class="time">
+                                            <span>--:--</span>
+                                        </div>
+                                        <div class="icon"></div>
+                                        <div class="panel">
+                                            <span>Order picked up</span>
+                                        </div>
+                                    </li>
+                                
+                                                                    <li class="timeline waiting">
+                                        <div class="time">
+                                            <span>--:--</span>
+                                        </div>
+                                        <div class="icon"></div>
+                                        <div class="panel">
+                                            <span>Order Delivered</span>
+                                        </div>
+                                    </li>
+                                
+                                
+                                
+                                
+                                
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- End Content -->
+
+
+<!-- End Content -->
+
+    <!-- Footer -->
+<div class="footer">
+    <div class="row justify-content-between align-items-center">
+        <div class="col">
+            <p class="font-size-sm mb-0">
+                &copy; Durumchu Restaurant. <span
+                    class="d-none d-sm-inline-block"></span>
+            </p>
+        </div>
+        <div class="col-auto">
+            <div class="d-flex justify-content-end">
+                <!-- List Dot -->
+                <ul class="list-inline list-separator">
+                    <li class="list-inline-item">
+                        <a class="list-separator-link" href="https://talabna.ae/stores/business-settings/restaurant-setup">Store Settings</a>
+                    </li>
+
+                    <li class="list-inline-item">
+                        <a class="list-separator-link" href="https://talabna.ae/stores/restaurant/view">Profile</a>
+                    </li>
+
+                    <li class="list-inline-item">
+                        <!-- Keyboard Shortcuts Toggle -->
+                        <div class="hs-unfold">
+                            <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
+                               href="https://talabna.ae/stores">
+                                <i class="tio-home-outlined"></i>
+                            </a>
+                        </div>
+                        <!-- End Keyboard Shortcuts Toggle -->
+                    </li>
+                </ul>
+                <!-- End List Dot -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Footer -->
+
+    <div class="modal fade" id="popup-modal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <center>
+                                <h2 class="color-8a8a8a">
+                                    <i class="tio-shopping-cart-outlined"></i> You have new order, Check Please.
+                                </h2>
+                                <hr>
+                                <button onclick="check_order()" class="btn btn-primary">Ok, let me check</button>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="popup-modal-msg">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <center>
+                                <h2 class="8a8a8a">
+                                    <i class="tio-messages"></i> You have received new message
+                                </h2>
+                                <hr>
+                                <button onclick="check_message()" class="btn btn-primary">Ok, let me check</button>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- ========== END MAIN CONTENT ========== -->
+
+<!-- ========== END SECONDARY CONTENTS ========== -->
+<script src="https://talabna.ae/assets/admin/js/custom.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js"></script>
+<!-- JS Implementing Plugins -->
+
+
+<!-- JS Front -->
+<script src="https://talabna.ae/assets/admin/js/vendor.min.js"></script>
+<script src="https://talabna.ae/assets/admin/js/theme.min.js"></script>
+<script src="https://talabna.ae/assets/admin/js/sweet_alert.js"></script>
+<script src="https://talabna.ae/assets/admin/js/toastr.js"></script>
+<script type="text/javascript"></script>
+
+<!-- JS Plugins Init. -->
+
+<script>
+    $(document).on('ready', function () {
+        // ONLY DEV
+        // =======================================================
+        if (window.localStorage.getItem('hs-builder-popover') === null) {
+            $('#builderPopover').popover('show')
+                .on('shown.bs.popover', function () {
+                    $('.popover').last().addClass('popover-dark')
+                });
+
+            $(document).on('click', '#closeBuilderPopover', function () {
+                window.localStorage.setItem('hs-builder-popover', true);
+                $('#builderPopover').popover('dispose');
+            });
+        } else {
+            $('#builderPopover').on('show.bs.popover', function () {
+                return false
+            });
+        }
+        // END ONLY DEV
+        // =======================================================
+
+        // BUILDER TOGGLE INVOKER
+        // =======================================================
+        $('.js-navbar-vertical-aside-toggle-invoker').click(function () {
+            $('.js-navbar-vertical-aside-toggle-invoker i').tooltip('hide');
+        });
+
+        // INITIALIZATION OF MEGA MENU
+        // =======================================================
+        // var megaMenu = new HSMegaMenu($('.js-mega-menu'), {
+        //     desktop: {
+        //         position: 'left'
+        //     }
+        // }).init();
+
+
+        // INITIALIZATION OF NAVBAR VERTICAL NAVIGATION
+        // =======================================================
+        var sidebar = $('.js-navbar-vertical-aside').hsSideNav();
+
+
+        // INITIALIZATION OF TOOLTIP IN NAVBAR VERTICAL MENU
+        // =======================================================
+        $('.js-nav-tooltip-link').tooltip({boundary: 'window'})
+
+        $(".js-nav-tooltip-link").on("show.bs.tooltip", function (e) {
+            if (!$("body").hasClass("navbar-vertical-aside-mini-mode")) {
+                return false;
+            }
+        });
+
+
+        // INITIALIZATION OF UNFOLD
+        // =======================================================
+        $('.js-hs-unfold-invoker').each(function () {
+            var unfold = new HSUnfold($(this)).init();
+        });
+
+
+        // INITIALIZATION OF FORM SEARCH
+        // =======================================================
+        $('.js-form-search').each(function () {
+            new HSFormSearch($(this)).init()
+        });
+
+
+        // INITIALIZATION OF SELECT2
+        // =======================================================
+        $('.js-select2-custom').each(function () {
+            var select2 = $.HSCore.components.HSSelect2.init($(this));
+        });
+
+
+        // INITIALIZATION OF DATERANGEPICKER
+        // =======================================================
+        $('.js-daterangepicker').daterangepicker();
+
+        $('.js-daterangepicker-times').daterangepicker({
+            timePicker: true,
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(32, 'hour'),
+            locale: {
+                format: 'M/DD hh:mm A'
+            }
+        });
+
+        var start = moment();
+        var end = moment();
+
+        function cb(start, end) {
+            $('#js-daterangepicker-predefined .js-daterangepicker-predefined-preview').html(start.format('MMM D') + ' - ' + end.format('MMM D, YYYY'));
+        }
+
+        $('#js-daterangepicker-predefined').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+
+        cb(start, end);
+
+
+        // INITIALIZATION OF CLIPBOARD
+        // =======================================================
+        $('.js-clipboard').each(function () {
+            var clipboard = $.HSCore.components.HSClipboard.init(this);
+        });
+    });
+</script>
+
+    <script>
+
+function cancelled_status() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You want to cancel this order  ',
+                type: 'warning',
+                html:
+                    `<select class="form-control js-select2-custom mx-1" name="reason" id="reason">
+                        <option value=" ">
+                            Select cancellation reason
+                        </option>
+                                            <option value="Item Not Available">
+                            Item Not Available
+                        </option>
+                                        </select>`,
+                showCancelButton: true,
+                cancelButtonColor: 'default',
+                confirmButtonColor: '#FC6A57',
+                cancelButtonText: 'No',
+                confirmButtonText: 'Yes',
+                reverseButtons: true,
+                onOpen: function () {
+                        $('.js-select2-custom').select2({
+                            minimumResultsForSearch: 5,
+                            width: '100%',
+                            placeholder: "Select Reason",
+                            language: "en",
+                        });
+                    }
+            }).then((result) => {
+                if (result.value) {
+                    // console.log(result);
+                    var reason = document.getElementById('reason').value;
+                    location.href = 'https://talabna.ae/stores/order/status?id=124204&order_status=canceled&reason='+reason,'Change status to canceled  ';
+                }
+            })
+        }
+
+
+        function order_status_change_alert(route, message, verification, processing = false) {
+            if (verification) {
+                Swal.fire({
+                    title: 'Enter order verification code',
+                    input: 'text',
+                    inputAttributes: {
+                        autocapitalize: 'off'
+                    },
+                    showCancelButton: true,
+                    cancelButtonColor: 'default',
+                    confirmButtonColor: '#FC6A57',
+                    confirmButtonText: 'Submit',
+                    showLoaderOnConfirm: true,
+                    preConfirm: (otp) => {
+                        location.href = route + '&otp=' + otp;
+                        // .then(response => {
+                        //     if (!response.ok) {
+                        //     throw new Error(response.statusText)
+                        //     }
+                        //     return response.json()
+                        // })
+                        // .catch(error => {
+                        //     Swal.showValidationMessage(
+                        //     `Request failed: ${error}`
+                        //     )
+                        // })
+                    },
+                    allowOutsideClick: () => !Swal.isLoading()
+                })
+                // .then((result) => {
+                // if (result.isConfirmed) {
+                //     Swal.fire({
+                //     title: `${result.value.login}'s avatar`,
+                //     imageUrl: result.value.avatar_url
+                //     })
+                // }
+                // })
+            } else if (processing) {
+                Swal.fire({
+                    //text: message,
+                    title: 'Are you sure  ',
+                    type: 'warning',
+                    showCancelButton: true,
+                    cancelButtonColor: 'default',
+                    confirmButtonColor: '#FC6A57',
+                    cancelButtonText: 'Cancel',
+                    confirmButtonText: 'Submit',
+                    inputPlaceholder: "Enter processing time",
+                    input: 'text',
+                    html: message + '<br/>'+'<label>Enter Processing time in minutes</label>',
+                    inputValue: processing,
+                    preConfirm: (processing_time) => {
+                        location.href = route + '&processing_time=' + processing_time;
+                    },
+                    allowOutsideClick: () => !Swal.isLoading()
+                })
+            } else {
+                Swal.fire({
+                    title: 'Are you sure  ',
+                    text: message,
+                    type: 'warning',
+                    showCancelButton: true,
+                    cancelButtonColor: 'default',
+                    confirmButtonColor: '#FC6A57',
+                    cancelButtonText: 'No',
+                    confirmButtonText: 'Yes',
+                    reverseButtons: true
+                }).then((result) => {
+                    if (result.value) {
+                        location.href = route;
+                    }
+                })
+            }
+        }
+
+        function last_location_view() {
+            toastr.warning('Only available when order is out for delivery!', {
+                CloseButton: true,
+                ProgressBar: true
+            });
+        }
+    </script>
+
+    <script>
+        setTimeout(function(){
+            location.hash = ""
+            window.location = window.location.href.split('#')[0];
+            window.location = window.location.href;
+        }, 120000);
+    </script>
+<script>
+    $(window).on('load' , function() {
+        if($(".navbar-vertical-content li.active").length) {
+            $('.navbar-vertical-content').animate({
+                scrollTop: $(".navbar-vertical-content li.active").offset().top - 150
+            }, 100);
+        }
+        });
+</script>
+<audio id="myAudio">
+    <source src="https://talabna.ae/assets/admin/sound/notification.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    var audio = document.getElementById("myAudio");
+
+    function playAudio() {
+        audio.play();
+    }
+
+    function pauseAudio() {
+        audio.pause();
+    }
+</script>
+
+<script>
+    //     // var order_type = 'all';
+    // setInterval(function () {
+    //     $.get({
+    //         url: 'https://talabna.ae/stores/get-restaurant-data',
+    //         dataType: 'json',
+    //         success: function (response) {
+    //             let data = response.data;
+    //             if (data.new_pending_order > 0) {
+    //                 order_type = 'pending';
+    //                 playAudio();
+    //                 $('#popup-modal').appendTo("body").modal('show');
+    //             }
+    //             else if(data.new_confirmed_order > 0)
+    //             {
+    //                 order_type = 'confirmed';
+    //                 playAudio();
+    //                 $('#popup-modal').appendTo("body").modal('show');
+    //             }
+    //         },
+    //     });
+    // }, 10000);
+    // 
+
+    function check_message() {
+        location.href = 'https://talabna.ae/stores/message/list';
+    }
+
+    function route_alert(route, message) {
+        Swal.fire({
+            title: 'Are you sure  ',
+            text: message,
+            type: 'warning',
+            showCancelButton: true,
+            cancelButtonColor: 'default',
+            confirmButtonColor: '#FC6A57',
+            cancelButtonText: 'No',
+            confirmButtonText: 'Yes',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.value) {
+                location.href = route;
+            }
+        })
+    }
+
+    function form_alert(id, message) {
+        Swal.fire({
+            title: 'Are you sure  ',
+            text: message,
+            type: 'warning',
+            showCancelButton: true,
+            cancelButtonColor: 'default',
+            confirmButtonColor: '#FC6A57',
+            cancelButtonText: 'No',
+            confirmButtonText: 'Yes',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.value) {
+                $('#'+id).submit()
+            }
+        })
+    }
+
+    function set_filter(url, id, filter_by) {
+        var nurl = new URL(url);
+        nurl.searchParams.set(filter_by, id);
+        location.href = nurl;
+    }
+</script>
+
+<script>
+        
+    
+    
+    
+    
+    
+    
+    
+    
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyBSX8L1SXt6AMwVKLReeFv-kH0yklQ47zY",
+        authDomain: "talabna.firebaseapp.com",
+        projectId: "talabna",
+        storageBucket: "talabna.appspot.com",
+        messagingSenderId: "193988157464",
+        appId: "1:193988157464:web:5242d7571ceda4c285236d",
+        measurementId: "G-ZD5CL5LCCL"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const messaging = firebase.messaging();
+    function startFCM() {
+
+        messaging
+            .requestPermission()
+            .then(function () {
+                return messaging.getToken()
+
+            }).then(function (response) {
+                                subscribeTokenToTopic(response, "restaurant_panel_635_message");
+                 $.ajaxSetup({
+                     headers: {
+                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                     }
+                 });
+                 $.ajax({
+                     url: 'https://talabna.ae/stores/store-token',
+                     type: 'POST',
+                     data: {
+                         token: response
+                     },
+                      error: function (error) {
+                          alert(error);
+                      },
+                 });
+            }).catch(function (error) {
+                console.log(error);
+            });
+    }
+
+        function subscribeTokenToTopic(token, topic) {
+        fetch('https://iid.googleapis.com/iid/v1/' + token + '/rel/topics/' + topic, {
+            method: 'POST',
+            headers: new Headers({
+                'Authorization': 'key=AAAALSqYYBg:APA91bEEjlInxFKW1Xc_ueCHqpsidlXU55mNRyMCfheAxEytWgnL2TwrJPck5PiUq626NnQKOhift_w8No3Ao59aEfsuz0sLhvFJi7eroH_tCSK62ShXHTEVxI58mBZOgLyyEUmK0V0m'
+            })
+        }).then(response => {
+            if (response.status < 200 || response.status >= 400) {
+                throw 'Error subscribing to topic: ' + response.status + ' - ' + response.text();
+            }
+            console.log('Subscribed to "' + topic + '"');
+        }).catch(error => {
+            console.error(error);
+        })
+    }
+    function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++) {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == sParam) {
+                return sParameterName[1];
+            }
+        }
+    }
+
+    function converationList() {
+        $.ajax({
+            url: "https://talabna.ae/stores/message/list",
+            success: function(data) {
+                $('#conversation-list').empty();
+                $("#conversation-list").append(data.html);
+                var user_id = getUrlParameter('user');
+                $('.customer-list').removeClass('conv-active');
+                $('#customer-' + user_id).addClass('conv-active');
+            }
+        })
+    }
+
+    function conversationView() {
+        var conversation_id = getUrlParameter('conversation');
+        var user_id = getUrlParameter('user');
+        var url= 'https://talabna.ae/stores/message/view/'+conversation_id+'/' + user_id;
+        $.ajax({
+            url: url,
+            success: function(data) {
+                $('#view-conversation').html(data.view);
+            }
+        })
+    }
+    var order_type = 'all';
+    messaging.onMessage(function (payload) {
+        console.log(payload.data);
+
+        if(payload.data.order_id && payload.data.type == 'new_order'){
+                        order_type = payload.data.order_type
+            playAudio();
+            $('#popup-modal').appendTo("body").modal('show');
+                    }else if(payload.data.type == 'message'){
+            var conversation_id = getUrlParameter('conversation');
+            var user_id = getUrlParameter('user');
+            var url= 'https://talabna.ae/stores/message/view/'+conversation_id+'/' + user_id;
+            $.ajax({
+                url: url,
+                success: function(data) {
+                    $('#view-conversation').html(data.view);
+                }
+            })
+            toastr.success('New message arrived', {
+                        CloseButton: true,
+                        ProgressBar: true
+                    });
+
+            if($('#conversation-list').scrollTop() == 0){
+                converationList();
+            }
+        }
+    });
+
+    function check_order() {
+        location.href = 'https://talabna.ae/stores/order/list/all';
+    }
+    startFCM();
+    converationList();
+
+    if(getUrlParameter('conversation')){
+        conversationView();
+    }
+    // conversationView();
+</script>
+<script>
+    function call_demo(){
+        toastr.info('Update option is disabled for demo!', {
+            CloseButton: true,
+            ProgressBar: true
+        });
+    }
+    function set_time_filter(url, id) {
+            var nurl = new URL(url);
+            nurl.searchParams.set('filter', id);
+            location.href = nurl;
+        }
+</script>
+<!-- IE Support -->
+<script>
+    if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="https://talabna.ae/assets/admin/vendor/babel-polyfill/polyfill.min.js"><\/script>');
+</script>
+<script>
+    $(window).on('load', ()=> $('.pre--loader').fadeOut(600))
+</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
+    <script>
+        async function validateImageUpload(elementId, requiredWidth, requiredHeight, justSize = false) {
+            let image = document.getElementById(elementId);
+            let imagePath = image.value;
+
+
+            if (imagePath === '') {
+                alert("Please upload an image");
+
+            } else {
+                let extension = imagePath.substring(imagePath.lastIndexOf('.') + 1).toLowerCase();
+
+
+                if (extension === "gif" || extension === "png" || extension === "bmp"
+                    || extension === "jpeg" || extension === "jpg") {
+
+
+                    if (image.files && image.files[0]) {
+
+                        let size = image.files[0].size;
+
+                        var img = new Image();
+                        img.src = window.URL.createObjectURL(image.files[0]);
+                        if (!justSize) {
+                            img.onload = function () {
+                                if (this.width !== requiredWidth || this.height !== requiredHeight) {
+                                    toastr.error("Image width or height is not valid", {
+                                        CloseButton: true,
+                                        ProgressBar: true
+                                    });
+
+                                    image.value = '';
+                                    return false;
+                                }
+                            }
+                        }
+
+                        const maxSize = 1000000;
+
+                        if (size >= maxSize) {
+                            toastr.error("Maximum file size exceeds", {
+                                CloseButton: true,
+                                ProgressBar: true
+                            });
+
+                            image.value = '';
+                            return ;
+                        }
+                    }
+
+                } else {
+                    toastr.error("Photo only allows file types of GIF, PNG, JPG, JPEG and BMP.", {
+                        CloseButton: true,
+                        ProgressBar: true
+                    });
+                    image.value = '';
+                    return;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

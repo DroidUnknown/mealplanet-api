@@ -1,0 +1,2 @@
+merchant_id|merchant_transaction_id|billing_invoice_code|billing_period_start_date|billing_period_end_date|charge_amount|tax_amount|tax_inclusive_p|invoice_creation_timestamp|invoice_due_amount|invoice_currency_id|invoice_due_date|invoice_status|meta_status
+1|None|ABC_123|2020-01-01|2020-01-31|100.00|10.00|1|2020-01-01|110.00|1|2020-01-31|pending|active

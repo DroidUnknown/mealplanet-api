@@ -1,0 +1,3 @@
+merchant_id|printer_template_id|rule_type|printer_rule_expression|meta_status
+1|1|exclusion|item_category(1)|active
+1|3|kot-inclusion|item_subcategory(1)|active

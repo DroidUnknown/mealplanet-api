@@ -1,0 +1,20 @@
+marketplace_name|marketplace_type|auto_connect_p|integrated_p|country_id|meta_status
+talabat|aggregator|1|1|1|active
+deliveroo|aggregator|1|1|1|active
+careem|aggregator|1|1|1|active
+noon|aggregator|1|1|1|active
+entertainer|aggregator|0|1|1|active
+chatfood|aggregator|0|0|1|active
+instashop|aggregator|0|0|1|active
+deliveroo|aggregator|0|0|46|active
+uber|aggregator eats|0|0|46|active
+just|aggregator eat|0|0|46|active
+stuart|aggregator|0|0|46|active
+tripadvisor|not-show|0|0|1|active
+google_reviews|not-show|0|0|1|active
+myapp|direct|0|0|1|active
+eateasy|aggregator|0|0|1|active
+cari|aggregator|0|0|1|active
+talabna|aggregator|0|0|1|active
+website|direct|0|0|1|active
+iblinkmarketplace|direct|0|0|1|active

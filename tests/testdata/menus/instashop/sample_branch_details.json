@@ -1,0 +1,121 @@
+{
+    "results": [
+        {
+            "objectId": "aXgry6ZoeU",
+            "name": "Test Brand 1 - Al Barsha",
+            "closed": false,
+            "createdAt": "2021-06-26T11:03:05.895Z",
+            "updatedAt": "2023-09-06T08:04:44.328Z",
+            "categories": {
+                "__type": "Relation",
+                "className": "Categories"
+            },
+            "products": {
+                "__type": "Relation",
+                "className": "Products"
+            },
+            "moderators": {
+                "__type": "Relation",
+                "className": "_User"
+            }
+        },
+        {
+            "objectId": "CVTNu2608p",
+            "name": "Test Brand 1 - Central Mall",
+            "closed": false,
+            "createdAt": "2022-03-05T18:59:31.070Z",
+            "updatedAt": "2023-09-06T08:04:44.317Z",
+            "categories": {
+                "__type": "Relation",
+                "className": "Categories"
+            },
+            "products": {
+                "__type": "Relation",
+                "className": "Products"
+            },
+            "moderators": {
+                "__type": "Relation",
+                "className": "_User"
+            }
+        },
+        {
+            "objectId": "VdTjjITVBJ",
+            "name": "Test Brand 1 - Discovery Gardens",
+            "closed": false,
+            "createdAt": "2022-10-02T09:39:23.649Z",
+            "updatedAt": "2023-09-06T08:04:44.317Z",
+            "categories": {
+                "__type": "Relation",
+                "className": "Categories"
+            },
+            "products": {
+                "__type": "Relation",
+                "className": "Products"
+            },
+            "moderators": {
+                "__type": "Relation",
+                "className": "_User"
+            }
+        },
+        {
+            "objectId": "y0TniIOEb9",
+            "name": "Test Brand 1 - Mirdif City Centre",
+            "closed": false,
+            "createdAt": "2021-09-25T09:29:24.801Z",
+            "updatedAt": "2023-09-06T08:04:44.633Z",
+            "categories": {
+                "__type": "Relation",
+                "className": "Categories"
+            },
+            "products": {
+                "__type": "Relation",
+                "className": "Products"
+            },
+            "moderators": {
+                "__type": "Relation",
+                "className": "_User"
+            }
+        },
+        {
+            "objectId": "tSg25aMTG8",
+            "name": "Test Brand 1 - Motor City",
+            "closed": false,
+            "createdAt": "2021-06-26T11:28:25.401Z",
+            "updatedAt": "2023-09-06T08:04:44.301Z",
+            "categories": {
+                "__type": "Relation",
+                "className": "Categories"
+            },
+            "products": {
+                "__type": "Relation",
+                "className": "Products"
+            },
+            "moderators": {
+                "__type": "Relation",
+                "className": "_User"
+            }
+        },
+        {
+            "objectId": "r7GjwANNjK",
+            "name": "Test Brand 1 - World Trade Centre",
+            "closed": false,
+            "createdAt": "2021-06-26T10:52:45.480Z",
+            "updatedAt": "2023-09-06T08:04:44.985Z",
+            "forceCloseDateObj": null,
+            "forceCloseReason": null,
+            "forceCloseDateUntil": null,
+            "categories": {
+                "__type": "Relation",
+                "className": "Categories"
+            },
+            "products": {
+                "__type": "Relation",
+                "className": "Products"
+            },
+            "moderators": {
+                "__type": "Relation",
+                "className": "_User"
+            }
+        }
+    ]
+}

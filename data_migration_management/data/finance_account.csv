@@ -1,0 +1,9 @@
+finance_account_type_id|account_holder_type|facility_id|marketplace_id|meta_status
+1|marketplace|None|1|active
+1|marketplace|None|2|active
+1|marketplace|None|3|active
+1|marketplace|None|4|active
+1|marketplace|None|5|active
+1|marketplace|None|6|active
+1|marketplace|None|7|active
+1|facility|1|None|active

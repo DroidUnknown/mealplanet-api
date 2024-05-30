@@ -1,0 +1,7 @@
+order_line_item_id|facility_id|stock_item_id|measurement_id|quantity|transaction_type|meta_status
+1|5|1|1|10|stock-out|active
+2|5|1|1|10|stock-out|active
+3|5|2|1|10|stock-out|active
+4|5|2|1|10|stock-out|active
+5|5|3|1|10|stock-out|active
+6|5|3|1|10|stock-out|active

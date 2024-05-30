@@ -1,0 +1,15 @@
+{
+  "timestamp": "2023-04-14T12:04:44.0022447+00:00",
+  "result": {
+      "rev": [],
+      "tr": 200,
+      "pg": 67,
+      "sr": {
+          "pr": 4.5,
+          "dr": 4.5,
+          "vr": 4.5,
+          "qr": 4.5
+      }
+  },
+  "baseUrl": "https://images.deliveryhero.io/image/talabat/"
+}

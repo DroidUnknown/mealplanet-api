@@ -1,0 +1,26 @@
+[
+    {
+        "id": 17645920,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Ramadan Promotion's 10 pm"
+            },
+            {
+                "locale": "Ar",
+                "value": "رمضان عرض اليوم "
+            },
+            {
+                "locale": "Ku_Ba",
+                "value": ""
+            },
+            {
+                "locale": "Ku_So",
+                "value": ""
+            }
+        ],
+        "status": 0,
+        "isPromotional": false,
+        "sortOrder": 0
+    }
+]

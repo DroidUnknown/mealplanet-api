@@ -1,0 +1,50 @@
+# Operating-system related variabels
+__pycache__
+__init__.py
+*.pyc
+.DS_store
+env/
+.env
+venv
+.venv
+logs/
+lab.py
+
+.env.prod
+.env.dev
+.env.demo
+.env.local
+
+.pytest_cache
+
+# A folder for saving anything you don't want committed
+tmp/
+my_lab.py
+
+# All tests ending with _lab.py won't be committed.
+# Developers are encrouraged to write their own tests eg. test_mohsin_lab.py
+tests/*_lab.py
+
+tests/testdata/server-key.private
+tests/testdata/server-key.public
+test-password-protector.key
+
+####Git history ignored while making a commit####
+.history/
+Pipfile
+.vscode/launch.json
+Pipfile.lock
+
+.pylintrc
+
+test_e2e_normal_flow_output.json
+.vscode/settings.json
+test.py
+test_asd.py
+*.pdf
+
+#### do not ignore workers/sqs_listener/__init__.py ####
+!workers/sqs_listener/__init__.py
+
+google-credentials.json
+iblinkx-service-account.json

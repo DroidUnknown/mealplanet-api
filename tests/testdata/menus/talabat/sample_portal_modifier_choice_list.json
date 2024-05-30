@@ -1,0 +1,51 @@
+[
+    {
+        "id": 829076145,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Size"
+            },
+            {
+                "locale": "Ar",
+                "value": "مقاس"
+            },
+            {
+                "locale": "Ku_Ba",
+                "value": ""
+            },
+            {
+                "locale": "Ku_So",
+                "value": ""
+            }
+        ],
+        "minItems": 0,
+        "maxItems": 1,
+        "sortOrder": 1,
+        "choices": [
+            {
+                "id": 180650683,
+                "name": [
+                    {
+                        "locale": "En",
+                        "value": "Large"
+                    },
+                    {
+                        "locale": "Ar",
+                        "value": "كبير"
+                    }
+                ],
+                "description": [],
+                "sortOrder": 1,
+                "price": 1,
+                "itemType": 1,
+                "status": 0,
+                "hasChoices": false,
+                "choiceCategories": [],
+                "isDeleted": false
+            }
+        ],
+        "isDeleted": false,
+        "type": 0
+    }
+]

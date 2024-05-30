@@ -1,0 +1,2 @@
+merchant_code|merchant_type_id|merchant_name|merchant_email|merchant_phone_nr|merchant_description|stripe_merchant_id|merchant_api_key|commission_paid_by_merchant_p|payment_link_expiry_duration|expiry_duration_measurement_id|default_country_id|default_currency_id|business_type_id|business_category_id|billing_enabled_p|meta_status
+k_131231|2|company-x|company-x@company-x.com|+9715425132165|company-x|acct_1MHSj57sFOP15WV8|A8XSEUlYE9TLgUK5|1|15|6|1|1|1|1|1|active

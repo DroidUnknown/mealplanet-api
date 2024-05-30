@@ -1,0 +1,27 @@
+{
+    "data": {
+        "type": "deposit",
+        "id": "5845",
+        "attributes": {
+            "status": 2,
+            "label": "Deposit API example",
+            "tracking_id": "i-99555",
+            "confirmations_needed": 1,
+            "time_limit": 900,
+            "target_amount_requested": "20.000000000000000000",
+            "callback_url": null,
+            "inaccuracy": "5.000000000000000000"
+        },
+        "relationships": {
+            "currency": {
+                "data": {
+                    "type": "currency",
+                    "id": "1002"
+                }
+            },
+            "address_type": {
+                "data": null
+            }
+        }
+    }
+}

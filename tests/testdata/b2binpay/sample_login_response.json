@@ -1,0 +1,17 @@
+{
+    "data": {
+        "type": "auth-token",
+        "id": "0",
+        "attributes": {
+            "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
+            "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
+            "access_expired_at": "2020-12-29T05:42:11.925654Z",
+            "refresh_expired_at": "2020-12-29T11:27:11.925654Z",
+            "is_2fa_confirmed": false
+        }
+    },
+    "meta": {
+        "time": "2020-12-29T05:27:11.925654Z",
+        "sign": "bcd6519ce27fed2ce9efe49cd09b387f050c0122c962c18ff474132bf1e88e9a"
+    }
+}

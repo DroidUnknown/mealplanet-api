@@ -1,0 +1,40 @@
+{
+    "customer_order": {
+        "brand_id": 1,
+        "facility_id": 1,
+        "marketplace_id": 2,
+        "service_id": 1,
+        "logistic_provider_id": 3,
+        "business_priority": 3,
+        "order_placement_channel_id": 2,
+        "payment_method_id": 3,
+        "external_order_reference_nr": "5f373562-591a-4db9-8609-7eec7880f28d",
+        "customer_id": null,
+        "customer_address_id": null,
+        "user_id": 52,
+        "anonymous_customer_p": 1,
+        "order_notes": "Please hurry, I am hungry",
+        "anonymous_customer_name": "foodpanda"
+    },
+    "discount_list": [
+        {
+            "discount_id": 15,
+            "discount_display_name_en": "Flat 30% OFF",
+            "discount_name": "eid",
+            "percentage_p": 1,
+            "discount_level": null
+        }
+    ],
+    "order_line_items_list": [],
+    "offers_list": [],
+    "order_surcharge_map": [],
+    "order_tax_map": [],
+    "delivery_data": {
+        "delivery_charge_p": 1
+    },
+    "order_payment_detail": {
+        "payment_method_id": 1,
+        "order_payment_type": "online",
+        "payment_status": "paid"
+    }
+}

@@ -1,0 +1,304 @@
+{
+  "id": "123145",
+  "name": "user 1",
+  "email": "user.user@gmail.com",
+  "restaurant_companies": [
+    {
+      "name": "Inactive Chain ID 1",
+      "id": "123456",
+      "country_code": "AE",
+      "currency_code": "AED",
+      "default_language_code": "en",
+      "drn_id": "12355124123123",
+      "drn": "drn:roo:organization:ae:12355124123123",
+      "short_drn_id": 123456,
+      "short_drn": "ae:123456",
+      "root_id": "1231312331241514123123415123131231",
+      "menu_manager_enabled": true,
+      "menu_manager_terms_signed": "2020-11-09 07:59:22 UTC",
+      "menu_manager_terms_signed_by": "accounts@bloomlevant.com",
+      "restaurants": [
+        {
+          "name": "inactive brand 1",
+          "id": "1231231231",
+          "is_active": false,
+          "deleted_at": null,
+          "drn_id": "824131512315125614123123",
+          "drn": "drn:roo:branch:ae:824131512315125614123123",
+          "short_drn": "ae:1231231312312",
+          "short_drn_id": 1231231312312,
+          "city": "Abu Dhabi",
+          "time_zone": "Asia/Dubai",
+          "zone_offset": 240,
+          "zone_id": "1943",
+          "zone_drn_id": "f9ba885a-1ad7-45b9-91fa-b67c4e95116a",
+          "country_code": "AE",
+          "location": {
+            "lat": 24.0000000,
+            "lng": 54.0000000
+          },
+          "status": "DISABLED",
+          "fulfillment_types": [
+            "deliveroo"
+          ],
+          "hygiene_rating": "",
+          "hygiene_rating_last_updated": "",
+          "hygiene_rating_scheme": "UNAVAILABLE",
+          "customer_facing_link": "",
+          "is_marketplace_plus_restaurant": false,
+          "restaurant_type": "RESTAURANT",
+          "customer_champion": null,
+          "branch_business_model": "UNKNOWN",
+          "features": []
+        }
+      ],
+      "features": []
+    },
+    {
+      "name": "Active Acc 1",
+      "id": "87651312",
+      "country_code": "AE",
+      "currency_code": "AED",
+      "default_language_code": "en",
+      "drn_id": "09876543234567898765432",
+      "drn": "drn:roo:organization:ae:09876543234567898765432",
+      "short_drn_id": 87651312,
+      "short_drn": "ae:87651312",
+      "root_id": null,
+      "menu_manager_enabled": true,
+      "menu_manager_terms_signed": "2020-09-02 12:11:05 UTC",
+      "menu_manager_terms_signed_by": "testuser@iblink.com",
+      "restaurants": [
+        {
+          "name": "test brand 2 - Al Satwa",
+          "id": "123458",
+          "is_active": true,
+          "deleted_at": null,
+          "drn_id": "54345678987654323456767625",
+          "drn": "drn:roo:branch:ae:54345678987654323456767625",
+          "short_drn": "ae:123458",
+          "short_drn_id": 123458,
+          "city": "Dubai",
+          "time_zone": "Asia/Dubai",
+          "zone_offset": 240,
+          "zone_id": "309",
+          "zone_drn_id": "330caea9-47b9-45a9-97d6-852843d6f291",
+          "country_code": "AE",
+          "location": {
+            "lat": 25.000000,
+            "lng": 55.000000
+          },
+          "status": "OPEN",
+          "fulfillment_types": [
+            "deliveroo"
+          ],
+          "hygiene_rating": "",
+          "hygiene_rating_last_updated": "",
+          "hygiene_rating_scheme": "UNAVAILABLE",
+          "customer_facing_link": "",
+          "is_marketplace_plus_restaurant": false,
+          "restaurant_type": "RESTAURANT",
+          "customer_champion": null,
+          "branch_business_model": "UNKNOWN",
+          "features": []
+        },
+        {
+          "name": "test brand 3 - Al Satwa",
+          "id": "1234589",
+          "is_active": true,
+          "deleted_at": null,
+          "drn_id": "5434567898765432345676762531231",
+          "drn": "drn:roo:branch:ae:54345678987654323456767625312",
+          "short_drn": "ae:123458",
+          "short_drn_id": 123458,
+          "city": "Dubai",
+          "time_zone": "Asia/Dubai",
+          "zone_offset": 240,
+          "zone_id": "309",
+          "zone_drn_id": "330caea9-47b9-45a9-97d6-852843d6f291",
+          "country_code": "AE",
+          "location": {
+            "lat": 25.000000,
+            "lng": 55.000000
+          },
+          "status": "OPEN",
+          "fulfillment_types": [
+            "deliveroo"
+          ],
+          "hygiene_rating": "",
+          "hygiene_rating_last_updated": "",
+          "hygiene_rating_scheme": "UNAVAILABLE",
+          "customer_facing_link": "",
+          "is_marketplace_plus_restaurant": false,
+          "restaurant_type": "RESTAURANT",
+          "customer_champion": null,
+          "branch_business_model": "UNKNOWN",
+          "features": []
+        }
+      ],
+      "features": []
+    }
+  ],
+  "links": {
+    "restaurants": {
+      "url": "/api/restaurants",
+      "methods": [
+        "GET"
+      ],
+      "orders": {
+        "url": "/api/restaurants/{restaurant_id}/orders",
+        "methods": [
+          "GET"
+        ]
+      },
+      "order_items": {
+        "url": "/api/restaurants/{restaurant_id}/order_items",
+        "methods": [
+          "GET"
+        ]
+      }
+    },
+    "order": {
+      "url": "/api/orders/{order_id}",
+      "methods": [
+        "GET"
+      ]
+    },
+    "users": {
+      "url": "/api/employees",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    "invoices": {
+      "url": "/api/invoices",
+      "methods": [
+        "GET"
+      ],
+      "download": {
+        "url": "/api/invoices/{invoice_id}/download",
+        "methods": [
+          "GET"
+        ]
+      }
+    },
+    "offers": {
+      "url": "/api/offers",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    "rewards": {
+      "url": "/api/rewards",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    },
+    "menus": {
+      "url": "/api/menus",
+      "methods": [
+        "HEAD",
+        "GET",
+        "POST",
+        "PATCH",
+        "PUT",
+        "DELETE"
+      ]
+    },
+    "email_preferences.refunds": {
+      "url": "/api/email_preferences/customer_refund",
+      "methods": [
+        "GET",
+        "PUT"
+      ]
+    },
+    "foh.reports": {
+      "url": "/api/restaurant_companies/{restaurant_company_id}/foh_reports",
+      "methods": [
+        "GET"
+      ]
+    },
+    "review.replies": {
+      "url": "/api/restaurants/{restaurant_id}/reviews/{order_uuid}/reply",
+      "methods": [
+        "POST"
+      ]
+    },
+    "banking.details": {
+      "url": "/api/restaurant_companies/{company_id}/banking_details",
+      "methods": [
+        "GET"
+      ]
+    },
+    "bag.fees": {
+      "url": "/api/bag_fees",
+      "methods": [
+        "GET"
+      ]
+    },
+    "delivery_areas": {
+      "url": "/api/restaurants/{restaurant_id}/delivery_areas",
+      "methods": [
+        "GET",
+        "PUT",
+        "POST",
+        "DELETE"
+      ]
+    },
+    "pos.integration": {
+      "url": "/api/integrations",
+      "methods": [
+        "GET"
+      ]
+    },
+    "days.off": {
+      "url": "/api/days_off",
+      "methods": [
+        "GET",
+        "POST",
+        "DELETE"
+      ]
+    },
+    "opening.hours": {
+      "url": "/api/settings/opening_hours",
+      "methods": [
+        "GET"
+      ]
+    },
+    "settings.device": {
+      "url": "/api/settings/device",
+      "methods": [
+        "GET"
+      ]
+    },
+    "payments": {
+      "url": "/api/settings/payments",
+      "methods": [
+        "GET"
+      ]
+    },
+    "qr.codes": {
+      "url": "/api/settings/qr_codes",
+      "methods": [
+        "GET"
+      ]
+    },
+    "adverts": {
+      "url": "/api/sponsored/campaigns",
+      "methods": [
+        "GET",
+        "POST"
+      ]
+    }
+  },
+  "role": "admin",
+  "is_active": true,
+  "user_joined_at": "2022-05-16 08:53:35 UTC",
+  "is_sso": false,
+  "drn_id": "12312412415151231231",
+  "drn": "drn:roo:hub-employee:ae:612313131231231231312312312312",
+  "access_token": "eyJqa3UiOiJodHRwczpcL1wvaWRlbnRpdHkuZGVsaXZlcm9vLmNvbVwvandrXC9lY18wMDEiLCJraWQiOiJlY18wMDEiLCJhbGciOiJFUzM4NCJ9.eyJzdWIiOiI2MmU5ZjVjZjUzMGUwN2ZkMThkZjVkMTcyZjk2OTI2MiIsInNjb3BlIjpbXSwiaXNzIjoiaHR0cHM6XC9cL2lkZW50aXR5LmRlbGl2ZXJvby5jb21cLyIsImV4cCI6MTY5MjA5OTE3OCwiaWF0IjoxNjkyMDk2NDc4LCJqdGkiOiJhdF9mMTY1MmZmYThiMzY4YmIzYTA3YzFlMjg1M2QwNDc5YSIsInNpZCI6ImQwZWY5MzY5YjQ2YzQ1MzQ5MDZiNTRhOGU1NzM3ZDgxNjVlMmI1NmYifQ.81DTl8SwTRppuiOMBCYWLxweaqsLXI_N_TJ11Dh1M0kigfV0nks1KDO5plK5FhNHN1MKWXtIP155nQqRnvANoOj-aV5xKQEvmkrxoVbaooyYem6CLAW5_vXAdDUTOyLP"
+}

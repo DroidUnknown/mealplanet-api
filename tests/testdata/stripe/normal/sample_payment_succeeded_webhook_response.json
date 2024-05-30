@@ -1,0 +1,69 @@
+{
+    "id": "evt_3N461SGJsAxo6t6t0PD20TUU",
+    "object": "event",
+    "api_version": "2022-11-15",
+    "created": 1683221575,
+    "data": {
+        "object": {
+            "id": "pi_3N461SGJsAxo6t6t0EfSNlyl",
+            "object": "payment_intent",
+            "amount": 2000,
+            "amount_capturable": 0,
+            "amount_details": {
+                "tip": {}
+            },
+            "amount_received": 2000,
+            "application": null,
+            "application_fee_amount": null,
+            "automatic_payment_methods": null,
+            "canceled_at": null,
+            "cancellation_reason": null,
+            "capture_method": "automatic",
+            "client_secret": "pi_3N461SGJsAxo6t6t0EfSNlyl_secret_m7ljmLgTqd4stvXrvynOYE2T0",
+            "confirmation_method": "automatic",
+            "created": 1683216773,
+            "currency": "aed",
+            "customer": null,
+            "description": "(created by Stripe CLI)",
+            "invoice": null,
+            "last_payment_error": null,
+            "latest_charge": "ch_3N461SGJsAxo6t6t0tDhF37x",
+            "livemode": false,
+            "metadata": {
+                "merchant_code": "k_131231"
+            },
+            "next_action": null,
+            "on_behalf_of": null,
+            "payment_method": "pm_1N461SGJsAxo6t6trf8gvamy",
+            "payment_method_options": {
+                "card": {
+                    "installments": null,
+                    "mandate_options": null,
+                    "network": null,
+                    "request_three_d_secure": "automatic"
+                }
+            },
+            "payment_method_types": [
+                "card"
+            ],
+            "processing": null,
+            "receipt_email": null,
+            "review": null,
+            "setup_future_usage": null,
+            "shipping": null,
+            "source": null,
+            "statement_descriptor": null,
+            "statement_descriptor_suffix": null,
+            "status": "succeeded",
+            "transfer_data": null,
+            "transfer_group": null
+        }
+    },
+    "livemode": false,
+    "pending_webhooks": 3,
+    "request": {
+        "id": "req_paMGRkd54nZRPH",
+        "idempotency_key": "d4744ab3-e8ad-4ec8-a866-73ad5b4a40f2"
+    },
+    "type": "payment_intent.succeeded"
+}

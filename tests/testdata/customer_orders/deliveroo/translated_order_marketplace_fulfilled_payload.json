@@ -1,0 +1,70 @@
+{
+  "version": "0.1",
+  "test_p": 0,
+  "external_order_reference_nr": "1893830344",
+  "order_placement_channel_id": 2,
+  "order_notes": "TEST ORDER. DO NOT PREPARE\r\n********************************\r\nADD CUTLERY",
+  "scheduled_p": false,
+  "scheduled_timestamp": "2023-07-24 07:20:33",
+  "payment_point_id": null,
+  "payment_details": {
+    "payable_amount": 25.45,
+    "tip_amount": 0,
+    "discount_amount": 1.5,
+    "delivery_amount": 4.5,
+    "service_charge_amount": 5.95,
+    "tax_amount": 0,
+    "currency_name": "AED",
+    "payment_method_name": "card"
+  },
+  "customer_details": {
+    "external_customer_id": "",
+    "first_name_en": "Talha",
+    "last_name_en": "I.",
+    "email": "",
+    "phone_nr": "9718000320499",
+    "contact_code": "723014915",
+    "customer_contact_method": "link"
+  },
+  "employee_details": {
+    "external_employee_id": "",
+    "first_name_en": "",
+    "last_name_en": "",
+    "email": "",
+    "phone_nr": ""
+  },
+  "integration_details": {
+    "branch_id": 1,
+    "brand_id": 1,
+    "facility_id": 1,
+    "marketplace_id": 1,
+    "fulfillment_type": "marketplace-delivery"
+  },
+  "discount_list": [],
+  "item_list": [
+    {
+      "external_item_id": 1326739599,
+      "display_name_en": "Baked Potato Wedges",
+      "display_name_ar": "",
+      "price": 14,
+      "quantity": 1,
+      "modifier_section_list": [
+        {
+          "external_modifier_section_id": 1,
+          "display_section_name_en": "",
+          "display_section_name_ar": "",
+          "modifier_choice_list": [
+            {
+              "external_modifier_choice_id": 1326739629,
+              "display_choice_name_en": "02 Ketchup Sachet",
+              "display_choice_name_ar": "",
+              "price": 1,
+              "quantity": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "offer_list": []
+}

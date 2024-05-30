@@ -1,0 +1,6 @@
+brand_id|facility_id|marketplace_id|merchant_id|external_branch_id|external_branch_code|integrated_p|merchant_third_party_credential_id|username|password|meta_status
+1|1|1|1|123456|ax2135a0dm1_1230190dawmado_123149tfaknwdawm|1|None|test_talabat_branch1|test_password|active
+1|1|2|1|123457||1|1|test_deliveroo_branch1|test_password|active
+1|1|3|1|123458||1|3|test_careem_branch1|test_password|active
+1|1|4|1|123459||1|None|test_noon_branch1|test_password|active
+1|1|5|1|123460||1|None|test_entertainer_branch1|test_password|active

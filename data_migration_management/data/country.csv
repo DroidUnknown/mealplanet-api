@@ -1,0 +1,48 @@
+country_name|country_alpha_2|country_alpha_3|country_code|default_timezone_offset_hour|meta_status
+united arab emirates|ae|uae|+971|4|active
+saudia arabia|sa|ksa|+966|3|active
+united states|us|usa|+1|-4|active
+australia|au|aus|+61|10|active
+austria|at|aut|+43|2|active
+belgium|be|bel|+32|2|active
+brazil|br|bra|+55|-2|active
+bulgaria|bg|bgr|+359|3|active
+canada|ca|can|+1|-2|active
+croatia|hr|hrv|+385|2|active
+cyprus|cy|cyp|+357|3|active
+czech republic|cz|cze|+420|2|active
+denmark|dk|dnk|+45|2|active
+estonia|ee|est|+372|3|active
+finland|fi|fin|+358|3|active
+france|fr|fra|+33|2|active
+germany|de|deu|+49|2|active
+gibraltar|gi|gib|+350|2|active
+greece|gr|grc|+30|3|active
+hong kong|hk|hkg|+852|8|active
+hungary|hu|hun|+36|2|active
+india|in|ind|+91|5|active
+ireland|ie|irl|+353|1|active
+italy|it|ita|+39|2|active
+japan|jp|jpn|+81|9|active
+latvia|lv|lva|+371|3|active
+liechtenstein|li|lie|+423|2|active
+lithuania|lt|ltu|+370|3|active
+luxembourg|lu|lux|+352|2|active
+malaysia|my|mys|+60|8|active
+malta|mt|mlt|+356|2|active
+mexico|mx|mex|+52|-5|active
+netherlands|nl|nld|+31|2|active
+new zealand|nz|nzl|+64|12|active
+norway|no|nor|+47|2|active
+poland|pl|pol|+48|2|active
+portugal|pt|prt|+351|1|active
+romania|ro|rou|+40|3|active
+singapore|sg|sgp|+65|8|active
+slovakia|sk|svk|+421|2|active
+slovenia|si|svn|+386|2|active
+spain|es|esp|+34|2|active
+sweden|se|swe|+46|2|active
+switzerland|ch|che|+41|2|active
+thailand|th|tha|+66|7|active
+united kingdom|gb|gbr|+44|1|active
+pakistan|pk|pak|+92|5|active

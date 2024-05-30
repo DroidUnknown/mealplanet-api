@@ -1,0 +1,37 @@
+{
+    "message": "success",
+    "data": {
+        "outlet_menu": [
+            {
+                "item": "French Fries",
+                "detail": "",
+                "category": "Appetisers\t\t\t",
+                "online_status": "online",
+                "id": 1277248,
+                "image_url": ""
+            },
+            {
+                "item": "New York Cheesecake",
+                "detail": "delicious cheesecake",
+                "category": "Desserts \t",
+                "online_status": "online",
+                "id": 1277253,
+                "image_url": "https://te-cat-scargil.s3-eu-west-1.amazonaws.com/ent_cat_merchant_imgs/X21936586_lotus_cheesecake_d5086a351c46795e3e2bc824d002d33f.jpg"
+            },
+            {
+                "item": "Coca-Cola",
+                "detail": "Stay hydrated and refreshed with our water.",
+                "category": "Fresh Drinks and Juices",
+                "online_status": "online",
+                "id": 1277256,
+                "image_url": "https://te-cat-scargil.s3-eu-west-1.amazonaws.com/ent_cat_merchant_imgs/X21936586_kraft__honey_arous_b858c7dd4ff2d756ae08236ab373faa4.jpg"
+            }
+        ],
+        "outlet_sf_id": "O23879898",
+        "merchant_sf_id": "X21936586"
+    },
+    "success": true,
+    "code": 200,
+    "cmd": "/delivery_pos_api/v3/outlet_menu?",
+    "http_response": 200
+}

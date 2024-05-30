@@ -1,0 +1,44 @@
+{
+    "data": {
+        "type": "deposit",
+        "id": "5859",
+        "attributes": {
+            "status": 2,
+            "address": "2N8Q7yVjXY9KpESd8dCAUzBDq674bVgjRKV",
+            "address_type": "",
+            "label": "Deposit API example",
+            "tracking_id": "i-124",
+            "confirmations_needed": 1,
+            "time_limit": 900,
+            "callback_url": null,
+            "message": null,
+            "inaccuracy": "5.00000000",
+            "target_amount_requested": "500.500000000000000000",
+            "rate_requested": "29631.86820000",
+            "rate_expired_at": "2023-08-09T14:56:30.418507Z",
+            "invoice_updated_at": "2023-08-09T14:41:00.962180Z",
+            "payment_page": "https://pay-sandbox.b2binpay.com/en/a271a2de-4998-4b88-a030-cd5f31dbfc3f/pay",
+            "target_paid": "0.00000000",
+            "source_amount_requested": "0.01689060",
+            "target_paid_pending": "0.00000000",
+            "destination": {
+                "address_type": "p2sh-segwit",
+                "address": "2N8Q7yVjXY9KpESd8dCAUzBDq674bVgjRKV"
+            }
+        },
+        "relationships": {
+            "currency": {
+                "data": {
+                    "type": "currency",
+                    "id": "1002"
+                }
+            },
+            "wallet": {
+                "data": {
+                    "type": "wallet",
+                    "id": "900"
+                }
+            }
+        }
+    }
+}

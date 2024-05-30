@@ -1,0 +1,4 @@
+parent_stock_item_id|merchant_id|default_supplier_id|stock_item_code|stock_item_name_en|quantity_per_pack|measurement_id|meta_status
+None|1|1|abc|item 1|10|3|active
+None|1|1|abc|item 2|5|3|active
+None|1|1|abc|item 3|15|3|active

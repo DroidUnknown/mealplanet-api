@@ -1,0 +1,44 @@
+modifier_section_id|branch_id|external_modifier_section_id|sequence_nr|display_section_name_en|display_section_name_ar|modifier_section_description_en|modifier_section_description_ar|section_type|max_choice_count|min_choice_count|excluded_p|meta_status
+1|7|miac_253390|1|make it a combo?|Make it a Combo?|make it a combo?|Make it a Combo?|optional|1|0|0|active
+2|7|c_687701|2|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+3|7|miac_995133|3|make it a combo?|Make it a Combo?|make it a combo?|Make it a Combo?|optional|1|0|0|active
+4|7|c_613071|4|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+5|7|miac_139849|5|make it a combo?|Make it a Combo?|make it a combo?|Make it a Combo?|optional|1|0|0|active
+6|7|c_254046|6|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+7|7|miac_396864|7|make it a combo?|Make it a Combo?|make it a combo?|Make it a Combo?|optional|1|0|0|active
+8|7|c_164518|8|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+9|7|miac_807471|9|make it a combo?|Make it a Combo?|make it a combo?|Make it a Combo?|optional|1|0|0|active
+10|7|c_556665|10|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+11|7|miac_982378|11|make it a combo?|Make it a Combo?|make it a combo?|Make it a Combo?|optional|1|0|0|active
+12|7|c_489336|12|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+13|7|miac_059165|13|make it a combo?|Make it a Combo?|make it a combo?|Make it a Combo?|optional|1|0|0|active
+14|7|c_713446|14|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+15|7|miac_448900|15|make it a combo?|Make it a Combo?|make it a combo?|Make it a Combo?|optional|1|0|0|active
+16|7|c_717865|16|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+17|7|miac_811872|17|make it a combo?|Make it a Combo?|make it a combo?|Make it a Combo?|optional|1|0|0|active
+18|7|c_711100|18|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+19|7|miac_160222|19|make it a combo?|Make it a Combo?|make it a combo?|Make it a Combo?|optional|1|0|0|active
+20|7|c_095081|20|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+21|7|miac_584973|21|make it a combo?|Make it a Combo?|make it a combo?|Make it a Combo?|optional|1|0|0|active
+22|7|c_305116|22|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+23|7|c_173863|23|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+24|7|cof_107681|24|coleslaw or fries?|Coleslaw or Fries?|coleslaw or fries?|Coleslaw or Fries?|required|1|1|0|active
+25|7|cyd_918814|25|choose your drink:|Choose your drink:|choose your drink:|Choose your drink:|required|1|1|0|active
+26|7|c_993701|26|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+27|7|cof_091271|27|coleslaw or fries?|Coleslaw or Fries?|coleslaw or fries?|Coleslaw or Fries?|required|1|1|0|active
+28|7|cyd_596360|28|choose your drink:|Choose your drink:|choose your drink:|Choose your drink:|required|1|1|0|active
+29|7|miac_948250|29|make it a combo?|Make it a Combo?|make it a combo?|Make it a Combo?|optional|1|0|0|active
+30|7|c_502861|30|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+31|7|miac_050677|31|make it a combo?|Make it a Combo?|make it a combo?|Make it a Combo?|optional|1|0|0|active
+32|7|c_053428|32|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+33|7|miac_406222|33|make it a combo?|Make it a Combo?|make it a combo?|Make it a Combo?|optional|1|0|0|active
+34|7|c_836212|34|customize:|Customize:|customize:|Customize:|optional|7|0|0|active
+35|7|wys_970598|35|what's your salad?|What's your salad?|what's your salad?|What's your salad?|required|1|1|0|active
+36|7|wys_413528|36|what's your salad?|What's your salad?|what's your salad?|What's your salad?|required|1|1|0|active
+37|7|sys_921452|37|select your sides:|Select your sides:|select your sides:|Select your sides:|required|6|6|0|active
+38|7|syd_936941|38|select your drinks:|Select your drinks:|select your drinks:|Select your drinks:|required|6|6|0|active
+39|7|aeb_914095|39|add extra brisket:|Add extra brisket:|add extra brisket:|Add extra brisket:|optional|2|0|0|active
+40|7|ss_165636|40|side sauce:|Side Sauce:|side sauce:|Side Sauce:|required|1|1|0|active
+41|7|csots_785532|41|cheese sauce on the side?|Cheese sauce on the side?|cheese sauce on the side?|Cheese sauce on the side?|optional|1|0|0|active
+42|7|csots_628866|42|cheese sauce on the side?|Cheese sauce on the side?|cheese sauce on the side?|Cheese sauce on the side?|optional|1|0|0|active
+43|7|csots_052958|43|cheese sauce on the side?|Cheese sauce on the side?|cheese sauce on the side?|Cheese sauce on the side?|optional|1|0|0|active

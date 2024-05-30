@@ -1,0 +1,497 @@
+{
+    "id": 57084191,
+    "order_type": "food",
+    "domain": "food",
+    "business_type": "restaurants",
+    "user_id": 4983065,
+    "basket_id": 286127676,
+    "city_id": 1,
+    "delivery_id": null,
+    "payment_id": null,
+    "delivery_type": "merchant",
+    "merchant_pay_type": "prepaid",
+    "language": "en",
+    "payment_type": "card",
+    "payment_status": "success",
+    "items_count": 2,
+    "unavailable_items_count": 0,
+    "status": "pending",
+    "is_doorstep_delivery": false,
+    "promo_code": "MAN10",
+    "promotion_discount": 4.6,
+    "created_at": "2023-07-24T08:41:16+00:00",
+    "pending_at": "2023-07-24T08:41:19+00:00",
+    "scheduled_at": null,
+    "accepted_at": null,
+    "delivered_at": null,
+    "cancelled_at": null,
+    "expected_arrival": {
+        "display": "range",
+        "precise": "2023-07-24T09:39:16+00:00",
+        "from": "2023-07-24T09:34:16+00:00",
+        "to": "2023-07-24T09:44:16+00:00"
+    },
+    "instructions": "",
+    "cash_in": null,
+    "cash_out": null,
+    "captain_cash_collected": null,
+    "total_price": "45.640",
+    "attributes": {
+        "id": 44876618,
+        "order_id": 57084191,
+        "meta_data": {
+            "pos": "1",
+            "platform": "ios",
+            "device_id": "C81634DC-7BDC-4D4E-82AA-5322D4FFF300",
+            "smart_3ds": false,
+            "app_version": "14.78.0",
+            "include_tax": "1",
+            "included_tax": "0",
+            "robocall_sent": "1",
+            "use_wallet_balance": false
+        },
+        "created_at": "2023-07-24 08:41:16",
+        "updated_at": "2023-07-24 08:44:03"
+    },
+    "cancellation_reason_id": null,
+    "cancellation_reason": "",
+    "cancelled_by": "",
+    "source": "SUPERAPP",
+    "is_scheduled": false,
+    "prepare_time": null,
+    "pickup_time": null,
+    "initial_eta": 58,
+    "promised_eta": "2023-07-24T09:45:16+00:00",
+    "surge_confirmation_id": null,
+    "charge_amount": "45.640",
+    "hold_amount": 0,
+    "item_replacement_accepted": false,
+    "settlement_reference": "FOOD_57084191",
+    "price": {
+        "show_promo_code": true,
+        "original": 46,
+        "sub_total": 37.260000000000005,
+        "total": 45.64,
+        "delivery_fee": 7,
+        "service_fee": 1.38,
+        "tax": 0,
+        "tax_percentage": 0,
+        "discount": 0,
+        "extra_fee": 0,
+        "merchant_promotion_discount": 4.6,
+        "promotion_discount": 4.6,
+        "promo_code_discount": 0,
+        "total_discount": 4.6,
+        "promotion_discount_value": 4.6,
+        "promo_code_discount_value": 4.14,
+        "free_delivery_discount_value": 0
+    },
+    "delivery": null,
+    "merchant": {
+        "id": 123456,
+        "company_id": 592,
+        "brand_id": 592,
+        "name": "test branch 1",
+        "name_localized": "test branch 1",
+        "description": "",
+        "description_localized": "",
+        "status_id": 1,
+        "offline_until": "",
+        "currency_id": 1,
+        "currency": {
+            "id": 1,
+            "code": "AED",
+            "name": "Dirham",
+            "name_localized": "Dirham",
+            "label": "AED",
+            "label_localized": "AED",
+            "position": "left",
+            "decimals": 2,
+            "purchasing_power_index": 1,
+            "name_short": "Dirhams",
+            "cents_100": true
+        },
+        "priority": 0,
+        "contract_id": 1026431,
+        "express": "no",
+        "dispatching_delay": 0,
+        "delivery_delay_type": "slowpoke",
+        "target_acceptance_time": 120,
+        "business_type": "restaurants",
+        "is_tax_registered": true,
+        "registered_tax": 5,
+        "location_uuid": null,
+        "location_provider": null,
+        "location_source_uuid": null,
+        "address": {
+            "city_id": 1,
+            "city_name": "Dubai",
+            "city_name_localized": "Dubai",
+            "restricted_area_id": null,
+            "restricted_area_name": "",
+            "restricted_area_name_localized": "",
+            "area_id": 8,
+            "area_name": "dubai",
+            "area_name_localized": "dubai",
+            "lat": "24.00000000",
+            "lng": "55.00000000",
+            "address": "some address again in dubai, dubai",
+            "address_localized": "some address again in dubai, dubai",
+            "address_note": "",
+            "address_note_localized": ""
+        },
+        "delivery": {
+            "delivery_type": "merchant",
+            "delivery_charge": "7",
+            "delivery_distance": "5000",
+            "preparation_time": "30",
+            "min_order_amount": "0",
+            "price_per_person": "50",
+            "kitchen_capacity": ""
+        },
+        "status": {
+            "id": 1,
+            "name": "Active",
+            "description": "Merchants are active on the platform, and accepting orders"
+        },
+        "company": {
+            "id": 1123,
+            "name": "",
+            "country_id": 1,
+            "name_localized": "",
+            "description": "",
+            "description_localized": "",
+            "contacts": [
+                {
+                    "id": 123355,
+                    "merchant_id": 0,
+                    "company_id": 123,
+                    "city_id": 0,
+                    "title": "outletManager",
+                    "name": "test user 1",
+                    "email": "test@test.com",
+                    "mobile": "1234566",
+                    "mobile_code": "971",
+                    "address": "",
+                    "priority": 0,
+                    "send_delivery_information": 1,
+                    "send_finance_information": 1
+                }
+            ]
+        },
+        "media": [],
+        "merchant_status_expiries": [],
+        "contacts": null,
+        "contract": null,
+        "merchant_has_shifts": null,
+        "merchant_has_tags": null,
+        "merchant_type": "normal",
+        "hdl_enabled": false,
+        "auto_accept_orders": false
+    },
+    "items": [
+        {
+            "id": 98335122,
+            "count": 1,
+            "comment": null,
+            "item_id": 1912616277,
+            "user_id": 4983065,
+            "name": "Wrap",
+            "name_localized": {
+                "ar": " راب",
+                "en": " Wrap"
+            },
+            "description": "",
+            "description_localized": {
+                "ar": "",
+                "en": ""
+            },
+            "active": true,
+            "category_id": 1014820793,
+            "category_name": " Wrap",
+            "category_name_localized": {
+                "ar": "راب",
+                "en": " Wrap"
+            },
+            "replaced_item_id": null,
+            "price": {
+                "original": 24,
+                "discount": 2.4,
+                "total": 21.6,
+                "total_with_options": 21.6,
+                "original_with_options": 24
+            },
+            "menu_item": {
+                "id": 1912616277,
+                "link": "careemfood://restaurants/12312/menu/items/123132",
+                "item": "Wrap",
+                "item_localized": {
+                    "ar": "فيقان راب",
+                    "en": "Wrap"
+                },
+                "description": "yummy ",
+                "description_localized": {
+                    "ar": "",
+                    "en": "yummy "
+                },
+                "price": {
+                    "total": 21.6,
+                    "discount": 2.4,
+                    "original": 24,
+                    "tax_percentage": null,
+                    "discount_percentage": 10
+                },
+                "active": true,
+                "image_url": "https://careem-catalog-media.imgix.net/catalogs/1231312.jpg",
+                "upc": "",
+                "item_location": {
+                    "row": null,
+                    "zone": null,
+                    "aisle": null,
+                    "section": null
+                }
+            },
+            "groups": [
+                {
+                    "id": 1080346285,
+                    "name": "Choice Of bread",
+                    "name_localized": {
+                        "ar": "اختيار العجين",
+                        "en": "Choice Of bread"
+                    },
+                    "description": "",
+                    "description_localized": {
+                        "en": ""
+                    },
+                    "type": "",
+                    "min": 0,
+                    "max": 0,
+                    "options": [
+                        {
+                            "id": 102003705,
+                            "option_id": 1912616278,
+                            "count": 1,
+                            "name": "Protein bread",
+                            "name_localized": {
+                                "ar": "عجين البروتين",
+                                "en": "Protein bread"
+                            },
+                            "order": 0,
+                            "price": {
+                                "original": 0,
+                                "discount": 0,
+                                "total": 0
+                            },
+                            "menu_option": {
+                                "id": 1912616278,
+                                "item": "Protein bread",
+                                "item_localized": {
+                                    "ar": "عجين البروتين",
+                                    "en": "Protein bread"
+                                },
+                                "order": 999,
+                                "price": {
+                                    "total": 0,
+                                    "discount": 0,
+                                    "original": 0
+                                }
+                            },
+                            "count_per_item": 1
+                        }
+                    ]
+                }
+            ],
+            "options": [
+                {
+                    "id": 102003705,
+                    "count": 1,
+                    "count_per_item": 1,
+                    "name": "Protein bread",
+                    "name_localized": {
+                        "ar": "عجين البروتين",
+                        "en": "Protein bread"
+                    },
+                    "price": {
+                        "original": 0,
+                        "discount": 0,
+                        "total": 0
+                    },
+                    "menu_option": {
+                        "id": 1912616278,
+                        "item": "Protein bread",
+                        "item_localized": {
+                            "ar": "عجين البروتين",
+                            "en": "Protein bread"
+                        },
+                        "order": 999,
+                        "price": {
+                            "total": 0,
+                            "discount": 0,
+                            "original": 0
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id": 98335123,
+            "count": 1,
+            "comment": null,
+            "item_id": 1912616142,
+            "user_id": 4983065,
+            "name": "Cheesecake",
+            "name_localized": {
+                "ar": "نوتيلا تشيز كيك",
+                "en": "Cheesecake"
+            },
+            "description": "Cheesecake",
+            "description_localized": {
+                "ar": "جار التشيز كيك بالنوتيلا",
+                "en": "Cheesecake"
+            },
+            "active": true,
+            "category_id": 1014820798,
+            "category_name": "Desserts",
+            "category_name_localized": {
+                "ar": "الحلا",
+                "en": "Desserts"
+            },
+            "replaced_item_id": null,
+            "price": {
+                "original": 22,
+                "discount": 2.2,
+                "total": 19.8,
+                "total_with_options": 19.8,
+                "original_with_options": 22
+            },
+            "menu_item": {
+                "id": 1912616142,
+                "link": "careemfood://restaurants/897335/menu/items/1912616142",
+                "item": "Cheesecake",
+                "item_localized": {
+                    "ar": "نوتيلا تشيز كيك",
+                    "en": "Cheesecake"
+                },
+                "description": "Cheesecake",
+                "description_localized": {
+                    "ar": "جار التشيز كيك بالنوتيلا",
+                    "en": "Cheesecake"
+                },
+                "price": {
+                    "total": 19.8,
+                    "discount": 2.2,
+                    "original": 22,
+                    "tax_percentage": null,
+                    "discount_percentage": 10
+                },
+                "active": true,
+                "image_url": "https://careem-catalog-media.imgix.net/catalogs/1231321.jpg",
+                "upc": "",
+                "item_location": {
+                    "row": null,
+                    "zone": null,
+                    "aisle": null,
+                    "section": null
+                }
+            },
+            "groups": [],
+            "options": []
+        }
+    ],
+    "payment": [
+        {
+            "type": "card",
+            "is_pre_auth": 0
+        }
+    ],
+    "pickup_address": {
+        "id": 897335,
+        "type": "pickup",
+        "name": "test branch 1",
+        "street": "some address",
+        "area": "dubai",
+        "building": "test branch 1",
+        "unit_number": "",
+        "city": "Dubai",
+        "city_id": 1,
+        "note": "merchant_mapped_address",
+        "location": {
+            "lat": 24.00000000,
+            "lng": 55.00000000
+        }
+    },
+    "dropoff_address": {
+        "id": 20367049,
+        "type": "dropoff",
+        "name": "",
+        "nickname": "Work",
+        "street": null,
+        "area": "Dubai",
+        "building": "JAFZA View 19",
+        "number": "Office 0301",
+        "city": "Dubai",
+        "city_id": null,
+        "note": "user_mapped_address",
+        "location": {
+            "lat": 24.983913421631,
+            "lng": 55.093879699707
+        }
+    },
+    "currency": {
+        "id": 1,
+        "code": "AED",
+        "name": "Dirham",
+        "name_localized": "Dirham",
+        "label": "AED",
+        "label_localized": "AED",
+        "position": "left",
+        "decimals": 2,
+        "purchasing_power_index": 1,
+        "name_short": "Dirhams",
+        "cents_100": true
+    },
+    "proof_of_delivery": null,
+    "group_order_owners": [],
+    "pricing_components": null,
+    "payment_info": {
+        "primary": {
+            "amount": "45.640",
+            "type": "card"
+        },
+        "secondary": {
+            "amount": null,
+            "type": null
+        }
+    },
+    "delivery_time_state_type": null,
+    "customer": {
+        "id": 4983065,
+        "careem_user_id": 9773669,
+        "name": "Fernau lo Renau",
+        "phone": "97112314123123",
+        "timezone": {
+            "code": "Asia/Dubai",
+            "label": "Asia/Dubai (+4)",
+            "label_localized": "Asia/Dubai (+4)",
+            "offset": 4
+        },
+        "type": "user",
+        "locale": "en",
+        "email": "N/A",
+        "uuid": "N/A",
+        "default_payment": {
+            "type": "cash"
+        },
+        "location": {
+            "lat": 0,
+            "lng": 0
+        },
+        "meta": {
+            "platform": "N/A",
+            "environment": "N/A",
+            "app_version": "N/A",
+            "os_version": "N/A",
+            "device": "N/A"
+        }
+    }
+}

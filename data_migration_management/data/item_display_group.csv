@@ -1,0 +1,5 @@
+merchant_id|parent_item_display_group_id|display_group_name_en|display_group_name_ar|display_group_description_en|display_group_description_ar|meta_status
+1|None|Oven|فرن|Oven|فرن|active
+1|None|Salad|سلطة|Salad|سلطة|active
+1|1|Wraps|ويبر|Wraps|ويبر|active
+1|1|Pizza|بيتزا|Pizza|بيتزا|active

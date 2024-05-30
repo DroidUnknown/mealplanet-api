@@ -1,0 +1,529 @@
+[
+    {
+        "id": 94561102,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Konafa Mango"
+            },
+            {
+                "locale": "Ar",
+                "value": "كنافة بالمانجة"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Konafa covered with fresh cream & fresh mango"
+            },
+            {
+                "locale": "Ar",
+                "value": "كنافة مغطاة بكريمة لباني ومانجة طازجة"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458585969821801",
+        "sortOrder": 0,
+        "price": 140,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94561142,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Duo Mango Konafa & Basbousa Hazelnut"
+            },
+            {
+                "locale": "Ar",
+                "value": "ديو بسبوسة بالبندق/ كنافة بالمانجة"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Konafa covered with fresh cream & mango + Basbousa topped with cream & hazelnuts"
+            },
+            {
+                "locale": "Ar",
+                "value": "كنافة مغطاة بكريمة لباني والمانجة الطازجة + بسبوسة مغطاة بالكريمة والبندق"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458587767391375",
+        "sortOrder": 0,
+        "price": 185,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94561164,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Duo Mango Konafa And Le Rocher Konafa"
+            },
+            {
+                "locale": "Ar",
+                "value": "ديو كنافة لو روشيه/ كنافة مانجة"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Konafa covered with fresh cream & Mango + Konafa topped with crispy feuilletine, hazelnuts & rocher chocolate balls filled with konafa"
+            },
+            {
+                "locale": "Ar",
+                "value": "كنافة مغطاة بالكريمة اللباني والمانجة الطازجة + كنافة كريسبي وكيك فادج مليانين سبريد شيكولاتة بالبندق وعليهم الفويتين المقرمش وكور شوكولاتة بالكنافة"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458588466605542",
+        "sortOrder": 0,
+        "price": 185,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94561234,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Basbousa Flan"
+            },
+            {
+                "locale": "Ar",
+                "value": "بسبوسة فلان"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Basbousa topped with flan, fresh cream and Dulce de Leche sauce"
+            },
+            {
+                "locale": "Ar",
+                "value": "بسبوسة مغطاة بطبقة فلان، كريمة لباني و صوص دولسي دي ليتشي"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458589458087614",
+        "sortOrder": 0,
+        "price": 100,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94561249,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Batata Pudding"
+            },
+            {
+                "locale": "Ar",
+                "value": "بطاطا بودنج"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Sweet potatoto purée, topped with pudding and nuts"
+            },
+            {
+                "locale": "Ar",
+                "value": "بطاطا بوريه ومغطاه ببودنج ومكسرات"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458590341612950",
+        "sortOrder": 0,
+        "price": 100,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94561332,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Chocolate Hazelnut Fudge Konafa"
+            },
+            {
+                "locale": "Ar",
+                "value": "كنافة نوتلا فادج"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Konafa topped with fudge cake & chocolate hazelnut spread"
+            },
+            {
+                "locale": "Ar",
+                "value": "كنافة كريسبي وكيك فادج مغطاة بسبريد شيكولاتة بالبندق"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458590956768640",
+        "sortOrder": 0,
+        "price": 130,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94571206,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Crispy Chocolate Hazelnut Konafa"
+            },
+            {
+                "locale": "Ar",
+                "value": "كنافة نوتلا كريسبي"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Crispy Chocolate Konafa filled with chocolate hazelnut spread"
+            },
+            {
+                "locale": "Ar",
+                "value": "كنافة كريسبي بالشيكولاتة محشوة بسبريد شيكولاتة بالبندق"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458591523246650",
+        "sortOrder": 0,
+        "price": 145,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94571233,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Dulce De Leche Rice Pudding"
+            },
+            {
+                "locale": "Ar",
+                "value": "آرز باللبن دولسي دي ليتشي"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Rice pudding with fresh cream topped with toffee, almonds & caramel sauce"
+            },
+            {
+                "locale": "Ar",
+                "value": "رز باللبن مع كريمة لباني مغطى بالطوفي ولوز وكراميل"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458592376294445",
+        "sortOrder": 0,
+        "price": 100,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94571763,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Duo Strawberry Konafa & Crispy Chocolate Konafa"
+            },
+            {
+                "locale": "Ar",
+                "value": "ديو كنافة فراولة / كنافة نوتلا كريسبي"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Konafa covered with fresh cream & pureed strawberries، topped with fresh strawberry + Crispy Chocolate Konafa filled with chocolate hazelnut spread"
+            },
+            {
+                "locale": "Ar",
+                "value": "كنافة مغطاة بكريمة لباني وفراولة بوريه وفراولة فريش + كنافة كريسبي بالشيكولاتة محشوة بسبريد شيكولاتة بالبندق"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458593130796961",
+        "sortOrder": 0,
+        "price": 175,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94572234,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Konafa Chocolate & Lotus Crunch"
+            },
+            {
+                "locale": "Ar",
+                "value": "كنافة شيكولاتة ولوتس كرانش"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Crispy konafa and fudge cake filled with chocolate hazelnut spread & lotus spread, topped with crunchy lotus biscuits & hazelnuts"
+            },
+            {
+                "locale": "Ar",
+                "value": "كنافة كريسبي وكيك فادج مليانين سبريد شيكولاتة بالبندق وسبريد لوتس وعليهم بسوكوت لوتس المقرمش وبندق"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458593817763094",
+        "sortOrder": 0,
+        "price": 165,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94584313,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Konafa Le Rocher"
+            },
+            {
+                "locale": "Ar",
+                "value": "كنافة لو روشيه"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Crispy konafa and fudge cake filled with chocolate hazelnut spread, topped with crispy feuilletine & chocolate balls filled with konafa"
+            },
+            {
+                "locale": "Ar",
+                "value": "كنافة كريسبي وكيك فادج مليانين سبريد شيكولاتة بالبندق وعليهم الفويتين المقرمش وكور شوكولاتة بالكنافة"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458597808551420",
+        "sortOrder": 0,
+        "price": 165,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94584368,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Lotus Brulée"
+            },
+            {
+                "locale": "Ar",
+                "value": "لوتس بروليه"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Crème brûlée topped with Turkish basbousa, fresh cream, Lotus spread and crunchy Lotus biscuits"
+            },
+            {
+                "locale": "Ar",
+                "value": "طبقة من الكريم بروليه مع قطع من البسبوسة التركى عليهم كريمه لبانى وصوص اللوتس وقطع من بسكوت اللوتس الكريسبى"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458598453619963",
+        "sortOrder": 0,
+        "price": 145,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94584407,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Lotus Profiterole Konafa"
+            },
+            {
+                "locale": "Ar",
+                "value": "بروفيترول كنافة باللوتس"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Choux filled with cream covered with Lotus, crispy konafa & almonds"
+            },
+            {
+                "locale": "Ar",
+                "value": "شو محشو بالكريمة ومغطى باللوتس والكنافة المقرمشة واللوز"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458598970350933",
+        "sortOrder": 0,
+        "price": 100,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94584413,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Mango Basbousa"
+            },
+            {
+                "locale": "Ar",
+                "value": "بسبوسه بالمانجة"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Basbousa topped with cream & fresh mango"
+            },
+            {
+                "locale": "Ar",
+                "value": "بسبوسة مغطاة بالكريمة والمانجة الطازجة"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458599630199333",
+        "sortOrder": 0,
+        "price": 110,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94584489,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Mango Tres Leches"
+            },
+            {
+                "locale": "Ar",
+                "value": "تري ليتشي مانجو"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Rawani cake with condensed milk, cream and Mango"
+            },
+            {
+                "locale": "Ar",
+                "value": "كيكة رواني مع حليب مكثف، كريمة ومانج"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458600912422568",
+        "sortOrder": 0,
+        "price": 130,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94584500,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Profiterole"
+            },
+            {
+                "locale": "Ar",
+                "value": "بروفيترول"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Choux filled with cream covered with chocolate sauce & caramelized hazelnuts"
+            },
+            {
+                "locale": "Ar",
+                "value": "شو محشو بالكريمة ومغطى بصوص الشوكولاتة مع البندق المكرمل"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458601449564832",
+        "sortOrder": 0,
+        "price": 120,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    },
+    {
+        "id": 94584523,
+        "name": [
+            {
+                "locale": "En",
+                "value": "Strawberry Basbousa"
+            },
+            {
+                "locale": "Ar",
+                "value": "بسبوسه بالفراولة"
+            }
+        ],
+        "description": [
+            {
+                "locale": "En",
+                "value": "Basbousa topped with cream & fresh strawberry"
+            },
+            {
+                "locale": "Ar",
+                "value": "بسبوسة مغطاة بالكريمة والفراولة الطازجة"
+            }
+        ],
+        "thumbnail": "https://images.deliveryhero.io/image/talabat/Menuitems/blob_638458602085748210",
+        "sortOrder": 0,
+        "price": 110,
+        "itemType": 0,
+        "status": 1,
+        "hasChoices": false,
+        "choiceCategories": [],
+        "isDeleted": false
+    }
+]

@@ -1,0 +1,44 @@
+{
+    "data": {
+        "type": "deposit",
+        "id": "1",
+        "attributes": {
+            "status": 2,
+            "address": null,
+            "address_type": "",
+            "label": "Deposit API example",
+            "tracking_id": "i-994",
+            "confirmations_needed": 1,
+            "time_limit": 900,
+            "callback_url": "https://example.com",
+            "message": null,
+            "inaccuracy": "5.000000000000000000",
+            "target_amount_requested": "0.242434569088083786",
+            "rate_requested": null,
+            "rate_expired_at": null,
+            "invoice_updated_at": null,
+            "payment_page": "https://pay-sandbox.b2binpay.com/en/93a216a5-6b5f-4780-8b57-1234/pay",
+            "target_paid": "0.00",
+            "source_amount_requested": null,
+            "target_paid_pending": "0.00",
+            "destination": {
+                "address_type": null,
+                "address": null
+            }
+        },
+        "relationships": {
+            "currency": {
+                "data": {
+                    "type": "currency",
+                    "id": "1002"
+                }
+            },
+            "wallet": {
+                "data": {
+                    "type": "wallet",
+                    "id": "1"
+                }
+            }
+        }
+    }
+}

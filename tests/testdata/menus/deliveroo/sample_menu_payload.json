@@ -1,0 +1,4075 @@
+{
+    "drn_id": "097e1608-75dd-4a87-a50d-78bd5d99aa0c",
+    "org_drn_id": "09ee6bd2-9941-4bde-a693-b85a5499d727",
+    "external_id": "main_menu_241034",
+    "trigger_first_publish": false,
+    "name": "Test Brand",
+    "market_code": "AE",
+    "menu": {
+        "mealtimes": [
+            {
+                "id": "240916",
+                "name": {
+                    "en": "Untitled menu"
+                },
+                "description": {
+                    "ar": "لمحبي الدجاج!\nهو مفهوم توصيل ساندويتش تشيك في دبي.\nالدجاج ، باعتباره العنصر الأساسي في القائمة ، يقدم المفهوم مجموعة واسعة من السندويشات اللذيذة والمرضية حقًا ، وهو مثالي لتناول طعام الغداء أو العشاء ، بالطريقة الأكثر ملاءمة مع أفضل قيمة ممكنة مقابل المال!",
+                    "en": "For the chick lovers!\nis a Chick sandwich delivery concept in Dubai.\nChicken, being the core item on the menu, the concept offers a wide range of flavourful & truly satisfying sandwiches, perfect for lunch or dinner, in the most convenient way with the best value for money possible!"
+                },
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/5da121a7-8270-45ca-86e5-f94ed0447f01/image.jpeg",
+                    "s3key": "images/5da121a7-8270-45ca-86e5-f94ed0447f01/image.jpeg",
+                    "status": "approved"
+                },
+                "category_ids": [
+                    "14853545",
+                    "4146658",
+                    "4146654",
+                    "4146664",
+                    "4146660",
+                    "4146653",
+                    "4146662",
+                    "0l5tey8869ap",
+                    "4146652"
+                ],
+                "cuisine_tag_codes": [
+                    "lebanese",
+                    "sandwiches",
+                    "chicken",
+                    "street_food",
+                    "healthy"
+                ],
+                "schedule": []
+            }
+        ],
+        "categories": [
+            {
+                "id": "153878073",
+                "name": {
+                    "ar": "",
+                    "en": "SMOKEY DUOS"
+                },
+                "description": null,
+                "item_ids": [
+                    "1272368549",
+                    "1272368551",
+                    "1272368550"
+                ]
+            },
+            {
+                "id": "153878066",
+                "name": {
+                    "ar": "",
+                    "en": "ORIGINALS"
+                },
+                "description": null,
+                "item_ids": [
+                    "1177325983",
+                    "1177326018",
+                    "1177326008",
+                    "1177325997",
+                    "1177325996"
+                ]
+            },
+            {
+                "id": "153878067",
+                "name": {
+                    "ar": "",
+                    "en": "THE BURGERS"
+                },
+                "description": null,
+                "item_ids": [
+                    "1177325976",
+                    "1177325990",
+                    "1177325969"
+                ]
+            },
+            {
+                "id": "153878068",
+                "name": {
+                    "ar": "",
+                    "en": "COMBOS"
+                },
+                "description": null,
+                "item_ids": [
+                    "1185063249",
+                    "1185063257"
+                ]
+            },
+            {
+                "id": "153878064",
+                "name": {
+                    "ar": "",
+                    "en": "SMOKED WINGS"
+                },
+                "description": null,
+                "item_ids": [
+                    "1177325998",
+                    "1177325993"
+                ]
+            },
+            {
+                "id": "153878069",
+                "name": {
+                    "ar": "",
+                    "en": "FARM WRAPS"
+                },
+                "description": null,
+                "item_ids": [
+                    "1177325991",
+                    "1177325970",
+                    "1177325985"
+                ]
+            },
+            {
+                "id": "153878065",
+                "name": {
+                    "ar": "",
+                    "en": "PLATTERS"
+                },
+                "description": null,
+                "item_ids": [
+                    "1177326014",
+                    "1177325986",
+                    "1107521257"
+                ]
+            },
+            {
+                "id": "153878070",
+                "name": {
+                    "ar": "",
+                    "en": "SIDES"
+                },
+                "description": null,
+                "item_ids": [
+                    "1177325999",
+                    "1177325988",
+                    "1177326005",
+                    "1177326016",
+                    "1177325989",
+                    "1177325963",
+                    "1177326015"
+                ]
+            },
+            {
+                "id": "153878071",
+                "name": {
+                    "ar": "",
+                    "en": "SAUCES/EXTRAS"
+                },
+                "description": null,
+                "item_ids": [
+                    "1177326009",
+                    "1177326000",
+                    "1177325964",
+                    "1177326013",
+                    "1177325974",
+                    "1177326010",
+                    "1177325971",
+                    "1177326001",
+                    "1177325981",
+                    "1177326004"
+                ]
+            },
+            {
+                "id": "153878072",
+                "name": {
+                    "ar": "",
+                    "en": "DRINKS"
+                },
+                "description": null,
+                "item_ids": [
+                    "1107521267",
+                    "1215855991",
+                    "1107521265",
+                    "1107521268",
+                    "1107521214",
+                    "1110401493",
+                    "1177325984",
+                    "1177326006",
+                    "1107521236"
+                ]
+            }
+        ],
+        "items": [
+            {
+                "id": "1272368549",
+                "name": {
+                    "ar": "",
+                    "en": "Burger & Brisket Duo"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Fresh brioche bun, double beef patty, double cheese, lollo bionda, some diced red onion, little mustard, our special sauce, and smok'd brisket carnitas on top."
+                },
+                "price_info": {
+                    "price": 4500,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/96ea79d5-d0fc-4633-81f7-3473b5159f64/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1083904805",
+                    "1083904804"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1272368551",
+                "name": {
+                    "ar": "",
+                    "en": "Burger & Bacon Duo"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Fresh brioche bun, double beef patty, double cheese, dill pickles, smok'd bacon and fried onion ring on top, with little mustard and some of our homemade smok'd hickory sauce."
+                },
+                "price_info": {
+                    "price": 4300,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/41a80108-70df-4acd-acc7-6bc80a7c73be/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1083904802",
+                    "1083904803"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1272368550",
+                "name": {
+                    "ar": "",
+                    "en": "Burger & Pastrami Duo"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Fresh brioche bun, double beef patty, double cheese, some tomato, lollo bionda, a little red onion, mustard, sweet relish, crowned with smok'd Pastrami."
+                },
+                "price_info": {
+                    "price": 4700,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/2e4f0632-969d-4d66-90c1-f4083eb633e9/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1083904801",
+                    "1083904800"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325983",
+                "name": {
+                    "ar": "",
+                    "en": "Famous Brisket Sandwich"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "The famous one and only Mattar Farm brisket sandwich. Now better than ever! Smok'd brisket with mixed cabbage, carrot, little onion pickles, dill pickles and BBQ Creamy Sauce"
+                },
+                "price_info": {
+                    "price": 4400,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/b6b3b7d7-d930-42aa-bcca-52cced935606/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383898",
+                    "1032383876"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326018",
+                "name": {
+                    "ar": "",
+                    "en": "Brisket Grilled Cheese"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Smok'd brisket, a mix of cheddar cheese in toasted fresh bread."
+                },
+                "price_info": {
+                    "price": 4500,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/e2eba83a-cba9-4560-bf81-af2ff76df7a9/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383889",
+                    "1032383877"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326008",
+                "name": {
+                    "ar": "",
+                    "en": "Chicken Sando"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Hand breaded chicken, lollo bionda lettuce, tomatoes, some dill pickles, unsweetened coleslaw, some sriracha mayo in a toasted fresh brioche bun."
+                },
+                "price_info": {
+                    "price": 3900,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/9193c233-33a2-4b36-82fe-f0609e57c1ec/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383886",
+                    "1032383894"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325997",
+                "name": {
+                    "ar": "",
+                    "en": "Da Pastrami"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Freshly smoked Pastrami, a little mustard and dill pickle."
+                },
+                "price_info": {
+                    "price": 4500,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/63185a01-df7e-4b0f-afa1-be83b4bd2ff4/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383880",
+                    "1032383900"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325996",
+                "name": {
+                    "ar": "",
+                    "en": "Pastrami Sando"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "A generous portion of freshly smok'd pastrami, lollo bionda, tomatoes, with a little house mustard and some chipotle mayo."
+                },
+                "price_info": {
+                    "price": 4500,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/1eb0cda1-fbb5-4e39-b1e0-285a0e5aff24/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383881",
+                    "1032383882"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325976",
+                "name": {
+                    "ar": "",
+                    "en": "Original Cheeseburger"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Fresh brioche bun, double beef patty, double cheese, lollo bionda, tomato slices, dill pickle and our house burger sauce."
+                },
+                "price_info": {
+                    "price": 4200,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/1585d5a8-069f-44ef-bd7c-fe781f6b1bbd/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383895",
+                    "1032383901"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325990",
+                "name": {
+                    "ar": "",
+                    "en": "'Project' Burger"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Fresh brioche bun, double beef patty, double cheese, smok'd chorizo, a little hickory sauce on top, dill pickle and our house burger sauce."
+                },
+                "price_info": {
+                    "price": 4800,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/f823d5c6-9c29-404c-9c54-aa03623813c3/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383896",
+                    "1032383897"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325969",
+                "name": {
+                    "ar": "",
+                    "en": "Classic Bacon Burger"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Fresh brioche bun, double beef patty, double cheese, smok'd bacon, a little hickory sauce on top, lollo bionda, little red onion, dill pickle and our house burger sauce."
+                },
+                "price_info": {
+                    "price": 4500,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/5251bd47-26c7-476a-b978-25954aa48d4e/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383887",
+                    "1032383885"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1185063249",
+                "name": {
+                    "ar": "",
+                    "en": "FAMOUS BRISKET COMBO"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Our Famous Brisket Sandwich + your choice of fries or coleslaw + your choice of drink."
+                },
+                "price_info": {
+                    "price": 6000,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/b6b3b7d7-d930-42aa-bcca-52cced935606/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1053907013",
+                    "1037162484",
+                    "1037162485"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1185063257",
+                "name": {
+                    "ar": "",
+                    "en": "PROJECT BURGER COMBO"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "MF Project Burger + your choice of fries or coleslaw + your choice of drink."
+                },
+                "price_info": {
+                    "price": 6400,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/f823d5c6-9c29-404c-9c54-aa03623813c3/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1053907012",
+                    "1037162486",
+                    "1037162487"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325998",
+                "name": {
+                    "ar": "",
+                    "en": "Buffalo Wings & Ranch"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "6 pieces of smoked chicken wings tossed in our house buffalo sauce. Comes with ranch sauce on the side."
+                },
+                "price_info": {
+                    "price": 3200,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/e719e931-7603-4d64-9cfd-9962210df62d/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325993",
+                "name": {
+                    "ar": "",
+                    "en": "BBQ Wings"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "6 pieces of smoked chicken tossed in a hickory barbecue sauce."
+                },
+                "price_info": {
+                    "price": 3200,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/d4bc835c-1b10-4271-ab00-addb44c7e194/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325991",
+                "name": {
+                    "ar": "",
+                    "en": "Brisket Wrap"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Seasoned smok'd brisket, lollo bionda lettuce, caramelized onion and our chipotle mayo sauce in a fresh tortilla."
+                },
+                "price_info": {
+                    "price": 4200,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/e6410479-54f3-41be-a123-30a3bb6f59af/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383883",
+                    "1032383899"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325970",
+                "name": {
+                    "ar": "",
+                    "en": "Chicken Ranch Wrap"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Seasoned smok'd chicken, lollo bionda lettuce, diced tomatoes, some dill pickles, grilled green pepper and our chipotle mayo sauce in a fresh tortilla."
+                },
+                "price_info": {
+                    "price": 4000,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/113b574e-3a97-4db4-a47a-7236a1a66be8/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383888",
+                    "1032383890"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325985",
+                "name": {
+                    "ar": "",
+                    "en": "Beef Chorizo Wrap"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Smok'd beef chorizo, light coleslaw, some red onion, a little dill pickles, cheddar and hickory sauce in a fresh tortilla."
+                },
+                "price_info": {
+                    "price": 4000,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/e2bacd67-8970-405f-882b-b405e9e44f4f/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383878",
+                    "1032383879"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326014",
+                "name": {
+                    "ar": "",
+                    "en": "The Brisket Platter"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Smok'd brisket slices, southern rice, fries and salad. Comes with a creamy BBQ sauce."
+                },
+                "price_info": {
+                    "price": 7500,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/0a8e2a05-916e-49ff-bf4e-a595ab80ecea/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383902"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325986",
+                "name": {
+                    "ar": "",
+                    "en": "Full-House Platter"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Smok'd brisket, chorizo and chicken breast, southern rice, fries and salad. Comes with a creamy BBQ sauce."
+                },
+                "price_info": {
+                    "price": 8500,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/be4621c9-6768-427f-b655-796c21719f14/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383891"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521257",
+                "name": {
+                    "ar": "",
+                    "en": "Legendary Brisket Feast"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "1KG Smoked Brisket on rice, served with 6 sides + 6 Potato Buns + 6 Soft Drinks + 3 TMFK BBQ + 3 Plum Sauces"
+                },
+                "price_info": {
+                    "price": 40000,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/86ff634d-9bf3-40c8-9776-8c0a8bb6c556/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1004811217",
+                    "1004811222",
+                    "1004811201"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325999",
+                "name": {
+                    "ar": "",
+                    "en": "TMF Fries"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Comes with your choice of sauce."
+                },
+                "price_info": {
+                    "price": 1200,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/3e3e5f52-8129-40ae-b939-1bc18d413e12/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383884",
+                    "1032383893"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325988",
+                "name": {
+                    "ar": "",
+                    "en": "Loaded Fries"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Fries and chilli con carne. House ranch on the side."
+                },
+                "price_info": {
+                    "price": 2600,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/19c524e7-dd5a-4640-8d2b-6d0e42c34189/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383892"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326005",
+                "name": {
+                    "ar": "",
+                    "en": "Thick Onion Rings"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "Comes with our house hickory sauce."
+                },
+                "price_info": {
+                    "price": 1500,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/b0f840b9-65e2-4d84-8a7f-1d1aeb85647f/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [
+                    "1032383903"
+                ],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326016",
+                "name": {
+                    "ar": "",
+                    "en": "Coleslaw"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": " "
+                },
+                "price_info": {
+                    "price": 1200,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/8e694838-13e7-466a-a52f-6e68e06e6654/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325989",
+                "name": {
+                    "ar": "",
+                    "en": "Mac 'n Cheese"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 1200,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/968f2e17-61ff-4843-9a92-cbb7b0b45ae2/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325963",
+                "name": {
+                    "ar": "",
+                    "en": "Potato Salad"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": " "
+                },
+                "price_info": {
+                    "price": 1200,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/ed467b57-f9e1-41a4-8fe5-8bd71b7f56ff/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326015",
+                "name": {
+                    "ar": "",
+                    "en": "Three Beans Salad"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": " "
+                },
+                "price_info": {
+                    "price": 1300,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/6a867fca-45f4-45de-bdbb-ffdbf408b219/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326009",
+                "name": {
+                    "ar": "",
+                    "en": "Potato Bun"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": " "
+                },
+                "price_info": {
+                    "price": 400,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326000",
+                "name": {
+                    "ar": "",
+                    "en": "Onion Pickles"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 400,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325964",
+                "name": {
+                    "ar": "",
+                    "en": "Dill Pickles"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 400,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326013",
+                "name": {
+                    "ar": "",
+                    "en": "Ketchup"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 400,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325974",
+                "name": {
+                    "ar": "",
+                    "en": "Mayonnaise"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 400,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326010",
+                "name": {
+                    "ar": "",
+                    "en": "Chipotle Mayo"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 400,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325971",
+                "name": {
+                    "ar": "",
+                    "en": "Hickory BBQ"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 500,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326001",
+                "name": {
+                    "ar": "",
+                    "en": "MF Creamy BBQ"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 500,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325981",
+                "name": {
+                    "ar": "",
+                    "en": "House Ranch"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 500,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326004",
+                "name": {
+                    "ar": "",
+                    "en": "House Mustard"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 400,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521267",
+                "name": {
+                    "ar": "",
+                    "en": "Coca Cola"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "330 ml"
+                },
+                "price_info": {
+                    "price": 800,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/f5c55eff-daac-4c1f-9613-7dabbf153ba8/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1215855991",
+                "name": {
+                    "ar": "",
+                    "en": "Coca Cola Zero"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 800,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/13f9a98d-a72e-40c9-8f63-5b701d266cdc/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521265",
+                "name": {
+                    "ar": "",
+                    "en": "Coca Cola Light"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "330 ml"
+                },
+                "price_info": {
+                    "price": 800,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/b5174c8f-9f36-41eb-a18c-526a553227e6/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521268",
+                "name": {
+                    "ar": "",
+                    "en": "Sprite"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "330 ml"
+                },
+                "price_info": {
+                    "price": 800,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/3a3f8165-622d-4183-9f25-fd6fb0b99768/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521214",
+                "name": {
+                    "ar": "",
+                    "en": "Sprite Zero"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "330 ml"
+                },
+                "price_info": {
+                    "price": 800,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/4e8cb9d5-a48f-46c1-998e-3cace2da1d3a/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1110401493",
+                "name": {
+                    "ar": "",
+                    "en": "Fanta"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "330 ml"
+                },
+                "price_info": {
+                    "price": 800,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/e8fa248b-519d-44e0-937a-dfebaff5e4d4/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325984",
+                "name": {
+                    "ar": "",
+                    "en": "Schweppes Tonic"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 1000,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/739c0118-febf-4286-9f39-9b28bfb2d053/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326006",
+                "name": {
+                    "ar": "",
+                    "en": "Schweppes Soda"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 1000,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/dee2f459-3d7f-4bb7-aa7e-32c25ab895f4/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521236",
+                "name": {
+                    "ar": "",
+                    "en": "Arwa Water"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": "500 ml"
+                },
+                "price_info": {
+                    "price": 800,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {
+                    "cdn_url": "https://rs-menus-api.roocdn.com/images/f437f1bb-4119-41bb-a5cc-8240438976d5/image.jpeg?width={w}&height={h}&auto=webp&format=jpg&fit=crop",
+                    "s3key": "",
+                    "status": ""
+                },
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326003",
+                "name": {
+                    "ar": "",
+                    "en": "No onions"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325982",
+                "name": {
+                    "ar": "",
+                    "en": "No sauce"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326012",
+                "name": {
+                    "ar": "",
+                    "en": "No tomatoes"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325972",
+                "name": {
+                    "ar": "",
+                    "en": "No pickles"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325973",
+                "name": {
+                    "ar": "",
+                    "en": "No lettuce"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325967",
+                "name": {
+                    "ar": "",
+                    "en": "No cheese"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325995",
+                "name": {
+                    "ar": "",
+                    "en": "No mustard"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1182790911",
+                "name": {
+                    "ar": "",
+                    "en": "No cabbage"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1185063254",
+                "name": {
+                    "ar": "",
+                    "en": "Fries"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1185063252",
+                "name": {
+                    "ar": "",
+                    "en": "Coleslaw"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521276",
+                "name": {
+                    "ar": "",
+                    "en": "Extra 500g"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 17500,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521250",
+                "name": {
+                    "ar": "",
+                    "en": "Extra 1kg"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 23500,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325978",
+                "name": {
+                    "ar": "",
+                    "en": "Ketchup"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325987",
+                "name": {
+                    "ar": "",
+                    "en": "Mayonnaise"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325979",
+                "name": {
+                    "ar": "",
+                    "en": "House Chipotle Mayo*"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 100,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325962",
+                "name": {
+                    "ar": "",
+                    "en": "House Creamy BBQ*"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 200,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326002",
+                "name": {
+                    "ar": "",
+                    "en": "Fries & Coke"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 1800,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325965",
+                "name": {
+                    "ar": "",
+                    "en": "Fries & Coke Light"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 1800,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326017",
+                "name": {
+                    "ar": "",
+                    "en": "Fries & Sprite"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 1800,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326011",
+                "name": {
+                    "ar": "",
+                    "en": "Fries & Sprite Zero"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 1800,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325966",
+                "name": {
+                    "ar": "",
+                    "en": "Fries & Fanta"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 1800,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1234880253",
+                "name": {
+                    "ar": "",
+                    "en": "Fries & Coke Zero"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 1800,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1272368552",
+                "name": {
+                    "ar": "",
+                    "en": "Fries & Arwa"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 1500,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177326007",
+                "name": {
+                    "ar": "",
+                    "en": "Coleslaw"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325994",
+                "name": {
+                    "ar": "",
+                    "en": "Green Salad"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325977",
+                "name": {
+                    "ar": "",
+                    "en": "Three Beans Salad"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325975",
+                "name": {
+                    "ar": "",
+                    "en": "Potato Salad"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521221",
+                "name": {
+                    "ar": "",
+                    "en": "Coleslaw"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325968",
+                "name": {
+                    "ar": "",
+                    "en": "Green Salad"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521219",
+                "name": {
+                    "ar": "",
+                    "en": "Three Bean Salad"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521241",
+                "name": {
+                    "ar": "",
+                    "en": "Southern Style Rice"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1116169965",
+                "name": {
+                    "ar": "",
+                    "en": "Potato Salad"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521220",
+                "name": {
+                    "ar": "",
+                    "en": "TMF Fries"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1177325980",
+                "name": {
+                    "ar": "",
+                    "en": "Yes! Cheese on the side"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 400,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1185063256",
+                "name": {
+                    "ar": "",
+                    "en": "Coca Cola"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1185063250",
+                "name": {
+                    "ar": "",
+                    "en": "Coca Cola Zero"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1185063259",
+                "name": {
+                    "ar": "",
+                    "en": "Coca Cola Light"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1185063253",
+                "name": {
+                    "ar": "",
+                    "en": "Sprite"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1185063260",
+                "name": {
+                    "ar": "",
+                    "en": "Sprite Zero"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1185063251",
+                "name": {
+                    "ar": "",
+                    "en": "Fanta"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1185063258",
+                "name": {
+                    "ar": "",
+                    "en": "Schweppes Bitter Lemon"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 200,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1185063255",
+                "name": {
+                    "ar": "",
+                    "en": "Schweppes Soda"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 200,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521215",
+                "name": {
+                    "ar": "",
+                    "en": "Coca Cola"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521231",
+                "name": {
+                    "ar": "",
+                    "en": "Coca Cola Light"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521228",
+                "name": {
+                    "ar": "",
+                    "en": "Sprite"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521234",
+                "name": {
+                    "ar": "",
+                    "en": "Sprite Zero"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1110401492",
+                "name": {
+                    "ar": "",
+                    "en": "Fanta"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            },
+            {
+                "id": "1107521253",
+                "name": {
+                    "ar": "",
+                    "en": "Arwa Water"
+                },
+                "operational_name": "",
+                "description": {
+                    "ar": "",
+                    "en": null
+                },
+                "price_info": {
+                    "price": 0,
+                    "overrides": []
+                },
+                "plu": "",
+                "ian": "",
+                "image": {},
+                "tax_rate": "0",
+                "modifier_ids": [],
+                "allergies": [],
+                "classifications": [],
+                "highlights": [],
+                "diets": [],
+                "nutritional_info": {},
+                "contains_alcohol": false,
+                "max_quantity": null,
+                "is_signature_exclusive": false,
+                "type": "ITEM",
+                "is_eligible_for_substitution": true,
+                "is_eligible_as_replacement": true
+            }
+        ],
+        "modifiers": [
+            {
+                "id": "1053907013",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1185063249"
+                ]
+            },
+            {
+                "id": "1037162484",
+                "name": {
+                    "ar": "",
+                    "en": "Coleslaw or Fries?"
+                },
+                "description": "",
+                "min_selection": 1,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1185063249"
+                ]
+            },
+            {
+                "id": "1032383899",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325991"
+                ]
+            },
+            {
+                "id": "1004811201",
+                "name": {
+                    "ar": "",
+                    "en": "Add extra brisket:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 2,
+                "repeatable": true,
+                "item_ids": [
+                    "1107521257"
+                ]
+            },
+            {
+                "id": "1032383884",
+                "name": {
+                    "ar": "",
+                    "en": "Side Sauce:"
+                },
+                "description": "",
+                "min_selection": 1,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325999"
+                ]
+            },
+            {
+                "id": "1083904802",
+                "name": {
+                    "ar": "",
+                    "en": "Make it a Combo?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1272368551"
+                ]
+            },
+            {
+                "id": "1083904800",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1272368550"
+                ]
+            },
+            {
+                "id": "1032383886",
+                "name": {
+                    "ar": "",
+                    "en": "Make it a Combo?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177326008"
+                ]
+            },
+            {
+                "id": "1053907012",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1185063257"
+                ]
+            },
+            {
+                "id": "1032383890",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325970"
+                ]
+            },
+            {
+                "id": "1032383902",
+                "name": {
+                    "ar": "",
+                    "en": "What's your salad?"
+                },
+                "description": "",
+                "min_selection": 1,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177326014"
+                ]
+            },
+            {
+                "id": "1032383896",
+                "name": {
+                    "ar": "",
+                    "en": "Make it a Combo?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325990"
+                ]
+            },
+            {
+                "id": "1032383897",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325990"
+                ]
+            },
+            {
+                "id": "1004811217",
+                "name": {
+                    "ar": "",
+                    "en": "Select your sides:"
+                },
+                "description": "",
+                "min_selection": 6,
+                "max_selection": 6,
+                "repeatable": true,
+                "item_ids": [
+                    "1107521257"
+                ]
+            },
+            {
+                "id": "1032383903",
+                "name": {
+                    "ar": "",
+                    "en": "Cheese sauce on the side?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177326005"
+                ]
+            },
+            {
+                "id": "1083904801",
+                "name": {
+                    "ar": "",
+                    "en": "Make it a Combo?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1272368550"
+                ]
+            },
+            {
+                "id": "1032383898",
+                "name": {
+                    "ar": "",
+                    "en": "Make it a Combo?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325983"
+                ]
+            },
+            {
+                "id": "1032383893",
+                "name": {
+                    "ar": "",
+                    "en": "Cheese sauce on the side?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325999"
+                ]
+            },
+            {
+                "id": "1032383882",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325996"
+                ]
+            },
+            {
+                "id": "1032383895",
+                "name": {
+                    "ar": "",
+                    "en": "Make it a Combo?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325976"
+                ]
+            },
+            {
+                "id": "1032383883",
+                "name": {
+                    "ar": "",
+                    "en": "Make it a Combo?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325991"
+                ]
+            },
+            {
+                "id": "1083904803",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1272368551"
+                ]
+            },
+            {
+                "id": "1032383877",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1177326018"
+                ]
+            },
+            {
+                "id": "1032383894",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1177326008"
+                ]
+            },
+            {
+                "id": "1032383879",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325985"
+                ]
+            },
+            {
+                "id": "1032383892",
+                "name": {
+                    "ar": "",
+                    "en": "Cheese sauce on the side?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325988"
+                ]
+            },
+            {
+                "id": "1032383881",
+                "name": {
+                    "ar": "",
+                    "en": "Make it a Combo?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325996"
+                ]
+            },
+            {
+                "id": "1032383901",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325976"
+                ]
+            },
+            {
+                "id": "1037162487",
+                "name": {
+                    "ar": "",
+                    "en": "Choose your drink:"
+                },
+                "description": "",
+                "min_selection": 1,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1185063257"
+                ]
+            },
+            {
+                "id": "1004811222",
+                "name": {
+                    "ar": "",
+                    "en": "Select your drinks:"
+                },
+                "description": "",
+                "min_selection": 6,
+                "max_selection": 6,
+                "repeatable": true,
+                "item_ids": [
+                    "1107521257"
+                ]
+            },
+            {
+                "id": "1083904804",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1272368549"
+                ]
+            },
+            {
+                "id": "1032383888",
+                "name": {
+                    "ar": "",
+                    "en": "Make it a Combo?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325970"
+                ]
+            },
+            {
+                "id": "1032383891",
+                "name": {
+                    "ar": "",
+                    "en": "What's your salad?"
+                },
+                "description": "",
+                "min_selection": 1,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325986"
+                ]
+            },
+            {
+                "id": "1032383880",
+                "name": {
+                    "ar": "",
+                    "en": "Make it a Combo?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325997"
+                ]
+            },
+            {
+                "id": "1032383900",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325997"
+                ]
+            },
+            {
+                "id": "1032383887",
+                "name": {
+                    "ar": "",
+                    "en": "Make it a Combo?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325969"
+                ]
+            },
+            {
+                "id": "1032383885",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325969"
+                ]
+            },
+            {
+                "id": "1037162485",
+                "name": {
+                    "ar": "",
+                    "en": "Choose your drink:"
+                },
+                "description": "",
+                "min_selection": 1,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1185063249"
+                ]
+            },
+            {
+                "id": "1083904805",
+                "name": {
+                    "ar": "",
+                    "en": "Make it a Combo?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1272368549"
+                ]
+            },
+            {
+                "id": "1032383876",
+                "name": {
+                    "ar": "",
+                    "en": "Customize:"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 7,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325983"
+                ]
+            },
+            {
+                "id": "1032383889",
+                "name": {
+                    "ar": "",
+                    "en": "Make it a Combo?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177326018"
+                ]
+            },
+            {
+                "id": "1037162486",
+                "name": {
+                    "ar": "",
+                    "en": "Coleslaw or Fries?"
+                },
+                "description": "",
+                "min_selection": 1,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1185063257"
+                ]
+            },
+            {
+                "id": "1032383878",
+                "name": {
+                    "ar": "",
+                    "en": "Make it a Combo?"
+                },
+                "description": "",
+                "min_selection": 0,
+                "max_selection": 1,
+                "repeatable": true,
+                "item_ids": [
+                    "1177325985"
+                ]
+            }
+        ],
+        "currency_code": "AED"
+    },
+    "updated_at": "1687415044528966000",
+    "branch_drn_ids": [
+        "0225ffe3-538c-4de0-9944-a079f4868d56"
+    ],
+    "metadata": {
+        "tax_rates": [
+            "0",
+            "5"
+        ],
+        "allergens": [],
+        "classifications": [
+            "early_stage_infant_formula",
+            "pharmaceuticals_aspirin",
+            "pharmaceuticals_ibuprofen",
+            "pharmaceuticals_paracetamol"
+        ],
+        "highlights": [
+            "in_store_price"
+        ]
+    }
+}

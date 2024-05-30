@@ -1,0 +1,35 @@
+[
+  {
+    "id": "cus_NOgqGe8btM46of",
+    "object": "customer",
+    "address": null,
+    "balance": 0,
+    "created": 1666296147,
+    "currency": null,
+    "default_currency": null,
+    "default_source": null,
+    "delinquent": false,
+    "description": null,
+    "discount": null,
+    "email": "merchant_customer@gmail.com",
+    "invoice_prefix": "39D98B41",
+    "invoice_settings": {
+      "custom_fields": null,
+      "default_payment_method": null,
+      "footer": null,
+      "rendering_options": null
+    },
+    "livemode": false,
+    "metadata": {
+      "customer_id": 3,
+      "merchant_id": 1
+    },
+    "name": null,
+    "next_invoice_sequence": 1,
+    "phone": null,
+    "preferred_locales": [],
+    "shipping": null,
+    "tax_exempt": "none",
+    "test_clock": null
+  }
+]

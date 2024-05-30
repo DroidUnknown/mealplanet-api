@@ -1,0 +1,276 @@
+modifier_choice_id|branch_id|external_modifier_choice_id|sequence_nr|display_choice_name_en|display_choice_name_ar|modifier_choice_description_en|modifier_choice_description_ar|specific_price|currency_id|default_quantity|max_choice_count|min_choice_count|count_type|excluded_p|meta_status
+1|7|fc_467412|1|fries & coke|Fries & Coke|fries & coke|Fries & Coke|16.00|1|0|1|0|multiple|0|active
+2|7|fcl_413546|2|fries & coke light|Fries & Coke Light|fries & coke light|Fries & Coke Light|16.00|1|0|1|0|single|0|active
+3|7|fs_754631|3|fries & sprite|Fries & Sprite|fries & sprite|Fries & Sprite|16.00|1|0|1|0|single|0|active
+4|7|fsz_337362|4|fries & sprite zero|Fries & Sprite Zero|fries & sprite zero|Fries & Sprite Zero|16.00|1|0|1|0|single|0|active
+5|7|ff_763869|5|fries & fanta|Fries & Fanta|fries & fanta|Fries & Fanta|16.00|1|0|1|0|single|0|active
+6|7|fcz_442419|6|fries & coke zero|Fries & Coke Zero|fries & coke zero|Fries & Coke Zero|16.00|1|0|1|0|single|0|active
+7|7|fa_681692|7|fries & arwa|Fries & Arwa|fries & arwa|Fries & Arwa|15.00|1|0|1|0|single|0|active
+8|7|no_011080|8|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+9|7|ns_342838|9|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+10|7|nt_130268|10|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+11|7|np_544779|11|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+12|7|nl_937613|12|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+13|7|nc_551419|13|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+14|7|nm_537461|14|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+15|7|nc_371377|15|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+16|7|fc_133641|16|fries & coke|Fries & Coke|fries & coke|Fries & Coke|16.00|1|0|1|0|single|0|active
+17|7|fcl_624746|17|fries & coke light|Fries & Coke Light|fries & coke light|Fries & Coke Light|16.00|1|0|1|0|single|0|active
+18|7|fs_545440|18|fries & sprite|Fries & Sprite|fries & sprite|Fries & Sprite|16.00|1|0|1|0|single|0|active
+19|7|fsz_914854|19|fries & sprite zero|Fries & Sprite Zero|fries & sprite zero|Fries & Sprite Zero|16.00|1|0|1|0|single|0|active
+20|7|ff_747518|20|fries & fanta|Fries & Fanta|fries & fanta|Fries & Fanta|16.00|1|0|1|0|single|0|active
+21|7|fcz_897259|21|fries & coke zero|Fries & Coke Zero|fries & coke zero|Fries & Coke Zero|16.00|1|0|1|0|single|0|active
+22|7|fa_703986|22|fries & arwa|Fries & Arwa|fries & arwa|Fries & Arwa|15.00|1|0|1|0|single|0|active
+23|7|no_113630|23|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+24|7|ns_496586|24|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+25|7|nt_666292|25|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+26|7|np_718478|26|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+27|7|nl_154214|27|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+28|7|nc_518999|28|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+29|7|nm_255383|29|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+30|7|nc_815704|30|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+31|7|fc_755011|31|fries & coke|Fries & Coke|fries & coke|Fries & Coke|16.00|1|0|1|0|single|0|active
+32|7|fcl_268242|32|fries & coke light|Fries & Coke Light|fries & coke light|Fries & Coke Light|16.00|1|0|1|0|single|0|active
+33|7|fs_991697|33|fries & sprite|Fries & Sprite|fries & sprite|Fries & Sprite|16.00|1|0|1|0|single|0|active
+34|7|fsz_077632|34|fries & sprite zero|Fries & Sprite Zero|fries & sprite zero|Fries & Sprite Zero|16.00|1|0|1|0|single|0|active
+35|7|ff_976758|35|fries & fanta|Fries & Fanta|fries & fanta|Fries & Fanta|16.00|1|0|1|0|single|0|active
+36|7|fcz_009249|36|fries & coke zero|Fries & Coke Zero|fries & coke zero|Fries & Coke Zero|16.00|1|0|1|0|single|0|active
+37|7|fa_495297|37|fries & arwa|Fries & Arwa|fries & arwa|Fries & Arwa|15.00|1|0|1|0|single|0|active
+38|7|no_124304|38|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+39|7|ns_354282|39|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+40|7|nt_769703|40|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+41|7|np_954024|41|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+42|7|nl_957165|42|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+43|7|nc_929945|43|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+44|7|nm_865079|44|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+45|7|nc_089920|45|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+46|7|fc_490587|46|fries & coke|Fries & Coke|fries & coke|Fries & Coke|16.00|1|0|1|0|single|0|active
+47|7|fcz_854648|47|fries & coke zero|Fries & Coke Zero|fries & coke zero|Fries & Coke Zero|16.00|1|0|1|0|single|0|active
+48|7|fcl_222169|48|fries & coke light|Fries & Coke Light|fries & coke light|Fries & Coke Light|16.00|1|0|1|0|single|0|active
+49|7|fs_207772|49|fries & sprite|Fries & Sprite|fries & sprite|Fries & Sprite|16.00|1|0|1|0|single|0|active
+50|7|fsz_203376|50|fries & sprite zero|Fries & Sprite Zero|fries & sprite zero|Fries & Sprite Zero|16.00|1|0|1|0|single|0|active
+51|7|ff_946176|51|fries & fanta|Fries & Fanta|fries & fanta|Fries & Fanta|16.00|1|0|1|0|single|0|active
+52|7|fa_825204|52|fries & arwa|Fries & Arwa|fries & arwa|Fries & Arwa|15.00|1|0|1|0|single|0|active
+53|7|no_890011|53|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+54|7|ns_881508|54|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+55|7|nt_809546|55|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+56|7|np_786765|56|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+57|7|nl_086808|57|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+58|7|nc_618883|58|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+59|7|nm_938349|59|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+60|7|nc_267177|60|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+61|7|fc_220753|61|fries & coke|Fries & Coke|fries & coke|Fries & Coke|16.00|1|0|1|0|single|0|active
+62|7|fcz_799116|62|fries & coke zero|Fries & Coke Zero|fries & coke zero|Fries & Coke Zero|16.00|1|0|1|0|single|0|active
+63|7|fcl_826306|63|fries & coke light|Fries & Coke Light|fries & coke light|Fries & Coke Light|16.00|1|0|1|0|single|0|active
+64|7|fs_407700|64|fries & sprite|Fries & Sprite|fries & sprite|Fries & Sprite|16.00|1|0|1|0|single|0|active
+65|7|fsz_070755|65|fries & sprite zero|Fries & Sprite Zero|fries & sprite zero|Fries & Sprite Zero|16.00|1|0|1|0|single|0|active
+66|7|ff_076092|66|fries & fanta|Fries & Fanta|fries & fanta|Fries & Fanta|16.00|1|0|1|0|single|0|active
+67|7|fa_478995|67|fries & arwa|Fries & Arwa|fries & arwa|Fries & Arwa|15.00|1|0|1|0|single|0|active
+68|7|no_110547|68|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+69|7|ns_523559|69|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+70|7|nt_432914|70|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+71|7|np_698207|71|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+72|7|nl_388606|72|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+73|7|nc_824982|73|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+74|7|nm_415741|74|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+75|7|nc_783606|75|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+76|7|fc_716014|76|fries & coke|Fries & Coke|fries & coke|Fries & Coke|16.00|1|0|1|0|single|0|active
+77|7|fcz_936055|77|fries & coke zero|Fries & Coke Zero|fries & coke zero|Fries & Coke Zero|16.00|1|0|1|0|single|0|active
+78|7|fcl_176465|78|fries & coke light|Fries & Coke Light|fries & coke light|Fries & Coke Light|16.00|1|0|1|0|single|0|active
+79|7|fs_286960|79|fries & sprite|Fries & Sprite|fries & sprite|Fries & Sprite|16.00|1|0|1|0|single|0|active
+80|7|fsz_494587|80|fries & sprite zero|Fries & Sprite Zero|fries & sprite zero|Fries & Sprite Zero|16.00|1|0|1|0|single|0|active
+81|7|ff_048318|81|fries & fanta|Fries & Fanta|fries & fanta|Fries & Fanta|16.00|1|0|1|0|single|0|active
+82|7|fa_656273|82|fries & arwa|Fries & Arwa|fries & arwa|Fries & Arwa|15.00|1|0|1|0|single|0|active
+83|7|no_295193|83|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+84|7|ns_416970|84|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+85|7|nt_906785|85|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+86|7|np_562209|86|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+87|7|nl_874080|87|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+88|7|nc_605114|88|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+89|7|nm_519826|89|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+90|7|nc_345027|90|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+91|7|fc_020274|91|fries & coke|Fries & Coke|fries & coke|Fries & Coke|16.00|1|0|1|0|single|0|active
+92|7|fcz_233058|92|fries & coke zero|Fries & Coke Zero|fries & coke zero|Fries & Coke Zero|16.00|1|0|1|0|single|0|active
+93|7|fcl_494022|93|fries & coke light|Fries & Coke Light|fries & coke light|Fries & Coke Light|16.00|1|0|1|0|single|0|active
+94|7|fs_016223|94|fries & sprite|Fries & Sprite|fries & sprite|Fries & Sprite|16.00|1|0|1|0|single|0|active
+95|7|fsz_380135|95|fries & sprite zero|Fries & Sprite Zero|fries & sprite zero|Fries & Sprite Zero|16.00|1|0|1|0|single|0|active
+96|7|ff_737936|96|fries & fanta|Fries & Fanta|fries & fanta|Fries & Fanta|16.00|1|0|1|0|single|0|active
+97|7|fa_839949|97|fries & arwa|Fries & Arwa|fries & arwa|Fries & Arwa|15.00|1|0|1|0|single|0|active
+98|7|no_171904|98|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+99|7|ns_909637|99|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+100|7|nt_404009|100|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+101|7|np_327250|101|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+102|7|nl_261386|102|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+103|7|nc_215126|103|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+104|7|nm_000181|104|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+105|7|nc_570677|105|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+106|7|fc_838958|106|fries & coke|Fries & Coke|fries & coke|Fries & Coke|16.00|1|0|1|0|single|0|active
+107|7|fcz_506525|107|fries & coke zero|Fries & Coke Zero|fries & coke zero|Fries & Coke Zero|16.00|1|0|1|0|single|0|active
+108|7|fcl_067934|108|fries & coke light|Fries & Coke Light|fries & coke light|Fries & Coke Light|16.00|1|0|1|0|single|0|active
+109|7|fs_148546|109|fries & sprite|Fries & Sprite|fries & sprite|Fries & Sprite|16.00|1|0|1|0|single|0|active
+110|7|fsz_327196|110|fries & sprite zero|Fries & Sprite Zero|fries & sprite zero|Fries & Sprite Zero|16.00|1|0|1|0|single|0|active
+111|7|ff_704958|111|fries & fanta|Fries & Fanta|fries & fanta|Fries & Fanta|16.00|1|0|1|0|single|0|active
+112|7|fa_230239|112|fries & arwa|Fries & Arwa|fries & arwa|Fries & Arwa|15.00|1|0|1|0|single|0|active
+113|7|no_087308|113|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+114|7|ns_341111|114|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+115|7|nt_714933|115|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+116|7|np_838118|116|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+117|7|nl_389679|117|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+118|7|nc_733239|118|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+119|7|nm_879777|119|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+120|7|nc_371351|120|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+121|7|fc_006466|121|fries & coke|Fries & Coke|fries & coke|Fries & Coke|16.00|1|0|1|0|single|0|active
+122|7|fcz_064487|122|fries & coke zero|Fries & Coke Zero|fries & coke zero|Fries & Coke Zero|16.00|1|0|1|0|single|0|active
+123|7|fcl_310110|123|fries & coke light|Fries & Coke Light|fries & coke light|Fries & Coke Light|16.00|1|0|1|0|single|0|active
+124|7|fs_587659|124|fries & sprite|Fries & Sprite|fries & sprite|Fries & Sprite|16.00|1|0|1|0|single|0|active
+125|7|fsz_151192|125|fries & sprite zero|Fries & Sprite Zero|fries & sprite zero|Fries & Sprite Zero|16.00|1|0|1|0|single|0|active
+126|7|ff_076536|126|fries & fanta|Fries & Fanta|fries & fanta|Fries & Fanta|16.00|1|0|1|0|single|0|active
+127|7|fa_531033|127|fries & arwa|Fries & Arwa|fries & arwa|Fries & Arwa|15.00|1|0|1|0|single|0|active
+128|7|no_761055|128|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+129|7|ns_306598|129|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+130|7|nt_666036|130|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+131|7|np_962242|131|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+132|7|nl_773365|132|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+133|7|nc_851056|133|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+134|7|nm_884012|134|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+135|7|nc_839917|135|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+136|7|fc_749648|136|fries & coke|Fries & Coke|fries & coke|Fries & Coke|16.00|1|0|1|0|single|0|active
+137|7|fcz_057006|137|fries & coke zero|Fries & Coke Zero|fries & coke zero|Fries & Coke Zero|16.00|1|0|1|0|single|0|active
+138|7|fcl_675987|138|fries & coke light|Fries & Coke Light|fries & coke light|Fries & Coke Light|16.00|1|0|1|0|single|0|active
+139|7|fs_732791|139|fries & sprite|Fries & Sprite|fries & sprite|Fries & Sprite|16.00|1|0|1|0|single|0|active
+140|7|fsz_557296|140|fries & sprite zero|Fries & Sprite Zero|fries & sprite zero|Fries & Sprite Zero|16.00|1|0|1|0|single|0|active
+141|7|ff_577075|141|fries & fanta|Fries & Fanta|fries & fanta|Fries & Fanta|16.00|1|0|1|0|single|0|active
+142|7|fa_818335|142|fries & arwa|Fries & Arwa|fries & arwa|Fries & Arwa|15.00|1|0|1|0|single|0|active
+143|7|no_573017|143|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+144|7|ns_461273|144|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+145|7|nt_987453|145|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+146|7|np_996465|146|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+147|7|nl_242703|147|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+148|7|nc_296965|148|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+149|7|nm_983537|149|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+150|7|nc_273912|150|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+151|7|fc_408893|151|fries & coke|Fries & Coke|fries & coke|Fries & Coke|16.00|1|0|1|0|single|0|active
+152|7|fcz_449041|152|fries & coke zero|Fries & Coke Zero|fries & coke zero|Fries & Coke Zero|16.00|1|0|1|0|single|0|active
+153|7|fcl_573375|153|fries & coke light|Fries & Coke Light|fries & coke light|Fries & Coke Light|16.00|1|0|1|0|single|0|active
+154|7|fs_644887|154|fries & sprite|Fries & Sprite|fries & sprite|Fries & Sprite|16.00|1|0|1|0|single|0|active
+155|7|fsz_234105|155|fries & sprite zero|Fries & Sprite Zero|fries & sprite zero|Fries & Sprite Zero|16.00|1|0|1|0|single|0|active
+156|7|ff_984547|156|fries & fanta|Fries & Fanta|fries & fanta|Fries & Fanta|16.00|1|0|1|0|single|0|active
+157|7|fa_888096|157|fries & arwa|Fries & Arwa|fries & arwa|Fries & Arwa|15.00|1|0|1|0|single|0|active
+158|7|no_287729|158|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+159|7|ns_106003|159|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+160|7|nt_642163|160|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+161|7|np_636664|161|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+162|7|nl_655625|162|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+163|7|nc_274125|163|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+164|7|nm_779874|164|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+165|7|nc_139503|165|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+166|7|no_454857|166|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+167|7|ns_803944|167|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+168|7|nt_853540|168|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+169|7|np_299164|169|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+170|7|nl_719913|170|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+171|7|nc_585600|171|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+172|7|nm_213313|172|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+173|7|nc_325808|173|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+174|7|f_855410|174|fries|Fries|fries|Fries|0.00|1|0|1|0|single|0|active
+175|7|c_644267|175|coleslaw|Coleslaw|coleslaw|Coleslaw|0.00|1|0|1|0|single|0|active
+176|7|cc_253188|176|coca cola|Coca Cola|coca cola|Coca Cola|0.00|1|0|1|0|single|0|active
+177|7|ccz_847913|177|coca cola zero|Coca Cola Zero|coca cola zero|Coca Cola Zero|0.00|1|0|1|0|single|0|active
+178|7|ccl_099400|178|coca cola light|Coca Cola Light|coca cola light|Coca Cola Light|0.00|1|0|1|0|single|0|active
+179|7|s_170629|179|sprite|Sprite|sprite|Sprite|0.00|1|0|1|0|single|0|active
+180|7|sz_941463|180|sprite zero|Sprite Zero|sprite zero|Sprite Zero|0.00|1|0|1|0|single|0|active
+181|7|f_345770|181|fanta|Fanta|fanta|Fanta|0.00|1|0|1|0|single|0|active
+182|7|sbl_681974|182|schweppes bitter lemon|Schweppes Bitter Lemon|schweppes bitter lemon|Schweppes Bitter Lemon|2.00|1|0|1|0|single|0|active
+183|7|ss_671082|183|schweppes soda|Schweppes Soda|schweppes soda|Schweppes Soda|2.00|1|0|1|0|single|0|active
+184|7|no_782238|184|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+185|7|ns_947296|185|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+186|7|nt_328218|186|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+187|7|np_246311|187|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+188|7|nl_972780|188|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+189|7|nc_496235|189|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+190|7|nm_309171|190|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+191|7|nc_093525|191|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+192|7|f_710547|192|fries|Fries|fries|Fries|0.00|1|0|1|0|single|0|active
+193|7|c_285451|193|coleslaw|Coleslaw|coleslaw|Coleslaw|0.00|1|0|1|0|single|0|active
+194|7|cc_966733|194|coca cola|Coca Cola|coca cola|Coca Cola|0.00|1|0|1|0|single|0|active
+195|7|ccz_685480|195|coca cola zero|Coca Cola Zero|coca cola zero|Coca Cola Zero|0.00|1|0|1|0|single|0|active
+196|7|ccl_849858|196|coca cola light|Coca Cola Light|coca cola light|Coca Cola Light|0.00|1|0|1|0|single|0|active
+197|7|s_531965|197|sprite|Sprite|sprite|Sprite|0.00|1|0|1|0|single|0|active
+198|7|sz_932062|198|sprite zero|Sprite Zero|sprite zero|Sprite Zero|0.00|1|0|1|0|single|0|active
+199|7|f_979491|199|fanta|Fanta|fanta|Fanta|0.00|1|0|1|0|single|0|active
+200|7|sbl_783097|200|schweppes bitter lemon|Schweppes Bitter Lemon|schweppes bitter lemon|Schweppes Bitter Lemon|2.00|1|0|1|0|single|0|active
+201|7|ss_197364|201|schweppes soda|Schweppes Soda|schweppes soda|Schweppes Soda|2.00|1|0|1|0|single|0|active
+202|7|fc_045035|202|fries & coke|Fries & Coke|fries & coke|Fries & Coke|16.00|1|0|1|0|single|0|active
+203|7|fcz_489308|203|fries & coke zero|Fries & Coke Zero|fries & coke zero|Fries & Coke Zero|16.00|1|0|1|0|single|0|active
+204|7|fcl_399745|204|fries & coke light|Fries & Coke Light|fries & coke light|Fries & Coke Light|16.00|1|0|1|0|single|0|active
+205|7|fs_808353|205|fries & sprite|Fries & Sprite|fries & sprite|Fries & Sprite|16.00|1|0|1|0|single|0|active
+206|7|fsz_916500|206|fries & sprite zero|Fries & Sprite Zero|fries & sprite zero|Fries & Sprite Zero|16.00|1|0|1|0|single|0|active
+207|7|ff_628908|207|fries & fanta|Fries & Fanta|fries & fanta|Fries & Fanta|16.00|1|0|1|0|single|0|active
+208|7|fa_454364|208|fries & arwa|Fries & Arwa|fries & arwa|Fries & Arwa|15.00|1|0|1|0|single|0|active
+209|7|no_406347|209|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+210|7|ns_043126|210|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+211|7|nt_418608|211|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+212|7|np_906281|212|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+213|7|nl_620995|213|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+214|7|nc_592285|214|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+215|7|nm_991779|215|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+216|7|nc_461523|216|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+217|7|fc_835562|217|fries & coke|Fries & Coke|fries & coke|Fries & Coke|16.00|1|0|1|0|single|0|active
+218|7|fcz_976287|218|fries & coke zero|Fries & Coke Zero|fries & coke zero|Fries & Coke Zero|16.00|1|0|1|0|single|0|active
+219|7|fcl_463209|219|fries & coke light|Fries & Coke Light|fries & coke light|Fries & Coke Light|16.00|1|0|1|0|single|0|active
+220|7|fs_907475|220|fries & sprite|Fries & Sprite|fries & sprite|Fries & Sprite|16.00|1|0|1|0|single|0|active
+221|7|fsz_255777|221|fries & sprite zero|Fries & Sprite Zero|fries & sprite zero|Fries & Sprite Zero|16.00|1|0|1|0|single|0|active
+222|7|ff_439935|222|fries & fanta|Fries & Fanta|fries & fanta|Fries & Fanta|16.00|1|0|1|0|single|0|active
+223|7|fa_766937|223|fries & arwa|Fries & Arwa|fries & arwa|Fries & Arwa|15.00|1|0|1|0|single|0|active
+224|7|no_847882|224|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+225|7|ns_038635|225|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+226|7|nt_597827|226|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+227|7|np_712930|227|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+228|7|nl_932177|228|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+229|7|nc_238266|229|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+230|7|nm_081383|230|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+231|7|nc_511776|231|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+232|7|fc_844667|232|fries & coke|Fries & Coke|fries & coke|Fries & Coke|16.00|1|0|1|0|single|0|active
+233|7|fcz_859211|233|fries & coke zero|Fries & Coke Zero|fries & coke zero|Fries & Coke Zero|16.00|1|0|1|0|single|0|active
+234|7|fcl_881978|234|fries & coke light|Fries & Coke Light|fries & coke light|Fries & Coke Light|16.00|1|0|1|0|single|0|active
+235|7|fs_208814|235|fries & sprite|Fries & Sprite|fries & sprite|Fries & Sprite|16.00|1|0|1|0|single|0|active
+236|7|fsz_115602|236|fries & sprite zero|Fries & Sprite Zero|fries & sprite zero|Fries & Sprite Zero|16.00|1|0|1|0|single|0|active
+237|7|ff_254936|237|fries & fanta|Fries & Fanta|fries & fanta|Fries & Fanta|16.00|1|0|1|0|single|0|active
+238|7|fa_246502|238|fries & arwa|Fries & Arwa|fries & arwa|Fries & Arwa|15.00|1|0|1|0|single|0|active
+239|7|no_545224|239|no onions|No onions|no onions|No onions|0.00|1|0|1|0|single|0|active
+240|7|ns_633648|240|no sauce|No sauce|no sauce|No sauce|0.00|1|0|1|0|single|0|active
+241|7|nt_409960|241|no tomatoes|No tomatoes|no tomatoes|No tomatoes|0.00|1|0|1|0|single|0|active
+242|7|np_547778|242|no pickles|No pickles|no pickles|No pickles|0.00|1|0|1|0|single|0|active
+243|7|nl_134519|243|no lettuce|No lettuce|no lettuce|No lettuce|0.00|1|0|1|0|single|0|active
+244|7|nc_150281|244|no cheese|No cheese|no cheese|No cheese|0.00|1|0|1|0|single|0|active
+245|7|nm_844382|245|no mustard|No mustard|no mustard|No mustard|0.00|1|0|1|0|single|0|active
+246|7|nc_779592|246|no cabbage|No cabbage|no cabbage|No cabbage|0.00|1|0|1|0|single|0|active
+247|7|c_159688|247|coleslaw|Coleslaw|coleslaw|Coleslaw|0.00|1|0|1|0|single|0|active
+248|7|gs_580601|248|green salad|Green Salad|green salad|Green Salad|0.00|1|0|1|0|single|0|active
+249|7|tbs_617745|249|three beans salad|Three Beans Salad|three beans salad|Three Beans Salad|0.00|1|0|1|0|single|0|active
+250|7|ps_817951|250|potato salad|Potato Salad|potato salad|Potato Salad|0.00|1|0|1|0|single|0|active
+251|7|c_070020|251|coleslaw|Coleslaw|coleslaw|Coleslaw|0.00|1|0|1|0|single|0|active
+252|7|gs_758033|252|green salad|Green Salad|green salad|Green Salad|0.00|1|0|1|0|single|0|active
+253|7|tbs_589842|253|three beans salad|Three Beans Salad|three beans salad|Three Beans Salad|0.00|1|0|1|0|single|0|active
+254|7|ps_733141|254|potato salad|Potato Salad|potato salad|Potato Salad|0.00|1|0|1|0|single|0|active
+255|7|c_209754|255|coleslaw|Coleslaw|coleslaw|Coleslaw|0.00|1|0|6|0|single|0|active
+256|7|gs_017880|256|green salad|Green Salad|green salad|Green Salad|0.00|1|0|6|0|single|0|active
+257|7|tbs_718597|257|three bean salad|Three Bean Salad|three bean salad|Three Bean Salad|0.00|1|0|6|0|single|0|active
+258|7|ssr_312475|258|southern style rice|Southern Style Rice|southern style rice|Southern Style Rice|0.00|1|0|6|0|single|0|active
+259|7|ps_468298|259|potato salad|Potato Salad|potato salad|Potato Salad|0.00|1|0|6|0|single|0|active
+260|7|tf_496491|260|tmf fries|TMF Fries|tmf fries|TMF Fries|0.00|1|0|6|0|single|0|active
+261|7|cc_579843|261|coca cola|Coca Cola|coca cola|Coca Cola|0.00|1|0|6|0|single|0|active
+262|7|ccl_657273|262|coca cola light|Coca Cola Light|coca cola light|Coca Cola Light|0.00|1|0|6|0|single|0|active
+263|7|s_049478|263|sprite|Sprite|sprite|Sprite|0.00|1|0|6|0|single|0|active
+264|7|sz_456502|264|sprite zero|Sprite Zero|sprite zero|Sprite Zero|0.00|1|0|6|0|single|0|active
+265|7|f_458700|265|fanta|Fanta|fanta|Fanta|0.00|1|0|6|0|single|0|active
+266|7|aw_333190|266|arwa water|Arwa Water|arwa water|Arwa Water|0.00|1|0|6|0|single|0|active
+267|7|e5_140245|267|extra 500g|Extra 500g|extra 500g|Extra 500g|150.00|1|0|2|0|single|0|active
+268|7|e1_830774|268|extra 1kg|Extra 1kg|extra 1kg|Extra 1kg|280.00|1|0|2|0|single|0|active
+269|7|k_198708|269|ketchup|Ketchup|ketchup|Ketchup|0.00|1|0|1|0|single|0|active
+270|7|m_584306|270|mayonnaise|Mayonnaise|mayonnaise|Mayonnaise|0.00|1|0|1|0|single|0|active
+271|7|hcm_751854|271|house chipotle mayo*|House Chipotle Mayo*|house chipotle mayo*|House Chipotle Mayo*|1.00|1|0|1|0|single|0|active
+272|7|hcb_183009|272|house creamy bbq*|House Creamy BBQ*|house creamy bbq*|House Creamy BBQ*|2.00|1|0|1|0|single|0|active
+273|7|ycots_320972|273|yes! cheese on the side|Yes! Cheese on the side|yes! cheese on the side|Yes! Cheese on the side|4.00|1|0|1|0|single|0|active
+274|7|ycots_886455|274|yes! cheese on the side|Yes! Cheese on the side|yes! cheese on the side|Yes! Cheese on the side|4.00|1|0|1|0|single|0|active
+275|7|ycots_358243|275|yes! cheese on the side|Yes! Cheese on the side|yes! cheese on the side|Yes! Cheese on the side|4.00|1|0|1|0|single|0|active

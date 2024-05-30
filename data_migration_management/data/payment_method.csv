@@ -1,0 +1,10 @@
+payment_method_name|payment_method_description|meta_status
+card|card|active
+cryptocurrency|cryptocurrency|active
+cash|cash|active
+unknown|unknown|active
+platform_credit|platform credit|active
+visa|visa|active
+mastercard|mastercard|active
+amex|amex|active
+careem_cash|careem cash|active

@@ -1,0 +1,43 @@
+{
+  "timestamp": "2023-04-14T12:03:03.2804948+00:00",
+  "result": {
+      "rev": [
+          {
+              "id": 32155445,
+              "fn": "Mohamed",
+              "ln": "H***",
+              "oid": 0,
+              "rew": "",
+              "rat": 5.0,
+              "con": "Today "
+          },
+          {
+              "id": 32152903,
+              "fn": "Nadeen",
+              "ln": "S***",
+              "oid": 0,
+              "rew": "",
+              "rat": 5.0,
+              "con": "Today "
+          },
+          {
+              "id": 32145356,
+              "fn": "Khaled",
+              "ln": "G***",
+              "oid": 0,
+              "rew": "",
+              "rat": 5.0,
+              "con": "13 April 2023"
+          }
+      ],
+      "tr": 200,
+      "pg": 67,
+      "sr": {
+          "pr": 4.5,
+          "dr": 4.5,
+          "vr": 4.5,
+          "qr": 4.5
+      }
+  },
+  "baseUrl": "https://images.deliveryhero.io/image/talabat/"
+}

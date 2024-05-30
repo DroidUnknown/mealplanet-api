@@ -1,0 +1,24 @@
+{
+    "data": {
+        "type": "deposit",
+        "id": "5909",
+        "attributes": {
+            "status": 4,
+            "label": "",
+            "tracking_id": "p_7449983624",
+            "confirmations_needed": 4,
+            "callback_url": "https://devapi.iblinkpay.com/api/b2binpay/webhook/invoice",
+            "inaccuracy": "1.000000000000000000",
+            "target_amount_requested": "2.713500000000000200",
+            "time_limit": null
+        },
+        "relationships": {
+            "currency": {
+                "data": {
+                    "type": "currency",
+                    "id": "1002"
+                }
+            }
+        }
+    }
+}

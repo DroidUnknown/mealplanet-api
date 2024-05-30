@@ -1,0 +1,125 @@
+{
+    "products": [
+        {
+            "id": 1000001,
+            "externalId": null,
+            "catalogId": 123456,
+            "sku": "123455",
+            "gtin": null,
+            "name": "bbq pizza",
+            "nameLocalized": {
+                "ar": "بيتزا باربكيو",
+                "en": "bbq pizza"
+            },
+            "description": "Experience BBQ bliss with our BBQ Pizza, featuring a golden crust layered with tangy BBQ sauce, savory meats, melted cheese, and tantalizing flavors.",
+            "descriptionLocalized": {
+                "ar": "استمتع بتجربة باربيكيو بليس مع بيتزا باربيكيو الخاصة بنا ، والتي تتميز بقشرة ذهبية مغطاة بصلصة الباربيكيو المنعشة واللحوم اللذيذة والجبن الذائب والنكهات الشهية.",
+                "en": "Experience BBQ bliss with our BBQ Pizza, featuring a golden crust layered with tangy BBQ sauce, savory meats, melted cheese, and tantalizing flavors."
+            },
+            "status": "ACTIVE",
+            "categories": [
+                10000004
+            ],
+            "brandName": null,
+            "manufacturerName": null,
+            "defaultPrice": 23,
+            "attributes": {
+                "allergicInformation": null,
+                "calorieCounts": null,
+                "disabledTime": null,
+                "disabledToday": null,
+                "disabledUnit": null,
+                "expiryDate": null,
+                "externalID": null,
+                "location": null,
+                "maxOrder": null,
+                "peakPreparationTime": null,
+                "preparationTime": null,
+                "preparationTimes": null,
+                "size": null,
+                "sizeUnit": null,
+                "tags": null,
+                "tax": null
+            },
+            "operatingHours": [],
+            "images": [
+                {
+                    "id": "12345.jpg",
+                    "name": null,
+                    "priority": null,
+                    "url": "https://careem-catalog-media.imgix.net/catalogs/da5100e71416883e22561164f88acbb1.jpg",
+                    "sourceUrl": null
+                }
+            ],
+            "prices": [],
+            "customizationGroups": [],
+            "priority": 21,
+            "createdAt": "2023-05-17T12:48:05.972308Z",
+            "updatedAt": "2023-07-21T20:43:41.406313Z"
+        },
+        {
+            "id": 1000002,
+            "externalId": null,
+            "catalogId": 123456,
+            "sku": "123455",
+            "gtin": null,
+            "name": "pepperoni pizza",
+            "nameLocalized": {
+                "ar": "بيتزا بالبيبروني",
+                "en": "pepperoni pizza"
+            },
+            "description": "Delight in the timeless perfection of our Pepperoni Pizza, a harmony of golden crust, premium mozzarella, zesty sauce, and smoky pepperoni.",
+            "descriptionLocalized": {
+                "ar": "تلذذ بالكمال الخالد لبيتزا بيبروني ، تناغم القشرة الذهبية ، جبنة الموزاريلا الفاخرة ، الصلصة الحارة ، والبيبروني المدخن.",
+                "en": "Delight in the timeless perfection of our Pepperoni Pizza, a harmony of golden crust, premium mozzarella, zesty sauce, and smoky pepperoni."
+            },
+            "status": "ACTIVE",
+            "categories": [
+                10000004
+            ],
+            "brandName": null,
+            "manufacturerName": null,
+            "defaultPrice": 19,
+            "attributes": {
+                "allergicInformation": null,
+                "calorieCounts": null,
+                "disabledTime": null,
+                "disabledToday": null,
+                "disabledUnit": null,
+                "expiryDate": null,
+                "externalID": null,
+                "location": null,
+                "maxOrder": null,
+                "peakPreparationTime": null,
+                "preparationTime": null,
+                "preparationTimes": null,
+                "size": null,
+                "sizeUnit": null,
+                "tags": null,
+                "tax": null
+            },
+            "operatingHours": [],
+            "images": [
+                {
+                    "id": "1234.jpg",
+                    "name": null,
+                    "priority": null,
+                    "url": "https://careem-catalog-media.imgix.net/catalogs/415b2cff17a1d31d008f5e76b4241746.jpg",
+                    "sourceUrl": null
+                }
+            ],
+            "prices": [],
+            "customizationGroups": [],
+            "priority": 22,
+            "createdAt": "2023-05-17T12:48:06.630436Z",
+            "updatedAt": "2023-07-21T20:43:50.130439Z"
+        }
+    ],
+    "pagination": {
+        "total": 2,
+        "count": 2,
+        "perPage": 100,
+        "currentPage": 1,
+        "totalPages": 1
+    }
+}

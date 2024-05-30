@@ -1,0 +1,3 @@
+transaction_type_name|transaction_type_description|meta_status
+customer_charge|customer-charge|active
+merchant_payout|merchant-payout|active

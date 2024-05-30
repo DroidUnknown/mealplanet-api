@@ -1,0 +1,7 @@
+stock_item_packaging_map_id|packaging_id|packaging_measurement_id|packaging_quantity|stock_item_id|stock_item_measurement_id|stock_item_quantity|meta_status
+1|1|5|5|1|1|30|active
+2|1|5|3|1|1|10|active
+3|1|5|1|2|1|35|active
+4|1|5|2|2|1|40|active
+5|1|5|4|3|1|6|active
+6|1|5|7|3|1|1|active

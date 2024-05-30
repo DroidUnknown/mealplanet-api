@@ -1,0 +1,50 @@
+[
+    {
+        "id": 10000004,
+        "externalId": null,
+        "catalogId": 123456,
+        "parentId": null,
+        "name": "Pizzas",
+        "nameLocalized": {
+            "ar": "Pizzas",
+            "en": "Pizzas"
+        },
+        "description": null,
+        "descriptionLocalized": null,
+        "status": "ACTIVE",
+        "attributes": {
+            "externalID": "546",
+            "parentID": null,
+            "peakPreparationTime": null,
+            "preparationTime": null
+        },
+        "operatingHours": [],
+        "images": [],
+        "subCategories": [],
+        "priority": 6
+    },
+    {
+        "id": 10000007,
+        "externalId": null,
+        "catalogId": 123456,
+        "parentId": null,
+        "name": "drinks",
+        "nameLocalized": {
+            "ar": "drinks",
+            "en": "drinks"
+        },
+        "description": null,
+        "descriptionLocalized": null,
+        "status": "ACTIVE",
+        "attributes": {
+            "externalID": "549",
+            "parentID": null,
+            "peakPreparationTime": null,
+            "preparationTime": null
+        },
+        "operatingHours": [],
+        "images": [],
+        "subCategories": [],
+        "priority": 9
+    }
+]

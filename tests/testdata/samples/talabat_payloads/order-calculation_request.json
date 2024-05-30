@@ -1,0 +1,54 @@
+{
+    "customer_order": {
+        "brand_id": 1,
+        "external_order_reference_nr": null,
+        "facility_id": 1,
+        "marketplace_id": 2,
+        "service_id": 1,
+        "customer_id": null,
+        "customer_address_id": null,
+        "business_priority": 3,
+        "user_id": 1,
+        "anonymous_customer_p": 1,
+        "order_notes": null,
+        "order_placement_channel_id": 1,
+        "logistic_provider_id": 3,
+        "anonymous_customer_name": "Ali"
+    },
+    "order_line_items_list": [
+        {
+            "order_line_item": {
+                "menu_item_id": 122,
+                "brand_menu_category_map_id": 5,
+                "order_line_item_notes": null
+            },
+            "line_item_modifier_list": [
+                {
+                    "modifier_section_id": 154,
+                    "modifier_choice_list": [
+                        {
+                            "modifier_choice_id": 428,
+                            "choice_count": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "offers_list": [],
+    "order_surcharge_map": [],
+    "order_tax_map": [
+        {
+            "tax_id": 1
+        }
+    ],
+    "delivery_data": {
+        "delivery_charge_p": 1
+    },
+    "discount_list": [],
+    "order_payment_detail": {
+        "payment_method_id": 1,
+        "order_payment_type": "online",
+        "payment_status": "paid"
+    }
+}

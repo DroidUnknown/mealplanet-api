@@ -1,0 +1,2 @@
+marketplace_id|branch_id|external_review_id|external_order_reference_nr|customer_review_text|customer_review_rating|sentiment|language_code|language_score|reviewer_name|reviewer_id|review_timestamp|meta_status
+1|1|1|5f373562-591a-4db9-8609-7eec7880f28d|Food was amazing|4.5|||1.5|mohsin|1|2023-09-01 00:00:00|active

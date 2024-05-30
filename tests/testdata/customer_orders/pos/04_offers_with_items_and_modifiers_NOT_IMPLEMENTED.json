@@ -1,0 +1,89 @@
+{
+    "version": "0.1",
+    "test_p": 0,
+    "external_order_reference_nr": null,
+    "order_placement_channel_id": 3,
+    "order_notes": "I want food ASAP!!",
+    "payment_point_id": null,
+    "payment_details": {
+        "payable_amount": 430,
+        "tip_amount": 0,
+        "discount_amount": 10,
+        "tax_amount": 0,
+        "currency_name": "aed",
+        "payment_method_name": "card"
+    },
+    "integration_details": {
+        "branch_id": 7,
+        "brand_id": 2,
+        "facility_id": 3,
+        "marketplace_id": 1,
+        "fulfillment_type": "dine-in"
+    },
+    "customer_details": {
+        "external_customer_id": "1cc11",
+        "first_name_en": null,
+        "last_name_en": null,
+        "email": "merchant_customer@gmail.com",
+        "phone_nr": null,
+        "customer_contact_method": "sms"
+    },
+    "employee_details": {
+        "external_employee_id": "1ee11",
+        "first_name_en": null,
+        "last_name_en": null,
+        "email": "merchant_employee@gmail.com",
+        "phone_nr": null
+    },
+    "item_list": [],
+    "offer_list": [
+        {
+            "external_item_id": 1,
+            "display_name_en": "happy-meal",
+            "display_name_ar": "",
+            "price": 180,
+            "quantity": 2,
+            "offer_section_list": [
+                {
+                    "external_offer_section_id": 1,
+                    "display_section_name_en": "choice of burger",
+                    "display_section_name_ar": "",
+                    "offer_choice_list": [
+                        {
+                            "external_offer_choice_id": 1,
+                            "item": {
+                                "external_item_id": 2,
+                                "display_name_en": "sandwich",
+                                "display_name_ar": "",
+                                "quantity": 2,
+                                "modifier_section_list": [
+                                    {
+                                        "external_modifier_section_id": 1,
+                                        "display_section_name_en": "filling",
+                                        "display_section_name_ar": "",
+                                        "modifier_choice_list": [
+                                            {
+                                                "external_modifier_choice_id": 1,
+                                                "display_choice_name_en": "extra-cheese",
+                                                "display_choice_name_ar": "",
+                                                "price": 10,
+                                                "quantity": 2
+                                            },
+                                            {
+                                                "external_modifier_choice_id": 2,
+                                                "display_choice_name_en": "no-salad",
+                                                "display_choice_name_ar": "",
+                                                "price": 0,
+                                                "quantity": 1
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

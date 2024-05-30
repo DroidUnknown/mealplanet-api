@@ -1,0 +1,101 @@
+item_code|brand_id|merchant_id|item_category_id|item_type|offer_p|not_purchasable_p|display_name_en|display_name_ar|item_description_en|item_description_ar|default_price|currency_id|item_subcategory_id|meta_status
+bbd_41823|1|2|1|standard-menu-item|0|0|burger & brisket duo|Burger & Brisket Duo|fresh brioche bun, double beef patty, double cheese, lollo bionda, some diced red onion, little mustard, our special sauce, and smok'd brisket carnitas on top.|Fresh brioche bun, double beef patty, double cheese, lollo bionda, some diced red onion, little mustard, our special sauce, and smok'd brisket carnitas on top.|47.00|1|1|active
+bbd_92365|1|2|1|standard-menu-item|0|0|burger & bacon duo|Burger & Bacon Duo|fresh brioche bun, double beef patty, double cheese, dill pickles, smok'd bacon and fried onion ring on top, with little mustard and some of our homemade smok'd hickory sauce.|Fresh brioche bun, double beef patty, double cheese, dill pickles, smok'd bacon and fried onion ring on top, with little mustard and some of our homemade smok'd hickory sauce.|45.00|1|1|active
+bpd_17523|1|2|1|standard-menu-item|0|0|burger & pastrami duo|Burger & Pastrami Duo|fresh brioche bun, double beef patty, double cheese, some tomato, lollo bionda, a little red onion, mustard, sweet relish, crowned with smok'd pastrami.|Fresh brioche bun, double beef patty, double cheese, some tomato, lollo bionda, a little red onion, mustard, sweet relish, crowned with smok'd Pastrami.|49.00|1|1|active
+fbs_00250|1|2|2|standard-menu-item|0|0|famous brisket sandwich|Famous Brisket Sandwich|the famous one and only mattar farm brisket sandwich. now better than ever! smok'd brisket with mixed cabbage, carrot, little onion pickles, dill pickles and bbq creamy sauce|The famous one and only Mattar Farm brisket sandwich. Now better than ever! Smok'd brisket with mixed cabbage, carrot, little onion pickles, dill pickles and BBQ Creamy Sauce|38.00|1|1|active
+bgc_15305|1|2|2|standard-menu-item|0|0|brisket grilled cheese|Brisket Grilled Cheese|smok'd brisket, a mix of cheddar cheese in toasted fresh bread.|Smok'd brisket, a mix of cheddar cheese in toasted fresh bread.|39.00|1|1|active
+cs_10331|1|2|2|standard-menu-item|0|0|chicken sando|Chicken Sando|hand breaded chicken, lollo bionda lettuce, tomatoes, some dill pickles, unsweetened coleslaw, some sriracha mayo in a toasted fresh brioche bun.|Hand breaded chicken, lollo bionda lettuce, tomatoes, some dill pickles, unsweetened coleslaw, some sriracha mayo in a toasted fresh brioche bun.|34.00|1|1|active
+dp_07231|1|2|2|standard-menu-item|0|0|da pastrami|Da Pastrami|freshly smoked pastrami, a little mustard and dill pickle.|Freshly smoked Pastrami, a little mustard and dill pickle.|39.00|1|1|active
+ps_52169|1|2|2|standard-menu-item|0|0|pastrami sando|Pastrami Sando|a generous portion of freshly smok'd pastrami, lollo bionda, tomatoes, with a little house mustard and some chipotle mayo.|A generous portion of freshly smok'd pastrami, lollo bionda, tomatoes, with a little house mustard and some chipotle mayo.|39.00|1|1|active
+oc_94465|1|2|3|standard-menu-item|0|0|original cheeseburger|Original Cheeseburger|fresh brioche bun, double beef patty, double cheese, lollo bionda, tomato slices, dill pickle and our house burger sauce.|Fresh brioche bun, double beef patty, double cheese, lollo bionda, tomato slices, dill pickle and our house burger sauce.|36.00|1|1|active
+'b_38930|1|2|3|standard-menu-item|0|0|'project' burger|'Project' Burger|fresh brioche bun, double beef patty, double cheese, smok'd chorizo, a little hickory sauce on top, dill pickle and our house burger sauce.|Fresh brioche bun, double beef patty, double cheese, smok'd chorizo, a little hickory sauce on top, dill pickle and our house burger sauce.|42.00|1|1|active
+cbb_70668|1|2|3|standard-menu-item|0|0|classic bacon burger|Classic Bacon Burger|fresh brioche bun, double beef patty, double cheese, smok'd bacon, a little hickory sauce on top, lollo bionda, little red onion, dill pickle and our house burger sauce.|Fresh brioche bun, double beef patty, double cheese, smok'd bacon, a little hickory sauce on top, lollo bionda, little red onion, dill pickle and our house burger sauce.|39.00|1|1|active
+fbc_39469|1|2|4|standard-menu-item|0|0|famous brisket combo|FAMOUS BRISKET COMBO|our famous brisket sandwich + your choice of fries or coleslaw + your choice of drink.|Our Famous Brisket Sandwich + your choice of fries or coleslaw + your choice of drink.|52.00|1|1|active
+pbc_06712|1|2|4|standard-menu-item|0|0|project burger combo|PROJECT BURGER COMBO|mf project burger + your choice of fries or coleslaw + your choice of drink.|MF Project Burger + your choice of fries or coleslaw + your choice of drink.|56.00|1|1|active
+bwr_17478|1|2|5|standard-menu-item|0|0|buffalo wings & ranch|Buffalo Wings & Ranch|6 pieces of smoked chicken wings tossed in our house buffalo sauce. comes with ranch sauce on the side.|6 pieces of smoked chicken wings tossed in our house buffalo sauce. Comes with ranch sauce on the side.|29.00|1|1|active
+bw_30210|1|2|5|standard-menu-item|0|0|bbq wings|BBQ Wings|6 pieces of smoked chicken tossed in a hickory barbecue sauce.|6 pieces of smoked chicken tossed in a hickory barbecue sauce.|29.00|1|1|active
+bw_26064|1|2|6|standard-menu-item|0|0|brisket wrap|Brisket Wrap|seasoned smok'd brisket, lollo bionda lettuce, caramelized onion and our chipotle mayo sauce in a fresh tortilla.|Seasoned smok'd brisket, lollo bionda lettuce, caramelized onion and our chipotle mayo sauce in a fresh tortilla.|37.00|1|1|active
+crw_33506|1|2|6|standard-menu-item|0|0|chicken ranch wrap|Chicken Ranch Wrap|seasoned smok'd chicken, lollo bionda lettuce, diced tomatoes, some dill pickles, grilled green pepper and our chipotle mayo sauce in a fresh tortilla.|Seasoned smok'd chicken, lollo bionda lettuce, diced tomatoes, some dill pickles, grilled green pepper and our chipotle mayo sauce in a fresh tortilla.|35.00|1|1|active
+bcw_44498|1|2|6|standard-menu-item|0|0|beef chorizo wrap|Beef Chorizo Wrap|smok'd beef chorizo, light coleslaw, some red onion, a little dill pickles, cheddar and hickory sauce in a fresh tortilla.|Smok'd beef chorizo, light coleslaw, some red onion, a little dill pickles, cheddar and hickory sauce in a fresh tortilla.|35.00|1|1|active
+tbp_94472|1|2|7|standard-menu-item|0|0|the brisket platter|The Brisket Platter|smok'd brisket slices, southern rice, fries, a potato bun and salad. comes with a creamy bbq sauce.|Smok'd brisket slices, southern rice, fries, a potato bun and salad. Comes with a creamy BBQ sauce.|66.00|1|1|active
+fp_94577|1|2|7|standard-menu-item|0|0|full-house platter|Full-House Platter|smok'd brisket, chorizo and chicken breast, southern rice, fries, a potato bun and salad. comes with a creamy bbq sauce.|Smok'd brisket, chorizo and chicken breast, southern rice, fries, a potato bun and salad. Comes with a creamy BBQ sauce.|75.00|1|1|active
+lbf_00216|1|2|7|standard-menu-item|0|0|legendary brisket feast|Legendary Brisket Feast|1kg smoked brisket on rice, served with 6 sides + 6 potato buns + 6 soft drinks + 6 house creamy bbq. serves 4 to 6. you can also order extra brisket.|1KG Smoked Brisket on rice, served with 6 sides + 6 potato buns + 6 soft drinks + 6 house creamy BBQ. Serves 4 to 6. You can also order extra brisket.|370.00|1|1|active
+tf_84244|1|2|8|standard-menu-item|0|0|tmf fries|TMF Fries|comes with your choice of sauce.|Comes with your choice of sauce.|11.00|1|1|active
+tor_91183|1|2|8|standard-menu-item|0|0|thick onion rings|Thick Onion Rings|comes with our house hickory sauce.|Comes with our house hickory sauce.|13.00|1|1|active
+c_41753|1|2|8|standard-menu-item|0|0|coleslaw|Coleslaw|None||11.00|1|1|active
+m'c_84941|1|2|8|standard-menu-item|0|0|mac 'n cheese|Mac 'n Cheese|None||12.00|1|1|active
+ps_15694|1|2|8|standard-menu-item|0|0|potato salad|Potato Salad|None||11.00|1|1|active
+tbs_65113|1|2|8|standard-menu-item|0|0|three beans salad|Three Beans Salad|None||12.00|1|1|active
+lf_42955|1|2|8|standard-menu-item|0|0|loaded fries|Loaded Fries|fries and chilli con carne. house ranch on the side.|Fries and chilli con carne. House ranch on the side.|23.00|1|2|active
+pb_41317|1|2|9|standard-menu-item|0|0|potato bun|Potato Bun| | |4.00|1|1|active
+op_59122|1|2|9|standard-menu-item|0|0|onion pickles|Onion Pickles|None||4.00|1|1|active
+dp_54217|1|2|9|standard-menu-item|0|0|dill pickles|Dill Pickles|None||4.00|1|1|active
+k_29358|1|2|9|standard-menu-item|0|0|ketchup|Ketchup|None||4.00|1|1|active
+m_34458|1|2|9|standard-menu-item|0|0|mayonnaise|Mayonnaise|None||4.00|1|1|active
+cm_67443|1|2|9|standard-menu-item|0|0|chipotle mayo|Chipotle Mayo|None||4.00|1|1|active
+hb_26587|1|2|9|standard-menu-item|0|0|hickory bbq|Hickory BBQ|None||5.00|1|1|active
+mcb_53988|1|2|9|standard-menu-item|0|0|mf creamy bbq|MF Creamy BBQ|None||5.00|1|1|active
+hr_96682|1|2|9|standard-menu-item|0|0|house ranch|House Ranch|None||5.00|1|1|active
+hm_79938|1|2|9|standard-menu-item|0|0|house mustard|House Mustard|None||4.00|1|3|active
+cc_39472|1|2|10|standard-menu-item|0|0|coca cola|Coca Cola|330 ml|330 ml|8.00|1|2|active
+ccz_69530|1|2|10|standard-menu-item|0|0|coca cola zero|Coca Cola Zero|None||8.00|1|1|active
+ccl_49687|1|2|10|standard-menu-item|0|0|coca cola light|Coca Cola Light|330 ml|330 ml|8.00|1|1|active
+s_64741|1|2|10|standard-menu-item|0|0|sprite|Sprite|330 ml|330 ml|8.00|1|1|active
+sz_44294|1|2|10|standard-menu-item|0|0|sprite zero|Sprite Zero|330 ml|330 ml|8.00|1|1|active
+f_63959|1|2|10|standard-menu-item|0|0|fanta|Fanta|330 ml|330 ml|8.00|1|1|active
+st_96517|1|2|10|standard-menu-item|0|0|schweppes tonic|Schweppes Tonic|None||10.00|1|1|active
+ss_78702|1|2|10|standard-menu-item|0|0|schweppes soda|Schweppes Soda|None||10.00|1|1|active
+aw_05438|1|2|10|standard-menu-item|0|0|arwa water|Arwa Water|500 ml|500 ml|8.00|1|1|active
+sbl_25251|1|2|10|standard-menu-item|0|0|schweppes bitter lemon|Schweppes Bitter Lemon|None||10.00|1|1|active
+aasw_66829|1|2|10|standard-menu-item|0|0|al ain sparkling water|Al Ain Sparkling Water| | |15.00|1|1|active
+wsw_75095|1|2|10|standard-menu-item|0|0|waterfalls sparkling water|Waterfalls Sparkling Water| | |15.00|1|1|active
+bbd_41823|1|1|1|standard-menu-item|0|0|burger & brisket duo|Burger & Brisket Duo|fresh brioche bun, double beef patty, double cheese, lollo bionda, some diced red onion, little mustard, our special sauce, and smok'd brisket carnitas on top.|Fresh brioche bun, double beef patty, double cheese, lollo bionda, some diced red onion, little mustard, our special sauce, and smok'd brisket carnitas on top.|47.00|1|1|active
+bbd_92365|1|1|1|standard-menu-item|0|0|burger & bacon duo|Burger & Bacon Duo|fresh brioche bun, double beef patty, double cheese, dill pickles, smok'd bacon and fried onion ring on top, with little mustard and some of our homemade smok'd hickory sauce.|Fresh brioche bun, double beef patty, double cheese, dill pickles, smok'd bacon and fried onion ring on top, with little mustard and some of our homemade smok'd hickory sauce.|45.00|1|1|active
+bpd_17523|1|1|1|standard-menu-item|0|0|burger & pastrami duo|Burger & Pastrami Duo|fresh brioche bun, double beef patty, double cheese, some tomato, lollo bionda, a little red onion, mustard, sweet relish, crowned with smok'd pastrami.|Fresh brioche bun, double beef patty, double cheese, some tomato, lollo bionda, a little red onion, mustard, sweet relish, crowned with smok'd Pastrami.|49.00|1|1|active
+fbs_00250|1|1|2|standard-menu-item|0|0|famous brisket sandwich|Famous Brisket Sandwich|the famous one and only mattar farm brisket sandwich. now better than ever! smok'd brisket with mixed cabbage, carrot, little onion pickles, dill pickles and bbq creamy sauce|The famous one and only Mattar Farm brisket sandwich. Now better than ever! Smok'd brisket with mixed cabbage, carrot, little onion pickles, dill pickles and BBQ Creamy Sauce|38.00|1|1|active
+bgc_15305|1|1|2|standard-menu-item|0|0|brisket grilled cheese|Brisket Grilled Cheese|smok'd brisket, a mix of cheddar cheese in toasted fresh bread.|Smok'd brisket, a mix of cheddar cheese in toasted fresh bread.|39.00|1|1|active
+cs_10331|1|1|2|standard-menu-item|0|0|chicken sando|Chicken Sando|hand breaded chicken, lollo bionda lettuce, tomatoes, some dill pickles, unsweetened coleslaw, some sriracha mayo in a toasted fresh brioche bun.|Hand breaded chicken, lollo bionda lettuce, tomatoes, some dill pickles, unsweetened coleslaw, some sriracha mayo in a toasted fresh brioche bun.|34.00|1|1|active
+dp_07231|1|1|2|standard-menu-item|0|0|da pastrami|Da Pastrami|freshly smoked pastrami, a little mustard and dill pickle.|Freshly smoked Pastrami, a little mustard and dill pickle.|39.00|1|1|active
+ps_52169|1|1|2|standard-menu-item|0|0|pastrami sando|Pastrami Sando|a generous portion of freshly smok'd pastrami, lollo bionda, tomatoes, with a little house mustard and some chipotle mayo.|A generous portion of freshly smok'd pastrami, lollo bionda, tomatoes, with a little house mustard and some chipotle mayo.|39.00|1|1|active
+oc_94465|1|1|3|standard-menu-item|0|0|original cheeseburger|Original Cheeseburger|fresh brioche bun, double beef patty, double cheese, lollo bionda, tomato slices, dill pickle and our house burger sauce.|Fresh brioche bun, double beef patty, double cheese, lollo bionda, tomato slices, dill pickle and our house burger sauce.|36.00|1|1|active
+'b_38930|1|1|3|standard-menu-item|0|0|'project' burger|'Project' Burger|fresh brioche bun, double beef patty, double cheese, smok'd chorizo, a little hickory sauce on top, dill pickle and our house burger sauce.|Fresh brioche bun, double beef patty, double cheese, smok'd chorizo, a little hickory sauce on top, dill pickle and our house burger sauce.|42.00|1|1|active
+cbb_70668|1|1|3|standard-menu-item|0|0|classic bacon burger|Classic Bacon Burger|fresh brioche bun, double beef patty, double cheese, smok'd bacon, a little hickory sauce on top, lollo bionda, little red onion, dill pickle and our house burger sauce.|Fresh brioche bun, double beef patty, double cheese, smok'd bacon, a little hickory sauce on top, lollo bionda, little red onion, dill pickle and our house burger sauce.|39.00|1|1|active
+fbc_39469|1|1|4|standard-menu-item|0|0|famous brisket combo|FAMOUS BRISKET COMBO|our famous brisket sandwich + your choice of fries or coleslaw + your choice of drink.|Our Famous Brisket Sandwich + your choice of fries or coleslaw + your choice of drink.|52.00|1|1|active
+pbc_06712|1|1|4|standard-menu-item|0|0|project burger combo|PROJECT BURGER COMBO|mf project burger + your choice of fries or coleslaw + your choice of drink.|MF Project Burger + your choice of fries or coleslaw + your choice of drink.|56.00|1|1|active
+bwr_17478|1|1|5|standard-menu-item|0|0|buffalo wings & ranch|Buffalo Wings & Ranch|6 pieces of smoked chicken wings tossed in our house buffalo sauce. comes with ranch sauce on the side.|6 pieces of smoked chicken wings tossed in our house buffalo sauce. Comes with ranch sauce on the side.|29.00|1|1|active
+bw_30210|1|1|5|standard-menu-item|0|0|bbq wings|BBQ Wings|6 pieces of smoked chicken tossed in a hickory barbecue sauce.|6 pieces of smoked chicken tossed in a hickory barbecue sauce.|29.00|1|1|active
+bw_26064|1|1|6|standard-menu-item|0|0|brisket wrap|Brisket Wrap|seasoned smok'd brisket, lollo bionda lettuce, caramelized onion and our chipotle mayo sauce in a fresh tortilla.|Seasoned smok'd brisket, lollo bionda lettuce, caramelized onion and our chipotle mayo sauce in a fresh tortilla.|37.00|1|1|active
+crw_33506|1|1|6|standard-menu-item|0|0|chicken ranch wrap|Chicken Ranch Wrap|seasoned smok'd chicken, lollo bionda lettuce, diced tomatoes, some dill pickles, grilled green pepper and our chipotle mayo sauce in a fresh tortilla.|Seasoned smok'd chicken, lollo bionda lettuce, diced tomatoes, some dill pickles, grilled green pepper and our chipotle mayo sauce in a fresh tortilla.|35.00|1|1|active
+bcw_44498|1|1|6|standard-menu-item|0|0|beef chorizo wrap|Beef Chorizo Wrap|smok'd beef chorizo, light coleslaw, some red onion, a little dill pickles, cheddar and hickory sauce in a fresh tortilla.|Smok'd beef chorizo, light coleslaw, some red onion, a little dill pickles, cheddar and hickory sauce in a fresh tortilla.|35.00|1|1|active
+tbp_94472|1|1|7|standard-menu-item|0|0|the brisket platter|The Brisket Platter|smok'd brisket slices, southern rice, fries, a potato bun and salad. comes with a creamy bbq sauce.|Smok'd brisket slices, southern rice, fries, a potato bun and salad. Comes with a creamy BBQ sauce.|66.00|1|1|active
+fp_94577|1|1|7|standard-menu-item|0|0|full-house platter|Full-House Platter|smok'd brisket, chorizo and chicken breast, southern rice, fries, a potato bun and salad. comes with a creamy bbq sauce.|Smok'd brisket, chorizo and chicken breast, southern rice, fries, a potato bun and salad. Comes with a creamy BBQ sauce.|75.00|1|1|active
+lbf_00216|1|1|7|standard-menu-item|0|0|legendary brisket feast|Legendary Brisket Feast|1kg smoked brisket on rice, served with 6 sides + 6 potato buns + 6 soft drinks + 6 house creamy bbq. serves 4 to 6. you can also order extra brisket.|1KG Smoked Brisket on rice, served with 6 sides + 6 potato buns + 6 soft drinks + 6 house creamy BBQ. Serves 4 to 6. You can also order extra brisket.|370.00|1|1|active
+tf_84244|1|1|8|standard-menu-item|0|0|tmf fries|TMF Fries|comes with your choice of sauce.|Comes with your choice of sauce.|11.00|1|1|active
+tor_91183|1|1|8|standard-menu-item|0|0|thick onion rings|Thick Onion Rings|comes with our house hickory sauce.|Comes with our house hickory sauce.|13.00|1|1|active
+c_41753|1|1|8|standard-menu-item|0|0|coleslaw|Coleslaw|None||11.00|1|1|active
+m'c_84941|1|2|8|standard-menu-item|0|0|mac 'n cheese|Mac 'n Cheese|None||12.00|1|1|active
+ps_15694|1|1|8|standard-menu-item|0|0|potato salad|Potato Salad|None||11.00|1|1|active
+tbs_65113|1|1|8|standard-menu-item|0|0|three beans salad|Three Beans Salad|None||12.00|1|1|active
+lf_42955|1|1|8|standard-menu-item|0|0|loaded fries|Loaded Fries|fries and chilli con carne. house ranch on the side.|Fries and chilli con carne. House ranch on the side.|23.00|1|1|active
+pb_41317|1|1|9|standard-menu-item|0|0|potato bun|Potato Bun| | |4.00|1|1|active
+op_59122|1|1|9|standard-menu-item|0|0|onion pickles|Onion Pickles|None||4.00|1|1|active
+dp_54217|1|1|9|standard-menu-item|0|0|dill pickles|Dill Pickles|None||4.00|1|1|active
+k_29358|1|1|9|standard-menu-item|0|0|ketchup|Ketchup|None||4.00|1|1|active
+m_34458|1|1|9|standard-menu-item|0|0|mayonnaise|Mayonnaise|None||4.00|1|1|active
+cm_67443|1|1|9|standard-menu-item|0|0|chipotle mayo|Chipotle Mayo|None||4.00|1|1|active
+hb_26587|1|1|9|standard-menu-item|0|0|hickory bbq|Hickory BBQ|None||5.00|1|1|active
+mcb_53988|1|1|9|standard-menu-item|0|0|mf creamy bbq|MF Creamy BBQ|None||5.00|1|1|active
+hr_96682|1|1|9|standard-menu-item|0|0|house ranch|House Ranch|None||5.00|1|1|active
+hm_79938|1|1|9|standard-menu-item|0|0|house mustard|House Mustard|None||4.00|1|1|active
+cc_39472|1|1|10|standard-menu-item|0|0|coca cola|Coca Cola|330 ml|330 ml|8.00|1|1|active
+ccz_69530|1|1|10|standard-menu-item|0|0|coca cola zero|Coca Cola Zero|None||8.00|1|1|active
+ccl_49687|1|1|10|standard-menu-item|0|0|coca cola light|Coca Cola Light|330 ml|330 ml|8.00|1|1|active
+s_64741|1|1|10|standard-menu-item|0|0|sprite|Sprite|330 ml|330 ml|8.00|1|1|active
+sz_44294|1|1|10|standard-menu-item|0|0|sprite zero|Sprite Zero|330 ml|330 ml|8.00|1|1|active
+f_63959|1|1|10|standard-menu-item|0|0|fanta|Fanta|330 ml|330 ml|8.00|1|1|active
+st_96517|1|1|10|standard-menu-item|0|0|schweppes tonic|Schweppes Tonic|None||10.00|1|1|active
+ss_78702|1|1|10|standard-menu-item|0|0|schweppes soda|Schweppes Soda|None||10.00|1|1|active
+aw_05438|1|1|10|standard-menu-item|0|0|arwa water|Arwa Water|500 ml|500 ml|8.00|1|1|active
+sbl_25251|1|1|10|standard-menu-item|0|0|schweppes bitter lemon|Schweppes Bitter Lemon|None||10.00|1|1|active
+aasw_66829|1|1|10|standard-menu-item|0|0|al ain sparkling water|Al Ain Sparkling Water| | |15.00|1|1|active
+wsw_75095|1|1|10|standard-menu-item|0|0|waterfalls sparkling water|Waterfalls Sparkling Water| | |15.00|1|1|active

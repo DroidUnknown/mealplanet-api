@@ -1,0 +1,65 @@
+{
+    "paperboyUrl": "https://talabat.kaykrooslice.com",
+    "callbackUrl": "https://talabat.kaykrooslice.com/order/123",
+    "scheduledOn": "2021-11-09T14:28:59Z",
+    "categories": [
+      {
+        "id": "1",
+        "englishName": "Mighty Wraps",
+        "arabicName": "",
+        "sortOrder": 1,
+        "items": [
+          {
+            "id": "1",
+            "englishName": "Spicy Zaatar Wrap",
+            "arabicName": "",
+            "englishDescription": "Spicy Zaatar Wrap",
+            "arabicDescription": "",
+            "price": 10.0,
+            "isAvailable": true,
+            "sortOrder": 0,
+            "availableFrom": "00:00",
+            "availableTo": "23:59",
+            "availableDays": "0,1,2,3,4,5,6",
+            "branchesAvailability": [
+              {
+                "branchId": "13167",
+                "status": true,
+                "price": 10.0
+              }
+            ],
+            "imageURL": "https://via.placeholder.com/150",
+            "thumbnail": "https://via.placeholder.com/50",
+            "choiceCategories": [
+              {
+                "id": "1",
+                "englishName": "dough choice",
+                "arabicName": "",
+                "minimumSelections": 0,
+                "maximumSelections": 1,
+                "sortOrder": 0,
+                "choices": [
+                  {
+                    "id": "1",
+                    "englishName": "white dough",
+                    "arabicName": "",
+                    "price": 1.0,
+                    "isAvailable": true,
+                    "sortOrder": 0,
+                    "branchesAvailability": [
+                      {
+                        "branchId": "13167",
+                        "status": true,
+                        "price": 1
+                      }
+                    ],
+                    "choiceCategories": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

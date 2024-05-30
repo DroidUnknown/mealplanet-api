@@ -1,0 +1,121 @@
+{
+  "addresses": {
+    "ethereum": "0x9dd0341abe2d50d66e1984afdcd8469a4f6b58f9",
+    "usdc": "0x9dd0341abe2d50d66e1984afdcd8469a4f6b58f9",
+    "dai": "0x9dd0341abe2d50d66e1984afdcd8469a4f6b58f9",
+    "apecoin": "0x9dd0341abe2d50d66e1984afdcd8469a4f6b58f9",
+    "shibainu": "0x9dd0341abe2d50d66e1984afdcd8469a4f6b58f9",
+    "tether": "0x9dd0341abe2d50d66e1984afdcd8469a4f6b58f9",
+    "bitcoincash": "qqyefrvr9uva8ycwvxvz660t82d9v2tyeyxdv35ej4",
+    "dogecoin": "DTM5zxtgxT5SMuB9z9bkF3RCXo1EeiQY65",
+    "litecoin": "MHUyuytz6tgjD3iuN51tnY3YCPTccG3vqu",
+    "bitcoin": "3FNeLKkRPB9s2iaeDM7YMryPCEs9BLt8fR"
+  },
+  "brand_color": "#122332",
+  "brand_logo_url": "",
+  "code": "VVD7VFYX",
+  "created_at": "2022-10-29T17:38:06Z",
+  "exchange_rates": {
+    "ETH-USD": "1638.935",
+    "BTC-USD": "20916.765",
+    "LTC-USD": "57.025",
+    "DOGE-USD": "0.141815",
+    "BCH-USD": "120.43",
+    "USDC-USD": "1.0",
+    "DAI-USD": "0.99975",
+    "APE-USD": "5.042",
+    "SHIB-USD": "0.000014465",
+    "USDT-USD": "1.000355"
+  },
+  "expires_at": "2022-10-29T18:38:06Z",
+  "fee_rate": 0.01,
+  "fees_settled": true,
+  "hosted_url": "https://commerce.coinbase.com/charges/VVD7VFYX",
+  "id": "c567d182-9815-46d1-a7cd-0b570298c00f",
+  "local_exchange_rates": {
+    "ETH-AED": "6019.81",
+    "BTC-AED": "76827.28",
+    "LTC-AED": "209.45",
+    "DOGE-AED": "0.52",
+    "BCH-AED": "442.34",
+    "USDC-AED": "3.67",
+    "DAI-AED": "3.67",
+    "APE-AED": "18.52",
+    "SHIB-AED": "0.00",
+    "USDT-AED": "3.67"
+  },
+  "logo_url": "",
+  "metadata": {
+    "merchant_code": "k_131231"
+  },
+  "offchain_eligible": false,
+  "organization_name": "",
+  "payment_threshold": {
+    "overpayment_absolute_threshold": {
+      "amount": "0.10",
+      "currency": "AED"
+    },
+    "underpayment_absolute_threshold": {
+      "amount": "0.10",
+      "currency": "AED"
+    }
+  },
+  "payments": [],
+  "pricing": {
+    "local": {
+      "amount": "50.00",
+      "currency": "AED"
+    },
+    "ethereum": {
+      "amount": "0.008306000",
+      "currency": "ETH"
+    },
+    "usdc": {
+      "amount": "13.612851",
+      "currency": "USDC"
+    },
+    "dai": {
+      "amount": "13.616254594549807450",
+      "currency": "DAI"
+    },
+    "apecoin": {
+      "amount": "2.699891021598804046",
+      "currency": "APE"
+    },
+    "shibainu": {
+      "amount": "941088.871821719322502600",
+      "currency": "SHIB"
+    },
+    "tether": {
+      "amount": "13.608020",
+      "currency": "USDT"
+    },
+    "bitcoincash": {
+      "amount": "0.11303538",
+      "currency": "BCH"
+    },
+    "dogecoin": {
+      "amount": "95.99020224",
+      "currency": "DOGE"
+    },
+    "litecoin": {
+      "amount": "0.23871724",
+      "currency": "LTC"
+    },
+    "bitcoin": {
+      "amount": "0.00065081",
+      "currency": "BTC"
+    }
+  },
+  "pricing_type": "fixed_price",
+  "pwcb_only": false,
+  "resource": "charge",
+  "support_email": "haiderjutt95@gmail.com",
+  "timeline": [
+    {
+      "status": "NEW",
+      "time": "2022-10-29T17:38:06Z"
+    }
+  ],
+  "utxo": false
+}

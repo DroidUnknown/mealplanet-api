@@ -1,0 +1,5 @@
+webhook_type_name|webhook_type_description|meta_status
+merchant_payment_notifications|merchant payment notifications|active
+sumsub_incoming_webhook|sumsub incoming webhook|active
+b2binpay_incoming_webhook_invoice|b2binpay_incoming_webhook_invoice|active
+telr_incoming_webhook_invoice|telr_incoming_webhook_invoice|active

@@ -1,0 +1,73 @@
+module_name|full_access_p|policy_name|policy_description|sequence_nr|inner_sequence_nr|policy_type|meta_status
+|1|administrator-access|administrator access|10|1||active
+marketplace-integration|1|marketplace-integration-full-access|marketplace integration|15|1||active
+menu-ingestion|1|menu-ingestion-full-access|menu ingestion|16|1||active
+order-panel|1|order-panel-full-access|order panel|20|1||active
+customer-order|1|customer-order-full-access|customer order|30|1||active
+customer-order|0|customer-order-view|view order|30|2||active
+customer-order|0|customer-order-cancel|cancel order|30|3||active
+customer-order|0|customer-order-edit|edit order|30|4||active
+customer-order|0|customer-order-dispatch|dispatch order|30|5||active
+reports|1|reports-full-access|reports|40|1||active
+reports|0|accounts-receivable|accounts receivable|40|2||active
+reports|0|items-sales|items sales|40|3||active
+reports|0|business-summary|business summary|40|4||active
+reports|0|order-sales-report|order sales report|40|5||active
+user-management|1|user-management-full-access|user management|50|1||active
+user-management|0|user-management-view|view user|50|2||active
+user-management|0|user-management-delete|delete user|50|3||active
+user-management|0|user-management-edit|edit user|50|4||active
+user-management|0|user-management-add|add user|50|5||active
+role-management|0|role-management-add|add role|60|1||active
+role-management|1|role-management-full-access|role management|60|1||active
+role-management|0|role-management-view|view role|60|2||active
+role-management|0|role-management-edit|edit role|60|3||active
+role-management|0|role-management-delete|delete role|60|4||active
+discount-management|1|discount-management-full-access|discount management|70|1||active
+discount-management|0|discount-management-view|view discount|70|2||active
+discount-management|0|discount-management-add|add discount|70|3||active
+discount-management|0|discount-management-delete|delete discount|70|4||active
+discount-management|0|discount-management-edit|edit discount|70|5||active
+menu-management|1|menu-management-full-access|menu management|80|1||active
+menu-management|0|menu-management-view|view menu|80|2||active
+menu-management|0|menu-management-add|add menu|80|3||active
+menu-management|0|menu-management-delete|delete menu|80|4||active
+menu-management|0|menu-management-edit|edit menu|80|5||active
+inventory-management|1|inventory-management-full-access|inventory management|90|1||active
+inventory-management|0|inventory-management-stock-view|view stock|90|2||active
+inventory-management|0|inventory-management-stock-add|add stock|90|3||active
+inventory-management|0|inventory-management-stock-delete|delete stock|90|4||active
+inventory-management|0|inventory-management-stock-edit|edit stock|90|5||active
+inventory-management|0|inventory-management-supplier-view|view supplier|90|6||active
+inventory-management|0|inventory-management-supplier-add|add supplier|90|7||active
+inventory-management|0|inventory-management-supplier-delete|delete supplier|90|8||active
+inventory-management|0|inventory-management-supplier-edit|edit supplier|90|9||active
+inventory-management|0|inventory-management-stock-request-view|view stock request|90|10||active
+inventory-management|0|inventory-management-stock-request-create|stock request|90|11||active
+inventory-management|0|inventory-management-stock-request-dispatch|dispatch stock request|90|12||active
+inventory-management|0|inventory-management-stock-request-receive|receive stock request|90|13||active
+inventory-management|0|inventory-management-stock-request-complete|complete stock request|90|13||active
+inventory-management|0|inventory-management-recipe-view|view recipe|90|14||active
+inventory-management|0|inventory-management-recipe-add|add recipe|90|15||active
+inventory-management|0|inventory-management-recipe-delete|delete recipe|90|16||active
+inventory-management|0|inventory-management-recipe-edit|edit recipe|90|17||active
+inventory-management|0|inventory-management-supplyblox-request-view|view supplyblox request|90|18||active
+inventory-management|0|inventory-management-supplyblox-request-create|supplyblox request|90|19||active
+inventory-management|0|inventory-management-supplyblox-request-dispatch|dispatch supplyblox request|90|20||active
+inventory-management|0|inventory-management-supplyblox-request-receive|receive supplyblox request|90|21||active
+inventory-management|0|inventory-management-supplyblox-request-stock-return|stock return|90|22||active
+inventory-management|0|inventory-management-supplyblox-request-stock-adjustment|stock adjustment|90|23||active
+inventory-management|0|inventory-management-supplyblox-request-spot-check|spot check|90|24||active
+process-approval-management|1|process-approval-config-management-full-access|process approval|100|1||active
+process-approval-management|0|process-approval-config-management-add|add process approval|100|2||active
+process-approval-management|0|process-approval-config-management-edit|edit process approval|100|3||active
+process-approval-management|0|process-approval-config-management-view|view process approval|100|4||active
+process-approval-management|0|process-approval-config-management-delete|delete process approval|100|5||active
+ai-analytics|1|ai-analytics-full-access|ai analytics|120|1||active
+ai-analytics|0|neighbourhood-pulse|neighbourhood pulse|120|2||active
+ai-analytics|0|my-pulse|my pulse|120|3||active
+inventory-management|0|inventory-management-wastage-view|view wastage|90|25||active
+inventory-management|0|inventory-management-wastage-add|add wastage|90|26||active
+inventory-management|0|inventory-management-wastage-edit|edit wastage|90|27||active
+inventory-management|0|inventory-management-stock-request-posting|stock request posting|90|13||active
+kitchen-display-system|1|kitchen-display-system-full-access|kitchen display system|130|28||active

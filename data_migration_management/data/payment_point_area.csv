@@ -1,0 +1,4 @@
+parent_payment_point_area_id|payment_point_area_type_id|merchant_id|payment_point_area_name|payment_point_area_description|meta_status
+None|1|1|restaurant xyz|restaurant xyz desc|active
+None|1|2|restaurant abc|restaurant abc desc|active
+1|2|1|outdoor|outdoor desc|active

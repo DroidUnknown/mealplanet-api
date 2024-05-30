@@ -1,0 +1,5 @@
+merchant_id|brand_id|marketplace_id|discount_level|auto_apply_p|discount_name|discount_description|discount_display_name_en|discount_display_name_ar|currency_id|percentage_p|discount_value|discount_cap_value|minimum_order_value|maximum_order_value|meta_status
+2|None|None|order-level|0|staff-meal|None|staff-meal|staff-meal|1|1|100|None|0|None|active
+2|None|None|line-item-level|1|late night discount|None|late night discount|late night discount|1|1|10|None|0|None|active
+7|None|None|order-level|0|staff-meal|None|staff-meal|staff-meal|1|1|100|None|0|None|active
+7|None|None|line-item-level|1|late night discount|None|late night discount|late night discount|1|1|10|None|0|None|active
