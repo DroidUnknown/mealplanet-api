@@ -1,5 +1,0 @@
-service_name|model_name|model_description|model_type|priority|meta_status
-aws|meta.llama2-13b-chat-v1|llama 13b|text|2|active
-aws|stability.stable-diffusion-xl-v1|stable-diffusion 1.0|image|1|active
-openai|gpt-3.5-turbo-0301|gpt-3.5|text|1|active
-huggingface|stability|stability|image|2|active

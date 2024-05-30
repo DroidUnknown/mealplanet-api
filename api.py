@@ -9,7 +9,7 @@ from flask import Flask, request
 from flask_restful import Api
 from dotenv import load_dotenv
 
-from utils import jqaccess_control_engine
+from utils import jqaccess_control_engine, json_encoder
 
 # ===============================================================================
 # import API Blueprints
@@ -25,6 +25,7 @@ load_dotenv(override=True)
 #  Flask App Configuration
 # ===============================================================================
 app = Flask(__name__, static_url_path='', static_folder='public')  # pylint: disable=invalid-name
+app.json_encoder = json_encoder.JQJSONEncoder
 base_api_url = "/api"
 
 # ===============================================================================
@@ -107,7 +108,7 @@ def before_request():
 @app.after_request
 def after_request(response):
     if request.path.startswith('/api/'):
-        if app.debug and not request.path.startswith('/api/payment-api/hello'):
+        if app.debug and not request.path.startswith('/api/healthcheck'):
             # print("PRINT => IN-DEBUG")
             # print("response.data => ",response.data)
             # response.headers.add('Content-Type', 'application/json')

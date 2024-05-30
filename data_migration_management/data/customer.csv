@@ -1,2 +1,0 @@
-customer_code|merchant_id|customer_first_name|customer_last_name|customer_email|customer_phone_nr|customer_remote_id|stripe_customer_id|meta_status
-abc123|1|test|user|test@user.com|12331231312|123|cus_123|active

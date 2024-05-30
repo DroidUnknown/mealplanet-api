@@ -1,8 +1,0 @@
-process_name|process_description|authentication_required_p|meta_status
-approve-supplier-procurement|Approve Supplier Procurement|0|active
-approve-warehouse-procurement|Approve Warehouse Procurement|0|active
-approve-stock-transfer|Approve Stock Transfer|0|active
-approve-stock-count|Approve Stock Count|0|active
-approve-stock-wastage|Approve Stock Wastage|0|active
-approve-edit-order|Approve Edit Order|1|active
-approve-cancel-order|Approve Cancel Order|1|active

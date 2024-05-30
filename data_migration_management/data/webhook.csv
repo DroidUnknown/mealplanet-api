@@ -1,5 +1,0 @@
-webhook_type_id|webhook_url|meta_status
-1|https://google.com|active
-2|https://test.iblinkpay.com/sumsub/webhook|active
-3|ttps://test.iblinkpay.com/api/b2binpay/webhook/invoice|active
-4|ttps://test.iblinkpay.com/api/telr/payment-request/webhook|active

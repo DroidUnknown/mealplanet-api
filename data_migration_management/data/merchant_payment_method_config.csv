@@ -1,3 +1,0 @@
-merchant_id|payment_method_id|branch_id|fulfillment_type_id|order_placement_channel_id|auto_apply_p|exclude_p|meta_status
-1|1|None|1|None|1|0|active
-1|2|None|1|None|0|1|active

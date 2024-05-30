@@ -1,8 +1,0 @@
-notification_type_name|notification_type_description|merchant_group_id|meta_status
-payment-success|payment-success|1|active
-payment-failed|payment-failed|1|active
-payment-link|payment|1|active
-invoice|invoice|1|active
-warning|warning|2|active
-stock-request|stock-request|2|active
-success|success|2|active

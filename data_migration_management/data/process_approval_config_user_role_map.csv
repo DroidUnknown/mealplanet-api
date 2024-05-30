@@ -1,3 +1,0 @@
-process_approval_config_user_role_map_id|process_approval_config_id|user_id|role_id|employee_id|merchant_role_id|approval_level|criteria_rule_expression|meta_status 
-1|1|1|None|None|None|1|None|active
-2|1|None|2|None|None|1|None|active

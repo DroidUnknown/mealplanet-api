@@ -1,3 +1,0 @@
-email_template_name|email_subject|email_template_type|email_template_format|bucket_name|object_key|meta_status
-test_template|test subject|invitation|html|test_bucket|invatiom.html|active
-test_template|test subject|invitation|txt|test_bucket|invatiom.txt|active

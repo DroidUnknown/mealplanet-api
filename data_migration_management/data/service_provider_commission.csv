@@ -1,6 +1,0 @@
-service_provider_payment_method_currency_map_id|minimum_transaction_amount|maximum_transaction_amount|commission_cap_amount|commission_percentage|fixed_commission|additional_commission_percentage|meta_status
-1|0.1|None|None|2.9|1|None|active
-2|25|None|None|2.9|1|None|active
-13|0.1|None|None|1.5|0.2|None|active
-14|0.00005|None|None|1|0.3|None|active
-15|5|None|None|0|0|None|active

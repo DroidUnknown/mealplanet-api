@@ -98,28 +98,6 @@ class PermissionPolicyMap(Model):
 
 # ----------------------------------------------------------------------------------------------------------------------
 
-# Backend access control at an API level
-class Resource(Model):
-    __tablename__ = 'resource'
-    resource_id = Column(Integer, primary_key=True)
-    resource_name = Column(String(128))
-    resource_type = Column(String(32))
-    business_context = Column(String(32))
-    path_regex = Column(String(128))
-    action_name = Column(String(64))
-    method = Column(String(32))
-    input_fields = Column(JSON)
-    output_fields = Column(JSON)
-    resource_parent_id = Column(String(128))
-    pagination_max_limit = Column(Integer)
-
-class RoleResourcePermissionMap(Model):
-    __tablename__ = 'role_resource_permission_map'
-    role_resource_permission_map_id = Column(Integer, primary_key=True)
-    role_id = Column(Integer)
-    resource_id = Column(Integer)
-    permission = Column(String(2))
-
 class Role(Model):
     __tablename__ = 'role'
 
@@ -164,3 +142,59 @@ class UserBrandProfileMap(Model):
 
 # ----------------------------------------------------------------------------------------------------------------------
 
+class BrandProfile(Model):
+    __tablename__ = 'brand_profile'
+
+    brand_profile_id = Column(Integer, primary_key=True)
+    external_brand_profile_id = Column(String(128))
+    brand_name = Column(String(128))
+
+class BrandProfileImageMap(Model):
+    __tablename__ = 'brand_profile_image_map'
+
+    brand_profile_image_map_id = Column(Integer, primary_key=True)
+    brand_profile_id = Column(Integer)
+
+    image_type = Column(String(32)) #logo
+    image_bucket_name = Column(String(128))
+    image_object_key = Column(String(128))
+
+class Plan(Model):
+    __tablename__ = 'plan'
+
+    plan_id = Column(Integer, primary_key=True)
+    external_plan_id = Column(String(128))
+    brand_profile_id = Column(Integer)
+    plan_name = Column(String(128))
+
+class MenuGroup(Model):
+    __tablename__ = 'menu_group'
+
+    menu_group_id = Column(Integer, primary_key=True)
+    
+    plan_id = Column(Integer)
+    menu_group_name = Column(String(128))
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+class KitchenProfile(Model):
+    __tablename__ = 'kitchen_profile'
+
+    kitchen_profile_id = Column(Integer, primary_key=True)
+    external_kitchen_profile_id = Column(String(128))
+    brand_profile_id = Column(Integer)
+    kitchen_name = Column(String(128))
+
+class DeliveryProviderProfile(Model):
+    __tablename__ = 'delivery_provider_profile'
+
+    delivery_provider_profile_id = Column(Integer, primary_key=True)
+    external_delivery_provider_profile_id = Column(String(128))
+    delivery_provider_name = Column(String(128))
+
+class DeliveryProviderProfilePlanMap(Model):
+    __tablename__ = 'delivery_provider_profile_plan_map'
+
+    delivery_provider_profile_plan_map_id = Column(Integer, primary_key=True)
+    delivery_provider_profile_id = Column(Integer)
+    plan_id = Column(Integer)

@@ -1,2 +1,0 @@
-merchant_id|currency_id|total_revenue_amount|total_merchant_transaction_commission_amount|total_service_provider_commission_amount|total_payout_amount|total_balance_amount|total_customer_served_count|total_transaction_count|meta_status
-1|1|0|0|0|0|0|0|0|active
