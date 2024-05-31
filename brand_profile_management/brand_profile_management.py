@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify, g
 from sqlalchemy import text
 
 from utils import jqutils
+from brand_profile_management import brand_profile_ninja
 
 brand_profile_management_blueprint = Blueprint('brand_profile_management', __name__)
 
@@ -11,20 +12,11 @@ def check_brand_profile_availability():
 
     external_brand_profile_id = request_data["external_brand_profile_id"]
 
-    db_engine = jqutils.get_db_engine()
-
-    query = text("""
-        SELECT brand_profile_id
-        FROM brand_profile
-        WHERE external_brand_profile_id = :external_brand_profile_id
-        AND meta_status = :meta_status
-    """)
-    with db_engine.connect() as conn:
-        result = conn.execute(query, external_brand_profile_id=external_brand_profile_id, meta_status="active").fetchone()
+    availability_p = brand_profile_ninja.check_brand_profile_availability(external_brand_profile_id)
 
     response_body = {
         "data": {
-            "availability_p": 0 if result else 1
+            "availability_p": availability_p
         },
         "action": "check_brand_profile_availability",
         "status": "successful"
@@ -37,6 +29,16 @@ def add_brand_profile():
 
     external_brand_profile_id = request_data["external_brand_profile_id"]
     brand_name = request_data["brand_name"]
+
+    availability_p = brand_profile_ninja.check_brand_profile_availability(external_brand_profile_id)
+    if availability_p == 0:
+        response_body = {
+            "data": {},
+            "action": "add_brand_profile",
+            "status": "failed",
+            "message": "External Brand Profile ID already exists"
+        }
+        return jsonify(response_body)
 
     one_dict = {
         "external_brand_profile_id": external_brand_profile_id,
@@ -90,6 +92,16 @@ def update_brand_profile(brand_profile_id):
 
     external_brand_profile_id = request_data["external_brand_profile_id"]
     brand_name = request_data["brand_name"]
+
+    availability_p = brand_profile_ninja.check_brand_profile_availability(external_brand_profile_id)
+    if availability_p == 0:
+        response_body = {
+            "data": {},
+            "action": "update_brand_profile",
+            "status": "failed",
+            "message": "External Brand Profile ID already exists"
+        }
+        return jsonify(response_body)
 
     one_dict = {
         "external_brand_profile_id": external_brand_profile_id,

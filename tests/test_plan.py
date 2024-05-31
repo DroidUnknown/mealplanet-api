@@ -1,11 +1,17 @@
 import json
-from tests import test_brand_profile
 
 base_api_url = "/api"
 
 ##########################
 # TEST - PLAN
-########################## 
+##########################  
+def do_check_plan_availability(client, headers, payload):
+    """
+    CHECK PLAN AVAILABILITY
+    """
+    response = client.post(base_api_url + "/plan/availability", headers=headers, json=payload)
+    return response
+
 def do_add_plan(client, content_team_headers, payload):
     """
     ADD PLAN
@@ -51,85 +57,116 @@ def do_get_menu_groups_by_plan(client, content_team_headers, plan_id):
 ##########################
 # TEST CASES
 ########################## 
+first_plan_id = None
 
-def test_plan(client, content_team_headers):
+def test_add_plan(client, content_team_headers):
     """
     Test: Add Plan
     """
-    payload = {
-        "external_plan_id": "111",
-        "brand_profile_id": 2,
-        "plan_name": "Lunch",
-    }
+    payload = [
+        {
+            "external_plan_id": "111",
+            "brand_profile_id": 2,
+            "plan_name": "Lunch",
+        },
+        {
+            "external_plan_id": "112",
+            "brand_profile_id": 2,
+            "plan_name": "Dinner",
+        }
+    ]
     response = do_add_plan(client, content_team_headers, payload)
     assert response.status_code == 200
-    response_data = json.loads(response.data)
-    plan_id = response_data["plan_id"]
+    response_json = json.loads(response.data)
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "add_plan"
 
+    global first_plan_id
+    response_json = response_json["data"]
+    plan_id_list = response_json["plan_id_list"]
+    first_plan_id = plan_id_list[0]
+
+    response = do_check_plan_availability(client, content_team_headers, {"external_plan_id": "111"})
+    assert response.status_code == 200
+    response_json = json.loads(response.data)
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "check_plan_availability"
+
+    response_data = response_json["data"]
+    assert response_data["availability_p"] == 0
+
+def test_get_plan(client, content_team_headers):
     """
     Test: Get Plan
     """
-    response = do_get_plan(client, content_team_headers, plan_id)
+    response = do_get_plan(client, content_team_headers, first_plan_id)
     assert response.status_code == 200
-    response_data = json.loads(response.data)
+    response_json = json.loads(response.data)
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "get_plan"
+
+    response_data = response_json["data"]
+    print(response_data)
+    assert response_data, "Data is empty"
+    assert response_data["plan_id"] == first_plan_id
     assert response_data["plan_name"] == "Lunch"
 
+def test_update_plan(client, content_team_headers):
     """
     Test: Update Plan
     """
     payload = {
         "plan_name": "Breakfast"
     }
-    response = do_update_plan(client, content_team_headers, plan_id, payload)
+    response = do_update_plan(client, content_team_headers, first_plan_id, payload)
     assert response.status_code == 200
+    response_json = json.loads(response.data)
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "update_plan"
     
     """
     Test: Get Plan
     """
-    response = do_get_plan(client, content_team_headers, plan_id)
+    response = do_get_plan(client, content_team_headers, first_plan_id)
     assert response.status_code == 200
-    response_data = json.loads(response.data)
+    response_json = json.loads(response.data)
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "get_plan"
+
+    response_data = response_json["data"]
     assert response_data["plan_name"] == "Breakfast"
 
+def test_get_plan_list(client, content_team_headers):
     """
     Test: Get Plan List
     """
     response = do_get_plan_list(client, content_team_headers)
     assert response.status_code == 200
-    response_data = json.loads(response.data)
-    assert len(response_data) == 1, "Plan List should have 1 item."
+    response_json = json.loads(response.data)
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "get_plan_list"
 
+    response_data = response_json["data"]
+    assert len(response_data) == 2
+
+def test_delete_plan(client, content_team_headers):
     """
     Test: Delete Plan
     """
-    response = do_delete_plan(client, content_team_headers, plan_id)
+    response = do_delete_plan(client, content_team_headers, first_plan_id)
     assert response.status_code == 200
+    response_json = json.loads(response.data)
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "delete_plan"
 
     """
     Test: Get Plan List
     """
     response = client.get(base_api_url + "/plan", headers=content_team_headers)
     assert response.status_code == 200
-    response_data = json.loads(response.data)
-    assert len(response_data) == 0, "Plan List should have 0 item."
-    
-    """
-    Test: Add Plan
-    """
-    payload = {
-        "external_plan_id": "111",
-        "brand_profile_id": 2,
-        "plan_name": "Lunch",
-    }
-    response = do_add_plan(client, content_team_headers, payload)
-    assert response.status_code == 200
-    response_data = json.loads(response.data)
-    plan_id = response_data["plan_id"]
+    response_json = json.loads(response.data)
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "get_plan_list"
 
-    """
-    Test: Get Menu Groups by Plan
-    """
-    response = test_brand_profile.do_get_plans_by_brand_profile(client, content_team_headers, 2)
-    assert response.status_code == 200
-    response_data = json.loads(response.data)
-    assert len(response_data) == 1, "Plan List should have 1 item."
+    response_data = response_json["data"]
+    assert len(response_data) == 1
