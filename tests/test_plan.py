@@ -70,7 +70,7 @@ def test_add_plan(client, content_team_headers):
             {
                 "external_plan_id": "111",
                 "plan_name": "Lunch",
-                "menu_group_id_list": [1, 2]
+                "menu_group_id_list": [3, 4]
             },
             {
                 "external_plan_id": "222",
