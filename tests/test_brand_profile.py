@@ -70,7 +70,7 @@ def test_add_brand_profile(client, content_team_headers):
             {
                 "plan_name": "plan1",
                 "external_plan_id": "1",
-                "menu_group_id_list": [1, 2],
+                "menu_group_id_list": [1, 2]
             }
         ]
     }
