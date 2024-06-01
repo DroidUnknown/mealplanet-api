@@ -93,7 +93,7 @@ def update_brand_profile(brand_profile_id):
     external_brand_profile_id = request_data["external_brand_profile_id"]
     brand_name = request_data["brand_name"]
 
-    availability_p = brand_profile_ninja.check_brand_profile_availability(external_brand_profile_id)
+    availability_p = brand_profile_ninja.check_brand_profile_availability(external_brand_profile_id, brand_profile_id)
     if availability_p == 0:
         response_body = {
             "data": {},

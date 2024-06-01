@@ -27,17 +27,17 @@ def landscape():
     # Dump and recreate database
     db_engine = jqutils.get_db_engine('sys')
     with db_engine.connect() as conn:
-        conn.execute('drop database if exists testportalprofileservice')
-        conn.execute('create database testportalprofileservice CHARACTER SET utf8 COLLATE utf8_unicode_ci;')
+        conn.execute('drop database if exists test_portalprofile_service')
+        conn.execute('create database test_portalprofile_service CHARACTER SET utf8 COLLATE utf8_unicode_ci;')
         conn.execute('SET AUTOCOMMIT=1;')
-    models.create_all('testportalprofileservice')
-    archive_models.create_all('testportalprofileservice')
+    models.create_all('test_portalprofile_service')
+    archive_models.create_all('test_portalprofile_service')
 
     # Necessary test dummy data
-    migrator = DataMigrationManager('testportalprofileservice', debug=True)
+    migrator = DataMigrationManager('test_portalprofile_service', debug=True)
     migrator.run()
     
-    db_engine = jqutils.get_db_engine('testportalprofileservice')
+    db_engine = jqutils.get_db_engine('test_portalprofile_service')
     # with open('tests/testdata/landscape.json', 'r') as fp:
     #     data = json.load(fp)
     #     for table_name in data:

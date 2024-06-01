@@ -1,4 +1,5 @@
 import json
+import pytest
 
 base_api_url = "/api"
 
@@ -44,7 +45,7 @@ def do_get_plan_list(client, content_team_headers):
     """
     GET PLAN LIST
     """
-    response = client.get(base_api_url + "/plan", headers=content_team_headers)
+    response = client.get(base_api_url + "/plans", headers=content_team_headers)
     return response
 
 def do_get_menu_groups_by_plan(client, content_team_headers, plan_id):
@@ -59,6 +60,7 @@ def do_get_menu_groups_by_plan(client, content_team_headers, plan_id):
 ########################## 
 first_plan_id = None
 
+@pytest.mark.dependency()
 def test_add_plan(client, content_team_headers):
     """
     Test: Add Plan
@@ -106,7 +108,6 @@ def test_get_plan(client, content_team_headers):
     assert response_json["action"] == "get_plan"
 
     response_data = response_json["data"]
-    print(response_data)
     assert response_data, "Data is empty"
     assert response_data["plan_id"] == first_plan_id
     assert response_data["plan_name"] == "Lunch"
@@ -116,6 +117,8 @@ def test_update_plan(client, content_team_headers):
     Test: Update Plan
     """
     payload = {
+        "external_plan_id": "111",
+        "brand_profile_id": 2,
         "plan_name": "Breakfast"
     }
     response = do_update_plan(client, content_team_headers, first_plan_id, payload)
@@ -144,7 +147,7 @@ def test_get_plan_list(client, content_team_headers):
     assert response.status_code == 200
     response_json = json.loads(response.data)
     assert response_json["status"] == "successful"
-    assert response_json["action"] == "get_plan_list"
+    assert response_json["action"] == "get_plans"
 
     response_data = response_json["data"]
     assert len(response_data) == 2
@@ -162,11 +165,11 @@ def test_delete_plan(client, content_team_headers):
     """
     Test: Get Plan List
     """
-    response = client.get(base_api_url + "/plan", headers=content_team_headers)
+    response = client.get(base_api_url + "/plans", headers=content_team_headers)
     assert response.status_code == 200
     response_json = json.loads(response.data)
     assert response_json["status"] == "successful"
-    assert response_json["action"] == "get_plan_list"
+    assert response_json["action"] == "get_plans"
 
     response_data = response_json["data"]
     assert len(response_data) == 1

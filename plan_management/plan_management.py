@@ -103,7 +103,7 @@ def update_plan(plan_id):
     brand_profile_id = request_data["brand_profile_id"]
     plan_name = request_data["plan_name"]
 
-    availability_p = plan_ninja.check_plan_availability(external_plan_id)
+    availability_p = plan_ninja.check_plan_availability(external_plan_id, plan_id)
     if availability_p == 0:
         response_body = {
             "data": {},
