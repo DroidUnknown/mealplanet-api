@@ -3,6 +3,7 @@ from sqlalchemy import text
 
 from utils import jqutils
 from brand_profile_management import brand_profile_ninja
+from plan_management import plan_ninja
 
 brand_profile_management_blueprint = Blueprint('brand_profile_management', __name__)
 
@@ -29,6 +30,7 @@ def add_brand_profile():
 
     external_brand_profile_id = request_data["external_brand_profile_id"]
     brand_name = request_data["brand_name"]
+    plan_list = request_data.get("plan_list", [])
 
     availability_p = brand_profile_ninja.check_brand_profile_availability(external_brand_profile_id)
     if availability_p == 0:
@@ -49,6 +51,17 @@ def add_brand_profile():
 
     brand_profile_id = jqutils.create_new_single_db_entry(one_dict, "brand_profile")
    
+    if plan_list:
+        success_p, response = plan_ninja.add_plans(brand_profile_id, plan_list, creation_user_id=g.user_id)
+        if not success_p:
+            response_body = {
+                "data": {},
+                "action": "add_brand_profile",
+                "status": "failed",
+                "message": response
+            }
+            return jsonify(response_body)
+        
     response_body = {
         "data": {
             "brand_profile_id": brand_profile_id
@@ -72,8 +85,13 @@ def get_brand_profile(brand_profile_id):
         result = conn.execute(query, brand_profile_id=brand_profile_id, meta_status="active").fetchone()
 
     if result:
+        brand_profile_dict = dict(result)
+        plan_list = plan_ninja.get_plan_list_by_brand_profile(brand_profile_id)
+        brand_profile_dict["plan_list"] = plan_list
+
+    if result:
         response_body = {
-            "data": dict(result),
+            "data": brand_profile_dict,
             "action": "get_brand_profile",
             "status": "successful"
         }
@@ -135,6 +153,7 @@ def delete_brand_profile(brand_profile_id):
     }
 
     jqutils.update_single_db_entry(one_dict, "brand_profile", condition)
+    plan_ninja.delete_plans_by_brand_profile(brand_profile_id)
    
     response_body = {
         "action": "delete_brand_profile",
@@ -175,23 +194,16 @@ def get_plans_by_brand_profile(brand_profile_id):
         result = conn.execute(query, brand_profile_id=brand_profile_id, meta_status="active").fetchone()
 
     if result:
-        query = text("""
-            SELECT plan_id, external_plan_id, brand_profile_id, plan_name
-            FROM plan
-            WHERE brand_profile_id = :brand_profile_id
-            AND meta_status = :meta_status
-        """)
-        with db_engine.connect() as conn:
-            result = conn.execute(query, brand_profile_id=brand_profile_id, meta_status="active").fetchall()
+        plan_list = plan_ninja.get_plan_list_by_brand_profile(brand_profile_id)
 
         response_body = {
-            "data": [dict(row) for row in result],
+            "data": plan_list,
             "action": "get_plans_by_brand_profile",
             "status": "successful"
         }
     else:
         response_body = {
-            "data": {},
+            "data": [],
             "action": "get_plans_by_brand_profile",
             "status": "successful",
             "message": "No data found"

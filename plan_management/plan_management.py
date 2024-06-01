@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, g
-from sqlalchemy import text, Table, MetaData
+from sqlalchemy import text
 
 from utils import jqutils
 from plan_management import plan_ninja
@@ -25,42 +25,26 @@ def check_plan_availability():
 
 @plan_management_blueprint.route('/plan', methods=['POST'])
 def add_plan():
-    request_data_list = request.get_json()
+    request_data = request.get_json()
 
-    dict_list = []
-    for request_data in request_data_list:
-        external_plan_id = request_data["external_plan_id"]
-        availability_p = plan_ninja.check_plan_availability(external_plan_id)
-        if availability_p == 0:
-            response_body = {
-                "data": {},
-                "action": "add_plan",
-                "status": "failed",
-                "message": f"External Brand Profile ID: '{external_plan_id}' already exists"
-            }
-            return jsonify(response_body)
+    brand_profile_id = request_data["brand_profile_id"]
+    plan_list = request_data["plan_list"]
+    creation_user_id = g.user_id
 
-        dict_list.append({
-            "external_plan_id": request_data["external_plan_id"],
-            "plan_name": request_data["plan_name"],
-            "brand_profile_id": request_data["brand_profile_id"],
-            "meta_status": "active",
-            "creation_user_id": g.user_id
-        })
+    success_p, response = plan_ninja.add_plans(brand_profile_id, plan_list, creation_user_id)
 
-    plan_id_list = []
-    db_engine = jqutils.get_db_engine()
-    metadata = MetaData(bind=db_engine)
-    plan_table = Table('PLAN', metadata, autoload_with=db_engine)
-
-    with db_engine.connect() as conn:
-        for row in dict_list:
-            result = conn.execute(plan_table.insert(), row)
-            plan_id_list.append(result.inserted_primary_key[0])
+    if not success_p:
+        response_body = {
+            "data": {},
+            "action": "add_plan",
+            "status": "failed",
+            "message": response
+        }
+        return jsonify(response_body)
 
     response_body = {
         "data": {
-            "plan_id_list": plan_id_list
+            "plan_id_list": response
         },
         "action": "add_plan",
         "status": "successful"

@@ -60,23 +60,24 @@ def do_get_menu_groups_by_plan(client, content_team_headers, plan_id):
 ########################## 
 first_plan_id = None
 
-@pytest.mark.dependency()
 def test_add_plan(client, content_team_headers):
     """
     Test: Add Plan
     """
-    payload = [
-        {
-            "external_plan_id": "111",
-            "brand_profile_id": 2,
-            "plan_name": "Lunch",
-        },
-        {
-            "external_plan_id": "112",
-            "brand_profile_id": 2,
-            "plan_name": "Dinner",
-        }
-    ]
+    payload = {
+        "brand_profile_id": 2,
+        "plan_list": [
+            {
+                "external_plan_id": "111",
+                "plan_name": "Lunch",
+                "menu_group_id_list": [1, 2]
+            },
+            {
+                "external_plan_id": "222",
+                "plan_name": "Dinner + Lunch"
+            }
+        ]
+    }
     response = do_add_plan(client, content_team_headers, payload)
     assert response.status_code == 200
     response_json = json.loads(response.data)
