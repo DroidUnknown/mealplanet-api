@@ -113,12 +113,13 @@ def test_update_brand_profile(client, content_team_headers):
     Test: Update Brand Profile
     """
     payload = {
-        "external_brand_profile_id": "1",
+        "external_brand_profile_id": "2",
         "brand_name": "tolpin"
     }
     response = do_update_brand_profile(client, content_team_headers, brand_profile_id, payload)
     assert response.status_code == 200
     response_json = json.loads(response.data)
+
     assert response_json["status"] == "successful"
     assert response_json["action"] == "update_brand_profile"
 
