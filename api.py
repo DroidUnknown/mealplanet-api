@@ -15,6 +15,7 @@ from utils import json_encoder
 from brand_profile_management.brand_profile_management import brand_profile_management_blueprint
 from plan_management.plan_management import plan_management_blueprint
 from delivery_provider_profile_management.delivery_provider_profile_management import delivery_provider_profile_management_blueprint
+from kitchen_profile_management.kitchen_profile_management import kitchen_profile_management_blueprint
 
 # import Environment variables
 load_dotenv(override=True)
@@ -42,6 +43,7 @@ elif os.environ.get('ENV') == 'production':
 app.register_blueprint(brand_profile_management_blueprint, url_prefix=base_api_url)
 app.register_blueprint(plan_management_blueprint, url_prefix=base_api_url)
 app.register_blueprint(delivery_provider_profile_management_blueprint, url_prefix=base_api_url)
+app.register_blueprint(kitchen_profile_management_blueprint, url_prefix=base_api_url)
 
 # ===============================================================================
 # Gunicorn settings

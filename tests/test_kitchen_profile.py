@@ -55,7 +55,9 @@ def test_kitchen_profile(client, content_team_headers):
     }
     response = do_add_kitchen_profile(client, content_team_headers, payload)
     assert response.status_code == 200
-    response_data = json.loads(response.data)
+    response_data = response.get_json()
+    assert response_data["status"] == "successful"
+    response_data = response_data["data"]
     kitchen_profile_id = response_data["kitchen_profile_id"]
 
     """
@@ -63,24 +65,32 @@ def test_kitchen_profile(client, content_team_headers):
     """
     response = do_get_kitchen_profile(client, content_team_headers, kitchen_profile_id)
     assert response.status_code == 200
-    response_data = json.loads(response.data)
+    response_data = response.get_json()
+    assert response_data["status"] == "successful"
+    response_data = response_data["data"]
     assert response_data["kitchen_name"] == "satwa"
 
     """
     Test: Update Kitchen profile
     """
     payload = {
+        "external_kitchen_profile_id": "112",
+        "brand_profile_id": "2",
         "kitchen_name": "majaz"
     }
     response = do_update_kitchen_profile(client, content_team_headers, kitchen_profile_id, payload)
     assert response.status_code == 200
+    response_data = response.get_json()
+    assert response_data["status"] == "successful"
     
     """
     Test: Get Kitchen profile
     """
     response = do_get_kitchen_profile(client, content_team_headers, kitchen_profile_id)
     assert response.status_code == 200
-    response_data = json.loads(response.data)
+    response_data = response.get_json()
+    assert response_data["status"] == "successful"
+    response_data = response_data["data"]
     assert response_data["kitchen_name"] == "majaz"
 
     """
@@ -88,7 +98,9 @@ def test_kitchen_profile(client, content_team_headers):
     """
     response = do_get_kitchen_profile_list(client, content_team_headers)
     assert response.status_code == 200
-    response_data = json.loads(response.data)
+    response_data = response.get_json()
+    assert response_data["status"] == "successful"
+    response_data = response_data["data"]
     assert len(response_data) == 1, "Kitchen-profile List should have 1 item."
 
     """
@@ -96,13 +108,17 @@ def test_kitchen_profile(client, content_team_headers):
     """
     response = do_delete_kitchen_profile(client, content_team_headers, kitchen_profile_id)
     assert response.status_code == 200
+    response_data = response.get_json()
+    assert response_data["status"] == "successful"
 
     """
     Test: Get Kitchen profile List
     """
     response = do_get_kitchen_profile_list(client, content_team_headers)
     assert response.status_code == 200
-    response_data = json.loads(response.data)
+    response_data = response.get_json()
+    assert response_data["status"] == "successful"
+    response_data = response_data["data"]
     assert len(response_data) == 0, "Kitchen-profile List should have 0 item."
     
     """
@@ -115,5 +131,7 @@ def test_kitchen_profile(client, content_team_headers):
     }
     response = do_add_kitchen_profile(client, content_team_headers, payload)
     assert response.status_code == 200
-    response_data = json.loads(response.data)
+    response_data = response.get_json()
+    assert response_data["status"] == "successful"
+    response_data = response_data["data"]
     kitchen_profile_id = response_data["kitchen_profile_id"]
