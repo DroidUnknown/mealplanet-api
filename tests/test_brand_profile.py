@@ -181,7 +181,14 @@ def test_get_plans_by_brand_profile(client, content_team_headers):
     """
     payload = {
         "external_brand_profile_id": "1",
-        "brand_name": "qoqo"
+        "brand_name": "qoqo",
+        "plan_list": [
+            {
+                "plan_name": "plan1",
+                "external_plan_id": "1",
+                "menu_group_id_list": [1, 2]
+            }
+        ]
     }
     response = do_add_brand_profile(client, content_team_headers, payload)
     assert response.status_code == 200

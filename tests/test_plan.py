@@ -151,7 +151,7 @@ def test_get_plan_list(client, content_team_headers):
     assert response_json["action"] == "get_plans"
 
     response_data = response_json["data"]
-    assert len(response_data) == 2
+    assert len(response_data) == 3
 
 def test_delete_plan(client, content_team_headers):
     """
@@ -173,4 +173,4 @@ def test_delete_plan(client, content_team_headers):
     assert response_json["action"] == "get_plans"
 
     response_data = response_json["data"]
-    assert len(response_data) == 1
+    assert len(response_data) == 2
