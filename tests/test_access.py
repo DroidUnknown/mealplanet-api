@@ -19,4 +19,4 @@ def test_login(client):
     assert response.status_code == 200
     response_data = json.loads(response.data)
     assert response_data["message"] == "Login successful"
-    assert response_data["access_token"] is not None
+    assert response_data["data"]["access_token"] is not None

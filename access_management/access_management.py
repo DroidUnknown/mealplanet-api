@@ -27,24 +27,31 @@ def login():
         # get user role from keycloak
         access_token = token['access_token']
 
-        userinfo = keycloak_openid.userinfo(access_token)
-        print(json.dumps(userinfo, indent=4))
-        user_id = userinfo['sub']
+        token_info = keycloak_openid.decode_token(access_token, validate=False)
+            
+        user_roles = token_info['realm_access']['roles']
         
-        user_roles = keycloak_utils.get_user_roles(user_id)
         if not user_roles:
             response_body = {
-                'message': 'Login failed'
+                'message': 'Login failed',
+                'acton': 'login',
+                'status': 'failed'
             }
         else:
             response_body = {
-                'message': 'Login successful',
-                'access_token': token['access_token'],
-                'user_roles': user_roles
+                'data': {
+                    'access_token': access_token,
+                    'user_roles': user_roles
+                },
+                'status': 'successful',
+                'action': 'login',
+                'message': 'Login successful'
             }
     else:
         response_body = {
-            'message': 'Login failed'
+            'message': 'Login failed',
+            'action': 'login',
+            'status': 'failed'
         }
     
     return jsonify(response_body)
