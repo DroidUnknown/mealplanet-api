@@ -28,8 +28,12 @@ def login():
         access_token = token['access_token']
 
         token_info = keycloak_openid.decode_token(access_token, validate=False)
-            
+        with open('token_info.json', 'w') as f:
+            json.dump(token_info, f)
         user_roles = token_info['realm_access']['roles']
+        user_id = token_info['sub']
+        client_roles = keycloak_utils.get_user_client_roles(user_id)
+        print(client_roles)
         
         if not user_roles:
             response_body = {

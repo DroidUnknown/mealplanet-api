@@ -45,7 +45,21 @@ def get_keycloak_admin_openid():
         
     return keycloak_admin_openid
 
-def get_user_roles(user_id):
-    keycloak_openid = get_keycloak_admin_openid()
-    roles = keycloak_openid.get_user_roles(user_id,realm_name=realm_name)
+def get_client_id(client_id):
+    keycloak_admin = get_keycloak_admin_openid()
+    print(keycloak_admin)
+    clients = keycloak_admin.get_clients()
+    if clients:
+        return clients[0]['id']
+    else:
+        raise ValueError(f"Client {client_id} not found")
+
+def get_user_client_roles(user_id):
+    keycloak_admin = get_keycloak_admin_openid()
+    
+    new_client_id = get_client_id(client_id)
+    
+    roles = keycloak_admin.get_client_role_mappings(user_id=user_id, client_id=new_client_id)
     return roles
+    
+    

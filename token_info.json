@@ -1,0 +1,46 @@
+{
+    "exp": 1720090332,
+    "iat": 1717498332,
+    "jti": "92ce7ed9-95cc-453d-a5af-325effeeabf0",
+    "iss": "https://nonprod-keycloak.mealplanet.com/auth/realms/mealplanet-dev",
+    "aud": [
+        "crm-client",
+        "realm-management",
+        "cdo-crons",
+        "admin-cli",
+        "meal-planet-users",
+        "broker",
+        "istio",
+        "account"
+    ],
+    "sub": "34d7b0e3-dcd7-4cb6-a37f-18dabef28079",
+    "typ": "Bearer",
+    "azp": "codify",
+    "session_state": "a0b1f7ea-2abb-4cff-a95e-803b9ee7fdf3",
+    "acr": "1",
+    "allowed-origins": [
+        "http://dev.mealplanet.globalvertices.com"
+    ],
+    "realm_access": {
+        "roles": [
+            "default-roles-mealplanet-dev",
+            "offline_access",
+            "uma_authorization",
+            "Admin"
+        ]
+    },
+    "resource_access": {
+        "meal-planet-users": {
+            "roles": [
+                "uma_protection",
+                "admin",
+                "customer"
+            ]
+        }
+    },
+    "scope": "openid profile email",
+    "sid": "a0b1f7ea-2abb-4cff-a95e-803b9ee7fdf3",
+    "email_verified": false,
+    "preferred_username": "hannan.aamir",
+    "email": "hannan.aamir@globalvertices.com"
+}
