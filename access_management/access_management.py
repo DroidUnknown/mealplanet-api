@@ -33,7 +33,7 @@ def login():
         
         if not user_roles:
             response_body = {
-                'message': 'Login failed',
+                'message': 'Login failed no user roles found',
                 'acton': 'login',
                 'status': 'failed'
             }
