@@ -17,26 +17,26 @@ access_management_blueprint = Blueprint('access_management', __name__)
 
 @access_management_blueprint.route('/login', methods=['POST'])
 def login():
-    request_data = request.get_json()
+    request_json = request.get_json()
     
-    keycloak_openid = keycloak_utils.get_keycloak_client_openid()
+    username = request_json["username"]
+    password = request_json["password"]
     
-    username = request_data["username"]
-    password = request_data["password"]
+    keycloak_client_openid = keycloak_utils.get_keycloak_client_openid()
 
     # Authenticate user with Keycloak
     try:
-        token = keycloak_openid.token(username, password)
-        access_token = token['access_token']
-        refresh_token = token['refresh_token']
-        rpt_token = keycloak_utils.get_rpt_token(keycloak_openid)
+        token = keycloak_client_openid.token(username, password)
+        rpt_token = keycloak_utils.get_rpt_token(keycloak_client_openid)
         assert rpt_token, 'Unable to get RPT token'
         
         return jsonify({
             'data': {
-                'access_token': access_token,
+                'access_token': token['access_token'],
+                'expires_in': token['expires_in'],
+                'refresh_token': token['refresh_token'],
+                'refresh_expires_in': token['refresh_expires_in'],
                 'rpt_token': rpt_token,
-                'refresh_token': refresh_token,
             },
             'status': 'successful',
             'action': 'login',
@@ -48,6 +48,67 @@ def login():
             'message': 'Invalid username or password',
             'action': 'login',
             'status': 'failed'
+        }, 401)
+    
+@access_management_blueprint.route('/refresh', methods=['POST'])
+def refresh():
+    request_json = request.get_json()
+    
+    refresh_token = request_json["refresh_token"]
+    
+    keycloak_client_openid = keycloak_utils.get_keycloak_client_openid()
+    
+    # Refresh token with Keycloak
+    try:
+        token = keycloak_client_openid.refresh_token(refresh_token)
+        rpt_token = keycloak_utils.get_rpt_token(keycloak_client_openid)
+        assert rpt_token, 'Unable to get RPT token'
+        
+        return jsonify({
+            'data': {
+                'access_token': token['access_token'],
+                'expires_in': token['expires_in'],
+                'refresh_token': token['refresh_token'],
+                'refresh_expires_in': token['refresh_expires_in'],
+                'rpt_token': rpt_token,
+            },
+            'status': 'successful',
+            'action': 'refresh',
         })
+        
+    except Exception as e:
+        logger.error(traceback.format_exc())
+        return jsonify({
+            'message': 'Invalid refresh token',
+            'action': 'refresh',
+            'status': 'failed'
+        }, 401)
+    
+    
+@access_management_blueprint.route('/logout', methods=['POST'])
+def logout():
+    request_json = request.get_json()
+    
+    refresh_token = request_json["refresh_token"]
+    
+    keycloak_client_openid = keycloak_utils.get_keycloak_client_openid()
+    
+    # Logout user with Keycloak
+    try:
+        keycloak_client_openid.logout(refresh_token)
+        
+        return jsonify({
+            'data': {},
+            'action': 'logout',
+            'status': 'successful'
+        })
+        
+    except Exception as e:
+        logger.error(traceback.format_exc())
+        return jsonify({
+            'message': 'Invalid refresh token',
+            'action': 'logout',
+            'status': 'failed'
+        }, 401)
     
     
