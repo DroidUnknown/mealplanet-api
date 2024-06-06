@@ -44,12 +44,13 @@ url = "https://nonprod-keycloak.mealplanet.com/auth/admin/realms/Istio/clients/4
 
 payload = {
     "resources": [],
-    "policies": [],
-    "scopes": [
-        "4e74494e-9b67-4496-ad70-dbf563c9ab73",
-        "44723705-406d-4d51-8dc3-87f51ea5ca40"
+    "policies": [
+        "3b7650d3-ab26-47b6-8a8b-b125c1f31a28"
     ],
-    "name": "all:*:brand-management:member",
+    "scopes": [
+        "4e74494e-9b67-4496-ad70-dbf563c9ab73"
+    ],
+    "name": "basiligo:1:brand-management:content",
     "description": "",
     "decisionStrategy": "UNANIMOUS"
 }
