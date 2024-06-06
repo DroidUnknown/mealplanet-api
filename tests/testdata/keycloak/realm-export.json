@@ -528,6 +528,38 @@
       },
       "notBefore": 0,
       "groups": []
+    },
+    {
+      "id": "51a48f88-97ce-41da-b543-10a88f5a1b8a",
+      "username": "codify-admin",
+      "emailVerified": false,
+      "createdTimestamp": 1717683219759,
+      "enabled": true,
+      "totp": false,
+      "disableableCredentialTypes": [],
+      "requiredActions": [],
+      "realmRoles": [
+        "codify-admin",
+        "default-roles-istio",
+        "offline_access",
+        "uma_authorization"
+      ],
+      "notBefore": 0,
+      "groups": [],
+      "access": {
+        "manageGroupMembership": true,
+        "view": true,
+        "mapRoles": true,
+        "impersonate": true,
+        "manage": true
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "123456",
+          "temporary": false
+        }
+      ]
     }
   ],
   "scopeMappings": [

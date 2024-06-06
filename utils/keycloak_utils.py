@@ -32,14 +32,10 @@ def get_keycloak_admin_openid():
     global keycloak_admin_openid
     
     if not keycloak_admin_openid:
-        print(server_url, admin_username, admin_password, realm_name, client_id, client_secret_key)
         keycloak_admin_openid = KeycloakAdmin(
             server_url=server_url,
             username=admin_username,
-            password=admin_password,
-            realm_name=realm_name,
-            client_id=client_id,
-            client_secret_key=client_secret_key
+            password=admin_password
         )
         
     return keycloak_admin_openid
