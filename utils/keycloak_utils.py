@@ -19,7 +19,6 @@ def get_keycloak_client_openid():
     global keycloak_client_openid
     
     if not keycloak_client_openid:
-    
         keycloak_client_openid = KeycloakOpenID(
             server_url=server_url,
             client_id=client_id,
@@ -33,7 +32,7 @@ def get_keycloak_admin_openid():
     global keycloak_admin_openid
     
     if not keycloak_admin_openid:
-        
+        print(server_url, admin_username, admin_password, realm_name, client_id, client_secret_key)
         keycloak_admin_openid = KeycloakAdmin(
             server_url=server_url,
             username=admin_username,
@@ -44,22 +43,3 @@ def get_keycloak_admin_openid():
         )
         
     return keycloak_admin_openid
-
-def get_client_id(client_id):
-    keycloak_admin = get_keycloak_admin_openid()
-    print(keycloak_admin)
-    clients = keycloak_admin.get_clients()
-    if clients:
-        return clients[0]['id']
-    else:
-        raise ValueError(f"Client {client_id} not found")
-
-def get_user_client_roles(user_id):
-    keycloak_admin = get_keycloak_admin_openid()
-    
-    new_client_id = get_client_id(client_id)
-    
-    roles = keycloak_admin.get_client_role_mappings(user_id=user_id, client_id=new_client_id)
-    return roles
-    
-    

@@ -12,11 +12,13 @@ def do_login(client, payload):
 
 def test_login(client):
     payload = {
-        "username": "hannan.aamir",
+        "username": "codify-admin",
         "password": "123456"
     }
     response = do_login(client, payload)
     assert response.status_code == 200
-    response_data = json.loads(response.data)
+    response_data = response.get_json()
     assert response_data["message"] == "Login successful"
     assert response_data["data"]["access_token"] is not None
+    
+    print(json.dumps(response_data, indent=4))
