@@ -43,9 +43,6 @@ def landscape():
 
         # create user on keycloak
         keycloak_admin = keycloak_utils.get_keycloak_admin_openid()
-        # users = keycloak_admin.get_users()
-        # with open('users.json', 'w+') as fp:
-        #     json.dump(users, fp, indent=4)
 
         for one_user in user_list:
             first_name = one_user['first_name']
@@ -53,6 +50,8 @@ def landscape():
             email = one_user['email']
             username = one_user['username']
             password = one_user['password']
+            role_name_list = one_user['role_name_list']
+            brand_name_list = one_user['brand_name_list']
 
             print(f"Creating user {username} with email {email}")
 
@@ -67,7 +66,10 @@ def landscape():
                         "value": password,
                         "type": "password"
                     }
-                ]
+                ],
+                "clientRoles": {
+                    "Istio": role_name_list
+                },
             })
 
             print(f"User {username} created on keycloak")
