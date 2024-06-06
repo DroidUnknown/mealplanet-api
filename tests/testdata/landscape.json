@@ -30,7 +30,7 @@
             "first_name": "basiligo",
             "last_name": "kitchen",
             "email": "basiligo.kitchen@something.com",
-            "username": "basiligo",
+            "username": "basiligo.kitchen",
             "password": "basiligo123",
             "role_name_list": [
                 "kitchen"
@@ -44,7 +44,7 @@
             "first_name": "careem",
             "last_name": "delivery",
             "email": "careem.delivery@something.com",
-            "username": "careem",
+            "username": "careem.delivery",
             "password": "careem123",
             "role_name_list": [
                 "delivery-provider"

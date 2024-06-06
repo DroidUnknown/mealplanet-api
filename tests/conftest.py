@@ -43,6 +43,9 @@ def landscape():
 
         # create user on keycloak
         keycloak_admin = keycloak_utils.get_keycloak_admin_openid()
+        # users = keycloak_admin.get_users()
+        # with open('users.json', 'w+') as fp:
+        #     json.dump(users, fp, indent=4)
 
         for one_user in user_list:
             first_name = one_user['first_name']
