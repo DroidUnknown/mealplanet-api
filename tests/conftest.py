@@ -54,8 +54,6 @@ def landscape():
             username = one_user['username']
             password = one_user['password']
 
-            print(f"Creating user {username} with email {email}")
-
             new_user = keycloak_admin.create_user({
                 "email": email,
                 "username": username,
@@ -69,10 +67,6 @@ def landscape():
                     }
                 ]
             })
-
-            print(f"User {username} created on keycloak")
-            print(new_user)
-            print("==================================================")
 
 @pytest.fixture(scope="session", autouse=True)
 def content_team_headers():
