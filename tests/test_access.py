@@ -18,7 +18,6 @@ def test_login(client):
     response = do_login(client, payload)
     assert response.status_code == 200
     response_data = response.get_json()
-    assert response_data["message"] == "Login successful"
+    assert response_data["status"] == "successful"
     assert response_data["data"]["access_token"] is not None
     
-    print(json.dumps(response_data, indent=4))
