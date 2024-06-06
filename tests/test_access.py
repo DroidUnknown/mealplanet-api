@@ -34,8 +34,8 @@ refresh_token = None
 
 def test_login(client):
     payload = {
-        "username": "codify-admin",
-        "password": "123456"
+        "username": "admin",
+        "password": "admin123"
     }
     response = do_login(client, payload)
     assert response.status_code == 200
