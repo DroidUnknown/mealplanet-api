@@ -28,11 +28,17 @@ def get_keycloak_client_openid():
         
     return keycloak_client_openid
 
-def get_keycloak_admin_openid():
+def get_keycloak_admin_openid(master_p=False):
     global keycloak_admin_openid
     
+    if master_p:
+        return KeycloakAdmin(
+            server_url=server_url,
+            username=admin_username,
+            password=admin_password
+        )
+
     if not keycloak_admin_openid:
-        print(server_url, admin_username, admin_password, realm_name, client_id, client_secret_key)
         keycloak_admin_openid = KeycloakAdmin(
             server_url=server_url,
             username=admin_username,

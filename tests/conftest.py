@@ -1,14 +1,13 @@
-from sqlalchemy.sql import text
-from data_migration_management.data_migration_manager import DataMigrationManager
-
-from models import models, archive_models
-from utils import jqutils
-from dotenv import load_dotenv
-
 import pytest
 import os
+import json
 
+from dotenv import load_dotenv
 load_dotenv(override=True)
+
+from data_migration_management.data_migration_manager import DataMigrationManager
+from models import models, archive_models
+from utils import jqutils, keycloak_utils
 
 @pytest.fixture(scope="session", autouse=True)
 def flask_app():
@@ -36,18 +35,44 @@ def landscape():
     # Necessary test dummy data
     migrator = DataMigrationManager('test_portalprofile_service', debug=True)
     migrator.run()
-    
+
     db_engine = jqutils.get_db_engine('test_portalprofile_service')
-    # with open('tests/testdata/landscape.json', 'r') as fp:
-    #     data = json.load(fp)
-    #     for table_name in data:
-    #         rows = data[table_name]
-    #         for one_row in rows:
-    #             query, params = jqutils.jq_prepare_insert_statement(table_name, one_row)
+    with open('tests/testdata/landscape.json', 'r') as fp:
+        data = json.load(fp)
+        user_list = data['users']
 
-    #             with db_engine.connect() as conn:
-    #                 conn.execute(query, params)
+        # create user on keycloak
+        keycloak_admin = keycloak_utils.get_keycloak_admin_openid()
+        # users = keycloak_admin.get_users()
+        # with open('users.json', 'w+') as fp:
+        #     json.dump(users, fp, indent=4)
 
+        for one_user in user_list:
+            first_name = one_user['first_name']
+            last_name = one_user['last_name']
+            email = one_user['email']
+            username = one_user['username']
+            password = one_user['password']
+
+            print(f"Creating user {username} with email {email}")
+
+            new_user = keycloak_admin.create_user({
+                "email": email,
+                "username": username,
+                "enabled": True,
+                "firstName": first_name,
+                "lastName": last_name,
+                "credentials": [
+                    {
+                        "value": password,
+                        "type": "password"
+                    }
+                ]
+            })
+
+            print(f"User {username} created on keycloak")
+            print(new_user)
+            print("==================================================")
 
 @pytest.fixture(scope="session", autouse=True)
 def content_team_headers():
