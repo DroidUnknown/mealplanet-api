@@ -1,58 +1,280 @@
 {
-    "users": [
+    "scope": [
         {
-            "first_name": "cody",
-            "last_name": "macguire",
-            "email": "cody.macguire@something.com",
-            "username": "cody",
-            "password": "cody123",
-            "role_name_list": [
-                "mp-team"
-            ],
-            "brand_name_list": [
-                "all"
-            ]
+            "scope_name": "brand-profile:basiligo",
+            "brand_profile_id": 1,
+            "keycloak_scope_id": "4e74494e-9b67-4496-ad70-dbf563c9ab73"
         },
         {
-            "first_name": "basiligo",
-            "last_name": "",
-            "email": "basiligo@something.com",
-            "username": "basiligo",
-            "password": "basiligo123",
-            "role_name_list": [
-                "brand"
-            ],
-            "brand_name_list": [
-                "basiligo"
-            ]
-        },
-        {
-            "first_name": "basiligo",
-            "last_name": "kitchen",
-            "email": "basiligo.kitchen@something.com",
-            "username": "basiligo.kitchen",
-            "password": "basiligo123",
-            "role_name_list": [
-                "kitchen"
-            ],
-            "brand_name_list": [
-                "basiligo",
-                "healthy-cup"
-            ]
-        },
-        {
-            "first_name": "careem",
-            "last_name": "delivery",
-            "email": "careem.delivery@something.com",
-            "username": "careem.delivery",
-            "password": "careem123",
-            "role_name_list": [
-                "delivery-provider"
-            ],
-            "brand_name_list": [
-                "basiligo",
-                "healthy-cup"
-            ]
+            "scope_name": "brand-profile:healthy-cup",
+            "brand_profile_id": 2,
+            "keycloak_scope_id": "44723705-406d-4d51-8dc3-87f51ea5ca40"
         }
+    ],
+    "resource": [
+        {
+            "resource_name": "menu-management",
+            "display_name_en": "Menu Management",
+            "resource_type": "module",
+            "uri": "/menu-management",
+            "keycloak_resource_id": "ca0bb8af-6c37-44f2-aa89-7e4df526e443"
+        },
+        {
+            "resource_name": "kitchen-provider",
+            "display_name_en": "Kitchen Provider",
+            "resource_type": "module",
+            "uri": "/kitchen-provider",
+            "keycloak_resource_id": "d4f86fcc-4a8c-462e-8964-550c6e717bbb"
+        },
+        {
+            "resource_name": "order-management",
+            "display_name_en": "Order Management",
+            "resource_type": "module",
+            "uri": "/order-management",
+            "keycloak_resource_id": "eec30582-dff2-4492-853b-3105ff01c6a7"
+        }
+    ],
+    "policy": [
+        {
+            "policy_name": "admin",
+            "keycloak_policy_id": "1daa37b2-2e15-4227-9473-db5688731e04"
+        },
+        {
+            "policy_name": "content",
+            "keycloak_policy_id": "3b7650d3-ab26-47b6-8a8b-b125c1f31a28"
+        },
+        {
+            "policy_name": "member",
+            "keycloak_policy_id": "28b975c0-56f7-4272-a414-00fc6110fec7"
+        }
+    ],
+    "policy_role_access_map": [
+        { "policy_id": 1, "role_id": 1, "access_p": 1 },
+        { "policy_id": 2, "role_id": 2, "access_p": 1 },
+        { "policy_id": 3, "role_id": 3, "access_p": 1 }
+    ],
+    "permission": [
+        {
+            "permission_name": "all:*:menu-management:admin",
+            "permission_type": "resource-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "all:*:menu-management:content",
+            "permission_type": "resource-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "all:*:menu-management:member",
+            "permission_type": "resource-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "all:*:kitchen-provider:admin",
+            "permission_type": "resource-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "all:*:kitchen-provider:content",
+            "permission_type": "resource-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "all:*:kitchen-provider:member",
+            "permission_type": "resource-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "all:*:order-management:admin",
+            "permission_type": "resource-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "all:*:order-management:content",
+            "permission_type": "resource-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "all:*:order-management:member",
+            "permission_type": "resource-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "basiligo:1:menu-management:admin",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "basiligo:1:menu-management:content",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "basiligo:1:menu-management:member",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "basiligo:1:kitchen-provider:admin",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "basiligo:1:kitchen-provider:content",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "basiligo:1:kitchen-provider:member",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "basiligo:1:order-management:admin",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "basiligo:1:order-management:content",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "basiligo:1:order-management:member",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "healthy_cup:2:menu-management:admin",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "healthy_cup:2:menu-management:content",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "healthy_cup:2:menu-management:member",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "healthy_cup:2:kitchen-provider:admin",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "healthy_cup:2:kitchen-provider:content",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "healthy_cup:2:kitchen-provider:member",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "healthy_cup:2:order-management:admin",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "healthy_cup:2:order-management:content",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        },
+        {
+            "permission_name": "healthy_cup:2:order-management:member",
+            "permission_type": "scope-based",
+            "decision_strategy": "unanimous",
+            "keycloak_permission_id": ""
+        }
+    ],
+    "permission_policy_map": [
+        { "permission_id": 1, "policy_id": 1 },
+        { "permission_id": 2, "policy_id": 2 },
+        { "permission_id": 3, "policy_id": 3 },
+        { "permission_id": 4, "policy_id": 1 },
+        { "permission_id": 5, "policy_id": 2 },
+        { "permission_id": 6, "policy_id": 3 },
+        { "permission_id": 7, "policy_id": 1 },
+        { "permission_id": 8, "policy_id": 2 },
+        { "permission_id": 9, "policy_id": 3 },
+        { "permission_id": 10, "scope_id": 1 },
+        { "permission_id": 11, "scope_id": 2 },
+        { "permission_id": 12, "scope_id": 3 },
+        { "permission_id": 13, "scope_id": 1 },
+        { "permission_id": 14, "scope_id": 2 },
+        { "permission_id": 15, "scope_id": 3 },
+        { "permission_id": 16, "scope_id": 1 },
+        { "permission_id": 17, "scope_id": 2 },
+        { "permission_id": 18, "scope_id": 3 },
+        { "permission_id": 19, "scope_id": 1 },
+        { "permission_id": 20, "scope_id": 2 },
+        { "permission_id": 21, "scope_id": 3 },
+        { "permission_id": 22, "scope_id": 1 },
+        { "permission_id": 23, "scope_id": 2 },
+        { "permission_id": 24, "scope_id": 3 },
+        { "permission_id": 25, "scope_id": 1 },
+        { "permission_id": 26, "scope_id": 2 },
+        { "permission_id": 27, "scope_id": 3 }  
+    ],
+    "permission_resource_map": [
+        { "permission_id": 1, "resource_id": 1 },
+        { "permission_id": 2, "resource_id": 2 },
+        { "permission_id": 3, "resource_id": 3 },
+        { "permission_id": 4, "resource_id": 4 },
+        { "permission_id": 5, "resource_id": 5 },
+        { "permission_id": 6, "resource_id": 6 },
+        { "permission_id": 7, "resource_id": 7 },
+        { "permission_id": 8, "resource_id": 8 },
+        { "permission_id": 9, "resource_id": 9 }
+    ],
+    "permission_scope_map": [
+        { "permission_id": 10, "scope_id": 1 },
+        { "permission_id": 11, "scope_id": 1 },
+        { "permission_id": 12, "scope_id": 1 },
+        { "permission_id": 13, "scope_id": 1 },
+        { "permission_id": 14, "scope_id": 1 },
+        { "permission_id": 15, "scope_id": 1 },
+        { "permission_id": 16, "scope_id": 1 },
+        { "permission_id": 17, "scope_id": 1 },
+        { "permission_id": 18, "scope_id": 1 },
+        { "permission_id": 19, "scope_id": 2 },
+        { "permission_id": 20, "scope_id": 2 },
+        { "permission_id": 21, "scope_id": 2 },
+        { "permission_id": 22, "scope_id": 2 },
+        { "permission_id": 23, "scope_id": 2 },
+        { "permission_id": 24, "scope_id": 2 },
+        { "permission_id": 25, "scope_id": 2 },
+        { "permission_id": 26, "scope_id": 2 },
+        { "permission_id": 27, "scope_id": 2 }
     ]
 }

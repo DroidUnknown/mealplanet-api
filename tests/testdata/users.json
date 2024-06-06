@@ -1,0 +1,38 @@
+[
+    {
+        "first_name": "cody",
+        "last_name": "macguire",
+        "email": "cody.macguire@something.com",
+        "username": "cody",
+        "password": "cody123",
+        "role_name_list": ["mp-team"],
+        "brand_name_list": ["all"]
+    },
+    {
+        "first_name": "basiligo",
+        "last_name": "",
+        "email": "basiligo@something.com",
+        "username": "basiligo",
+        "password": "basiligo123",
+        "role_name_list": ["brand"],
+        "brand_name_list": ["basiligo"]
+    },
+    {
+        "first_name": "basiligo",
+        "last_name": "kitchen",
+        "email": "basiligo.kitchen@something.com",
+        "username": "basiligo.kitchen",
+        "password": "basiligo123",
+        "role_name_list": ["kitchen"],
+        "brand_name_list": ["basiligo", "healthy-cup"]
+    },
+    {
+        "first_name": "careem",
+        "last_name": "delivery",
+        "email": "careem.delivery@something.com",
+        "username": "careem.delivery",
+        "password": "careem123",
+        "role_name_list": ["delivery-provider"],
+        "brand_name_list": ["basiligo", "healthy-cup"]
+    }
+]

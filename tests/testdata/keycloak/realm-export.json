@@ -1010,14 +1010,14 @@
         "policyEnforcementMode": "ENFORCING",
         "resources": [
           {
-            "name": "delivery-provider",
+            "name": "menu-management",
             "type": "module",
             "ownerManagedAccess": false,
-            "displayName": "Delivery Provider",
+            "displayName": "Menu Management",
             "attributes": {},
-            "_id": "eec30582-dff2-4492-853b-3105ff01c6a7",
+            "_id": "ca0bb8af-6c37-44f2-aa89-7e4df526e443",
             "uris": [
-              "/delivery-provider"
+              "/menu-management"
             ],
             "icon_uri": ""
           },
@@ -1034,66 +1034,16 @@
             "icon_uri": ""
           },
           {
-            "name": "brand-management",
+            "name": "delivery-provider",
             "type": "module",
             "ownerManagedAccess": false,
-            "displayName": "Brand Management",
+            "displayName": "Delivery Provider",
             "attributes": {},
-            "_id": "c5fa3940-849f-4729-888b-3288d76de5e7",
+            "_id": "eec30582-dff2-4492-853b-3105ff01c6a7",
             "uris": [
-              "/brand-management"
+              "/delivery-provider"
             ],
             "icon_uri": ""
-          },
-          {
-            "name": "menu-management",
-            "type": "module",
-            "ownerManagedAccess": false,
-            "displayName": "Menu Management",
-            "attributes": {},
-            "_id": "ca0bb8af-6c37-44f2-aa89-7e4df526e443",
-            "uris": [
-              "/menu-management"
-            ],
-            "icon_uri": ""
-          },
-          {
-            "name": "brand-management-v4",
-            "type": "module",
-            "ownerManagedAccess": false,
-            "attributes": {},
-            "_id": "ca6ee0f8-e9e0-48e0-b46d-59cf1d47af45",
-            "uris": [
-              "/brand-management"
-            ]
-          },
-          {
-            "name": "brand-management-v2",
-            "type": "module",
-            "ownerManagedAccess": false,
-            "displayName": "",
-            "attributes": {},
-            "_id": "8a7e90a2-530e-4bd6-890b-e124c49988aa",
-            "uris": [
-              "/brand-management"
-            ],
-            "scopes": [
-              {
-                "name": "brand-profile:basiligo"
-              }
-            ],
-            "icon_uri": ""
-          },
-          {
-            "name": "brand-management-v3",
-            "type": "module",
-            "ownerManagedAccess": false,
-            "displayName": "brand-management",
-            "attributes": {},
-            "_id": "658e39ad-08c5-429f-bc37-44ea49e49d44",
-            "uris": [
-              "/brand-management"
-            ]
           }
         ],
         "policies": [
@@ -1109,17 +1059,6 @@
             }
           },
           {
-            "id": "28b975c0-56f7-4272-a414-00fc6110fec7",
-            "name": "member",
-            "description": "",
-            "type": "role",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "roles": "[{\"id\":\"Istio/member\",\"required\":true}]"
-            }
-          },
-          {
             "id": "3b7650d3-ab26-47b6-8a8b-b125c1f31a28",
             "name": "content",
             "description": "",
@@ -1128,6 +1067,17 @@
             "decisionStrategy": "UNANIMOUS",
             "config": {
               "roles": "[{\"id\":\"Istio/content\",\"required\":true}]"
+            }
+          },
+          {
+            "id": "28b975c0-56f7-4272-a414-00fc6110fec7",
+            "name": "member",
+            "description": "",
+            "type": "role",
+            "logic": "POSITIVE",
+            "decisionStrategy": "UNANIMOUS",
+            "config": {
+              "roles": "[{\"id\":\"Istio/member\",\"required\":true}]"
             }
           },
           {

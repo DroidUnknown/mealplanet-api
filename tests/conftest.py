@@ -37,10 +37,10 @@ def landscape():
     migrator.run()
 
     db_engine = jqutils.get_db_engine('test_portalprofile_service')
-    with open('tests/testdata/landscape.json', 'r') as fp:
-        data = json.load(fp)
-        user_list = data['users']
-
+    
+    with open('tests/testdata/users.json', 'r') as fp:
+        user_list = json.load(fp)
+        
         # create user on keycloak
         keycloak_admin = keycloak_utils.get_keycloak_admin_openid()
 
@@ -69,6 +69,16 @@ def landscape():
                     "Istio": role_name_list
                 },
             })
+    
+    with open('tests/testdata/landscape.json', 'r') as fp:
+        data = json.load(fp)
+        for table_name in data:
+            rows = data[table_name]
+            for one_row in rows:
+                query, params = jqutils.jq_prepare_insert_statement(table_name, one_row)
+
+                with db_engine.connect() as conn:
+                    conn.execute(query, params)
 
 @pytest.fixture(scope="session", autouse=True)
 def content_team_headers():
