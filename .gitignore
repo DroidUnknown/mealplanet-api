@@ -48,3 +48,5 @@ test_asd.py
 
 google-credentials.json
 iblinkx-service-account.json
+
+db-data/
