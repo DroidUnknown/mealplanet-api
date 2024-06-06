@@ -35,49 +35,69 @@ def landscape():
     # Necessary test dummy data
     migrator = DataMigrationManager('test_portalprofile_service', debug=True)
     migrator.run()
-
+    
+    # create user on keycloak
+    keycloak_admin = keycloak_utils.get_keycloak_admin_openid()
+    
+    # Delete all existing users
+    users = keycloak_admin.get_users()
+    for user in users:
+        user_id = user["id"]
+        username = user["username"]
+        if username != "codify-admin":
+            keycloak_admin.delete_user(user_id=user_id)
+    
     db_engine = jqutils.get_db_engine('test_portalprofile_service')
+    with db_engine.connect() as conn:
     
-    with open('tests/testdata/users.json', 'r') as fp:
-        user_list = json.load(fp)
+        with open('tests/testdata/users.json', 'r') as fp:
+            user_list = json.load(fp)
+
+            for one_user in user_list:
+                first_name = one_user['first_name']
+                last_name = one_user['last_name']
+                phone_nr = one_user['phone_nr']
+                email = one_user['email']
+                username = one_user['username']
+                password = one_user['password']
+                role_name_list = one_user['role_name_list']
+                brand_name_list = one_user['brand_name_list']
+
+                keycloak_user_id = keycloak_admin.create_user({
+                    "email": email,
+                    "username": username,
+                    "enabled": True,
+                    "firstName": first_name,
+                    "lastName": last_name,
+                    "credentials": [
+                        {
+                            "value": password,
+                            "type": "password"
+                        }
+                    ],
+                    "clientRoles": {
+                        "Istio": role_name_list
+                    },
+                })
+                
+                user_dict = {
+                    "keycloak_user_id": keycloak_user_id,
+                    "first_names_en": first_name,
+                    "last_name_en": last_name,
+                    "phone_nr": phone_nr,
+                    "email": email,
+                }
+                query, params = jqutils.jq_prepare_insert_statement('user', user_dict)
+                conn.execute(query, params)
         
-        # create user on keycloak
-        keycloak_admin = keycloak_utils.get_keycloak_admin_openid()
-
-        for one_user in user_list:
-            first_name = one_user['first_name']
-            last_name = one_user['last_name']
-            email = one_user['email']
-            username = one_user['username']
-            password = one_user['password']
-            role_name_list = one_user['role_name_list']
-            brand_name_list = one_user['brand_name_list']
-
-            new_user = keycloak_admin.create_user({
-                "email": email,
-                "username": username,
-                "enabled": True,
-                "firstName": first_name,
-                "lastName": last_name,
-                "credentials": [
-                    {
-                        "value": password,
-                        "type": "password"
-                    }
-                ],
-                "clientRoles": {
-                    "Istio": role_name_list
-                },
-            })
-    
-    with open('tests/testdata/landscape.json', 'r') as fp:
-        data = json.load(fp)
-        for table_name in data:
-            rows = data[table_name]
-            for one_row in rows:
-                query, params = jqutils.jq_prepare_insert_statement(table_name, one_row)
-
-                with db_engine.connect() as conn:
+        with open('tests/testdata/landscape.json', 'r') as fp:
+            data = json.load(fp)
+            for table_name in data:
+                rows = data[table_name]
+                for one_row in rows:
+                    one_row["meta_status"] = "active"
+                    one_row["creation_user_id"] = 1
+                    query, params = jqutils.jq_prepare_insert_statement(table_name, one_row)
                     conn.execute(query, params)
 
 @pytest.fixture(scope="session", autouse=True)

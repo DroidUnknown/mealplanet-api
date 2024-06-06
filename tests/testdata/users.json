@@ -2,6 +2,7 @@
     {
         "first_name": "cody",
         "last_name": "macguire",
+        "phone_nr": "+9715224088",
         "email": "cody.macguire@something.com",
         "username": "cody",
         "password": "cody123",
@@ -11,6 +12,7 @@
     {
         "first_name": "basiligo",
         "last_name": "",
+        "phone_nr": "+9714812785",
         "email": "basiligo@something.com",
         "username": "basiligo",
         "password": "basiligo123",
@@ -20,6 +22,7 @@
     {
         "first_name": "basiligo",
         "last_name": "kitchen",
+        "phone_nr": "+9715781423",
         "email": "basiligo.kitchen@something.com",
         "username": "basiligo.kitchen",
         "password": "basiligo123",
@@ -29,6 +32,7 @@
     {
         "first_name": "careem",
         "last_name": "delivery",
+        "phone_nr": "+9715245421",
         "email": "careem.delivery@something.com",
         "username": "careem.delivery",
         "password": "careem123",

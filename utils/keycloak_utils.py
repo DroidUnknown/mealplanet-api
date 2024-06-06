@@ -1,4 +1,5 @@
 import os
+
 from keycloak import KeycloakOpenID, KeycloakAdmin
 from dotenv import load_dotenv
 
@@ -59,6 +60,5 @@ def get_rpt_token(keycloak_client_openid):
         rpt_token = token['access_token']
         
         return rpt_token
-    
     except Exception as e:
-        return False
+        raise e

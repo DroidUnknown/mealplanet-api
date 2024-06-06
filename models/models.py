@@ -129,7 +129,7 @@ class User(Model):
     first_names_ar = Column(String(128))
     last_name_ar = Column(String(128))
 
-    phone_nr = Column(String(32), unique=True)
+    phone_nr = Column(String(32))
     email = Column(String(128))
 
 class UserImageMap(Model):

@@ -1,13 +1,9 @@
 import json
-import requests
-import os
 import traceback
 import logging
 
-from flask import Blueprint, request, jsonify, g
-from sqlalchemy import text
-
-from utils import jqutils, keycloak_utils
+from flask import Blueprint, request, jsonify
+from utils import keycloak_utils
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(format='%(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -43,11 +39,11 @@ def login():
         })
  
     except Exception as e:
-        logger.error(traceback.format_exc())
+        logger.error(traceback.format_exc(e))
         return jsonify({
             'message': 'Invalid username or password',
-            'action': 'login',
-            'status': 'failed'
+            'status': 'failed',
+            'action': 'login'
         }, 401)
     
 @access_management_blueprint.route('/refresh', methods=['POST'])
@@ -72,12 +68,12 @@ def refresh():
                 'refresh_expires_in': token['refresh_expires_in'],
                 'rpt_token': rpt_token,
             },
-            'status': 'successful',
             'action': 'refresh',
+            'status': 'successful',
         })
         
     except Exception as e:
-        logger.error(traceback.format_exc())
+        logger.error(traceback.format_exc(e))
         return jsonify({
             'message': 'Invalid refresh token',
             'action': 'refresh',
@@ -104,7 +100,7 @@ def logout():
         })
         
     except Exception as e:
-        logger.error(traceback.format_exc())
+        logger.error(traceback.format_exc(e))
         return jsonify({
             'message': 'Invalid refresh token',
             'action': 'logout',
