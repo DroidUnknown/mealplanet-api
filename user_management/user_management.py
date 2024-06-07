@@ -331,8 +331,8 @@ def get_user(user_id):
             SELECT urm.role_id, r.role_name
             FROM user_role_map urm
             JOIN role r ON user_role_map.role_id = r.role_id
-            WHERE user_id = :user_id
-            AND meta_status = :meta_status
+            WHERE urm.user_id = :user_id
+            AND urm.meta_status = :meta_status
         """)
         with db_engine.connect() as conn:
             result = conn.execute(query, user_id=user_id, meta_status="active").fetchall()
@@ -345,8 +345,8 @@ def get_user(user_id):
             JOIN brand_profile bp ON ubpma.brand_profile_id = bp.brand_profile_id
             JOIN module_access ma ON ubpma.module_access_id = ma.module_access_id
             JOIN module m ON ma.module_id = m.module_id
-            WHERE user_id = :user_id
-            AND meta_status = :meta_status
+            WHERE ubpma.user_id = :user_id
+            AND ubpma.meta_status = :meta_status
         """)
         with db_engine.connect() as conn:
             result = conn.execute(query, user_id=user_id, meta_status="active").fetchall()
