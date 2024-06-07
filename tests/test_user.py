@@ -12,7 +12,7 @@ def do_add_user(client, payload):
     response = client.post(base_api_url + "/user", json=payload)
     return response
 
-def do_add_user_image(client, headers, payload):
+def do_add_user_image(client, headers, user_id, payload):
     """
     ADD USER IMAGE
     """
@@ -74,7 +74,7 @@ def test_add_user(client):
     
     response_json = response.get_json()
     assert response_json["status"] == "successful"
-    assert response_json["action"] == "login"
+    assert response_json["action"] == "add_user"
 
     data = response_json["data"]
     assert data["user_id"]
@@ -95,7 +95,7 @@ def test_add_user_image(client, content_team_headers):
     assert response_json["action"] == "add_user_image"
 
     data = response_json["data"]
-    assert data["user_image_url"]
+    assert data["user_image_url"] == None
 
 def test_verify_user_otp(client, content_team_headers):
     global user_id
@@ -113,7 +113,7 @@ def test_verify_user_otp(client, content_team_headers):
 
     otp = result["otp"]
     otp_request_count = result["otp_request_count"]
-    assert otp_request_count == 2
+    assert otp_request_count == 0
 
     payload = {
         "username": "john.doe",

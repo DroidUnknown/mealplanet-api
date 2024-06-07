@@ -126,7 +126,7 @@ def add_user():
     return jsonify(response_body)
 
 @user_management_blueprint.route('/user/<user_id>/upload-image', methods=['POST'])
-def upload_user_image(user_id):
+def add_user_image(user_id):
     request_dict = request.form.to_dict()
 
     image_type = request_dict["image_type"]
@@ -168,7 +168,7 @@ def upload_user_image(user_id):
         "data": {
             "user_image_url": user_image_url
         },
-        "action": "upload_user_image",
+        "action": "add_user_image",
         "status": "successful"
     }
     return jsonify(response_body)
