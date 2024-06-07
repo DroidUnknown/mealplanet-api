@@ -185,21 +185,6 @@ def verify_user_otp(user_id):
 
     db_engine = jqutils.get_db_engine()
     
-    # # encrypt password
-    # query = text(""" 
-    #         select symmetric_key 
-    #         from portal_profile_service_secret 
-    #         where key_name = 'password-protector-key' and
-    #         meta_status = :meta_status
-    #     """)
-    # with db_engine.connect() as conn:
-    #     result = conn.execute(query, meta_status='active').fetchone()
-    #     assert result, "no valid symmetric key found for password protector"
-    #     key_string_db = result['symmetric_key']
-    #     key_string_db_bytes = key_string_db.encode()
-
-    # cipher_text_bytes = jqsecurity.encrypt_bytes_symmetric_to_bytes(password_bytes, key_string_db_bytes)
-
     # encrypt password and update user
     password_manager = DataMigrationManager()
     encrypted_password = password_manager.encrypt_password(password)
