@@ -214,6 +214,15 @@ def verify_user_otp(user_id):
                 one_time_password_id = result["one_time_password_id"]
 
                 if otp_expiry_timestamp > current_timestamp:
+                    if result["otp_status"] == "verified":
+                        response_body = {
+                            "data": {},
+                            "action": "verify_otp",
+                            "status": "failed",
+                            "message": "OTP already verified"
+                        }
+                        return jsonify(response_body)
+                    
                     query = text("""
                         UPDATE one_time_password
                         SET otp_status = :otp_status
