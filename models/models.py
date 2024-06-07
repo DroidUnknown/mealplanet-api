@@ -120,11 +120,13 @@ class User(Model):
     user_id = Column(Integer, primary_key=True)
     keycloak_user_id = Column(String(128))
 
+    username = Column(String(128))
     first_names_en = Column(String(128))
     last_name_en = Column(String(128))
     first_names_ar = Column(String(128))
     last_name_ar = Column(String(128))
-
+    
+    password = Column(String(128))
     phone_nr = Column(String(32))
     email = Column(String(128))
 
@@ -146,12 +148,47 @@ class UserRoleMap(Model):
     user_id = Column(Integer)
     role_id = Column(Integer)
 
+class UserBrandProfileModuleAccess(Model):
+    __tablename__ = 'user_brand_profile_module_access'
+    
+    user_brand_profile_module_access_id = Column(Integer, primary_key=True)
+    
+    user_id = Column(Integer)
+    brand_profile_id = Column(Integer)
+    module_access_id = Column(Integer)
+
+class OneTimePassword(Model):
+    __tablename__ = 'one_time_password'
+
+    one_time_password_id = Column(Integer, primary_key=True)
+    user_id = Column(Integer)
+    
+    intent = Column(String(32))  # user_signup, user_forgot_password
+    contact_method = Column(String(32))  # email, sms
+
+    otp = Column(String(128))
+    otp_request_count = Column(Integer)
+    
+    otp_requested_timestamp = Column(DATETIME(fsp=6))
+    otp_expiry_timestamp = Column(DATETIME(fsp=6))
+    otp_verified_timestamp = Column(DATETIME(fsp=6))
+
+    otp_status = Column(String(32))  # pending, sent, verified, expired
+
 class Module(Model):
     __tablename__ = 'module'
     
     module_id = Column(Integer, primary_key=True)
     module_name = Column(String(128)) # menu-management, kitchen-provider, delivery-provider
     module_description = Column(String(128))
+
+class ModuleAccess(Model):
+    __tablename__ = 'module_access'
+    
+    module_access_id = Column(Integer, primary_key=True)
+    
+    module_id = Column(Integer)
+    access_level = Column(String(32)) #admin, content, member
 
 # ----------------------------------------------------------------------------------------------------------------------
 

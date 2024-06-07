@@ -1,5 +1,6 @@
 import os
 from logging import debug
+from utils import jqutils
 
 class DataMigrationManager:
 
@@ -27,13 +28,17 @@ class DataMigrationManager:
     def upload_base_data(self):
         self.log("\nUploading base data:")
         
-        # self.log("> Uploading city.. ", False)
-        # jqutils.upload_csv("city", self.top_path + "city.csv")
+        self.log("> Uploading module.. ", False)
+        jqutils.upload_csv("module", self.top_path + "module.csv")
+        self.log("Done\n> Uploading module_access.. ", False)
+        jqutils.upload_csv("module_access", self.top_path + "module_access.csv")
+        self.log("Done\n> Uploading role.. ", False)
+        jqutils.upload_csv("role", self.top_path + "role.csv")
         
         # Upload security keys needed for encryption
         # self.log("Done\n> Uploading security keys.. ", False)
         # self.upload_security_keys()
-        # self.log("Done\n")
+        self.log("Done\n")
    
     def log(self, message, new_line=True):
         if debug:

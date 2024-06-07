@@ -74,6 +74,12 @@ def delete_all_users(exception_list=["codify-admin"]):
         if username not in exception_list:
             keycloak_admin_openid.delete_user(user_id=user_id)
 
+def delete_user(user_id):
+    keycloak_admin_openid = get_keycloak_admin_openid()
+
+    # Delete a user
+    keycloak_admin_openid.delete_user(user_id=user_id)
+
 def create_user(username, password, first_name="", last_name="", email="", enabled=True):
     keycloak_admin_openid = get_keycloak_admin_openid()
     
