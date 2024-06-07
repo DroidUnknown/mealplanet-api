@@ -189,7 +189,7 @@ def verify_user_otp(user_id):
     query = text(""" 
             select symmetric_key 
             from portal_profile_service_secret 
-            where description = 'password-protector-key' and
+            where key_name = 'password-protector-key' and
             meta_status = :meta_status
         """)
     with db_engine.connect() as conn:
