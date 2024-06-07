@@ -28,7 +28,7 @@ class MetaDataColumn(Column):
 
 class Model(Base):
     __abstract__ = True
-    __bind_key__ = 'payment_api'
+    __bind_key__ = 'portal_profile_service'
 
     meta_status = MetaDataColumn(String(16), default=text("active"))  # active, inactive, deleted
     tags = MetaDataColumn(JSON)
@@ -42,6 +42,19 @@ class Model(Base):
     insertion_timestamp = MetaDataColumn(DATETIME(fsp=6), nullable=False, server_default=text("CURRENT_TIMESTAMP(6)"))
     modification_timestamp = MetaDataColumn(DATETIME(fsp=6), nullable=False, server_default=text("CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)"))
     deletion_timestamp = MetaDataColumn(DATETIME(fsp=6))
+
+class PaymentApiSecret(Model):
+    __tablename__ = 'portal_profile_service_secret'
+
+    portal_profile_service_secret_id = Column(Integer, primary_key=True)
+    key_algorithm = Column(String(64))
+    version = Column(Integer)
+    key_name = Column(String(64))
+    description = Column(String(128))
+    private_key = Column(String(6000))
+    public_key = Column(String(3000))
+    symmetric_key = Column(String(3000))
+    data = Column(String(2048))
 
 # ----------------------------------------------------------------------------------------------------------------------
 

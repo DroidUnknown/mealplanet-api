@@ -7,7 +7,8 @@ import uuid
 from datetime import datetime, timedelta
 from sqlalchemy import text
 from flask import Blueprint, request, jsonify, g
-from utils import keycloak_utils, jqutils, jqimage_uploader, aws_utils
+from utils import keycloak_utils, jqutils, jqimage_uploader, aws_utils, jqsecurity
+from data_migration_management.data_migration_manager import DataMigrationManager
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(format='%(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -178,8 +179,26 @@ def verify_user_otp(user_id):
 
     username = request_json["username"]
     password = request_json["password"]
+    password_bytes = password.encode()
     otp = request_json["otp"]
     intent = request_json["intent"]
+
+    db_engine = jqutils.get_db_engine()
+    
+    # encrypt password
+    query = text(""" 
+            select symmetric_key 
+            from portal_profile_service_secret 
+            where description = 'password-protector-key' and
+            meta_status = :meta_status
+        """)
+    with db_engine.connect() as conn:
+        result = conn.execute(query, meta_status='active').fetchone()
+        assert result, "no valid symmetric key found for password protector"
+        key_string_db = result['symmetric_key']
+        key_string_db_bytes = key_string_db.encode()
+
+    cipher_text_bytes = jqsecurity.encrypt_bytes_symmetric_to_bytes(password_bytes, key_string_db_bytes)
 
     db_engine = jqutils.get_db_engine()
     
@@ -239,7 +258,7 @@ def verify_user_otp(user_id):
                         WHERE user_id = :user_id
                     """)
                     with db_engine.connect() as conn:
-                        conn.execute(query, keycloak_user_id=keycloak_user_id, username=username, password=password, user_id=user_id)
+                        conn.execute(query, keycloak_user_id=keycloak_user_id, username=username, password=cipher_text_bytes, user_id=user_id)
 
                     response_body = {
                         "data": {
