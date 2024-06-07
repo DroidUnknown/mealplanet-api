@@ -433,32 +433,38 @@ def delete_user(user_id):
 
         jqutils.update_single_db_entry(one_dict, "brand_profile", condition)
 
-        user_role_map_id = result["user_role_map_id"]
+        user_role_map_id = result["user_role_map_id"] if result["user_role_map_id"] else None
 
-        # Delete user roles
-        condition = {
-            "user_role_map_id": str(user_role_map_id)
-        }
+        if user_role_map_id:
 
-        jqutils.update_single_db_entry(one_dict, "user_role_map", condition)
+            # Delete user roles
+            condition = {
+                "user_role_map_id": str(user_role_map_id)
+            }
 
-        user_brand_profile_module_access_id = result["user_brand_profile_module_access_id"]
+            jqutils.update_single_db_entry(one_dict, "user_role_map", condition)
+
+        user_brand_profile_module_access_id = result["user_brand_profile_module_access_id"] if result["user_brand_profile_module_access_id"] else None
         
-        # Delete user brand profile module access
-        condition = {
-            "user_brand_profile_module_access_id": str(user_brand_profile_module_access_id)
-        }
+        if user_brand_profile_module_access_id:
 
-        jqutils.update_single_db_entry(one_dict, "user_brand_profile_module_access", condition)
+            # Delete user brand profile module access
+            condition = {
+                "user_brand_profile_module_access_id": str(user_brand_profile_module_access_id)
+            }
 
-        user_image_map_id = result["user_image_map_id"]
+            jqutils.update_single_db_entry(one_dict, "user_brand_profile_module_access", condition)
 
-        # Delete user image
-        condition = {
-            "user_image_map_id": str(user_image_map_id)
-        }
+        user_image_map_id = result["user_image_map_id"] if result["user_image_map_id"] else None
 
-        jqutils.update_single_db_entry(one_dict, "user_image_map", condition)
+        if user_image_map_id:
+
+            # Delete user image
+            condition = {
+                "user_image_map_id": str(user_image_map_id)
+            }
+
+            jqutils.update_single_db_entry(one_dict, "user_image_map", condition)
 
     response_body = {
         "action": "delete_user",
