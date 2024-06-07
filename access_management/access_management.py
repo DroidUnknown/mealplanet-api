@@ -23,7 +23,11 @@ def login():
     # Authenticate user with Keycloak
     try:
         token = keycloak_client_openid.token(username, password)
-        permissions = keycloak_client_openid.uma_permissions(token["access_token"])
+        
+        try:
+            permissions = keycloak_client_openid.uma_permissions(token["access_token"])
+        except Exception as e:
+            permissions = []
         
         return jsonify({
             'data': {
@@ -56,7 +60,10 @@ def refresh():
     # Refresh token with Keycloak
     try:
         token = keycloak_client_openid.refresh_token(refresh_token)
-        permissions = keycloak_client_openid.uma_permissions(token["access_token"])
+        try:
+            permissions = keycloak_client_openid.uma_permissions(token["access_token"])
+        except Exception as e:
+            permissions = []
         
         return jsonify({
             'data': {
