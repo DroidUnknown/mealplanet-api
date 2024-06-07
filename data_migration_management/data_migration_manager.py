@@ -66,6 +66,7 @@ class DataMigrationManager:
             result = conn.execute(query, key_algorithm='rsa', version=1, key_name='token-protector-key', description='token-protector-key',
                                 private_key=server_token_private_key, public_key=server_token_public_key, meta_status='active').lastrowid
             assert result, "Failed to insert server keys"
+
     def encrypt_password(self, password):
         db_engine = jqutils.get_db_engine(self.schema_name)
         password_bytes = password.encode()
