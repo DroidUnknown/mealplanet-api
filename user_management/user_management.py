@@ -209,7 +209,11 @@ def verify_user_otp(user_id):
             otp_expiry_timestamp = result["otp_expiry_timestamp"]
 
             if otp_db == otp:
-                if otp_expiry_timestamp > jqutils.get_utc_datetime():
+                # convert str to datetime
+                current_timestamp = datetime.datetime.now()
+                otp_expiry_timestamp = datetime.strptime(otp_expiry_timestamp, "%Y-%m-%d %H:%M:%S.%f")
+
+                if otp_expiry_timestamp > current_timestamp:
                     query = text("""
                         UPDATE one_time_password
                         SET otp_status = :otp_status
