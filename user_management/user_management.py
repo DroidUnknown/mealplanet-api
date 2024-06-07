@@ -330,7 +330,7 @@ def get_user(user_id):
         query = text("""
             SELECT urm.role_id, r.role_name
             FROM user_role_map urm
-            JOIN role r ON user_role_map.role_id = r.role_id
+            JOIN role r ON urm.role_id = r.role_id
             WHERE urm.user_id = :user_id
             AND urm.meta_status = :meta_status
         """)
