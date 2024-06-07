@@ -1046,7 +1046,7 @@
                 "ownerManagedAccess": false,
                 "attributes": {},
                 "uris": ["all:*:menu-management:admin"],
-                "scopes": [{ "name": "brand-profile:any" }],
+                "scopes": [{ "name": "brand-profile:all" }],
                 "icon_uri": ""
             },
             {
@@ -1056,7 +1056,7 @@
                 "ownerManagedAccess": false,
                 "attributes": {},
                 "uris": ["all:*:menu-management:content"],
-                "scopes": [{ "name": "brand-profile:any" }],
+                "scopes": [{ "name": "brand-profile:all" }],
                 "icon_uri": ""
             },
             {
@@ -1066,7 +1066,7 @@
                 "ownerManagedAccess": false,
                 "attributes": {},
                 "uris": ["all:*:menu-management:member"],
-                "scopes": [{ "name": "brand-profile:any" }],
+                "scopes": [{ "name": "brand-profile:all" }],
                 "icon_uri": ""
             },
             {
@@ -1136,7 +1136,7 @@
                 "ownerManagedAccess": false,
                 "attributes": {},
                 "uris": ["all:*:kitchen-provider:admin"],
-                "scopes": [{ "name": "brand-profile:any" }],
+                "scopes": [{ "name": "brand-profile:all" }],
                 "icon_uri": ""
             },
             {
@@ -1146,7 +1146,7 @@
                 "ownerManagedAccess": false,
                 "attributes": {},
                 "uris": ["all:*:kitchen-provider:content"],
-                "scopes": [{ "name": "brand-profile:any" }],
+                "scopes": [{ "name": "brand-profile:all" }],
                 "icon_uri": ""
             },
             {
@@ -1156,7 +1156,7 @@
                 "ownerManagedAccess": false,
                 "attributes": {},
                 "uris": ["all:*:kitchen-provider:member"],
-                "scopes": [{ "name": "brand-profile:any" }],
+                "scopes": [{ "name": "brand-profile:all" }],
                 "icon_uri": ""
             },
             {
@@ -1196,7 +1196,7 @@
                 "ownerManagedAccess": false,
                 "attributes": {},
                 "uris": ["all:*:delivery-provider:admin"],
-                "scopes": [{ "name": "brand-profile:any" }],
+                "scopes": [{ "name": "brand-profile:all" }],
                 "icon_uri": ""
             },
             {
@@ -1206,7 +1206,7 @@
                 "ownerManagedAccess": false,
                 "attributes": {},
                 "uris": ["all:*:delivery-provider:content"],
-                "scopes": [{ "name": "brand-profile:any" }],
+                "scopes": [{ "name": "brand-profile:all" }],
                 "icon_uri": ""
             },
             {
@@ -1216,7 +1216,7 @@
                 "ownerManagedAccess": false,
                 "attributes": {},
                 "uris": ["all:*:delivery-provider:member"],
-                "scopes": [{ "name": "brand-profile:any" }],
+                "scopes": [{ "name": "brand-profile:all" }],
                 "icon_uri": ""
             },
             {
@@ -1612,7 +1612,7 @@
         "scopes": [
           {
             "id": "1fa0a602-6bef-40ed-85a4-0c96e85b700a",
-            "name": "brand-profile:any",
+            "name": "brand-profile:all",
             "iconUri": ""
           },
           {
