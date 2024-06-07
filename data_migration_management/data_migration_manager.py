@@ -48,8 +48,8 @@ class DataMigrationManager:
         with db_engine.connect() as conn:
             query = text("""
                     select symmetric_key 
-                    from payment_api_secret
-                    where description = 'password-protector-key' and meta_status = 'active'
+                    from portal_profile_service_secret
+                    where key_name = 'password-protector-key' and meta_status = 'active'
                 """)
             result = conn.execute(query).fetchone()
             assert result, "Failed to get password protector key"
