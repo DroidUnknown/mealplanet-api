@@ -403,11 +403,11 @@ def delete_user(user_id):
 
     # Get user details
     query = text("""
-        SELECT u.keycloak_user_id
+        SELECT u.keycloak_user_id, uim.user_image_map_id, urm.user_role_map_id, ubrma.user_brand_profile_module_access_id
         FROM user u
-        LEFT JOIN user_image_map uim ON user.user_id = uim.user_id
-        LEFT JOIN user_role_map urm ON user.user_id = urm.user_id
-        LEFT JOIN user_brand_profile_module_access ubrma ON user.user_id = ubrma.user_id        
+        LEFT JOIN user_image_map uim ON u.user_id = uim.user_id
+        LEFT JOIN user_role_map urm ON u.user_id = urm.user_id
+        LEFT JOIN user_brand_profile_module_access ubrma ON u.user_id = ubrma.user_id        
         WHERE u.user_id = :user_id
         AND u.meta_status = :meta_status
     """)
