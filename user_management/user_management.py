@@ -317,7 +317,7 @@ def get_user(user_id):
     query = text("""
         SELECT u.keycloak_user_id, u.username, u.first_names_en, u.last_name_en, u.first_names_ar, u.last_name_ar, u.phone_nr, u.email
         FROM user u
-        LEFT JOIN user_image_map ON user.user_id = user_image_map.user_id
+        LEFT JOIN user_image_map ON u.user_id = user_image_map.user_id
         WHERE u.user_id = :user_id
         AND u.meta_status = :meta_status
     """)
