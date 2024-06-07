@@ -37,10 +37,35 @@ class DataMigrationManager:
         jqutils.upload_csv("role", self.top_path + "role.csv")
         
         # Upload security keys needed for encryption
-        # self.log("Done\n> Uploading security keys.. ", False)
-        # self.upload_security_keys()
+        self.log("Done\n> Uploading security keys.. ", False)
+        self.upload_security_keys()
         self.log("Done\n")
-   
+
+    def upload_security_keys(self):
+        db_engine = jqutils.get_db_engine(self.schema_name)
+        
+        # load server keys
+        password_protector_key = jqsecurity.read_symmetric_key_from_file('tests/testdata/test-password-protector.key')
+        server_token_private_key = jqsecurity.read_key_bytes_from_file('tests/testdata/server-key.private')
+        server_token_public_key = jqsecurity.read_key_bytes_from_file('tests/testdata/server-key.public')
+
+        with db_engine.connect() as conn:
+            query = text(""" 
+                        insert into portal_profile_service_secret(key_algorithm, version, key_name, description, symmetric_key, meta_status) 
+                        values (:key_algorithm, :version, :key_name, :description, :symmetric_key, :meta_status)
+                    """)
+            result = conn.execute(query, key_algorithm='aes', version=1, key_name='password-protector-key',
+                                description='password-protector-key', symmetric_key=password_protector_key, meta_status='active').lastrowid
+            assert result, "Failed to insert password protector key"
+
+        with db_engine.connect() as conn:
+            query = text("""
+                        insert into portal_profile_service_secret(key_algorithm, version, key_name, description, private_key, public_key, meta_status) 
+                        values (:key_algorithm, :version, :key_name, :description, :private_key, :public_key, :meta_status)
+                    """)
+            result = conn.execute(query, key_algorithm='rsa', version=1, key_name='token-protector-key', description='token-protector-key',
+                                private_key=server_token_private_key, public_key=server_token_public_key, meta_status='active').lastrowid
+            assert result, "Failed to insert server keys"
     def encrypt_password(self, password):
         db_engine = jqutils.get_db_engine(self.schema_name)
         password_bytes = password.encode()
