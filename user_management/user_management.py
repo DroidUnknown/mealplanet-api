@@ -508,6 +508,24 @@ def get_users():
     with db_engine.connect() as conn:
         result = conn.execute(query, meta_status="active").fetchall()
 
+    user_list = [dict(row) for row in result]
+
+    # get role list for each user
+    for one_user in user_list:
+        user_id = one_user["user_id"]
+
+        query = text("""
+            SELECT urm.role_id, r.role_name
+            FROM user_role_map urm
+            JOIN role r ON urm.role_id = r.role_id
+            WHERE urm.user_id = :user_id
+            AND urm.meta_status = :meta_status
+        """)
+        with db_engine.connect() as conn:
+            role_result = conn.execute(query, user_id=user_id, meta_status="active").fetchall()
+
+        one_user["role_list"] = [dict(role) for role in role_result]
+
     response_body = {
         "data": [dict(row) for row in result],
         "action": "get_users",
