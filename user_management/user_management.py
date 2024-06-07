@@ -70,8 +70,9 @@ def add_user():
     otp_requested_timestamp_str = jqutils.get_utc_datetime()
 
     # convert str to datetime
-    otp_requested_timestamp = datetime.strptime(otp_requested_timestamp_str, "%Y-%m-%d %H:%M:%S")
-    otp_expiry_timestamp = otp_requested_timestamp + timedelta(minutes=5)
+    # otp_requested_timestamp = datetime.strptime(otp_requested_timestamp_str, "%Y-%m-%d %H:%M:%S")
+    # otp_expiry_timestamp = otp_requested_timestamp + timedelta(minutes=5)
+
     contact_method = "email"
 
     one_dict = {
@@ -80,8 +81,8 @@ def add_user():
         "contact_method": contact_method,
         "otp": otp,
         "otp_request_count": 0,
-        "otp_requested_timestamp": otp_requested_timestamp,
-        "otp_expiry_timestamp": otp_expiry_timestamp,
+        "otp_requested_timestamp": otp_requested_timestamp_str,
+        "otp_expiry_timestamp": otp_requested_timestamp_str,
         "otp_status": "pending",
         "meta_status": "active",
         "creation_user_id": g.user_id
