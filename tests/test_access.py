@@ -23,9 +23,6 @@ def do_logout(client, payload):
     response = client.post(base_api_url + "/logout", json=payload)
     return response
 
-
-
-
 # ###################
 # # TESTS
 # ###################
