@@ -4,24 +4,26 @@ from sqlalchemy import text
 from utils import jqutils
 
 def get_menu_group_list_map_by_plan_list(plan_id_list):
-    db_engine = jqutils.get_db_engine()
-
-    query = text("""
-        SELECT pmgm.plan_id, pmgm.menu_group_id, mg.menu_group_name
-        FROM plan_menu_group_map pmgm
-        JOIN menu_group mg ON pmgm.menu_group_id = mg.menu_group_id
-        WHERE plan_id IN :plan_id_list
-        AND pmgm.meta_status = :meta_status
-        AND mg.meta_status = :meta_status
-    """)
-    with db_engine.connect() as conn:
-        result = conn.execute(query, plan_id_list=plan_id_list, meta_status="active").fetchall()
-
     menu_group_list_map = {}
-    for row in result:
-        if row["plan_id"] not in menu_group_list_map:
-            menu_group_list_map[row["plan_id"]] = []
-        menu_group_list_map[row["plan_id"]].append(dict(row))
+    
+    if plan_id_list:
+        db_engine = jqutils.get_db_engine()
+        
+        query = text("""
+            SELECT pmgm.plan_id, pmgm.menu_group_id, mg.menu_group_name
+            FROM plan_menu_group_map pmgm
+            JOIN menu_group mg ON pmgm.menu_group_id = mg.menu_group_id
+            WHERE plan_id IN :plan_id_list
+            AND pmgm.meta_status = :meta_status
+            AND mg.meta_status = :meta_status
+        """)
+        with db_engine.connect() as conn:
+            result = conn.execute(query, plan_id_list=plan_id_list, meta_status="active").fetchall()
+
+        for row in result:
+            if row["plan_id"] not in menu_group_list_map:
+                menu_group_list_map[row["plan_id"]] = []
+            menu_group_list_map[row["plan_id"]].append(dict(row))
 
     return menu_group_list_map
 

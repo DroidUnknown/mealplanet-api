@@ -1,4 +1,5 @@
 import os
+import json
 
 from keycloak import KeycloakOpenID, KeycloakAdmin
 from dotenv import load_dotenv
@@ -11,6 +12,7 @@ realm_name = os.getenv("KEYCLOAK_REALM_NAME")
 client_secret_key = os.getenv("KEYCLOAK_CLIENT_SECRET_KEY")
 admin_username = os.getenv("KEYCLOAK_ADMIN_USERNAME")
 admin_password = os.getenv("KEYCLOAK_ADMIN_PASSWORD")
+client_uuid = os.getenv("KEYCLOAK_CLIENT_UUID")
 
 
 keycloak_client_openid = None
@@ -99,31 +101,54 @@ def create_user(username, password, first_name="", last_name="", email="", enabl
     
     return keycloak_user_id
 
-def create_policy(type, name, keycloak_user_id):
-    #TODO: Implement this
-    assert False, "Not implemented"
+def delete_all_policies():
+    keycloak_admin_openid = get_keycloak_admin_openid()
     
-    # payload = {
-    #     "name": username,
-    #     "description": "",
-    #     "users": [ keycloak_user_id ],
-    #     "logic": "POSITIVE"
-    # }
-    # keycloak_user_policy_id = keycloak_admin.create_client_authz_policy(client_id, payload)
+    policies = keycloak_admin_openid.get_client_authz_policies(client_uuid)
+    
+    for policy in policies:
+        policy_id = policy["id"]
+        keycloak_admin_openid.delete_client_authz_policy(client_uuid, policy_id)
+
+def create_user_policy(username):
+    keycloak_admin = get_keycloak_admin_openid()    
+
+    payload={
+        "type": "user",
+        "config": {
+            "users": f"[\"{username}\"]",
+        },
+        "logic": "POSITIVE",
+        "name": username,
+        "description": ""
+    }
+    
+    keycloak_user_policy_id = keycloak_admin.create_client_authz_policy(client_uuid, payload)
+    
+    return keycloak_user_policy_id["id"]
 
 def attach_user_to_policies(keycloak_user_id, policy_name_list):
     #TODO: Implement this
-    assert False, "Not implemented"
     
-    # /authz/resource-server/permission/resource
-    # {
-    #     "resources": [
-    #         "d3b68931-6ea5-4030-9d8f-f48e7ce37202"
-    #     ],
-    #     "policies": [
-    #         "b0b79a0d-c553-464a-b9d3-ed17a00108fb"
-    #     ],
-    #     "name": "all:*:delivery-provider:admin",
-    #     "description": "",
-    #     "decisionStrategy": "AFFIRMATIVE"
-    # }
+    # "policy_name_list": [
+    #     "all:*:menu-management:admin",
+    #     "all:*:kitchen-provider:admin",
+    #     "all:*:delivery-provider:admin"
+    # ]
+    print(client_uuid)
+    resource_id = "b234758d-07ac-4033-a870-9fb1eee578e4"
+    policies = keycloak_admin_openid.get_client_authz_policies(client_uuid)
+    policy_id_list = [policy["id"] for policy in policies if policy["name"] in policy_name_list]
+    
+    payload={
+        "id": resource_id,
+        "name": "basiligo:1:menu-management:admin",
+        "type": "resource",
+        "logic": "POSITIVE",
+        "decisionStrategy": "UNANIMOUS",
+        "resources": [resource_id],
+        "scopes": [],
+        "policies": policy_id_list,
+    }
+    
+    keycloak_admin_openid.update_client_authz_resource_permission(payload, client_uuid, resource_id)
