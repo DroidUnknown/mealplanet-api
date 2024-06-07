@@ -44,7 +44,7 @@ def test_login(client):
     data = response_json["data"]
     assert data["access_token"]
     assert data["refresh_token"]
-    assert data["rpt_token"]
+    assert data["permissions"]
     
     global access_token, refresh_token
     access_token = data["access_token"]
