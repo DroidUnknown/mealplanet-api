@@ -39,6 +39,8 @@ def landscape():
     # delete all users from keycloak
     keycloak_utils.delete_all_users()
     
+    keycloak_utils.delete_all_policies()
+    
     db_engine = jqutils.get_db_engine('testportalprofileservice')
     with db_engine.connect() as conn:
     

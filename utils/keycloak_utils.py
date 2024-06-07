@@ -95,6 +95,15 @@ def create_user(username, password, first_name="", last_name="", email="", enabl
     
     return keycloak_user_id
 
+def delete_all_policies():
+    keycloak_admin_openid = get_keycloak_admin_openid()
+    
+    policies = keycloak_admin_openid.get_client_authz_policies(client_uuid)
+    
+    for policy in policies:
+        policy_id = policy["id"]
+        keycloak_admin_openid.delete_client_authz_policy(client_uuid, policy_id)
+
 def create_user_policy(username):
     keycloak_admin = get_keycloak_admin_openid()    
 
