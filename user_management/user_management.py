@@ -173,13 +173,12 @@ def add_user_image(user_id):
     }
     return jsonify(response_body)
 
-@user_management_blueprint.route('user/<user_id>/verify-otp', methods=['POST'])
+@user_management_blueprint.route('/user/<user_id>/verify-otp', methods=['POST'])
 def verify_user_otp(user_id):
     request_json = request.get_json()
 
     username = request_json["username"]
     password = request_json["password"]
-    password_bytes = password.encode()
     otp = request_json["otp"]
     intent = request_json["intent"]
 
