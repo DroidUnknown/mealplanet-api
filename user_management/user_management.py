@@ -525,9 +525,9 @@ def get_users():
             role_result = conn.execute(query, user_id=user_id, meta_status="active").fetchall()
 
         one_user["role_list"] = [dict(role) for role in role_result]
-
+        
     response_body = {
-        "data": [dict(row) for row in result],
+        "data": user_list,
         "action": "get_users",
         "status": "successful"
     }
