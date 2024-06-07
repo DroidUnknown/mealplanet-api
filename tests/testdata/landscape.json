@@ -1,6 +1,11 @@
 {
     "scope": [
         {
+            "scope_name": "brand-profile:all",
+            "brand_profile_id": null,
+            "keycloak_scope_id": "1fa0a602-6bef-40ed-85a4-0c96e85b700a"
+        },
+        {
             "scope_name": "brand-profile:basiligo",
             "brand_profile_id": 1,
             "keycloak_scope_id": "4e74494e-9b67-4496-ad70-dbf563c9ab73"
@@ -13,268 +18,480 @@
     ],
     "resource": [
         {
-            "resource_name": "menu-management",
-            "display_name_en": "Menu Management",
-            "resource_type": "module",
-            "uri": "/menu-management",
-            "keycloak_resource_id": "ca0bb8af-6c37-44f2-aa89-7e4df526e443"
+            "keycloak_resource_id": "b234758d-07ac-4033-a870-9fb1eee578e4",
+            "resource_name": "basiligo:1:menu-management:admin",
+            "display_name_en": "basiligo:1:menu-management:admin",
+            "resource_type": "role",
+            "module_id": 1,
+            "uri": "basiligo:1:menu-management:admin"
         },
         {
-            "resource_name": "kitchen-provider",
-            "display_name_en": "Kitchen Provider",
-            "resource_type": "module",
-            "uri": "/kitchen-provider",
-            "keycloak_resource_id": "d4f86fcc-4a8c-462e-8964-550c6e717bbb"
+            "keycloak_resource_id": "f5c109c3-6d0b-4238-ae0b-789bc7814335",
+            "resource_name": "basiligo:1:menu-management:content",
+            "display_name_en": "basiligo:1:menu-management:content",
+            "resource_type": "role",
+            "module_id": 1,
+            "uri": "basiligo:1:menu-management:content"
         },
         {
-            "resource_name": "order-management",
-            "display_name_en": "Order Management",
-            "resource_type": "module",
-            "uri": "/order-management",
-            "keycloak_resource_id": "eec30582-dff2-4492-853b-3105ff01c6a7"
-        }
+            "keycloak_resource_id": "2fcb32ad-f6a1-4030-8975-b90990c20b88",
+            "resource_name": "basiligo:1:menu-management:member",
+            "display_name_en": "basiligo:1:menu-management:member",
+            "resource_type": "role",
+            "module_id": 1,
+            "uri": "basiligo:1:menu-management:member"
+        },
+        {
+            "keycloak_resource_id": "c83028e1-47e6-49b6-9960-2caac0e9e5f6",
+            "resource_name": "all:*:menu-management:admin",
+            "display_name_en": "all:*:menu-management:admin",
+            "resource_type": "role",
+            "module_id": 1,
+            "uri": "all:*:menu-management:admin"
+        },
+        {
+            "keycloak_resource_id": "29181a74-c17a-407d-a0d5-a70b532d1c6f",
+            "resource_name": "all:*:menu-management:content",
+            "display_name_en": "all:*:menu-management:content",
+            "resource_type": "role",
+            "module_id": 1,
+            "uri": "all:*:menu-management:content"
+        },
+        {
+            "keycloak_resource_id": "9ba3466d-6864-48da-b1f5-072f1d918ce9",
+            "resource_name": "all:*:menu-management:member",
+            "display_name_en": "all:*:menu-management:member",
+            "resource_type": "role",
+            "module_id": 1,
+            "uri": "all:*:menu-management:member"
+        },
+        {
+            "keycloak_resource_id": "4b48e726-6e77-4a70-8c91-25594121136d",
+            "resource_name": "healthy-cup:2:menu-management:admin",
+            "display_name_en": "healthy-cup:2:menu-management:admin",
+            "resource_type": "role",
+            "module_id": 1,
+            "uri": "healthy-cup:2:menu-management:admin"
+        },
+        {
+            "keycloak_resource_id": "ddb591da-b026-40db-ab25-c6b5275c99b0",
+            "resource_name": "healthy-cup:2:menu-management:content",
+            "display_name_en": "healthy-cup:2:menu-management:content",
+            "resource_type": "role",
+            "module_id": 1,
+            "uri": "healthy-cup:2:menu-management:content"
+        },
+        {
+            "keycloak_resource_id": "ce9bfdcc-c439-4292-80c1-809c60b96584",
+            "resource_name": "healthy-cup:2:menu-management:member",
+            "display_name_en": "healthy-cup:2:menu-management:member",
+            "resource_type": "role",
+            "module_id": 1,
+            "uri": "healthy-cup:2:menu-management:member"
+        },
+        {
+            "keycloak_resource_id": "073f7314-9a4b-4b51-8553-05608d3519c4",
+            "resource_name": "basiligo:1:kitchen-provider:admin",
+            "display_name_en": "basiligo:1:kitchen-provider:admin",
+            "resource_type": "role",
+            "module_id": 2,
+            "uri": "basiligo:1:kitchen-provider:admin"
+        },
+        {
+            "keycloak_resource_id": "efc8943c-6804-4517-afe0-9904b224f162",
+            "resource_name": "basiligo:1:kitchen-provider:content",
+            "display_name_en": "basiligo:1:kitchen-provider:content",
+            "resource_type": "role",
+            "module_id": 2,
+            "uri": "basiligo:1:kitchen-provider:content"
+        },
+        {
+            "keycloak_resource_id": "bf7369de-786b-4d23-8758-107fb1896edc",
+            "resource_name": "basiligo:1:kitchen-provider:member",
+            "display_name_en": "basiligo:1:kitchen-provider:member",
+            "resource_type": "role",
+            "module_id": 2,
+            "uri": "basiligo:1:kitchen-provider:member"
+        },
+        {
+            "keycloak_resource_id": "24600224-eb8c-407c-a66d-5e56764acc94",
+            "resource_name": "all:*:kitchen-provider:admin",
+            "display_name_en": "all:*:kitchen-provider:admin",
+            "resource_type": "role",
+            "module_id": 2,
+            "uri": "all:*:kitchen-provider:admin"
+        },
+        {
+            "keycloak_resource_id": "9a3bbddd-ce3d-4c04-ae4d-f8cf4a517a8e",
+            "resource_name": "all:*:kitchen-provider:content",
+            "display_name_en": "all:*:kitchen-provider:content",
+            "resource_type": "role",
+            "module_id": 2,
+            "uri": "all:*:kitchen-provider:content"
+        },
+        {
+            "keycloak_resource_id": "5bfe0877-ffb6-42d9-95d9-525997c985e6",
+            "resource_name": "all:*:kitchen-provider:member",
+            "display_name_en": "all:*:kitchen-provider:member",
+            "resource_type": "role",
+            "module_id": 2,
+            "uri": "all:*:kitchen-provider:member"
+        },
+        {
+            "keycloak_resource_id": "1382bc49-0df2-48d7-862c-1bf5886c5704",
+            "resource_name": "healthy-cup:2:kitchen-provider:admin",
+            "display_name_en": "healthy-cup:2:kitchen-provider:admin",
+            "resource_type": "role",
+            "module_id": 2,
+            "uri": "healthy-cup:2:kitchen-provider:admin"
+        },
+        {
+            "keycloak_resource_id": "89ffb34e-1055-4845-9268-c4c7eef27d73",
+            "resource_name": "healthy-cup:2:kitchen-provider:content",
+            "display_name_en": "healthy-cup:2:kitchen-provider:content",
+            "resource_type": "role",
+            "module_id": 2,
+            "uri": "healthy-cup:2:kitchen-provider:content"
+        },
+        {
+            "keycloak_resource_id": "99219b49-768a-4bf8-8041-2f03f9a7e92b",
+            "resource_name": "healthy-cup:2:kitchen-provider:member",
+            "display_name_en": "healthy-cup:2:kitchen-provider:member",
+            "resource_type": "role",
+            "module_id": 2,
+            "uri": "healthy-cup:2:kitchen-provider:member"
+        },
+        {
+            "keycloak_resource_id": "d3b68931-6ea5-4030-9d8f-f48e7ce37202",
+            "resource_name": "all:*:delivery-provider:admin",
+            "display_name_en": "all:*:delivery-provider:admin",
+            "resource_type": "role",
+            "module_id": 3,
+            "uri": "all:*:delivery-provider:admin"
+        },
+        {
+            "keycloak_resource_id": "cdc4e70e-5508-437d-acca-6a8e176faf7f",
+            "resource_name": "all:*:delivery-provider:content",
+            "display_name_en": "all:*:delivery-provider:content",
+            "resource_type": "role",
+            "module_id": 3,
+            "uri": "all:*:delivery-provider:content"
+        },
+        {
+            "keycloak_resource_id": "e947bbaf-a926-4431-96e3-116c52999f89",
+            "resource_name": "all:*:delivery-provider:member",
+            "display_name_en": "all:*:delivery-provider:member",
+            "resource_type": "role",
+            "module_id": 3,
+            "uri": "all:*:delivery-provider:member"
+        },
+        {
+            "keycloak_resource_id": "24b86c55-0ad0-4612-9f6a-4c1fe43ef253",
+            "resource_name": "basiligo:1:delivery-provider:admin",
+            "display_name_en": "basiligo:1:delivery-provider:admin",
+            "resource_type": "role",
+            "module_id": 3,
+            "uri": "basiligo:1:delivery-provider:admin"
+        },
+        {
+            "keycloak_resource_id": "df4e1e82-4ba1-4ce8-9bea-9aa2f004d3a2",
+            "resource_name": "basiligo:1:delivery-provider:content",
+            "display_name_en": "basiligo:1:delivery-provider:content",
+            "resource_type": "role",
+            "module_id": 3,
+            "uri": "basiligo:1:delivery-provider:content"
+        },
+        {
+            "keycloak_resource_id": "91a1541b-a22e-4fe0-867a-579381b3b1c7",
+            "resource_name": "basiligo:1:delivery-provider:member",
+            "display_name_en": "basiligo:1:delivery-provider:member",
+            "resource_type": "role",
+            "module_id": 3,
+            "uri": "basiligo:1:delivery-provider:member"
+        },
+        {
+            "keycloak_resource_id": "62517018-b216-486e-b568-81a72b6b3cb8",
+            "resource_name": "healthy-cup:2:delivery-provider:admin",
+            "display_name_en": "healthy-cup:2:delivery-provider:admin",
+            "resource_type": "role",
+            "module_id": 3,
+            "uri": "healthy-cup:2:delivery-provider:admin"
+          },
+          {
+            "keycloak_resource_id": "e16f921e-557c-4231-8730-a9b9a3d92851",
+            "resource_name": "healthy-cup:2:delivery-provider:content",
+            "display_name_en": "healthy-cup:2:delivery-provider:content",
+            "resource_type": "role",
+            "module_id": 3,
+            "uri": "healthy-cup:2:delivery-provider:content"
+          },
+          {
+            "keycloak_resource_id": "d349431d-b090-4bc6-9088-768024163021",
+            "resource_name": "healthy-cup:2:delivery-provider:member",
+            "display_name_en": "healthy-cup:2:delivery-provider:member",
+            "resource_type": "role",
+            "module_id": 3,
+            "uri": "healthy-cup:2:delivery-provider:member"
+          }
+    ],
+    "resource_scope_map": [
+        { "resource_id": 1, "scope_id": 2 },
+        { "resource_id": 2, "scope_id": 2 },
+        { "resource_id": 3, "scope_id": 2 },
+        { "resource_id": 4, "scope_id": 1 },
+        { "resource_id": 5, "scope_id": 1 },
+        { "resource_id": 6, "scope_id": 1 },
+        { "resource_id": 7, "scope_id": 3 },
+        { "resource_id": 8, "scope_id": 3 },
+        { "resource_id": 9, "scope_id": 3 },
+        { "resource_id": 10, "scope_id": 2 },
+        { "resource_id": 11, "scope_id": 2 },
+        { "resource_id": 12, "scope_id": 2 },
+        { "resource_id": 13, "scope_id": 1 },
+        { "resource_id": 14, "scope_id": 1 },
+        { "resource_id": 15, "scope_id": 1 },
+        { "resource_id": 16, "scope_id": 3 },
+        { "resource_id": 17, "scope_id": 3 },
+        { "resource_id": 18, "scope_id": 3 },
+        { "resource_id": 19, "scope_id": 1 },
+        { "resource_id": 20, "scope_id": 1 },
+        { "resource_id": 21, "scope_id": 1 },
+        { "resource_id": 22, "scope_id": 2 },
+        { "resource_id": 23, "scope_id": 2 },
+        { "resource_id": 24, "scope_id": 2 },
+        { "resource_id": 25, "scope_id": 3 },
+        { "resource_id": 26, "scope_id": 3 },
+        { "resource_id": 27, "scope_id": 3 }
     ],
     "policy": [
         {
-            "policy_name": "admin",
-            "keycloak_policy_id": "1daa37b2-2e15-4227-9473-db5688731e04"
+            "keycloak_policy_id": "b234758d-07ac-4033-a870-9fb1eee578e4",
+            "policy_name": "basiligo:1:menu-management:admin",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "f5c109c3-6d0b-4238-ae0b-789bc7814335",
+            "policy_name": "basiligo:1:menu-management:content",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "2fcb32ad-f6a1-4030-8975-b90990c20b88",
+            "policy_name": "basiligo:1:menu-management:member",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "c83028e1-47e6-49b6-9960-2caac0e9e5f6",
+            "policy_name": "all:*:menu-management:admin",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "29181a74-c17a-407d-a0d5-a70b532d1c6f",
+            "policy_name": "all:*:menu-management:content",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "9ba3466d-6864-48da-b1f5-072f1d918ce9",
+            "policy_name": "all:*:menu-management:member",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "4b48e726-6e77-4a70-8c91-25594121136d",
+            "policy_name": "healthy-cup:2:menu-management:admin",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "ddb591da-b026-40db-ab25-c6b5275c99b0",
+            "policy_name": "healthy-cup:2:menu-management:content",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "ce9bfdcc-c439-4292-80c1-809c60b96584",
+            "policy_name": "healthy-cup:2:menu-management:member",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "073f7314-9a4b-4b51-8553-05608d3519c4",
+            "policy_name": "basiligo:1:kitchen-provider:admin",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "efc8943c-6804-4517-afe0-9904b224f162",
+            "policy_name": "basiligo:1:kitchen-provider:content",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "bf7369de-786b-4d23-8758-107fb1896edc",
+            "policy_name": "basiligo:1:kitchen-provider:member",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "24600224-eb8c-407c-a66d-5e56764acc94",
+            "policy_name": "all:*:kitchen-provider:admin",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "9a3bbddd-ce3d-4c04-ae4d-f8cf4a517a8e",
+            "policy_name": "all:*:kitchen-provider:content",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "5bfe0877-ffb6-42d9-95d9-525997c985e6",
+            "policy_name": "all:*:kitchen-provider:member",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "1382bc49-0df2-48d7-862c-1bf5886c5704",
+            "policy_name": "healthy-cup:2:kitchen-provider:admin",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "89ffb34e-1055-4845-9268-c4c7eef27d73",
+            "policy_name": "healthy-cup:2:kitchen-provider:content",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "99219b49-768a-4bf8-8041-2f03f9a7e92b",
+            "policy_name": "healthy-cup:2:kitchen-provider:member",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "d3b68931-6ea5-4030-9d8f-f48e7ce37202",
+            "policy_name": "all:*:delivery-provider:admin",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "cdc4e70e-5508-437d-acca-6a8e176faf7f",
+            "policy_name": "all:*:delivery-provider:content",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "e947bbaf-a926-4431-96e3-116c52999f89",
+            "policy_name": "all:*:delivery-provider:member",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "24b86c55-0ad0-4612-9f6a-4c1fe43ef253",
+            "policy_name": "basiligo:1:delivery-provider:admin",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "df4e1e82-4ba1-4ce8-9bea-9aa2f004d3a2",
+            "policy_name": "basiligo:1:delivery-provider:content",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "91a1541b-a22e-4fe0-867a-579381b3b1c7",
+            "policy_name": "basiligo:1:delivery-provider:member",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "b0b79a0d-c553-464a-b9d3-ed17a00108fb",
+            "policy_name": "healthy-cup:2:delivery-provider:admin",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "604720fb-4168-4f9a-9be8-431457b331ae",
+            "policy_name": "healthy-cup:2:delivery-provider:content",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          },
+          {
+            "keycloak_policy_id": "270d4b48-e538-43cb-82fe-24d755738c1d",
+            "policy_name": "healthy-cup:2:delivery-provider:member",
+            "policy_type": "resource",
+            "logic": "POSITIVE",
+            "decision_strategy": "AFFIRMATIVE"
+          }
+    ],
+    "policy_resource_map": [
+        { "policy_id": 1, "resource_id": 1 },
+        { "policy_id": 2, "resource_id": 2 },
+        { "policy_id": 3, "resource_id": 3 },
+        { "policy_id": 4, "resource_id": 4 },
+        { "policy_id": 5, "resource_id": 5 },
+        { "policy_id": 6, "resource_id": 6 },
+        { "policy_id": 7, "resource_id": 7 },
+        { "policy_id": 8, "resource_id": 8 },
+        { "policy_id": 9, "resource_id": 9 },
+        { "policy_id": 10, "resource_id": 10 },
+        { "policy_id": 11, "resource_id": 11 },
+        { "policy_id": 12, "resource_id": 12 },
+        { "policy_id": 13, "resource_id": 13 },
+        { "policy_id": 14, "resource_id": 14 },
+        { "policy_id": 15, "resource_id": 15 },
+        { "policy_id": 16, "resource_id": 16 },
+        { "policy_id": 17, "resource_id": 17 },
+        { "policy_id": 18, "resource_id": 18 },
+        { "policy_id": 19, "resource_id": 19 },
+        { "policy_id": 20, "resource_id": 20 },
+        { "policy_id": 21, "resource_id": 21 },
+        { "policy_id": 22, "resource_id": 22 },
+        { "policy_id": 23, "resource_id": 23 },
+        { "policy_id": 24, "resource_id": 24 },
+        { "policy_id": 25, "resource_id": 25 },
+        { "policy_id": 26, "resource_id": 26 },
+        { "policy_id": 27, "resource_id": 27 }
+    ],
+    "module": [
+        {
+            "module_name": "menu-management"
         },
         {
-            "policy_name": "content",
-            "keycloak_policy_id": "3b7650d3-ab26-47b6-8a8b-b125c1f31a28"
+            "module_name": "kitchen-provider"
         },
         {
-            "policy_name": "member",
-            "keycloak_policy_id": "28b975c0-56f7-4272-a414-00fc6110fec7"
+            "module_name": "delivery-provider"
         }
-    ],
-    "policy_role_access_map": [
-        { "policy_id": 1, "role_id": 1, "access_p": 1 },
-        { "policy_id": 2, "role_id": 2, "access_p": 1 },
-        { "policy_id": 3, "role_id": 3, "access_p": 1 }
-    ],
-    "permission": [
-        {
-            "permission_name": "all:*:menu-management:admin",
-            "permission_type": "resource-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "all:*:menu-management:content",
-            "permission_type": "resource-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "all:*:menu-management:member",
-            "permission_type": "resource-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "all:*:kitchen-provider:admin",
-            "permission_type": "resource-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "all:*:kitchen-provider:content",
-            "permission_type": "resource-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "all:*:kitchen-provider:member",
-            "permission_type": "resource-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "all:*:order-management:admin",
-            "permission_type": "resource-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "all:*:order-management:content",
-            "permission_type": "resource-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "all:*:order-management:member",
-            "permission_type": "resource-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "basiligo:1:menu-management:admin",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "basiligo:1:menu-management:content",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "basiligo:1:menu-management:member",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "basiligo:1:kitchen-provider:admin",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "basiligo:1:kitchen-provider:content",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "basiligo:1:kitchen-provider:member",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "basiligo:1:order-management:admin",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "basiligo:1:order-management:content",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "basiligo:1:order-management:member",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "healthy_cup:2:menu-management:admin",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "healthy_cup:2:menu-management:content",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "healthy_cup:2:menu-management:member",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "healthy_cup:2:kitchen-provider:admin",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "healthy_cup:2:kitchen-provider:content",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "healthy_cup:2:kitchen-provider:member",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "healthy_cup:2:order-management:admin",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "healthy_cup:2:order-management:content",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        },
-        {
-            "permission_name": "healthy_cup:2:order-management:member",
-            "permission_type": "scope-based",
-            "decision_strategy": "unanimous",
-            "keycloak_permission_id": ""
-        }
-    ],
-    "permission_policy_map": [
-        { "permission_id": 1, "policy_id": 1 },
-        { "permission_id": 2, "policy_id": 2 },
-        { "permission_id": 3, "policy_id": 3 },
-        { "permission_id": 4, "policy_id": 1 },
-        { "permission_id": 5, "policy_id": 2 },
-        { "permission_id": 6, "policy_id": 3 },
-        { "permission_id": 7, "policy_id": 1 },
-        { "permission_id": 8, "policy_id": 2 },
-        { "permission_id": 9, "policy_id": 3 },
-        { "permission_id": 10, "policy_id": 1 },
-        { "permission_id": 11, "policy_id": 2 },
-        { "permission_id": 12, "policy_id": 3 },
-        { "permission_id": 13, "policy_id": 1 },
-        { "permission_id": 14, "policy_id": 2 },
-        { "permission_id": 15, "policy_id": 3 },
-        { "permission_id": 16, "policy_id": 1 },
-        { "permission_id": 17, "policy_id": 2 },
-        { "permission_id": 18, "policy_id": 3 },
-        { "permission_id": 19, "policy_id": 1 },
-        { "permission_id": 20, "policy_id": 2 },
-        { "permission_id": 21, "policy_id": 3 },
-        { "permission_id": 22, "policy_id": 1 },
-        { "permission_id": 23, "policy_id": 2 },
-        { "permission_id": 24, "policy_id": 3 },
-        { "permission_id": 25, "policy_id": 1 },
-        { "permission_id": 26, "policy_id": 2 },
-        { "permission_id": 27, "policy_id": 3 }  
-    ],
-    "permission_resource_map": [
-        { "permission_id": 1, "resource_id": 1 },
-        { "permission_id": 2, "resource_id": 2 },
-        { "permission_id": 3, "resource_id": 3 },
-        { "permission_id": 4, "resource_id": 4 },
-        { "permission_id": 5, "resource_id": 5 },
-        { "permission_id": 6, "resource_id": 6 },
-        { "permission_id": 7, "resource_id": 7 },
-        { "permission_id": 8, "resource_id": 8 },
-        { "permission_id": 9, "resource_id": 9 }
-    ],
-    "permission_scope_map": [
-        { "permission_id": 10, "scope_id": 1 },
-        { "permission_id": 11, "scope_id": 1 },
-        { "permission_id": 12, "scope_id": 1 },
-        { "permission_id": 13, "scope_id": 1 },
-        { "permission_id": 14, "scope_id": 1 },
-        { "permission_id": 15, "scope_id": 1 },
-        { "permission_id": 16, "scope_id": 1 },
-        { "permission_id": 17, "scope_id": 1 },
-        { "permission_id": 18, "scope_id": 1 },
-        { "permission_id": 19, "scope_id": 2 },
-        { "permission_id": 20, "scope_id": 2 },
-        { "permission_id": 21, "scope_id": 2 },
-        { "permission_id": 22, "scope_id": 2 },
-        { "permission_id": 23, "scope_id": 2 },
-        { "permission_id": 24, "scope_id": 2 },
-        { "permission_id": 25, "scope_id": 2 },
-        { "permission_id": 26, "scope_id": 2 },
-        { "permission_id": 27, "scope_id": 2 }
     ]
 }

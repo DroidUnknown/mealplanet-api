@@ -48,64 +48,63 @@ class Model(Base):
 class Scope(Model):
     __tablename__ = 'scope'
     scope_id = Column(Integer, primary_key=True)
-    scope_name = Column(String(128)) # brand-profile:basiligo
-    brand_profile_id = Column(Integer)
+    
     keycloak_scope_id = Column(String(128))
+    scope_name = Column(String(128)) # brand-profile:all, brand-profile:basiligo
+    brand_profile_id = Column(Integer)
 
 class Resource(Model):
     __tablename__ = 'resource'
     resource_id = Column(Integer, primary_key=True)
-    resource_name = Column(String(128)) # menu-management
-    display_name_en = Column(String(128))
-    resource_type = Column(String(32)) # module
-    uri = Column(String(128))
-    scope_id = Column(Integer)
+    
     keycloak_resource_id = Column(String(128))
+    resource_name = Column(String(128)) # all:*:menu-management:admin, basiligo:1:menu-management:admin
+    display_name_en = Column(String(128))
+    resource_type = Column(String(32)) # role
+    module_id = Column(Integer)
+    uri = Column(String(128))
+
+class ResourceScopeMap(Model):
+    __tablename__ = 'resource_scope_map'
+    
+    resource_scope_map_id = Column(Integer, primary_key=True)
+    
+    resource_id = Column(Integer)
+    scope_id = Column(Integer) # brand-profile:all, brand-profile:basiligo
 
 class Policy(Model):
     __tablename__ = 'policy'
     
     policy_id = Column(Integer, primary_key=True)
-    policy_name = Column(String(128)) # admin
     keycloak_policy_id = Column(String(128))
-
-class PolicyRoleAccessMap(Model):
-    __tablename__ = 'policy_role_access_map'
     
-    policy_role_access_map_id = Column(Integer, primary_key=True)
-    policy_id = Column(Integer) # admin
-    role_id = Column(Integer) # admin
-    access_p = Column(Boolean) # 1: positive, 0: negative
+    policy_name = Column(String(128)) # all:*:menu-management:admin
+    policy_type = Column(String(32)) # role, user, client, group, time, resource etc.
+    logic = Column(String(32)) # POSITIVE, NEGATIVE
+    decision_strategy = Column(String(32)) # AFFIRMATIVE, UNANIMOUS, CONSENSUS
+    policy_config = Column(JSON)
 
-class Permission(Model):
-    __tablename__ = 'permission'
+class PolicyUserMap(Model):
+    __tablename__ = 'policy_user_map'
     
-    permission_id = Column(Integer, primary_key=True)
-    permission_name = Column(String(128)) # basiligo:1:menu-management:admin
-    permission_type = Column(String(32)) # resource-based, scope-based
-    decision_strategy = Column(String(32)) # affirmative, unanimous, consensus
-    keycloak_permission_id = Column(String(128))
+    policy_user_map_id = Column(Integer, primary_key=True)
+    
+    policy_id = Column(Integer) # all:*:menu-management:admin
+    user_id = Column(Integer) # cody
 
-class PermissionPolicyMap(Model):
-    __tablename__ = 'permission_policy_map'
+class PolicyResourceMap(Model):
+    __tablename__ = 'policy_resource_map'
     
-    permission_policy_map_id = Column(Integer, primary_key=True)
-    permission_id = Column(Integer) # basiligo:1:menu-management:admin
-    policy_id = Column(Integer) # admin
+    policy_resource_map_id = Column(Integer, primary_key=True)
+    policy_id = Column(Integer) # all:*:menu-management:admin
+    resource_id = Column(Integer) # all:*:menu-management:admin
 
-class PermissionResourceMap(Model):
-    __tablename__ = 'permission_resource_map'
+class PolicyApplyPolicyMap(Model):
+    __tablename__ = 'policy_apply_policy_map'
     
-    permission_resource_map_id = Column(Integer, primary_key=True)
-    permission_id = Column(Integer) # all:*:menu-management:admin
-    resource_id = Column(Integer) # menu-management
-
-class PermissionScopeMap(Model):
-    __tablename__ = 'permission_scope_map'
-    
-    permission_scope_map_id = Column(Integer, primary_key=True)
-    permission_id = Column(Integer) # basiligo:1:menu-management:admin
-    scope_id = Column(Integer) # brand-profile:basiligo
+    policy_apply_policy_map = Column(Integer, primary_key=True)
+    policy_id = Column(Integer) # all:*:menu-management:admin
+    apply_policy_map_id = Column(Integer) # cody
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -113,15 +112,12 @@ class Role(Model):
     __tablename__ = 'role'
 
     role_id = Column(Integer, primary_key=True)
-    role_name = Column(String(64), nullable=False)  # admin, content, member
-    
-    keycloak_role_id = Column(String(128))
+    role_name = Column(String(64), nullable=False)  # mp-team, brand-owner, kitchen-partner, delivery-partner
 
 class User(Model):
     __tablename__ = 'user'
 
     user_id = Column(Integer, primary_key=True)
-    
     keycloak_user_id = Column(String(128))
 
     first_names_en = Column(String(128))
@@ -144,15 +140,18 @@ class UserImageMap(Model):
 
 class UserRoleMap(Model):
     __tablename__ = 'user_role_map'
+    
     user_role_map_id = Column(Integer, primary_key=True)
+    
     user_id = Column(Integer)
     role_id = Column(Integer)
 
-class UserBrandProfileMap(Model):
-    __tablename__ = 'user_brand_profile_map'
-    user_brand_profile_map_id = Column(Integer, primary_key=True)
-    user_id = Column(Integer)
-    brand_profile_id = Column(Integer)
+class Module(Model):
+    __tablename__ = 'module'
+    
+    module_id = Column(Integer, primary_key=True)
+    module_name = Column(String(128)) # menu-management, kitchen-provider, delivery-provider
+    module_description = Column(String(128))
 
 # ----------------------------------------------------------------------------------------------------------------------
 
