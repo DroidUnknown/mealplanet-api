@@ -315,9 +315,10 @@ def get_user(user_id):
     db_engine = jqutils.get_db_engine()
 
     query = text("""
-        SELECT u.keycloak_user_id, u.username, u.first_names_en, u.last_name_en, u.first_names_ar, u.last_name_ar, u.phone_nr, u.email
+        SELECT u.keycloak_user_id, u.username, u.first_names_en, u.last_name_en, u.first_names_ar, u.last_name_ar, u.phone_nr, u.email,
+        uim.image_bucket_name, uim.image_object_key
         FROM user u
-        LEFT JOIN user_image_map ON u.user_id = user_image_map.user_id
+        LEFT JOIN user_image_map uim ON u.user_id = uim.user_id
         WHERE u.user_id = :user_id
         AND u.meta_status = :meta_status
     """)
