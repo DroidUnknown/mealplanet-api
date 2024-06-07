@@ -210,7 +210,7 @@ def verify_user_otp(user_id):
 
             if otp_db == otp:
                 # convert str to datetime
-                current_timestamp = datetime.datetime.now()
+                current_timestamp = datetime.now()
                 otp_expiry_timestamp = datetime.strptime(otp_expiry_timestamp, "%Y-%m-%d %H:%M:%S.%f")
 
                 if otp_expiry_timestamp > current_timestamp:
