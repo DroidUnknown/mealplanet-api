@@ -119,7 +119,7 @@ def create_user_policy(username):
     
     keycloak_user_policy_id = keycloak_admin.create_client_authz_policy(client_uuid, payload)
     
-    return keycloak_user_policy_id
+    return keycloak_user_policy_id["id"]
 
 def attach_user_to_policies(keycloak_user_id, policy_name_list):
     #TODO: Implement this
