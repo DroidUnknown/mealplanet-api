@@ -1009,104 +1009,315 @@
         "allowRemoteResourceManagement": true,
         "policyEnforcementMode": "ENFORCING",
         "resources": [
-          {
-            "name": "kitchen-provider",
-            "ownerManagedAccess": false,
-            "displayName": "",
-            "attributes": {},
-            "_id": "39dc5b1c-ab71-49ac-8d8e-b23dee91e585",
-            "uris": [],
-            "icon_uri": ""
-          },
-          {
-            "name": "menu-management",
-            "ownerManagedAccess": false,
-            "displayName": "",
-            "attributes": {},
-            "_id": "f4f54b6e-98ca-4f69-b500-1ba65c7848e6",
-            "uris": [],
-            "icon_uri": ""
-          },
-          {
-            "name": "delivery-provider",
-            "ownerManagedAccess": false,
-            "displayName": "Delivery Provider",
-            "attributes": {},
-            "_id": "81f68602-7253-4fd6-8689-944f00cb0029",
-            "uris": [
-              "/delivery-provider"
-            ],
-            "icon_uri": ""
-          }
+            {
+                "_id": "b234758d-07ac-4033-a870-9fb1eee578e4",
+                "name": "basiligo:1:menu-management:admin",
+                "displayName": "basiligo:1:menu-management:admin",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["basiligo:1:menu-management:admin"],
+                "scopes": [{ "name": "brand-profile:basiligo" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "f5c109c3-6d0b-4238-ae0b-789bc7814335",
+                "name": "basiligo:1:menu-management:content",
+                "displayName": "basiligo:1:menu-management:content",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["basiligo:1:menu-management:content"],
+                "scopes": [{ "name": "brand-profile:basiligo" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "2fcb32ad-f6a1-4030-8975-b90990c20b88",
+                "name": "basiligo:1:menu-management:member",
+                "displayName": "basiligo:1:menu-management:member",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["basiligo:1:menu-management:member"],
+                "scopes": [{ "name": "brand-profile:basiligo" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "c83028e1-47e6-49b6-9960-2caac0e9e5f6",
+                "name": "all:*:menu-management:admin",
+                "displayName": "all:*:menu-management:admin",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["all:*:menu-management:admin"],
+                "scopes": [{ "name": "brand-profile:any" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "29181a74-c17a-407d-a0d5-a70b532d1c6f",
+                "name": "all:*:menu-management:content",
+                "displayName": "all:*:menu-management:content",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["all:*:menu-management:content"],
+                "scopes": [{ "name": "brand-profile:any" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "9ba3466d-6864-48da-b1f5-072f1d918ce9",
+                "name": "all:*:menu-management:member",
+                "displayName": "all:*:menu-management:member",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["all:*:menu-management:member"],
+                "scopes": [{ "name": "brand-profile:any" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "4b48e726-6e77-4a70-8c91-25594121136d",
+                "name": "healthy-cup:2:menu-management:admin",
+                "displayName": "healthy-cup:2:menu-management:admin",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["healthy-cup:2:menu-management:admin"],
+                "scopes": [{ "name": "brand-profile:healthy-cup"}],
+                "icon_uri": ""
+            },
+            {
+                "_id": "ddb591da-b026-40db-ab25-c6b5275c99b0",
+                "name": "healthy-cup:2:menu-management:content",
+                "displayName": "healthy-cup:2:menu-management:content",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["healthy-cup:2:menu-management:content"],
+                "scopes": [{ "name": "brand-profile:healthy-cup"}],
+                "icon_uri": ""
+            },
+            {
+                "_id": "ce9bfdcc-c439-4292-80c1-809c60b96584",
+                "name": "healthy-cup:2:menu-management:member",
+                "displayName": "healthy-cup:2:menu-management:member",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["healthy-cup:2:menu-management:member"],
+                "scopes": [{ "name": "brand-profile:healthy-cup"}],
+                "icon_uri": ""
+            },
+            {
+                "_id": "073f7314-9a4b-4b51-8553-05608d3519c4",
+                "name": "basiligo:1:kitchen-provider:admin",
+                "displayName": "basiligo:1:kitchen-provider:admin",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["basiligo:1:kitchen-provider:admin"],
+                "scopes": [{ "name": "brand-profile:basiligo" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "efc8943c-6804-4517-afe0-9904b224f162",
+                "name": "basiligo:1:kitchen-provider:content",
+                "displayName": "basiligo:1:kitchen-provider:content",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["basiligo:1:kitchen-provider:content"],
+                "scopes": [{ "name": "brand-profile:basiligo" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "bf7369de-786b-4d23-8758-107fb1896edc",
+                "name": "basiligo:1:kitchen-provider:member",
+                "displayName": "basiligo:1:kitchen-provider:member",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["basiligo:1:kitchen-provider:member"],
+                "scopes": [{ "name": "brand-profile:basiligo" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "24600224-eb8c-407c-a66d-5e56764acc94",
+                "name": "all:*:kitchen-provider:admin",
+                "displayName": "all:*:kitchen-provider:admin",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["all:*:kitchen-provider:admin"],
+                "scopes": [{ "name": "brand-profile:any" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "9a3bbddd-ce3d-4c04-ae4d-f8cf4a517a8e",
+                "name": "all:*:kitchen-provider:content",
+                "displayName": "all:*:kitchen-provider:content",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["all:*:kitchen-provider:content"],
+                "scopes": [{ "name": "brand-profile:any" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "5bfe0877-ffb6-42d9-95d9-525997c985e6",
+                "name": "all:*:kitchen-provider:member",
+                "displayName": "all:*:kitchen-provider:member",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["all:*:kitchen-provider:member"],
+                "scopes": [{ "name": "brand-profile:any" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "1382bc49-0df2-48d7-862c-1bf5886c5704",
+                "name": "healthy-cup:2:kitchen-provider:admin",
+                "displayName": "healthy-cup:2:kitchen-provider:admin",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["healthy-cup:2:kitchen-provider:admin"],
+                "scopes": [{ "name": "brand-profile:healthy-cup"}],
+                "icon_uri": ""
+            },
+            {
+                "_id": "89ffb34e-1055-4845-9268-c4c7eef27d73",
+                "name": "healthy-cup:2:kitchen-provider:content",
+                "displayName": "healthy-cup:2:kitchen-provider:content",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["healthy-cup:2:kitchen-provider:content"],
+                "scopes": [{ "name": "brand-profile:healthy-cup"}],
+                "icon_uri": ""
+            },
+            {
+                "_id": "99219b49-768a-4bf8-8041-2f03f9a7e92b",
+                "name": "healthy-cup:2:kitchen-provider:member",
+                "displayName": "healthy-cup:2:kitchen-provider:member",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["healthy-cup:2:kitchen-provider:member"],
+                "scopes": [{ "name": "brand-profile:healthy-cup"}],
+                "icon_uri": ""
+            },
+            {
+                "_id": "d3b68931-6ea5-4030-9d8f-f48e7ce37202",
+                "name": "all:*:delivery-provider:admin",
+                "displayName": "all:*:delivery-provider:admin",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["all:*:delivery-provider:admin"],
+                "scopes": [{ "name": "brand-profile:any" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "cdc4e70e-5508-437d-acca-6a8e176faf7f",
+                "name": "all:*:delivery-provider:content",
+                "displayName": "all:*:delivery-provider:content",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["all:*:delivery-provider:content"],
+                "scopes": [{ "name": "brand-profile:any" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "e947bbaf-a926-4431-96e3-116c52999f89",
+                "name": "all:*:delivery-provider:member",
+                "displayName": "all:*:delivery-provider:member",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["all:*:delivery-provider:member"],
+                "scopes": [{ "name": "brand-profile:any" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "24b86c55-0ad0-4612-9f6a-4c1fe43ef253",
+                "name": "basiligo:1:delivery-provider:admin",
+                "displayName": "basiligo:1:delivery-provider:admin",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["basiligo:1:delivery-provider:admin"],
+                "scopes": [{ "name": "brand-profile:basiligo" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "df4e1e82-4ba1-4ce8-9bea-9aa2f004d3a2",
+                "name": "basiligo:1:delivery-provider:content",
+                "displayName": "basiligo:1:delivery-provider:content",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["basiligo:1:delivery-provider:content"],
+                "scopes": [{ "name": "brand-profile:basiligo" }],
+                "icon_uri": ""
+            },
+            {
+                "_id": "91a1541b-a22e-4fe0-867a-579381b3b1c7",
+                "name": "basiligo:1:delivery-provider:member",
+                "displayName": "basiligo:1:delivery-provider:member",
+                "ownerManagedAccess": false,
+                "attributes": {},
+                "uris": ["basiligo:1:delivery-provider:member"],
+                "scopes": [{ "name": "brand-profile:basiligo" }],
+                "icon_uri": ""
+            },
+            {
+              "name": "healthy-cup:2:delivery-provider:admin",
+              "type": "role",
+              "ownerManagedAccess": false,
+              "displayName": "healthy-cup:2:delivery-provider:admin",
+              "attributes": {},
+              "_id": "62517018-b216-486e-b568-81a72b6b3cb8",
+              "uris": ["healthy-cup:2:delivery-provider:admin"],
+              "scopes": [{ "name": "brand-profile:healthy-cup" }],
+              "icon_uri": ""
+            },
+            {
+              "name": "healthy-cup:2:delivery-provider:content",
+              "type": "role",
+              "ownerManagedAccess": false,
+              "displayName": "healthy-cup:2:delivery-provider:content",
+              "attributes": {},
+              "_id": "e16f921e-557c-4231-8730-a9b9a3d92851",
+              "uris": ["healthy-cup:2:delivery-provider:content"],
+              "scopes": [{ "name": "brand-profile:healthy-cup" }],
+              "icon_uri": ""
+            },
+            {
+              "name": "healthy-cup:2:delivery-provider:member",
+              "type": "role",
+              "ownerManagedAccess": false,
+              "displayName": "healthy-cup:2:delivery-provider:member",
+              "attributes": {},
+              "_id": "d349431d-b090-4bc6-9088-768024163021",
+              "uris": ["healthy-cup:2:delivery-provider:member"],
+              "scopes": [{ "name": "brand-profile:healthy-cup" } ],
+              "icon_uri": ""
+            }
         ],
         "policies": [
-          {
-            "id": "1999e1ca-c13f-4e12-8698-f0651d1af4ec",
-            "name": "admin",
-            "description": "",
-            "type": "role",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "roles": "[{\"id\":\"Istio/admin\",\"required\":true}]"
-            }
-          },
-          {
-            "id": "9510a3cd-cd73-4689-8d7e-54c941de91dc",
-            "name": "member",
-            "description": "",
-            "type": "role",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "roles": "[{\"id\":\"Istio/member\",\"required\":true}]"
-            }
-          },
-          {
-            "id": "e2dd3567-3371-458a-b343-b0bdeff8edcc",
-            "name": "content",
-            "description": "",
-            "type": "role",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "roles": "[{\"id\":\"Istio/content\",\"required\":true}]"
-            }
-          },
           {
             "id": "b234758d-07ac-4033-a870-9fb1eee578e4",
             "name": "basiligo:1:menu-management:admin",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"admin\"]"
+              "resources": "[\"basiligo:1:menu-management:admin\"]",
+              "applyPolicies": "[]"
             }
           },
           {
             "id": "f5c109c3-6d0b-4238-ae0b-789bc7814335",
             "name": "basiligo:1:menu-management:content",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"content\"]"
+              "resources": "[\"basiligo:1:menu-management:content\"]",
+              "applyPolicies": "[]"
             }
           },
           {
             "id": "2fcb32ad-f6a1-4030-8975-b90990c20b88",
             "name": "basiligo:1:menu-management:member",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"member\"]"
+              "resources": "[\"basiligo:1:menu-management:member\"]",
+              "applyPolicies": "[]"
             }
           },
           {
@@ -1115,10 +1326,10 @@
             "description": "",
             "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "resources": "[\"menu-management\"]",
-              "applyPolicies": "[\"admin\"]"
+              "resources": "[\"all:*:menu-management:admin\"]",
+              "applyPolicies": "[]"
             }
           },
           {
@@ -1127,10 +1338,10 @@
             "description": "",
             "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "resources": "[\"menu-management\"]",
-              "applyPolicies": "[\"content\"]"
+              "resources": "[\"all:*:menu-management:content\"]",
+              "applyPolicies": "[]"
             }
           },
           {
@@ -1139,82 +1350,82 @@
             "description": "",
             "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "resources": "[\"menu-management\"]",
-              "applyPolicies": "[\"member\"]"
+              "resources": "[\"all:*:menu-management:member\"]",
+              "applyPolicies": "[]"
             }
           },
           {
             "id": "4b48e726-6e77-4a70-8c91-25594121136d",
             "name": "healthy-cup:2:menu-management:admin",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"admin\"]"
+              "resources": "[\"healthy-cup:2:menu-management:admin\"]",
+              "applyPolicies": "[]"
             }
           },
           {
             "id": "ddb591da-b026-40db-ab25-c6b5275c99b0",
             "name": "healthy-cup:2:menu-management:content",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"content\"]"
+              "resources": "[\"healthy-cup:2:menu-management:content\"]",
+              "applyPolicies": "[]"
             }
           },
           {
             "id": "ce9bfdcc-c439-4292-80c1-809c60b96584",
             "name": "healthy-cup:2:menu-management:member",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"member\"]"
+              "resources": "[\"healthy-cup:2:menu-management:member\"]",
+              "applyPolicies": "[]"
             }
           },
           {
             "id": "073f7314-9a4b-4b51-8553-05608d3519c4",
             "name": "basiligo:1:kitchen-provider:admin",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"admin\"]"
+              "resources": "[\"basiligo:1:kitchen-provider:admin\"]",
+              "applyPolicies": "[]"
             }
           },
           {
             "id": "efc8943c-6804-4517-afe0-9904b224f162",
             "name": "basiligo:1:kitchen-provider:content",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"content\"]"
+              "resources": "[\"basiligo:1:kitchen-provider:content\"]",
+              "applyPolicies": "[]"
             }
           },
           {
             "id": "bf7369de-786b-4d23-8758-107fb1896edc",
             "name": "basiligo:1:kitchen-provider:member",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"member\"]"
+              "resources": "[\"basiligo:1:kitchen-provider:member\"]",
+              "applyPolicies": "[]"
             }
           },
           {
@@ -1223,10 +1434,10 @@
             "description": "",
             "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "resources": "[\"kitchen-provider\"]",
-              "applyPolicies": "[\"admin\"]"
+              "resources": "[\"all:*:kitchen-provider:admin\"]",
+              "applyPolicies": "[]"
             }
           },
           {
@@ -1235,10 +1446,10 @@
             "description": "",
             "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "resources": "[\"kitchen-provider\"]",
-              "applyPolicies": "[\"content\"]"
+              "resources": "[\"all:*:kitchen-provider:content\"]",
+              "applyPolicies": "[]"
             }
           },
           {
@@ -1247,46 +1458,46 @@
             "description": "",
             "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "resources": "[\"kitchen-provider\"]",
-              "applyPolicies": "[\"member\"]"
+              "resources": "[\"all:*:kitchen-provider:member\"]",
+              "applyPolicies": "[]"
             }
           },
           {
             "id": "1382bc49-0df2-48d7-862c-1bf5886c5704",
             "name": "healthy-cup:2:kitchen-provider:admin",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"admin\"]"
+              "resources": "[\"healthy-cup:2:kitchen-provider:admin\"]",
+              "applyPolicies": "[]"
             }
           },
           {
             "id": "89ffb34e-1055-4845-9268-c4c7eef27d73",
             "name": "healthy-cup:2:kitchen-provider:content",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"content\"]"
+              "resources": "[\"healthy-cup:2:kitchen-provider:content\"]",
+              "applyPolicies": "[]"
             }
           },
           {
             "id": "99219b49-768a-4bf8-8041-2f03f9a7e92b",
             "name": "healthy-cup:2:kitchen-provider:member",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"member\"]"
+              "resources": "[\"healthy-cup:2:kitchen-provider:member\"]",
+              "applyPolicies": "[]"
             }
           },
           {
@@ -1295,10 +1506,10 @@
             "description": "",
             "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "resources": "[\"delivery-provider\"]",
-              "applyPolicies": "[\"admin\"]"
+              "resources": "[\"all:*:delivery-provider:admin\"]",
+              "applyPolicies": "[]"
             }
           },
           {
@@ -1307,10 +1518,10 @@
             "description": "",
             "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "resources": "[\"delivery-provider\"]",
-              "applyPolicies": "[\"content\"]"
+              "resources": "[\"all:*:delivery-provider:content\"]",
+              "applyPolicies": "[]"
             }
           },
           {
@@ -1319,86 +1530,91 @@
             "description": "",
             "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "resources": "[\"delivery-provider\"]",
-              "applyPolicies": "[\"member\"]"
+              "resources": "[\"all:*:delivery-provider:member\"]",
+              "applyPolicies": "[]"
             }
           },
           {
             "id": "24b86c55-0ad0-4612-9f6a-4c1fe43ef253",
             "name": "basiligo:1:delivery-provider:admin",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"admin\"]"
+              "resources": "[\"basiligo:1:delivery-provider:admin\"]",
+              "applyPolicies": "[]"
             }
           },
           {
             "id": "df4e1e82-4ba1-4ce8-9bea-9aa2f004d3a2",
             "name": "basiligo:1:delivery-provider:content",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"content\"]"
+              "resources": "[\"basiligo:1:delivery-provider:content\"]",
+              "applyPolicies": "[]"
             }
           },
           {
             "id": "91a1541b-a22e-4fe0-867a-579381b3b1c7",
             "name": "basiligo:1:delivery-provider:member",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"member\"]"
+              "resources": "[\"basiligo:1:delivery-provider:member\"]",
+              "applyPolicies": "[]"
             }
           },
           {
-            "id": "480998f3-c418-47e1-ad02-c484b9d1d869",
+            "id": "b0b79a0d-c553-464a-b9d3-ed17a00108fb",
             "name": "healthy-cup:2:delivery-provider:admin",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"admin\"]"
+              "resources": "[\"healthy-cup:2:delivery-provider:admin\"]",
+              "applyPolicies": "[]"
             }
           },
           {
-            "id": "fabc5749-dc94-4ab1-9979-64f3122d4945",
+            "id": "604720fb-4168-4f9a-9be8-431457b331ae",
             "name": "healthy-cup:2:delivery-provider:content",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"content\"]"
+              "resources": "[\"healthy-cup:2:delivery-provider:content\"]",
+              "applyPolicies": "[]"
             }
           },
           {
-            "id": "0af52257-12db-49d9-b064-177e1b940380",
+            "id": "270d4b48-e538-43cb-82fe-24d755738c1d",
             "name": "healthy-cup:2:delivery-provider:member",
             "description": "",
-            "type": "scope",
+            "type": "resource",
             "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
+            "decisionStrategy": "AFFIRMATIVE",
             "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"member\"]"
+              "resources": "[\"healthy-cup:2:delivery-provider:member\"]",
+              "applyPolicies": "[]"
             }
           }
         ],
         "scopes": [
+          {
+            "id": "1fa0a602-6bef-40ed-85a4-0c96e85b700a",
+            "name": "brand-profile:any",
+            "iconUri": ""
+          },
           {
             "id": "a1f400cf-d815-47cd-8553-c47a52ff7fcb",
             "name": "brand-profile:basiligo",
@@ -1410,8 +1626,8 @@
             "iconUri": ""
           }
         ],
-        "decisionStrategy": "UNANIMOUS"
-      }
+        "decisionStrategy": "AFFIRMATIVE"
+    }
     },
     {
       "id": "f586a2fc-5ebe-47d2-ba62-dd85e39c7776",
@@ -1473,35 +1689,6 @@
                 "name": "map-role"
               }
             ]
-          },
-          {
-            "name": "kitchen-provider",
-            "ownerManagedAccess": false,
-            "displayName": "",
-            "attributes": {},
-            "_id": "39dc5b1c-ab71-49ac-8d8e-b23dee91e585",
-            "uris": [],
-            "icon_uri": ""
-          },
-          {
-            "name": "menu-management",
-            "ownerManagedAccess": false,
-            "displayName": "",
-            "attributes": {},
-            "_id": "f4f54b6e-98ca-4f69-b500-1ba65c7848e6",
-            "uris": [],
-            "icon_uri": ""
-          },
-          {
-            "name": "delivery-provider",
-            "ownerManagedAccess": false,
-            "displayName": "Delivery Provider",
-            "attributes": {},
-            "_id": "81f68602-7253-4fd6-8689-944f00cb0029",
-            "uris": [
-              "/delivery-provider"
-            ],
-            "icon_uri": ""
           }
         ],
         "policies": [
@@ -1536,363 +1723,6 @@
             "config": {
               "resources": "[\"role.resource.70561610-dd36-414c-bd3e-9e70ef794081\"]",
               "scopes": "[\"map-role-composite\"]"
-            }
-          },
-          {
-            "id": "1999e1ca-c13f-4e12-8698-f0651d1af4ec",
-            "name": "admin",
-            "description": "",
-            "type": "role",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "roles": "[{\"id\":\"Istio/admin\",\"required\":true}]"
-            }
-          },
-          {
-            "id": "9510a3cd-cd73-4689-8d7e-54c941de91dc",
-            "name": "member",
-            "description": "",
-            "type": "role",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "roles": "[{\"id\":\"Istio/member\",\"required\":true}]"
-            }
-          },
-          {
-            "id": "e2dd3567-3371-458a-b343-b0bdeff8edcc",
-            "name": "content",
-            "description": "",
-            "type": "role",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "roles": "[{\"id\":\"Istio/content\",\"required\":true}]"
-            }
-          },
-          {
-            "id": "b234758d-07ac-4033-a870-9fb1eee578e4",
-            "name": "basiligo:1:menu-management:admin",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"admin\"]"
-            }
-          },
-          {
-            "id": "f5c109c3-6d0b-4238-ae0b-789bc7814335",
-            "name": "basiligo:1:menu-management:content",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"content\"]"
-            }
-          },
-          {
-            "id": "2fcb32ad-f6a1-4030-8975-b90990c20b88",
-            "name": "basiligo:1:menu-management:member",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"member\"]"
-            }
-          },
-          {
-            "id": "c83028e1-47e6-49b6-9960-2caac0e9e5f6",
-            "name": "all:*:menu-management:admin",
-            "description": "",
-            "type": "resource",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "resources": "[\"menu-management\"]",
-              "applyPolicies": "[\"admin\"]"
-            }
-          },
-          {
-            "id": "29181a74-c17a-407d-a0d5-a70b532d1c6f",
-            "name": "all:*:menu-management:content",
-            "description": "",
-            "type": "resource",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "resources": "[\"menu-management\"]",
-              "applyPolicies": "[\"content\"]"
-            }
-          },
-          {
-            "id": "9ba3466d-6864-48da-b1f5-072f1d918ce9",
-            "name": "all:*:menu-management:member",
-            "description": "",
-            "type": "resource",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "resources": "[\"menu-management\"]",
-              "applyPolicies": "[\"member\"]"
-            }
-          },
-          {
-            "id": "4b48e726-6e77-4a70-8c91-25594121136d",
-            "name": "healthy-cup:2:menu-management:admin",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"admin\"]"
-            }
-          },
-          {
-            "id": "ddb591da-b026-40db-ab25-c6b5275c99b0",
-            "name": "healthy-cup:2:menu-management:content",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"content\"]"
-            }
-          },
-          {
-            "id": "ce9bfdcc-c439-4292-80c1-809c60b96584",
-            "name": "healthy-cup:2:menu-management:member",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"member\"]"
-            }
-          },
-          {
-            "id": "073f7314-9a4b-4b51-8553-05608d3519c4",
-            "name": "basiligo:1:kitchen-provider:admin",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"admin\"]"
-            }
-          },
-          {
-            "id": "efc8943c-6804-4517-afe0-9904b224f162",
-            "name": "basiligo:1:kitchen-provider:content",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"content\"]"
-            }
-          },
-          {
-            "id": "bf7369de-786b-4d23-8758-107fb1896edc",
-            "name": "basiligo:1:kitchen-provider:member",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"member\"]"
-            }
-          },
-          {
-            "id": "24600224-eb8c-407c-a66d-5e56764acc94",
-            "name": "all:*:kitchen-provider:admin",
-            "description": "",
-            "type": "resource",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "resources": "[\"kitchen-provider\"]",
-              "applyPolicies": "[\"admin\"]"
-            }
-          },
-          {
-            "id": "9a3bbddd-ce3d-4c04-ae4d-f8cf4a517a8e",
-            "name": "all:*:kitchen-provider:content",
-            "description": "",
-            "type": "resource",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "resources": "[\"kitchen-provider\"]",
-              "applyPolicies": "[\"content\"]"
-            }
-          },
-          {
-            "id": "5bfe0877-ffb6-42d9-95d9-525997c985e6",
-            "name": "all:*:kitchen-provider:member",
-            "description": "",
-            "type": "resource",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "resources": "[\"kitchen-provider\"]",
-              "applyPolicies": "[\"member\"]"
-            }
-          },
-          {
-            "id": "1382bc49-0df2-48d7-862c-1bf5886c5704",
-            "name": "healthy-cup:2:kitchen-provider:admin",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"admin\"]"
-            }
-          },
-          {
-            "id": "89ffb34e-1055-4845-9268-c4c7eef27d73",
-            "name": "healthy-cup:2:kitchen-provider:content",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"content\"]"
-            }
-          },
-          {
-            "id": "99219b49-768a-4bf8-8041-2f03f9a7e92b",
-            "name": "healthy-cup:2:kitchen-provider:member",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"member\"]"
-            }
-          },
-          {
-            "id": "d3b68931-6ea5-4030-9d8f-f48e7ce37202",
-            "name": "all:*:delivery-provider:admin",
-            "description": "",
-            "type": "resource",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "resources": "[\"delivery-provider\"]",
-              "applyPolicies": "[\"admin\"]"
-            }
-          },
-          {
-            "id": "cdc4e70e-5508-437d-acca-6a8e176faf7f",
-            "name": "all:*:delivery-provider:content",
-            "description": "",
-            "type": "resource",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "resources": "[\"delivery-provider\"]",
-              "applyPolicies": "[\"content\"]"
-            }
-          },
-          {
-            "id": "e947bbaf-a926-4431-96e3-116c52999f89",
-            "name": "all:*:delivery-provider:member",
-            "description": "",
-            "type": "resource",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "resources": "[\"delivery-provider\"]",
-              "applyPolicies": "[\"member\"]"
-            }
-          },
-          {
-            "id": "24b86c55-0ad0-4612-9f6a-4c1fe43ef253",
-            "name": "basiligo:1:delivery-provider:admin",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"admin\"]"
-            }
-          },
-          {
-            "id": "df4e1e82-4ba1-4ce8-9bea-9aa2f004d3a2",
-            "name": "basiligo:1:delivery-provider:content",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"content\"]"
-            }
-          },
-          {
-            "id": "91a1541b-a22e-4fe0-867a-579381b3b1c7",
-            "name": "basiligo:1:delivery-provider:member",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:basiligo\"]",
-              "applyPolicies": "[\"member\"]"
-            }
-          },
-          {
-            "id": "480998f3-c418-47e1-ad02-c484b9d1d869",
-            "name": "healthy-cup:2:delivery-provider:admin",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"admin\"]"
-            }
-          },
-          {
-            "id": "fabc5749-dc94-4ab1-9979-64f3122d4945",
-            "name": "healthy-cup:2:delivery-provider:content",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"content\"]"
-            }
-          },
-          {
-            "id": "0af52257-12db-49d9-b064-177e1b940380",
-            "name": "healthy-cup:2:delivery-provider:member",
-            "description": "",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"brand-profile:healthy-cup\"]",
-              "applyPolicies": "[\"member\"]"
             }
           }
         ],
@@ -1936,16 +1766,6 @@
           {
             "id": "853a58e0-67bb-40c6-b48e-efe7967fa054",
             "name": "map-role-composite"
-          },
-          {
-            "id": "a1f400cf-d815-47cd-8553-c47a52ff7fcb",
-            "name": "brand-profile:basiligo",
-            "iconUri": ""
-          },
-          {
-            "id": "13b49c12-84dd-454a-8f3f-415b27b65c14",
-            "name": "brand-profile:healthy-cup",
-            "iconUri": ""
           }
         ],
         "decisionStrategy": "UNANIMOUS"

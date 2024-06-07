@@ -60,25 +60,42 @@ def landscape():
                 email = one_user['email']
                 username = one_user['username']
                 password = one_user['password']
-                role_name_list = one_user['role_name_list']
-                brand_name_list = one_user['brand_name_list']
+                allowed_resource_list = one_user['allowed_resource_list']
 
                 keycloak_user_id = keycloak_admin.create_user({
-                    "email": email,
-                    "username": username,
-                    "enabled": True,
                     "firstName": first_name,
                     "lastName": last_name,
+                    "email": email,
+                    "enabled": True,
+                    "username": username,
                     "credentials": [
                         {
                             "value": password,
                             "type": "password"
                         }
-                    ],
-                    "clientRoles": {
-                        "Istio": role_name_list
-                    },
+                    ]
                 })
+                
+                # payload = {
+                #     "name": username,
+                #     "description": "",
+                #     "users": [ keycloak_user_id ],
+                #     "logic": "POSITIVE"
+                # }
+                # keycloak_user_policy_id = keycloak_admin.create_client_authz_policy("Istio", payload)
+                
+                # /authz/resource-server/permission/resource
+                # {
+                #     "resources": [
+                #         "d3b68931-6ea5-4030-9d8f-f48e7ce37202"
+                #     ],
+                #     "policies": [
+                #         "b0b79a0d-c553-464a-b9d3-ed17a00108fb"
+                #     ],
+                #     "name": "all:*:delivery-provider:admin",
+                #     "description": "",
+                #     "decisionStrategy": "UNANIMOUS"
+                # }
                 
                 user_dict = {
                     "keycloak_user_id": keycloak_user_id,

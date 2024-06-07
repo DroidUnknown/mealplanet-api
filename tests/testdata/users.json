@@ -6,8 +6,11 @@
         "email": "cody.macguire@something.com",
         "username": "cody",
         "password": "cody123",
-        "role_name_list": ["mp-team"],
-        "brand_name_list": ["all"]
+        "allowed_resource_list": [
+            "all:*:menu-management:admin",
+            "all:*:kitchen-provider:admin",
+            "all:*:delivery-provider:admin"
+        ]
     },
     {
         "first_name": "basiligo",
@@ -16,8 +19,10 @@
         "email": "basiligo@something.com",
         "username": "basiligo",
         "password": "basiligo123",
-        "role_name_list": ["brand"],
-        "brand_name_list": ["basiligo"]
+        "allowed_resource_list": [
+            "basiligo:1:menu-management:content",
+            "basiligo:1:kitchen-provider:content"
+        ]
     },
     {
         "first_name": "basiligo",
@@ -26,8 +31,10 @@
         "email": "basiligo.kitchen@something.com",
         "username": "basiligo.kitchen",
         "password": "basiligo123",
-        "role_name_list": ["kitchen"],
-        "brand_name_list": ["basiligo", "healthy-cup"]
+        "allowed_resource_list": [
+            "basiligo:1:kitchen-provider:member",
+            "healthy-cup:2:kitchen-provider:member"
+        ]
     },
     {
         "first_name": "careem",
@@ -36,7 +43,9 @@
         "email": "careem.delivery@something.com",
         "username": "careem.delivery",
         "password": "careem123",
-        "role_name_list": ["delivery-provider"],
-        "brand_name_list": ["basiligo", "healthy-cup"]
+        "allowed_resource_list": [
+            "basiligo:1:delivery-provider:member",
+            "healthy-cup:2:delivery-provider:member"
+        ]
     }
 ]
