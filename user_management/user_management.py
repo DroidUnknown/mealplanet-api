@@ -325,7 +325,7 @@ def get_user(user_id):
         user_result = conn.execute(query, user_id=user_id, meta_status="active").fetchone()
 
     if user_result:
-        user_dict = dict(result)
+        user_dict = dict(user_result)
 
         query = text("""
             SELECT urm.role_id, r.role_name
