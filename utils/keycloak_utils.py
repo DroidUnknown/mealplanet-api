@@ -62,3 +62,62 @@ def get_rpt_token(keycloak_client_openid):
         return rpt_token
     except Exception as e:
         raise e
+
+def delete_all_users(exception_list=["codify-admin"]):
+    keycloak_admin_openid = get_keycloak_admin_openid()
+    
+    # Delete all existing users
+    users = keycloak_admin_openid.get_users()
+    for user in users:
+        user_id = user["id"]
+        username = user["username"]
+        if username not in exception_list:
+            keycloak_admin_openid.delete_user(user_id=user_id)
+
+def create_user(username, password, first_name="", last_name="", email="", enabled=True):
+    keycloak_admin_openid = get_keycloak_admin_openid()
+    
+    keycloak_user_id = keycloak_admin_openid.create_user({
+        "firstName": first_name,
+        "lastName": last_name,
+        "email": email,
+        "enabled": enabled,
+        "username": username,
+        "credentials": [
+            {
+                "value": password,
+                "type": "password"
+            }
+        ]
+    })
+    
+    return keycloak_user_id
+
+def create_policy(type, name, keycloak_user_id):
+    #TODO: Implement this
+    assert False, "Not implemented"
+    
+    # payload = {
+    #     "name": username,
+    #     "description": "",
+    #     "users": [ keycloak_user_id ],
+    #     "logic": "POSITIVE"
+    # }
+    # keycloak_user_policy_id = keycloak_admin.create_client_authz_policy(client_id, payload)
+
+def attach_user_to_policies(keycloak_user_id, policy_name_list):
+    #TODO: Implement this
+    assert False, "Not implemented"
+    
+    # /authz/resource-server/permission/resource
+    # {
+    #     "resources": [
+    #         "d3b68931-6ea5-4030-9d8f-f48e7ce37202"
+    #     ],
+    #     "policies": [
+    #         "b0b79a0d-c553-464a-b9d3-ed17a00108fb"
+    #     ],
+    #     "name": "all:*:delivery-provider:admin",
+    #     "description": "",
+    #     "decisionStrategy": "AFFIRMATIVE"
+    # }

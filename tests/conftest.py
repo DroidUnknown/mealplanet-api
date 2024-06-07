@@ -26,28 +26,20 @@ def landscape():
     # Dump and recreate database
     db_engine = jqutils.get_db_engine('sys')
     with db_engine.connect() as conn:
-        conn.execute('drop database if exists test_portalprofile_service')
-        conn.execute('create database test_portalprofile_service CHARACTER SET utf8 COLLATE utf8_unicode_ci;')
+        conn.execute('drop database if exists testportalprofileservice')
+        conn.execute('create database testportalprofileservice CHARACTER SET utf8 COLLATE utf8_unicode_ci;')
         conn.execute('SET AUTOCOMMIT=1;')
-    models.create_all('test_portalprofile_service')
-    archive_models.create_all('test_portalprofile_service')
+    models.create_all('testportalprofileservice')
+    archive_models.create_all('testportalprofileservice')
 
     # Necessary test dummy data
-    migrator = DataMigrationManager('test_portalprofile_service', debug=True)
+    migrator = DataMigrationManager('testportalprofileservice', debug=True)
     migrator.run()
     
-    # create user on keycloak
-    keycloak_admin = keycloak_utils.get_keycloak_admin_openid()
+    # delete all users from keycloak
+    keycloak_utils.delete_all_users()
     
-    # Delete all existing users
-    users = keycloak_admin.get_users()
-    for user in users:
-        user_id = user["id"]
-        username = user["username"]
-        if username != "codify-admin":
-            keycloak_admin.delete_user(user_id=user_id)
-    
-    db_engine = jqutils.get_db_engine('test_portalprofile_service')
+    db_engine = jqutils.get_db_engine('testportalprofileservice')
     with db_engine.connect() as conn:
     
         with open('tests/testdata/users.json', 'r') as fp:
@@ -61,51 +53,8 @@ def landscape():
                 username = one_user['username']
                 password = one_user['password']
                 allowed_resource_list = one_user['allowed_resource_list']
-
-                keycloak_user_id = keycloak_admin.create_user({
-                    "firstName": first_name,
-                    "lastName": last_name,
-                    "email": email,
-                    "enabled": True,
-                    "username": username,
-                    "credentials": [
-                        {
-                            "value": password,
-                            "type": "password"
-                        }
-                    ]
-                })
                 
-                # payload = {
-                #     "name": username,
-                #     "description": "",
-                #     "users": [ keycloak_user_id ],
-                #     "logic": "POSITIVE"
-                # }
-                # keycloak_user_policy_id = keycloak_admin.create_client_authz_policy("Istio", payload)
-                
-                # /authz/resource-server/permission/resource
-                # {
-                #     "resources": [
-                #         "d3b68931-6ea5-4030-9d8f-f48e7ce37202"
-                #     ],
-                #     "policies": [
-                #         "b0b79a0d-c553-464a-b9d3-ed17a00108fb"
-                #     ],
-                #     "name": "all:*:delivery-provider:admin",
-                #     "description": "",
-                #     "decisionStrategy": "UNANIMOUS"
-                # }
-                
-                user_dict = {
-                    "keycloak_user_id": keycloak_user_id,
-                    "first_names_en": first_name,
-                    "last_name_en": last_name,
-                    "phone_nr": phone_nr,
-                    "email": email,
-                }
-                query, params = jqutils.jq_prepare_insert_statement('user', user_dict)
-                conn.execute(query, params)
+                user_id, policy_id, keycloak_user_id = create_user_on_keycloak_and_database(conn, username, password, first_name, last_name, email, phone_nr)
         
         with open('tests/testdata/landscape.json', 'r') as fp:
             data = json.load(fp)
@@ -122,4 +71,64 @@ def content_team_headers():
     yield {
         
     }
-        
+
+def create_user_on_keycloak_and_database(conn, username, password, first_name, last_name, email, phone_nr):
+    
+    # create user on keycloak
+    keycloak_user_id = keycloak_utils.create_user(username, password, first_name, last_name, email)
+    
+    # create user in database
+    user_dict = {
+        "keycloak_user_id": keycloak_user_id,
+        "first_names_en": first_name,
+        "last_name_en": last_name,
+        "phone_nr": phone_nr,
+        "email": email,
+    }
+    query, params = jqutils.jq_prepare_insert_statement('user', user_dict)
+    user_id = conn.execute(query, params).lastrowid
+    assert user_id, "Failed to create user"
+    
+    # create policy for user on keycloak
+    keycloak_user_policy_id = keycloak_utils.create_policy(type="user", name=username, keycloak_user_id=keycloak_user_id)
+    
+    # create policy for user in database
+    policy_dict = {
+        "keycloak_policy_id": keycloak_user_policy_id,
+        "policy_name": username,
+        "policy_type": "user",
+        "logic": "POSITIVE",
+        "decision_strategy": "UNANIMOUS"
+    }
+    query, params = jqutils.jq_prepare_insert_statement('policy', policy_dict)
+    policy_id = conn.execute(query, params).lastrowid
+    assert policy_id, "Failed to create policy for user"
+    
+    # attach user to policy
+    policy_user_map_dict = {
+        "policy_id": policy_id,
+        "user_id": user_id
+    }
+    query, params = jqutils.jq_prepare_insert_statement('policy_user_map', policy_user_map_dict)
+    result = conn.execute(query, params).lastrowid
+    assert result, "Failed to attach user to policy"
+    
+    return user_id, policy_id, keycloak_user_id
+
+def attach_user_to_policies(conn, keycloak_user_id, policy_name_list):
+    
+    # attach user to correct policies on keycloak
+    keycloak_utils.attach_user_to_policies(keycloak_user_id, policy_name_list)
+    
+    # attach user to correct policies in database
+    query = """
+        SELECT policy_id, policy_name
+        FROM policy
+        WHERE policy_name IN :policy_name_list
+        AND policy_type = :policy_type
+        AND meta_status = :meta_status
+    """
+    results = conn.execute(query, policy_name_list=policy_name_list, policy_type="resource").fetchall()
+    assert results, "Failed to find policies"
+    
+    # TODO: implement this
