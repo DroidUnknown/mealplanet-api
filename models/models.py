@@ -49,7 +49,7 @@ class Scope(Model):
     __tablename__ = 'scope'
     scope_id = Column(Integer, primary_key=True)
     
-    keycloak_scope_id = Column(String(128))
+    keycloak_scope_id = Column(String(256))
     scope_name = Column(String(128)) # brand-profile:all, brand-profile:basiligo
     brand_profile_id = Column(Integer)
 
@@ -57,7 +57,7 @@ class Resource(Model):
     __tablename__ = 'resource'
     resource_id = Column(Integer, primary_key=True)
     
-    keycloak_resource_id = Column(String(128))
+    keycloak_resource_id = Column(String(256))
     resource_name = Column(String(128)) # all:*:menu-management:admin, basiligo:1:menu-management:admin
     display_name_en = Column(String(128))
     resource_type = Column(String(32)) # role
@@ -76,7 +76,7 @@ class Policy(Model):
     __tablename__ = 'policy'
     
     policy_id = Column(Integer, primary_key=True)
-    keycloak_policy_id = Column(String(128))
+    keycloak_policy_id = Column(String(256))
     
     policy_name = Column(String(128)) # all:*:menu-management:admin
     policy_type = Column(String(32)) # role, user, client, group, time, resource etc.
@@ -118,7 +118,7 @@ class User(Model):
     __tablename__ = 'user'
 
     user_id = Column(Integer, primary_key=True)
-    keycloak_user_id = Column(String(128))
+    keycloak_user_id = Column(String(256))
 
     first_names_en = Column(String(128))
     last_name_en = Column(String(128))

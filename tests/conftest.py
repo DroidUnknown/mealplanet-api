@@ -96,16 +96,14 @@ def create_user_on_keycloak_and_database(conn, username, password, first_name, l
     
     # create policy for user in database
     policy_dict = {
-        "keycloak_policy_id": keycloak_user_policy_id,
+        "keycloak_policy_id": str(keycloak_user_policy_id),
         "policy_name": username,
         "policy_type": "user",
         "logic": "POSITIVE",
         "decision_strategy": "UNANIMOUS",
-        "policy_config": {
-            "users": f"[\"{username}\"]"
-        }
     }
     query, params = jqutils.jq_prepare_insert_statement('policy', policy_dict)
+    print(query)
     policy_id = conn.execute(query, params).lastrowid
     assert policy_id, "Failed to create policy for user"
     
@@ -117,7 +115,7 @@ def create_user_on_keycloak_and_database(conn, username, password, first_name, l
     query, params = jqutils.jq_prepare_insert_statement('policy_user_map', policy_user_map_dict)
     result = conn.execute(query, params).lastrowid
     assert result, "Failed to attach user to policy"
-    
+    attach_user_to_policies(conn, keycloak_user_id, [username])
     return user_id, policy_id, keycloak_user_id
 
 def attach_user_to_policies(conn, keycloak_user_id, policy_name_list):
@@ -133,7 +131,7 @@ def attach_user_to_policies(conn, keycloak_user_id, policy_name_list):
         AND policy_type = :policy_type
         AND meta_status = :meta_status
     """
-    results = conn.execute(query, policy_name_list=policy_name_list, policy_type="resource").fetchall()
+    results = conn.execute(query, policy_name_list=policy_name_list, policy_type="resource", meta_status="active").fetchall()
     assert results, "Failed to find policies"
     
     # TODO: implement this
