@@ -431,7 +431,7 @@ def delete_user(user_id):
             "user_id": str(user_id)
         }
 
-        jqutils.update_single_db_entry(one_dict, "brand_profile", condition)
+        jqutils.update_single_db_entry(one_dict, "user", condition)
 
         user_role_map_id = result["user_role_map_id"] if result["user_role_map_id"] else None
 
