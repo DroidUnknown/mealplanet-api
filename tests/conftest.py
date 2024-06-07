@@ -90,7 +90,7 @@ def create_user_on_keycloak_and_database(conn, username, password, first_name, l
     assert user_id, "Failed to create user"
     
     # create policy for user on keycloak
-    keycloak_user_policy_id = keycloak_utils.create_policy(type="user", name=username, keycloak_user_id=keycloak_user_id)
+    keycloak_user_policy_id = keycloak_utils.create_user_policy(username)
     
     # create policy for user in database
     policy_dict = {
@@ -98,7 +98,10 @@ def create_user_on_keycloak_and_database(conn, username, password, first_name, l
         "policy_name": username,
         "policy_type": "user",
         "logic": "POSITIVE",
-        "decision_strategy": "UNANIMOUS"
+        "decision_strategy": "UNANIMOUS",
+        "policy_config": {
+            "users": f"[\"{username}\"]"
+        }
     }
     query, params = jqutils.jq_prepare_insert_statement('policy', policy_dict)
     policy_id = conn.execute(query, params).lastrowid

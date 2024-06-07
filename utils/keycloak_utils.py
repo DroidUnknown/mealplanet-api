@@ -1,4 +1,5 @@
 import os
+import json
 
 from keycloak import KeycloakOpenID, KeycloakAdmin
 from dotenv import load_dotenv
@@ -11,6 +12,7 @@ realm_name = os.getenv("KEYCLOAK_REALM_NAME")
 client_secret_key = os.getenv("KEYCLOAK_CLIENT_SECRET_KEY")
 admin_username = os.getenv("KEYCLOAK_ADMIN_USERNAME")
 admin_password = os.getenv("KEYCLOAK_ADMIN_PASSWORD")
+client_uuid = "4a596c9c-e5f6-45ae-aa59-a5e3e653a472"
 
 
 keycloak_client_openid = None
@@ -93,17 +95,22 @@ def create_user(username, password, first_name="", last_name="", email="", enabl
     
     return keycloak_user_id
 
-def create_policy(type, name, keycloak_user_id):
-    #TODO: Implement this
-    assert False, "Not implemented"
+def create_user_policy(username):
+    keycloak_admin = get_keycloak_admin_openid()    
+
+    payload={
+        "type": "user",
+        "config": {
+            "users": f"[\"{username}\"]",
+        },
+        "logic": "POSITIVE",
+        "name": username,
+        "description": ""
+    }
     
-    # payload = {
-    #     "name": username,
-    #     "description": "",
-    #     "users": [ keycloak_user_id ],
-    #     "logic": "POSITIVE"
-    # }
-    # keycloak_user_policy_id = keycloak_admin.create_client_authz_policy(client_id, payload)
+    keycloak_user_policy_id = keycloak_admin.create_client_authz_policy(client_uuid, payload)
+    
+    return keycloak_user_policy_id
 
 def attach_user_to_policies(keycloak_user_id, policy_name_list):
     #TODO: Implement this
