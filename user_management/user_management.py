@@ -213,16 +213,14 @@ def verify_user_otp(user_id):
                 current_timestamp = datetime.now()
 
                 if otp_expiry_timestamp > current_timestamp:
+                    one_time_password_id = result["one_time_password_id"]
                     query = text("""
                         UPDATE one_time_password
                         SET otp_status = :otp_status
-                        WHERE user_id = :user_id
-                        AND intent = :intent
-                        AND contact_method = :contact_method
-                        AND meta_status = :meta_status
+                        WHERE one_time_password_id = :one_time_password_id
                     """)
                     with db_engine.connect() as conn:
-                        conn.execute(query, otp_status="verified", meta_status="active")
+                        conn.execute(query, otp_status="verified", one_time_password_id=one_time_password_id)
 
                     # get user details
                     query = text("""
