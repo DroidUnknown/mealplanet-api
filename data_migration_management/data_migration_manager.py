@@ -29,8 +29,8 @@ class DataMigrationManager:
     def upload_base_data(self):
         self.log("\nUploading base data:")
         
-        self.log("> Uploading module.. ", False)
-        jqutils.upload_csv("module", self.top_path + "module.csv")
+        # self.log("> Uploading module.. ", False)
+        # jqutils.upload_csv("module", self.top_path + "module.csv")
         self.log("Done\n> Uploading module_access.. ", False)
         jqutils.upload_csv("module_access", self.top_path + "module_access.csv")
         self.log("Done\n> Uploading role.. ", False)

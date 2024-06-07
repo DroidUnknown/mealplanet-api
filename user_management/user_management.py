@@ -476,7 +476,7 @@ def get_users():
     db_engine = jqutils.get_db_engine()
 
     query = text("""
-        SELECT keycloak_user_id, username, first_names_en, last_name_en, first_names_ar, last_name_ar, phone_nr, email
+        SELECT user_id, keycloak_user_id, username, first_names_en, last_name_en, first_names_ar, last_name_ar, phone_nr, email
         FROM user
         WHERE meta_status = :meta_status
     """)
