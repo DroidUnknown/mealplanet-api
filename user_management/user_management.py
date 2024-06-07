@@ -67,7 +67,10 @@ def add_user():
 
     # create OTP request
     otp = str(uuid.uuid4())
-    otp_requested_timestamp = jqutils.get_utc_datetime()
+    otp_requested_timestamp_str = jqutils.get_utc_datetime()
+
+    # convert str to datetime
+    otp_requested_timestamp = datetime.strptime(otp_requested_timestamp_str, "%Y-%m-%d %H:%M:%S")
     otp_expiry_timestamp = otp_requested_timestamp + timedelta(minutes=5)
     contact_method = "email"
 
