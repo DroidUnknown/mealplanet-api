@@ -125,11 +125,11 @@ def test_verify_user_otp(client, content_team_headers):
     assert response.status_code == 200
 
     response_json = response.get_json()
-    assert response_json["status"] == "failed"
+    assert response_json["status"] == "successful"
     assert response_json["action"] == "verify_otp"
 
     data = response_json["data"]
-    # assert data["username"]
+    assert data["username"]
 
 def test_get_user(client, content_team_headers):
     global user_id
@@ -142,16 +142,16 @@ def test_get_user(client, content_team_headers):
     assert response_json["action"] == "get_user"
 
     data = response_json["data"]
-    # assert data["username"]
-    # assert data["first_names_en"]
-    # assert data["last_name_en"]
-    # assert data["first_names_ar"]
-    # assert data["last_name_ar"]
-    # assert data["phone_nr"]
-    # assert data["email"]
-    # assert data["role_list"]
-    # assert data["brand_profile_list"]
-    # assert data["user_image_url"]
+    assert data["username"]
+    assert data["first_names_en"]
+    assert data["last_name_en"]
+    assert data["first_names_ar"]
+    assert data["last_name_ar"]
+    assert data["phone_nr"]
+    assert data["email"]
+    assert data["role_list"]
+    assert data["brand_profile_list"]
+    assert data["user_image_url"] == None
 
 def test_get_user_list(client, content_team_headers):
     """
@@ -165,17 +165,16 @@ def test_get_user_list(client, content_team_headers):
     response_data = response_json["data"]
     assert len(response_data) == 1, "User List should have 1 item."
 
-# def test_delete_user(client, content_team_headers):
-#     global user_id
+def test_delete_user(client, content_team_headers):
+    global user_id
 
-#     response = do_delete_user(client, content_team_headers, user_id)
-#     assert response.status_code == 200
+    response = do_delete_user(client, content_team_headers, user_id)
+    assert response.status_code == 200
 
-#     response_json = response.get_json()
-#     assert response_json["status"] == "successful"
-#     assert response_json["action"] == "delete_user"
+    response_json = response.get_json()
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "delete_user"
 
-def test_get_user_list(client, content_team_headers):
     response = do_get_user_list(client, content_team_headers)
     assert response.status_code == 200
 
@@ -184,4 +183,4 @@ def test_get_user_list(client, content_team_headers):
     assert response_json["action"] == "get_users"
 
     data = response_json["data"]
-    assert len(data) == 1, "User List should have 0 item."
+    assert len(data) == 0, "User List should have 0 item."

@@ -71,8 +71,8 @@ def add_user():
     otp_requested_timestamp_str = jqutils.get_utc_datetime()
 
     # convert str to datetime
-    # otp_requested_timestamp = datetime.strptime(otp_requested_timestamp_str, "%Y-%m-%d %H:%M:%S")
-    # otp_expiry_timestamp = otp_requested_timestamp + timedelta(minutes=5)
+    otp_requested_timestamp = datetime.strptime(otp_requested_timestamp_str, "%Y-%m-%d %H:%M:%S.%f")
+    otp_expiry_timestamp = otp_requested_timestamp + timedelta(minutes=5)
 
     contact_method = "email"
 
@@ -83,7 +83,7 @@ def add_user():
         "otp": otp,
         "otp_request_count": 0,
         "otp_requested_timestamp": otp_requested_timestamp_str,
-        "otp_expiry_timestamp": otp_requested_timestamp_str,
+        "otp_expiry_timestamp": otp_expiry_timestamp,
         "otp_status": "pending",
         "meta_status": "active",
         "creation_user_id": g.user_id
@@ -209,7 +209,8 @@ def verify_user_otp(user_id):
 
             if otp_db == otp:
                 # convert str to datetime
-                current_timestamp = datetime.now()
+                current_timestamp_str = jqutils.get_utc_datetime()
+                current_timestamp = datetime.strptime(current_timestamp_str, "%Y-%m-%d %H:%M:%S.%f")
                 one_time_password_id = result["one_time_password_id"]
 
                 if otp_expiry_timestamp > current_timestamp:
