@@ -762,16 +762,17 @@ def initiate_forgot_password_request():
     otp = str(uuid.uuid4())
     intent = "forgot_password"
     otp_request_count = 0
-    otp_requested_timestamp = datetime.now()
+    otp_requested_timestamp = jqutils.get_utc_datetime()
+    otp_expiry_timestamp = otp_requested_timestamp + timedelta(days=7)
     otp_status = "pending"
 
     query = text("""
-        INSERT INTO one_time_password (user_id, otp, intent, contact_method, otp_request_count, otp_requested_timestamp, otp_status, meta_status)
-        VALUES(:user_id, :otp, :intent, :contact_method, :otp_request_count, :otp_requested_timestamp, :otp_status, :meta_status)
+        INSERT INTO one_time_password (user_id, otp, intent, contact_method, otp_request_count, otp_requested_timestamp, otp_expiry_timestamp, otp_status, meta_status)
+        VALUES(:user_id, :otp, :intent, :contact_method, :otp_request_count, :otp_requested_timestamp, :otp_expiry_timestamp, :otp_status, :meta_status)
     """)
     with db_engine.connect() as conn:
         one_time_password_id = conn.execute(query, user_id=user_id, otp=otp, intent=intent, contact_method=contact_method, otp_request_count=otp_request_count,
-                                otp_requested_timestamp=otp_requested_timestamp, otp_status=otp_status, meta_status='active').lastrowid
+                                otp_requested_timestamp=otp_requested_timestamp, otp_expiry_timestamp=otp_expiry_timestamp, otp_status=otp_status, meta_status='active').lastrowid
         assert one_time_password_id, "otp request insert error"
     
     # generate reset password link
