@@ -20,6 +20,13 @@ def do_add_user_image(client, headers, user_id, payload):
     response = client.post(base_api_url + f"/user/{user_id}/upload-image", headers=headers, data=payload)
     return response
 
+def do_update_user_image(client, headers, user_id, payload):
+    """
+    UPDATE USER IMAGE
+    """
+    response = client.put(base_api_url + f"/user/{user_id}/upload-image", headers=headers, data=payload)
+    return response
+
 def do_get_username_availablity(client, headers, payload):
     """
     GET USERNAME AVAILABILITY
@@ -129,6 +136,21 @@ def test_add_user_image(client, content_team_headers):
     response_json = response.get_json()
     assert response_json["status"] == "successful"
     assert response_json["action"] == "add_user_image"
+
+    data = response_json["data"]
+    assert data["user_image_url"] == None
+
+def test_update_user_image(client, content_team_headers):
+    global user_id
+    payload = {
+        "image_type": "profile"
+    }
+    response = do_update_user_image(client, content_team_headers, user_id, payload)
+    assert response.status_code == 200
+
+    response_json = response.get_json()
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "update_user_image"
 
     data = response_json["data"]
     assert data["user_image_url"] == None

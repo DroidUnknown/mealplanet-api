@@ -174,6 +174,90 @@ def add_user_image(user_id):
     }
     return jsonify(response_body)
 
+@user_management_blueprint.route('/user/<user_id>/upload-image', methods=['PUT'])
+def update_user_image(user_id):
+    request_dict = request.form.to_dict()
+
+    user_image_map_id = request_dict["user_image_map_id"] if "user_image_map_id" in request_dict else None
+    image_type = request_dict["image_type"]
+
+    user_image = request.files.get('user_image')
+
+    # delete existing user image
+    if user_image_map_id:
+        db_engine = jqutils.get_db_engine()
+        query = text(f"""
+            SELECT image_bucket_name, image_object_key
+            FROM user_image_map
+            WHERE user_image_map_id = :user_image_map_id
+            AND meta_status = :meta_status
+        """)
+        with db_engine.connect() as conn:
+            result = conn.execute(query, user_image_map_id=user_image_map_id, meta_status='active').fetchone()
+            assert result, "failed to get user image map details"
+    
+        bucket_name = result['image_bucket_name']
+        object_key = result['image_object_key']
+    
+        if bucket_name and object_key:
+            # Delete image from S3 if not mocking
+            if os.getenv("MOCK_S3_UPLOAD") != '1':
+                jqimage_uploader.delete_object_from_bucket(bucket_name, object_key)
+
+    # upload user image to S3
+    user_image_url = None
+
+    if user_image:
+        file_name = user_image.filename
+
+        if file_name != '':
+
+            file_extension = file_name.rsplit('.', 1)[1].lower()
+            image_bucket_name = os.getenv("S3_BUCKET_NAME")
+            image_object_key = f"user-images/{user_id}/{file_name}.{file_extension}"
+
+            # Upload image to S3 if not mocking
+            if os.getenv("MOCK_S3_UPLOAD") != '1':
+                    
+                is_uploaded = jqimage_uploader.upload_fileobj(user_image, image_bucket_name, image_object_key)
+                assert is_uploaded, "failed to upload item image to S3"
+    
+                user_image_url = jqimage_uploader.create_presigned_url(image_bucket_name, image_object_key)
+
+                if user_image_map_id:
+                    one_dict = {
+                        "image_bucket_name": image_bucket_name,
+                        "image_object_key": image_object_key,
+                        "modification_user_id": g.user_id,
+                        "modification_timestamp": jqutils.get_utc_datetime()
+                    }
+    
+                    condition = {
+                        "user_image_map_id": str(user_image_map_id)
+                    }
+    
+                    jqutils.update_single_db_entry(one_dict, "user_image_map", condition)
+
+                else:
+                    one_dict = {
+                        "user_id": user_id,
+                        "image_type": image_type,
+                        "image_bucket_name": image_bucket_name,
+                        "image_object_key": image_object_key,
+                        "meta_status": "active",
+                        "creation_user_id": g.user_id
+                    }
+
+                    jqutils.create_new_single_db_entry(one_dict, "user_image_map")
+
+    response_body = {
+        "data": {
+            "user_image_url": user_image_url
+        },
+        "action": "update_user_image",
+        "status": "successful"
+    }
+    return jsonify(response_body)
 @user_management_blueprint.route('/username-availability', methods = ['POST'])
 def get_username_availability():
     request_json = request.get_json()
