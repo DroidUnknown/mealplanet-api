@@ -127,15 +127,7 @@ def create_user_policy(username):
     
     return keycloak_user_policy_id["id"]
 
-def attach_user_to_policies(keycloak_user_id, policy_name_list):
-    #TODO: Implement this
-    
-    # "policy_name_list": [
-    #     "all:*:menu-management:admin",
-    #     "all:*:kitchen-provider:admin",
-    #     "all:*:delivery-provider:admin"
-    # ]
-    print(client_uuid)
+def attach_user_to_policies(policy_name_list):
     resource_id = "b234758d-07ac-4033-a870-9fb1eee578e4"
     policies = keycloak_admin_openid.get_client_authz_policies(client_uuid)
     policy_id_list = [policy["id"] for policy in policies if policy["name"] in policy_name_list]

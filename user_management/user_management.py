@@ -3,6 +3,7 @@ import json
 import traceback
 import logging
 import uuid
+import re
 
 from datetime import datetime, timedelta
 from sqlalchemy import text
@@ -72,7 +73,7 @@ def add_user():
 
     # convert str to datetime
     otp_requested_timestamp = datetime.strptime(otp_requested_timestamp_str, "%Y-%m-%d %H:%M:%S.%f")
-    otp_expiry_timestamp = otp_requested_timestamp + timedelta(minutes=5)
+    otp_expiry_timestamp = otp_requested_timestamp + timedelta(days=7)
 
     contact_method = "email"
 
@@ -92,7 +93,7 @@ def add_user():
 
     # generate verification link
     fe_base_url = os.getenv("FE_PORTAL_WEB_URL")
-    verification_link = fe_base_url + "/reset-password/" + otp
+    verification_link = fe_base_url + "/verify-otp/" + otp
     
     # send OTP to user email
     if os.getenv("MOCK_AWS_NOTIFICATIONS") != "1":
@@ -173,6 +174,46 @@ def add_user_image(user_id):
     }
     return jsonify(response_body)
 
+@user_management_blueprint.route('/username-availability', methods = ['POST'])
+def get_username_availability():
+    request_json = request.get_json()
+
+    username = request_json["username"]
+
+    username = username.lower()
+
+    username_invalid = False
+    # check if username contains special characters except underscore, hyphen and dot
+    if not re.match(r'^[a-zA-Z0-9_.-]+$', username):
+        username_invalid = True
+    
+    if not username_invalid:
+
+        db_engine = jqutils.get_db_engine()
+
+        query = text("""
+            SELECT username
+            FROM user
+            WHERE username = :username AND
+            meta_status = 'active'
+        """)
+        with db_engine.connect() as conn:
+            result = conn.execute(query, username=username).fetchone()
+        
+        available_p = False if result else True
+
+    else:
+        available_p = False
+
+    response_body = {
+        "data": {
+            "available_p": available_p
+        },
+        "action": "get_username_availability",
+        "status": "successful"
+    }
+    return jsonify(response_body)
+    
 @user_management_blueprint.route('/user/<user_id>/verify-otp', methods=['POST'])
 def verify_user_otp(user_id):
     request_json = request.get_json()
@@ -310,6 +351,124 @@ def verify_user_otp(user_id):
         }
         return jsonify(response_body)
     
+@user_management_blueprint.route('/user/<user_id>', methods=['PUT'])
+def update_user(user_id):
+
+    request_json = request.get_json()
+
+    first_names_en = request_json["first_names_en"]
+    last_name_en = request_json["last_name_en"]
+    first_names_ar = request_json["first_names_ar"]
+    last_name_ar = request_json["last_name_ar"]
+    phone_nr = request_json["phone_nr"]
+    email = request_json["email"]
+    role_id_list = request_json["role_id_list"]
+    brand_profile_list = request_json["brand_profile_list"]
+
+    one_dict = {
+        "first_names_en": first_names_en,
+        "last_name_en": last_name_en,
+        "first_names_ar": first_names_ar,
+        "last_name_ar": last_name_ar,
+        "phone_nr": phone_nr,
+        "email": email,
+        "meta_status": "active",
+        "modification_user_id": g.user_id,
+        "modification_timestamp": jqutils.get_utc_datetime()
+    }
+
+    condition = {
+        "user_id": str(user_id)
+    }
+
+    jqutils.update_single_db_entry(one_dict, "user", condition)
+
+    db_engine = jqutils.get_db_engine()
+
+    # delete existing user roles
+    query = text("""
+        SELECT user_role_map_id
+        FROM user_role_map
+        WHERE user_id = :user_id
+        AND meta_status = :meta_status
+    """)
+    with db_engine.connect() as conn:
+        result = conn.execute(query, user_id=user_id, meta_status="active").fetchall()
+
+    user_role_map_id_list = [row["user_role_map_id"] for row in result]
+
+    for user_role_map_id in user_role_map_id_list:
+
+        one_dict = {
+            "meta_status": "deleted",
+            "deletion_user_id": g.user_id,
+            "deletion_timestamp": jqutils.get_utc_datetime()
+        }
+
+        condition = {
+            "user_role_map_id": str(user_role_map_id)
+        }
+
+        jqutils.update_single_db_entry(one_dict, "user_role_map", condition)
+
+    # add new user roles
+    for role_id in role_id_list:
+        one_dict = {
+            "user_id": user_id,
+            "role_id": role_id,
+            "meta_status": "active",
+            "creation_user_id": g.user_id
+        }
+        jqutils.create_new_single_db_entry(one_dict, "user_role_map")
+
+    # delete existing user brand profile module access
+    query = text("""
+        SELECT user_brand_profile_module_access_id
+        FROM user_brand_profile_module_access
+        WHERE user_id = :user_id
+        AND meta_status = :meta_status
+    """)
+    with db_engine.connect() as conn:
+        result = conn.execute(query, user_id=user_id, meta_status="active").fetchall()
+
+    user_brand_profile_module_access_id_list = [row["user_brand_profile_module_access_id"] for row in result]
+
+    for user_brand_profile_module_access_id in user_brand_profile_module_access_id_list:
+    
+        one_dict = {
+            "meta_status": "deleted",
+            "deletion_user_id": g.user_id,
+            "deletion_timestamp": jqutils.get_utc_datetime()
+        }
+
+        condition = {
+            "user_brand_profile_module_access_id": str(user_brand_profile_module_access_id)
+        }
+
+        jqutils.update_single_db_entry(one_dict, "user_brand_profile_module_access", condition)
+
+    # add new user brand profile module access
+    for brand_profile in brand_profile_list:
+        brand_profile_id = brand_profile["brand_profile_id"]
+        module_access_id_list = brand_profile["module_access_id_list"]
+
+        for module_access_id in module_access_id_list:
+
+            one_dict = {
+                "user_id": user_id,
+                "brand_profile_id": brand_profile_id,
+                "module_access_id": module_access_id,
+                "meta_status": "active",
+                "creation_user_id": g.user_id
+            }
+            jqutils.create_new_single_db_entry(one_dict, "user_brand_profile_module_access")
+
+    response_body = {
+        "action": "update_user",
+        "status": "successful"
+    }
+    return jsonify(response_body)
+
 @user_management_blueprint.route('/user/<user_id>', methods=['GET'])
 def get_user(user_id):
     db_engine = jqutils.get_db_engine()
@@ -530,5 +689,248 @@ def get_users():
         "data": user_list,
         "action": "get_users",
         "status": "successful"
+    }
+    return jsonify(response_body)
+
+@user_management_blueprint.route('/forgot-password', methods = ['POST'])
+def initiate_forgot_password_request():
+    request_json = request.get_json()
+    
+    username = request_json["username"]
+    email = request_json["email"]
+
+    db_engine = jqutils.get_db_engine()
+    
+    # check if user exists
+    query = text("""
+        SELECT user_id, username, password, email
+        FROM user
+        WHERE username = :username
+        OR email = :email
+        AND meta_status = :meta_status
+    """)
+    with db_engine.connect() as conn:
+        result = conn.execute(query, username=username, email=email, meta_status='active').fetchone()
+    
+    if not result:
+        response_body = {
+            "message": "User not found",
+            "action": "initiate_forgot_password_request",
+            "status": "failed",
+        }
+        return jsonify(response_body)
+    
+    user_id = result["user_id"]
+    username = result["username"]
+    encoded_password = result["password"]
+    email = result["email"]
+    contact_method = "email"
+
+    if encoded_password is None:
+        response_body = {
+            "data": {},
+            "action": "initiate_forgot_password_request",
+            "status": "failed",
+            "message": "Password not set for user. Try soft-login.",
+        }
+    
+    # check if OTP already exists for user
+    query = text("""
+        SELECT one_time_password_id, otp_status
+        FROM one_time_password
+        WHERE user_id = :user_id
+        AND intent = :intent
+        AND meta_status = :meta_status
+        ORDER BY otp_requested_timestamp DESC
+    """)
+    with db_engine.connect() as conn:
+        result = conn.execute(query, user_id=user_id, intent='forgot_password', meta_status='active').fetchone()
+    
+    if result:
+        if result["otp_status"] == "sent":
+            response_body = {
+                "data": {
+                    "user_id": user_id,
+                    "contact_method": contact_method
+                },
+                "action": "initiate_forgot_password_request",
+                "status": "successful",
+            }
+            return jsonify(response_body)
+
+    # create OTP request for user
+    otp = str(uuid.uuid4())
+    intent = "forgot_password"
+    otp_request_count = 0
+    otp_requested_timestamp = datetime.now()
+    otp_status = "pending"
+
+    query = text("""
+        INSERT INTO one_time_password (user_id, otp, intent, contact_method, otp_request_count, otp_requested_timestamp, otp_status, meta_status)
+        VALUES(:user_id, :otp, :intent, :contact_method, :otp_request_count, :otp_requested_timestamp, :otp_status, :meta_status)
+    """)
+    with db_engine.connect() as conn:
+        one_time_password_id = conn.execute(query, user_id=user_id, otp=otp, intent=intent, contact_method=contact_method, otp_request_count=otp_request_count,
+                                otp_requested_timestamp=otp_requested_timestamp, otp_status=otp_status, meta_status='active').lastrowid
+        assert one_time_password_id, "otp request insert error"
+    
+    # generate reset password link
+    fe_base_url = os.getenv("FE_PORTAL_WEB_URL")
+    reset_password_link = fe_base_url + "/reset-password/" + otp
+
+    # send otp
+    if os.getenv("MOCK_AWS_NOTIFICATIONS") != "1":
+        if contact_method == 'email':
+            aws_utils.publish_email(
+                source="noreply@iblinknext.com",
+                destination={
+                    "ToAddresses": [email],
+                },
+            subject=f"Forgot Password",
+                text=f"Hi,\n\nYou can reset your password by opening this link: {reset_password_link}\n\nRegards,\nMP Team",
+                html=f"Hi,\n\nYou can reset your password by opening this link: {reset_password_link}\n\nRegards,\nMP Team"
+            )
+
+    # update otp status
+    otp_status = 'sent'
+    otp_requested_timestamp = datetime.now()
+    query = text("""
+        UPDATE one_time_password
+        SET otp_status = :otp_status,
+        otp_request_count = :otp_request_count,
+        otp_requested_timestamp = :otp_requested_timestamp
+        WHERE one_time_password_id = :one_time_password_id
+    """)
+    with db_engine.connect() as conn:
+        result = conn.execute(query, one_time_password_id=one_time_password_id, otp_status=otp_status, otp_request_count=otp_request_count,
+                                otp_requested_timestamp=otp_requested_timestamp).rowcount
+        assert result, "otp status update error"
+    
+    response_body = {
+        "data": {
+            "user_id": user_id,
+            "contact_method": contact_method
+        },
+        "action": "initiate_forgot_password_request",
+        "status": "successful",
+    }
+    return jsonify(response_body)
+
+@user_management_blueprint.route('/forgot-password/<otp>', methods = ['GET'])
+def get_forgot_password_request(otp):
+    db_engine = jqutils.get_db_engine()
+
+    intent = "forgot_password"
+
+    query = text("""
+        SELECT one_time_password_id, otp_status
+        FROM one_time_password
+        WHERE otp = :otp
+        AND intent = :intent
+        AND meta_status = :meta_status
+        ORDER BY otp_requested_timestamp DESC
+    """)
+    with db_engine.connect() as conn:
+        result = conn.execute(query, otp=otp, intent=intent, meta_status='active').fetchone()
+    
+    if not result:
+        response_body = {
+            "data": {},
+            "action": "get_forgot_password_request",
+            "status": "failed",
+            "message": "OTP not valid or already processed",
+        }
+        return jsonify(response_body)
+        
+    otp_status = result["otp_status"]
+
+    if otp_status != "sent":
+        response_body = {
+            "data": {},
+            "action": "get_forgot_password_request",
+            "status": "failed",
+            "message": "OTP not valid or already processed",
+        }
+        return jsonify(response_body)
+    
+    response_body = {
+        "data": {
+            "otp_status": otp_status
+        },
+        "action": "get_forgot_password_request",
+        "status": "successful",
+    }
+    return jsonify(response_body)
+
+@user_management_blueprint.route('/reset-password', methods = ['POST'])
+def reset_user_password():
+    request_json = request.get_json()
+
+    otp = request_json["otp"]
+    password = request_json["password"]
+    intent = 'forgot_password'
+
+    db_engine = jqutils.get_db_engine()
+
+    # check if otp is valid
+    query = text("""
+        SELECT one_time_password_id, user_id, otp_status
+        FROM one_time_password
+        WHERE otp = :otp
+        AND intent = :intent
+        AND meta_status = :meta_status
+        ORDER BY otp_requested_timestamp DESC
+    """)
+    with db_engine.connect() as conn:
+        result = conn.execute(query, otp=otp, intent=intent, meta_status='active').fetchone()
+        assert result, "invalid otp code provided"
+    
+    one_time_password_id = result["one_time_password_id"]
+    user_id = result["user_id"]
+    otp_status = result["otp_status"]
+
+    if otp_status != "sent":
+        response_body = {
+            "data": {},
+            "action": "reset_user_password",
+            "status": "failed",
+            "message": "OTP not valid or already processed",
+        }
+        return jsonify(response_body)
+    
+    # encrypt password and update user
+    password_manager = DataMigrationManager()
+    encrypted_password = password_manager.encrypt_password(password)
+
+    query = text("""
+        UPDATE user
+        SET password = :password
+        WHERE user_id = :user_id
+        AND meta_status = :meta_status
+    """)
+    with db_engine.connect() as conn:
+        result = conn.execute(query, password=encrypted_password, user_id=user_id, meta_status='active').rowcount
+        assert result, "password update error"
+    
+    # update otp status
+    otp_status = 'verified'
+    otp_verified_timestamp = datetime.now()
+
+    query = text("""
+        UPDATE one_time_password
+        SET otp_status = :otp_status,
+        otp_verified_timestamp = :otp_verified_timestamp
+        WHERE one_time_password_id = :one_time_password_id
+    """)
+    with db_engine.connect() as conn:
+        result = conn.execute(query, one_time_password_id=one_time_password_id, otp_status=otp_status, otp_verified_timestamp=otp_verified_timestamp).rowcount
+        assert result, "otp status update error"
+    
+    response_body = {
+        "data": {
+            "user_id": user_id
+        },
+        "action": "reset_user_password",
+        "status": "successful",
     }
     return jsonify(response_body)

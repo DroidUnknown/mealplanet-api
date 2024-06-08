@@ -129,15 +129,15 @@ def create_user_on_keycloak_and_database(conn, username, password, first_name, l
     policy_id = conn.execute(query, params).lastrowid
     assert policy_id, "Failed to create policy for user"
     
-    # attach user to policy
-    policy_user_map_dict = {
-        "policy_id": policy_id,
-        "user_id": user_id
-    }
-    query, params = jqutils.jq_prepare_insert_statement('policy_user_map', policy_user_map_dict)
-    result = conn.execute(query, params).lastrowid
-    assert result, "Failed to attach user to policy"
-    attach_user_to_policies(conn, keycloak_user_id, [username])
+    # # attach user to policy
+    # policy_user_map_dict = {
+    #     "policy_id": policy_id,
+    #     "user_id": user_id
+    # }
+    # query, params = jqutils.jq_prepare_insert_statement('policy_user_map', policy_user_map_dict)
+    # result = conn.execute(query, params).lastrowid
+    # assert result, "Failed to attach user to policy"
+    # attach_user_to_policies(conn, keycloak_user_id, [username])
     return user_id, policy_id, keycloak_user_id
 
 def attach_user_to_policies(conn, keycloak_user_id, policy_name_list):

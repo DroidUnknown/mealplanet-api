@@ -86,6 +86,24 @@ class DataMigrationManager:
         cipher_text_bytes = jqsecurity.encrypt_bytes_symmetric_to_bytes(password_bytes, key_string_db_bytes)
         return cipher_text_bytes
     
+    def decrypt_password(self, password):
+        db_engine = jqutils.get_db_engine(self.schema_name)
+
+        with db_engine.connect() as conn:
+            query = text("""
+                    select symmetric_key 
+                    from portal_profile_service_secret
+                    where description = 'password-protector-key' and meta_status = 'active'
+                """)
+            result = conn.execute(query).fetchone()
+            assert result, "Failed to get password protector key"
+            
+            key_string_db = result['symmetric_key']
+            key_string_db_bytes = key_string_db.encode()
+        
+        password = jqsecurity.decrypt_bytes_symmetric_to_bytes(password, key_string_db_bytes)
+        return password
+    
     def log(self, message, new_line=True):
         if debug:
             if new_line:
