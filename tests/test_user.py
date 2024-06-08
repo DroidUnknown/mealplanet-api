@@ -223,7 +223,7 @@ def test_update_user(client, content_team_headers):
         "last_name_en": "Doe-1",
         "first_names_ar": "جون",
         "last_name_ar": "دو",
-        "phone_nr": "1234567890",
+        "phone_nr": "+9711234567890",
         "email": "john.doe@something.com",
         "role_id_list": [1],
         "brand_profile_list": [

@@ -101,6 +101,20 @@ def create_user(username, password, first_name="", last_name="", email="", enabl
     
     return keycloak_user_id
 
+def update_user(user_id, first_name="", last_name="", email=""):
+    keycloak_admin_openid = get_keycloak_admin_openid()
+    
+    keycloak_admin_openid.update_user(user_id, {
+        "firstName": first_name,
+        "lastName": last_name,
+        "email": email
+    })
+
+def update_user_password(user_id, password):
+    keycloak_admin_openid = get_keycloak_admin_openid()
+    
+    keycloak_admin_openid.set_user_password(user_id, password)
+
 def delete_all_policies():
     keycloak_admin_openid = get_keycloak_admin_openid()
     

@@ -463,6 +463,11 @@ def update_user(user_id):
             }
             jqutils.create_new_single_db_entry(one_dict, "user_brand_profile_module_access")
 
+    # update user in keycloak
+    keycloak_user_id = jqutils.get_column_by_id(user_id, "keycloak_user_id", "user")
+        
+    keycloak_utils.update_user(keycloak_user_id, first_names_en, last_name_en, email)
+
     response_body = {
         "action": "update_user",
         "status": "successful"
@@ -762,7 +767,8 @@ def initiate_forgot_password_request():
     otp = str(uuid.uuid4())
     intent = "forgot_password"
     otp_request_count = 0
-    otp_requested_timestamp = jqutils.get_utc_datetime()
+    otp_requested_timestamp_str = jqutils.get_utc_datetime()
+    otp_requested_timestamp = datetime.strptime(otp_requested_timestamp_str, "%Y-%m-%d %H:%M:%S.%f")
     otp_expiry_timestamp = otp_requested_timestamp + timedelta(days=7)
     otp_status = "pending"
 
@@ -926,6 +932,11 @@ def reset_user_password():
     with db_engine.connect() as conn:
         result = conn.execute(query, one_time_password_id=one_time_password_id, otp_status=otp_status, otp_verified_timestamp=otp_verified_timestamp).rowcount
         assert result, "otp status update error"
+
+    # update keycloak user password
+    keycloak_user_id = jqutils.get_column_by_id(user_id, "keycloak_user_id", "user")
+
+    keycloak_utils.update_user_password(keycloak_user_id, password)
     
     response_body = {
         "data": {
