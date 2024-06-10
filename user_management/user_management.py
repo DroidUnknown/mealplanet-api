@@ -93,7 +93,7 @@ def add_user():
 
     # generate verification link
     fe_base_url = os.getenv("FE_PORTAL_WEB_URL")
-    verification_link = fe_base_url + "/user-signup/" + user_id
+    verification_link = fe_base_url + "/user-signup/" + str(user_id)
     
     # send OTP to user email
     if os.getenv("MOCK_AWS_NOTIFICATIONS") != "1":
