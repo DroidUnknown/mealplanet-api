@@ -115,7 +115,7 @@ def update_user(user_id, first_name="", last_name="", email=""):
 def update_user_password(user_id, password):
     keycloak_admin_openid = get_keycloak_admin_openid()
     
-    keycloak_admin_openid.set_user_password(user_id, password)
+    keycloak_admin_openid.set_user_password(user_id, password, temporary=False)
 
 def get_user(user_id):
     keycloak_admin_openid = get_keycloak_admin_openid()
