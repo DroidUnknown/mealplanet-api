@@ -115,6 +115,13 @@ def update_user_password(user_id, password):
     
     keycloak_admin_openid.set_user_password(user_id, password)
 
+def get_user(user_id):
+    keycloak_admin_openid = get_keycloak_admin_openid()
+    
+    user = keycloak_admin_openid.get_user(user_id)
+    
+    return user
+
 def delete_all_policies():
     keycloak_admin_openid = get_keycloak_admin_openid()
     

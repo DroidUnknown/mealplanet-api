@@ -258,6 +258,7 @@ def update_user_image(user_id):
         "status": "successful"
     }
     return jsonify(response_body)
+
 @user_management_blueprint.route('/username-availability', methods = ['POST'])
 def get_username_availability():
     request_json = request.get_json()
@@ -576,6 +577,18 @@ def get_user(user_id):
     if user_result:
         user_dict = dict(user_result)
 
+        keycloak_user_id = user_dict["keycloak_user_id"]
+
+        # check if user is active in keycloak
+        if keycloak_user_id:
+            try:
+                active_p = keycloak_utils.get_user(keycloak_user_id)
+                active_p = True
+            except Exception as e:
+                active_p = False
+
+            user_dict["active_p"] = active_p
+
         query = text("""
             SELECT urm.role_id, r.role_name
             FROM user_role_map urm
@@ -765,6 +778,17 @@ def get_users():
     # get role list for each user
     for one_user in user_list:
         user_id = one_user["user_id"]
+        keycloak_user_id = one_user["keycloak_user_id"]
+
+        # check if user is active in keycloak
+        if keycloak_user_id:
+            try:
+                active_p = keycloak_utils.get_user(keycloak_user_id)
+                active_p = True
+            except Exception as e:
+                active_p = False
+
+            one_user["active_p"] = active_p
 
         query = text("""
             SELECT urm.role_id, r.role_name
