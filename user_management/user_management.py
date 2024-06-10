@@ -579,6 +579,7 @@ def get_user(user_id):
 
         keycloak_user_id = user_dict["keycloak_user_id"]
 
+        active_p = False
         # check if user is active in keycloak
         if keycloak_user_id:
             try:
@@ -587,7 +588,7 @@ def get_user(user_id):
             except Exception as e:
                 active_p = False
 
-            user_dict["active_p"] = active_p
+        user_dict["active_p"] = active_p
 
         query = text("""
             SELECT urm.role_id, r.role_name
@@ -780,6 +781,7 @@ def get_users():
         user_id = one_user["user_id"]
         keycloak_user_id = one_user["keycloak_user_id"]
 
+        active_p = False
         # check if user is active in keycloak
         if keycloak_user_id:
             try:
@@ -788,7 +790,7 @@ def get_users():
             except Exception as e:
                 active_p = False
 
-            one_user["active_p"] = active_p
+        one_user["active_p"] = active_p
 
         query = text("""
             SELECT urm.role_id, r.role_name
