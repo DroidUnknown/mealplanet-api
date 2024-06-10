@@ -74,7 +74,9 @@ def delete_all_users(exception_list=["codify-admin"]):
         user_id = user["id"]
         username = user["username"]
         if username not in exception_list:
+            disassociate_user_from_policies(user_id)
             keycloak_admin_openid.delete_user(user_id=user_id)
+            
 
 def delete_user(user_id):
     keycloak_admin_openid = get_keycloak_admin_openid()
@@ -148,20 +150,87 @@ def create_user_policy(username):
     
     return keycloak_user_policy_id["id"]
 
-def attach_user_to_policies(policy_name_list):
-    resource_id = "b234758d-07ac-4033-a870-9fb1eee578e4"
-    policies = keycloak_admin_openid.get_client_authz_policies(client_uuid)
-    policy_id_list = [policy["id"] for policy in policies if policy["name"] in policy_name_list]
+def attach_user_to_policies(associate_policy_id, policy_name_list):
+    keycloak_admin_openid = get_keycloak_admin_openid()
     
-    payload={
-        "id": resource_id,
-        "name": "basiligo:1:menu-management:admin",
-        "type": "resource",
-        "logic": "POSITIVE",
-        "decisionStrategy": "UNANIMOUS",
-        "resources": [resource_id],
-        "scopes": [],
-        "policies": policy_id_list,
-    }
+    policy_list = keycloak_admin_openid.get_client_authz_permissions(client_uuid)
     
-    keycloak_admin_openid.update_client_authz_resource_permission(payload, client_uuid, resource_id)
+    existing_policy_list = keycloak_admin_openid.get_client_authz_policies(client_uuid)
+    existing_policy_id_list = [policy["id"] for policy in existing_policy_list]
+    assert associate_policy_id in existing_policy_id_list, f"Policy {associate_policy_id} not found"
+    
+    existing_policy_name_list = []
+    for one_policy in policy_list:
+        cand_policy_id = one_policy["id"]
+        cand_policy_name = one_policy["name"]
+        existing_policy_name_list.append(cand_policy_name)
+        if cand_policy_name in policy_name_list:
+            
+            existing_associated_policies = keycloak_admin_openid.get_client_authz_permission_associated_policies(client_uuid, cand_policy_id)
+            existing_associated_resources = keycloak_admin_openid.get_client_authz_policy_resources(client_uuid, cand_policy_id)
+            
+            existing_associated_policy_id_list = [policy["id"] for policy in existing_associated_policies]
+            existing_associated_resource_id_list = [resource["_id"] for resource in existing_associated_resources]
+            
+            if associate_policy_id not in existing_associated_policy_id_list:
+                existing_associated_policy_id_list.append(associate_policy_id)
+
+                payload={
+                    "id": cand_policy_id,
+                    "name": cand_policy_name,
+                    "type": "resource",
+                    "logic": "POSITIVE",
+                    "decisionStrategy": "AFFIRMATIVE",
+                    "resources": existing_associated_resource_id_list,
+                    "scopes": [],
+                    "policies": existing_associated_policy_id_list
+                }
+                
+                keycloak_admin_openid.update_client_authz_resource_permission(payload, client_uuid, cand_policy_id)
+      
+    for one_policy_name in policy_name_list:
+        assert one_policy_name in existing_policy_name_list, f"Policy {one_policy_name} not found"
+    
+def disassociate_user_from_policies(user_id):
+    keycloak_admin_openid = get_keycloak_admin_openid()
+    
+    existing_policy_list = keycloak_admin_openid.get_client_authz_policies(client_uuid)
+    
+    user_policy = None
+    for policy in existing_policy_list:
+        policy_config = policy["config"]
+    
+        if "users" in policy_config:
+            user_id_list = policy_config["users"]
+            if user_id in user_id_list:
+                user_policy = policy
+                break
+    
+    if user_policy:
+        policy_id = user_policy["id"]
+        policy_list = keycloak_admin_openid.get_client_authz_permissions(client_uuid)
+        
+        for one_policy in policy_list:
+            
+            existing_associated_policies = keycloak_admin_openid.get_client_authz_permission_associated_policies(client_uuid, one_policy["id"])
+            existing_associated_policy_id_list = [policy["id"] for policy in existing_associated_policies]
+            existing_associated_resources = keycloak_admin_openid.get_client_authz_policy_resources(client_uuid, one_policy["id"])
+            existing_associated_resource_id_list = [resource["_id"] for resource in existing_associated_resources]
+            
+            if policy_id in existing_associated_policy_id_list:
+                existing_associated_policy_id_list.remove(policy_id)
+                payload={
+                    "id": one_policy["id"],
+                    "name": one_policy["name"],
+                    "type": "resource",
+                    "logic": "POSITIVE",
+                    "decisionStrategy": "AFFIRMATIVE",
+                    "resources": existing_associated_resource_id_list,
+                    "scopes": [],
+                    "policies": existing_associated_policy_id_list
+                }
+                
+                keycloak_admin_openid.update_client_authz_resource_permission(payload, client_uuid, one_policy["id"])
+                
+        keycloak_admin_openid.delete_client_authz_policy(client_uuid, policy_id)
+    

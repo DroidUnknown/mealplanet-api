@@ -47,11 +47,21 @@ def do_get_brand_profile_list(client, headers):
     response = client.get(base_api_url + "/brand-profiles", headers=headers)
     return response
 
-def do_get_plans_by_brand_profile(client, headers, brand_profile_id):
+def do_get_plans_by_brand_profile(client, headers, brand_profile_id, menu_group_info_p=False):
     """
     GET PLANS BY BRAND PROFILE
     """
-    response = client.get(base_api_url + f"/brand-profile/{brand_profile_id}/plans", headers=headers)
+    request_url = base_api_url + f"/brand-profile/{brand_profile_id}/plans"
+    if menu_group_info_p:
+        request_url += "?menu_group_info_p=1"
+    response = client.get(request_url, headers=headers)
+    return response
+
+def do_bulk_update_brand_profile_plan(client, headers, brand_profile_id, payload):
+    """
+    BULK UPDATE BRAND PROFILE PLANS
+    """
+    response = client.put(base_api_url + f"/brand-profile/{brand_profile_id}/plans", headers=headers, json=payload)
     return response
 
 ##########################
@@ -64,12 +74,11 @@ def test_add_brand_profile(client, content_team_headers):
     Test: Add Brand Profile
     """
     payload = {
+        "brand_profile_name": "qoqo",
         "external_brand_profile_id": "1",
-        "brand_name": "qoqo",
         "plan_list": [
             {
-                "plan_name": "plan1",
-                "external_plan_id": "1",
+                "plan_id": 1,
                 "menu_group_id_list": [1, 2]
             }
         ]
@@ -85,13 +94,12 @@ def test_add_brand_profile(client, content_team_headers):
     response_data = response_json["data"]
     brand_profile_id = response_data["brand_profile_id"]
 
-
 def test_brand_profile_availability(client, content_team_headers):
     """
     Test: Check Brand Profile Availability
     """
     payload = {
-        "external_brand_profile_id": "1"
+        "brand_profile_name": "qoqo"
     }
     response = do_check_brand_profile_availability(client, content_team_headers, payload)
     assert response.status_code == 200
@@ -113,15 +121,18 @@ def test_get_brand_profile(client, content_team_headers):
     assert response_json["action"] == "get_brand_profile"
 
     response_data = response_json["data"]
-    assert response_data["brand_name"] == "qoqo"
+    assert response_data["brand_profile_name"] == "qoqo"
+    
+    assert len(response_data["plan_list"]) == 1, "plan list should have 1 item."
+    assert len(response_data["plan_list"][0]["menu_group_list"]) == 2, "menu group list should have 2 items."
 
 def test_update_brand_profile(client, content_team_headers):
     """
     Test: Update Brand Profile
     """
     payload = {
+        "brand_profile_name": "tolpin",
         "external_brand_profile_id": "2",
-        "brand_name": "tolpin"
     }
     response = do_update_brand_profile(client, content_team_headers, brand_profile_id, payload)
     assert response.status_code == 200
@@ -140,7 +151,7 @@ def test_update_brand_profile(client, content_team_headers):
     assert response_json["action"] == "get_brand_profile"
 
     response_data = response_json["data"]
-    assert response_data["brand_name"] == "tolpin"
+    assert response_data["brand_profile_name"] == "tolpin"
 
 def test_get_brand_profile_list(client, content_team_headers):
     """
@@ -177,24 +188,65 @@ def test_delete_brand_profile(client, content_team_headers):
 
 def test_get_plans_by_brand_profile(client, content_team_headers):
     """
-    Test: Add Brand Profile
+    Test: Get Brand Profile Plans Without Menu Group Info
+    """
+    global brand_profile_id
+    response = do_get_plans_by_brand_profile(client, content_team_headers, brand_profile_id)
+    assert response.status_code == 200
+    
+    response_json = json.loads(response.data)
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "get_plans_by_brand_profile"
+    
+    response_data = response_json["data"]
+    brand_profile_id = response_data["brand_profile_id"]
+    plan_list = response_data["plan_list"]
+    
+    assert brand_profile_id
+    assert len(plan_list) == 1, "plan list should have 1 item."
+
+def test_get_plans_by_brand_profile_with_menu_group_info(client, content_team_headers):
+    """
+    Test: Get Brand Profile Plans Without Menu Group Info
+    """
+    global brand_profile_id
+    
+    response = do_get_plans_by_brand_profile(client, content_team_headers, brand_profile_id, menu_group_info_p=True)
+    assert response.status_code == 200
+    
+    response_json = json.loads(response.data)
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "get_plans_by_brand_profile"
+    
+    response_data = response_json["data"]
+    brand_profile_id = response_data["brand_profile_id"]
+    plan_list = response_data["plan_list"]
+    
+    assert brand_profile_id
+    assert len(plan_list) == 1, "plan list should have 1 item."
+    assert len(plan_list[0]["menu_group_list"]) == 2, "menu group list should have 2 items."
+
+def test_bulk_update_brand_profile_plan(client, content_team_headers):
+    """
+    Test: Bulk Update Brand Profile Plans
     """
     payload = {
-        "external_brand_profile_id": "1",
-        "brand_name": "qoqo",
         "plan_list": [
             {
-                "plan_name": "plan1",
-                "external_plan_id": "1",
-                "menu_group_id_list": [1, 2]
+                "brand_profile_plan_map_id": 1,
+                "plan_id": 1,
+                "menu_group_id_list": [1, 3]
+            },
+            {
+                "brand_profile_plan_map_id": None,
+                "plan_id": 2,
+                "menu_group_id_list": [1]
             }
         ]
     }
-    response = do_add_brand_profile(client, content_team_headers, payload)
+    response = do_bulk_update_brand_profile_plan(client, content_team_headers, brand_profile_id, payload)
     assert response.status_code == 200
+    
     response_json = json.loads(response.data)
     assert response_json["status"] == "successful"
-    assert response_json["action"] == "add_brand_profile"
-    response_data = response_json["data"]
-    brand_profile_id = response_data["brand_profile_id"]
-    assert brand_profile_id
+    assert response_json["action"] == "bulk_update_brand_profile_plan"

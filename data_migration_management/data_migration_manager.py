@@ -35,6 +35,10 @@ class DataMigrationManager:
         jqutils.upload_csv("module_access", self.top_path + "module_access.csv")
         self.log("Done\n> Uploading role.. ", False)
         jqutils.upload_csv("role", self.top_path + "role.csv")
+        self.log("> Uploading plan.. ", False)
+        jqutils.upload_csv("plan", self.top_path + "plan.csv")
+        self.log("> Uploading menu_group.. ", False)
+        jqutils.upload_csv("menu_group", self.top_path + "menu_group.csv")
         
         # Upload security keys needed for encryption
         self.log("Done\n> Uploading security keys.. ", False)

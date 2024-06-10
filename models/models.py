@@ -209,7 +209,7 @@ class BrandProfile(Model):
     __tablename__ = 'brand_profile'
 
     brand_profile_id = Column(Integer, primary_key=True)
-    brand_name = Column(String(128))
+    brand_profile_name = Column(String(128))
     external_brand_profile_id = Column(String(128))
 
 class BrandProfileImageMap(Model):
@@ -222,25 +222,31 @@ class BrandProfileImageMap(Model):
     image_bucket_name = Column(String(128))
     image_object_key = Column(String(128))
 
+class BrandProfilePlanMap(Model):
+    __tablename__ = 'brand_profile_plan_map'
+
+    brand_profile_plan_map_id = Column(Integer, primary_key=True)
+    brand_profile_id = Column(Integer)
+    plan_id = Column(Integer)
+
+class BrandProfilePlanMenuGroupMap(Model):
+    __tablename__ = 'brand_profile_plan_menu_group_map'
+
+    brand_profile_plan_menu_group_map_id = Column(Integer, primary_key=True)
+    brand_profile_plan_map_id = Column(Integer)
+    menu_group_id = Column(Integer)
+
 class Plan(Model):
     __tablename__ = 'plan'
 
     plan_id = Column(Integer, primary_key=True)
-    external_plan_id = Column(String(128))
-    brand_profile_id = Column(Integer)
     plan_name = Column(String(128))
+    external_plan_id = Column(String(128))
 
 class MenuGroup(Model):
     __tablename__ = 'menu_group'
 
     menu_group_id = Column(Integer, primary_key=True)
     menu_group_name = Column(String(128))
-
-class PlanMenuGroupMap(Model):
-    __tablename__ = 'plan_menu_group_map'
-
-    plan_menu_group_map_id = Column(Integer, primary_key=True)
-    plan_id = Column(Integer)
-    menu_group_id = Column(Integer)
 
 # ----------------------------------------------------------------------------------------------------------------------
