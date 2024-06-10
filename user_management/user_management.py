@@ -857,7 +857,7 @@ def initiate_forgot_password_request():
         SELECT user_id, username, password, email
         FROM user
         WHERE username = :username
-        OR email = :email
+        AND email = :email
         AND meta_status = :meta_status
     """)
     with db_engine.connect() as conn:
