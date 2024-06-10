@@ -648,7 +648,7 @@ def get_user(user_id):
 
     user_dict["user_image_url"] = user_image_url
 
-    if result:
+    if user_result:
         response_body = {
             "data": user_dict,
             "action": "get_user",
