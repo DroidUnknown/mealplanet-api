@@ -93,7 +93,7 @@ def add_user():
 
     # generate verification link
     fe_base_url = os.getenv("FE_PORTAL_WEB_URL")
-    verification_link = fe_base_url + "/verify-otp/" + otp
+    verification_link = fe_base_url + "/user-signup/" + user_id
     
     # send OTP to user email
     if os.getenv("MOCK_AWS_NOTIFICATIONS") != "1":
@@ -104,8 +104,8 @@ def add_user():
                     "ToAddresses": [email],
                 },
             subject=f"OTP Verification Link",
-                text=f"Hi,\n\nYou can verify your otp by opening this link: {verification_link}\n\nRegards,\nMP Team",
-                html=f"Hi,\n\nYou can verify your otp by opening this link: {verification_link}\n\nRegards,\nMP Team"
+                text=f"Hi,\n\nYou can verify your otp by opening this link: {verification_link}. Your OTP is: {otp}\n\nRegards,\nMP Team",
+                html=f"Hi,\n\nYou can verify your otp by opening this link: {verification_link}. Your OTP is: {otp}\n\nRegards,\nMP Team",
             )
 
     # update OTP status to sent
@@ -142,9 +142,25 @@ def add_user_image(user_id):
 
         if file_name != '':
 
+            db_engine = jqutils.get_db_engine()
+
+            # Get brand profile details
+            query = text(f"""
+                SELECT ubpma.brand_profile_id, bf.brand_name
+                FROM user_brand_profile_module_access ubpma
+                JOIN brand_profile bf ON ubpma.brand_profile_id = bf.brand_profile_id
+                WHERE user_id = :user_id
+                AND meta_status = :meta_status
+            """)
+            with db_engine.connect() as conn:
+                result = conn.execute(query, user_id=user_id, meta_status='active').fetchone()
+                assert result, "failed to get brand profile details"
+
+            brand_name = result['brand_name']
+
             file_extension = file_name.rsplit('.', 1)[1].lower()
             image_bucket_name = os.getenv("S3_BUCKET_NAME")
-            image_object_key = f"user-images/{user_id}/{file_name}.{file_extension}"
+            image_object_key = f"brand-images/{brand_name}/user-images/{user_id}/{file_name}.{file_extension}"
 
             # Upload image to S3 if not mocking
             if os.getenv("MOCK_S3_UPLOAD") != '1':
@@ -212,9 +228,25 @@ def update_user_image(user_id):
 
         if file_name != '':
 
+            db_engine = jqutils.get_db_engine()
+
+            # Get brand profile details
+            query = text(f"""
+                SELECT ubpma.brand_profile_id, bf.brand_name
+                FROM user_brand_profile_module_access ubpma
+                JOIN brand_profile bf ON ubpma.brand_profile_id = bf.brand_profile_id
+                WHERE user_id = :user_id
+                AND meta_status = :meta_status
+            """)
+            with db_engine.connect() as conn:
+                result = conn.execute(query, user_id=user_id, meta_status='active').fetchone()
+                assert result, "failed to get brand profile details"
+
+            brand_name = result['brand_name']
+
             file_extension = file_name.rsplit('.', 1)[1].lower()
             image_bucket_name = os.getenv("S3_BUCKET_NAME")
-            image_object_key = f"user-images/{user_id}/{file_name}.{file_extension}"
+            image_object_key = f"brand-images/{brand_name}/user-images/{user_id}/{file_name}.{file_extension}"
 
             # Upload image to S3 if not mocking
             if os.getenv("MOCK_S3_UPLOAD") != '1':
@@ -895,10 +927,6 @@ def initiate_forgot_password_request():
                                 otp_requested_timestamp=otp_requested_timestamp, otp_expiry_timestamp=otp_expiry_timestamp, otp_status=otp_status, meta_status='active').lastrowid
         assert one_time_password_id, "otp request insert error"
     
-    # generate reset password link
-    fe_base_url = os.getenv("FE_PORTAL_WEB_URL")
-    reset_password_link = fe_base_url + "/reset-password/" + otp
-
     # send otp
     if os.getenv("MOCK_AWS_NOTIFICATIONS") != "1":
         if contact_method == 'email':
@@ -908,8 +936,8 @@ def initiate_forgot_password_request():
                     "ToAddresses": [email],
                 },
             subject=f"Forgot Password",
-                text=f"Hi,\n\nYou can reset your password by opening this link: {reset_password_link}\n\nRegards,\nMP Team",
-                html=f"Hi,\n\nYou can reset your password by opening this link: {reset_password_link}\n\nRegards,\nMP Team"
+                text=f"Hi,\n\nYou can reset your password. Your OTP is: {otp}\n\nRegards,\nMP Team",
+                html=f"Hi,\n\nYou can reset your password. Your OTP is: {otp}\n\nRegards,\nMP Team",
             )
 
     # update otp status
