@@ -99,7 +99,7 @@ def add_user():
     if os.getenv("MOCK_AWS_NOTIFICATIONS") != "1":
         if contact_method == 'email':
             aws_utils.publish_email(
-                source="noreply@iblinknext.com",
+                source="haseeb.ahmed@globalvertices.com",
                 destination={
                     "ToAddresses": [email],
                 },
@@ -903,7 +903,7 @@ def initiate_forgot_password_request():
     if os.getenv("MOCK_AWS_NOTIFICATIONS") != "1":
         if contact_method == 'email':
             aws_utils.publish_email(
-                source="noreply@iblinknext.com",
+                source="haseeb.ahmed@globalvertices.com",
                 destination={
                     "ToAddresses": [email],
                 },
