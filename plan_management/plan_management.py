@@ -10,9 +10,9 @@ plan_management_blueprint = Blueprint('plan_management', __name__)
 def check_plan_availability():
     request_data = request.get_json()
 
-    external_plan_id = request_data["external_plan_id"]
+    plan_name = request_data["plan_name"]
 
-    availability_p = plan_ninja.check_plan_availability(external_plan_id)
+    availability_p = plan_ninja.check_plan_availability(plan_name)
 
     response_body = {
         "data": {
@@ -87,13 +87,13 @@ def update_plan(plan_id):
     brand_profile_id = request_data["brand_profile_id"]
     plan_name = request_data["plan_name"]
 
-    availability_p = plan_ninja.check_plan_availability(external_plan_id, plan_id)
+    availability_p = plan_ninja.check_plan_availability(plan_name, plan_id)
     if availability_p == 0:
         response_body = {
             "data": {},
             "action": "update_plan",
             "status": "failed",
-            "message": "External Brand Profile ID already exists"
+            "message": "External Plan already exists"
         }
         return jsonify(response_body)
 

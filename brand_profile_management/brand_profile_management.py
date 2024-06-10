@@ -9,11 +9,10 @@ brand_profile_management_blueprint = Blueprint('brand_profile_management', __nam
 
 @brand_profile_management_blueprint.route('/brand-profile/availability', methods=['POST'])
 def check_brand_profile_availability():
-    request_data = request.get_json()
+    request_json = request.get_json()
+    brand_profile_name = request_json["brand_profile_name"]
 
-    external_brand_profile_id = request_data["external_brand_profile_id"]
-
-    availability_p = brand_profile_ninja.check_brand_profile_availability(external_brand_profile_id)
+    availability_p = brand_profile_ninja.check_brand_profile_availability(brand_profile_name)
 
     response_body = {
         "data": {
@@ -26,42 +25,52 @@ def check_brand_profile_availability():
 
 @brand_profile_management_blueprint.route('/brand-profile', methods=['POST'])
 def add_brand_profile():
-    request_data = request.get_json()
+    request_json = request.get_json()
 
-    external_brand_profile_id = request_data["external_brand_profile_id"]
-    brand_name = request_data["brand_name"]
-    plan_list = request_data.get("plan_list", [])
+    brand_profile_name = request_json["brand_profile_name"]
+    external_brand_profile_id = request_json["external_brand_profile_id"]
+    plan_list = request_json.get("plan_list", [])
 
-    availability_p = brand_profile_ninja.check_brand_profile_availability(external_brand_profile_id)
-    if availability_p == 0:
+    brand_profile_available = brand_profile_ninja.check_brand_profile_availability(brand_profile_name)
+    if not brand_profile_available:
         response_body = {
             "data": {},
             "action": "add_brand_profile",
             "status": "failed",
-            "message": "External Brand Profile ID already exists"
+            "message": "brand profile name already exists"
         }
         return jsonify(response_body)
 
-    one_dict = {
-        "external_brand_profile_id": external_brand_profile_id,
-        "brand_name": brand_name,
-        "meta_status": "active",
-        "creation_user_id": g.user_id
-    }
-
-    brand_profile_id = jqutils.create_new_single_db_entry(one_dict, "brand_profile")
+    db_engine = jqutils.get_db_engine()
+    
+    with db_engine.connect() as conn:        
+        query = text("""
+            INSERT INTO brand_profile (brand_profile_name, external_brand_profile_id, meta_status, creation_user_id)
+            VALUES (:brand_profile_name, :external_brand_profile_id, :meta_status, :creation_user_id)
+        """)
+        brand_profile_id = conn.execute(query, brand_profile_name=brand_profile_name, creation_user_id=g.user_id,
+                            external_brand_profile_id=external_brand_profile_id, meta_status="active").lastrowid
+        assert brand_profile_id, "unable to generate brand_profile_id"
    
-    if plan_list:
-        success_p, response = plan_ninja.add_plans(brand_profile_id, plan_list, creation_user_id=g.user_id)
-        if not success_p:
-            response_body = {
-                "data": {},
-                "action": "add_brand_profile",
-                "status": "failed",
-                "message": response
-            }
-            return jsonify(response_body)
-        
+        for one_plan in plan_list:
+            plan_id = one_plan["plan_id"]
+            menu_group_id_list = one_plan.get("menu_group_id_list", [])
+            
+            query = text("""
+                INSERT INTO brand_profile_plan_map (brand_profile_id, plan_id, meta_status, creation_user_id)
+                VALUES (:brand_profile_id, :plan_id, :meta_status, :creation_user_id)
+            """)
+            brand_profile_plan_map_id = conn.execute(query, brand_profile_id=brand_profile_id, plan_id=plan_id, meta_status="active", creation_user_id=g.user_id).lastrowid
+            assert brand_profile_plan_map_id, f"unable to associate plan_id: {plan_id} with brand_profile_id: {brand_profile_id}"
+            
+            for menu_group_id in menu_group_id_list:
+                query = text("""
+                    INSERT INTO brand_profile_plan_menu_group_map (brand_profile_plan_map_id, menu_group_id, meta_status, creation_user_id)
+                    VALUES (:brand_profile_plan_map_id, :menu_group_id, :meta_status, :creation_user_id)
+                """)
+                brand_profile_plan_menu_group_map_id = conn.execute(query, brand_profile_plan_map_id=brand_profile_plan_map_id, menu_group_id=menu_group_id, meta_status="active", creation_user_id=g.user_id)
+                assert brand_profile_plan_menu_group_map_id, f"unable to associate menu_group_id: {menu_group_id} with brand_profile_plan_map_id: {brand_profile_plan_map_id}"
+
     response_body = {
         "data": {
             "brand_profile_id": brand_profile_id
@@ -73,68 +82,72 @@ def add_brand_profile():
 
 @brand_profile_management_blueprint.route('/brand-profile/<brand_profile_id>', methods=['GET'])
 def get_brand_profile(brand_profile_id):
+    brand_profile_id = int(brand_profile_id)
+    
     db_engine = jqutils.get_db_engine()
-
+    
+    # get brand profile details
     query = text("""
-        SELECT brand_profile_id, external_brand_profile_id, brand_name
+        SELECT brand_profile_id, brand_profile_name, external_brand_profile_id
         FROM brand_profile
         WHERE brand_profile_id = :brand_profile_id
         AND meta_status = :meta_status
     """)
     with db_engine.connect() as conn:
         result = conn.execute(query, brand_profile_id=brand_profile_id, meta_status="active").fetchone()
+        assert result, "brand profile does not exist"
 
-    if result:
-        brand_profile_dict = dict(result)
-        plan_list = plan_ninja.get_plan_list_by_brand_profile(brand_profile_id)
-        brand_profile_dict["plan_list"] = plan_list
-
-    if result:
-        response_body = {
-            "data": brand_profile_dict,
-            "action": "get_brand_profile",
-            "status": "successful"
-        }
-    else:
-        response_body = {
-            "data": {},
-            "action": "get_brand_profile",
-            "status": "successful",
-            "message": "No data found"
-        }
+        # get plan list for brand_profile
+        brand_profile_id = result["brand_profile_id"]
+        plan_list = brand_profile_ninja.get_brand_profile_plan_list(brand_profile_id, menu_group_info_p=True)
+        
+    response_body = {
+        "data": {
+            "brand_profile_id": brand_profile_id,
+            "brand_profile_name": result["brand_profile_name"],
+            "external_brand_profile_id": result["external_brand_profile_id"],
+            "plan_list": plan_list
+        },
+        "action": "get_brand_profile",
+        "status": "successful"
+    }
     return jsonify(response_body)
 
 @brand_profile_management_blueprint.route('/brand-profile/<brand_profile_id>', methods=['PUT'])
 def update_brand_profile(brand_profile_id):
-    request_data = request.get_json()
+    brand_profile_id = int(brand_profile_id)
+    
+    request_json = request.get_json()
 
-    external_brand_profile_id = request_data["external_brand_profile_id"]
-    brand_name = request_data["brand_name"]
+    brand_profile_name = request_json["brand_profile_name"]
+    external_brand_profile_id = request_json["external_brand_profile_id"]
 
-    availability_p = brand_profile_ninja.check_brand_profile_availability(external_brand_profile_id, brand_profile_id)
-    if availability_p == 0:
+    brand_profile_name_available = brand_profile_ninja.check_brand_profile_availability(external_brand_profile_id, brand_profile_name)
+    if not brand_profile_name_available:
         response_body = {
             "data": {},
             "action": "update_brand_profile",
             "status": "failed",
-            "message": "External Brand Profile ID already exists"
+            "message": "brand profile name already in use"
         }
         return jsonify(response_body)
 
-    one_dict = {
-        "external_brand_profile_id": external_brand_profile_id,
-        "brand_name": brand_name,
-        "modification_user_id": g.user_id
-    }
-
-    condition = {
-        "brand_profile_id": str(brand_profile_id),
-        "meta_status": 'active'
-    }
-
-    jqutils.update_single_db_entry(one_dict, "brand_profile", condition)
+    db_engine = jqutils.get_db_engine()
+    
+    # update brand profile details
+    query = text("""
+        UPDATE brand_profile
+        SET external_brand_profile_id = :external_brand_profile_id,
+            brand_profile_name = :brand_profile_name,
+            modification_user_id = :modification_user_id
+        WHERE brand_profile_id = :brand_profile_id
+        AND meta_status = :meta_status
+    """)
+    with db_engine.connect() as conn:
+        conn.execute(query, external_brand_profile_id=external_brand_profile_id, brand_profile_name=brand_profile_name, modification_user_id=g.user_id, brand_profile_id=brand_profile_id, meta_status="active")
    
     response_body = {
+        "data": {},
         "action": "update_brand_profile",
         "status": "successful"
     }
@@ -142,20 +155,34 @@ def update_brand_profile(brand_profile_id):
 
 @brand_profile_management_blueprint.route('/brand-profile/<brand_profile_id>', methods=['DELETE'])
 def delete_brand_profile(brand_profile_id):
-    one_dict = {
-        "meta_status": "deleted",
-        "deletion_user_id": g.user_id,
-        "deletion_timestamp": jqutils.get_utc_datetime()
-    }
-
-    condition = {
-        "brand_profile_id": str(brand_profile_id)
-    }
-
-    jqutils.update_single_db_entry(one_dict, "brand_profile", condition)
-    plan_ninja.delete_plans_by_brand_profile(brand_profile_id)
-   
+    brand_profile_id = int(brand_profile_id)
+    
+    db_engine = jqutils.get_db_engine()
+    
+    query = text("""
+        SELECT meta_status, deletion_user_id, deletion_timestamp
+        FROM brand_profile
+        WHERE brand_profile_id = :brand_profile_id
+    """)
+    with db_engine.connect() as conn:
+        result = conn.execute(query, brand_profile_id=brand_profile_id).fetchone()
+        assert result, "brand profile does not exist"
+        
+        if result["meta_status"] != "deleted":
+            action_timestamp = jqutils.get_utc_datetime()
+            
+            query = text("""
+                UPDATE brand_profile
+                SET meta_status = :meta_status,
+                deletion_user_id = :deletion_user_id,
+                deletion_timestamp = :deletion_timestamp
+                WHERE brand_profile_id = :brand_profile_id
+            """)
+            result = conn.execute(query, meta_status="deleted", deletion_user_id=g.user_id, deletion_timestamp=action_timestamp, brand_profile_id=brand_profile_id).rowcount
+            assert result, "unable to delete brand profile"
+    
     response_body = {
+        "data": {},
         "action": "delete_brand_profile",
         "status": "successful"
     }
@@ -166,7 +193,7 @@ def get_brand_profiles():
     db_engine = jqutils.get_db_engine()
 
     query = text("""
-        SELECT brand_profile_id, external_brand_profile_id, brand_name
+        SELECT brand_profile_id, external_brand_profile_id, brand_profile_name
         FROM brand_profile
         WHERE meta_status = :meta_status
     """)
@@ -182,30 +209,19 @@ def get_brand_profiles():
 
 @brand_profile_management_blueprint.route('/brand-profile/<brand_profile_id>/plans', methods=['GET'])
 def get_plans_by_brand_profile(brand_profile_id):
-    db_engine = jqutils.get_db_engine()
+    brand_profile_id = int(brand_profile_id)
+    
+    request_args = request.args
+    menu_group_info_p = True if request_args.get("menu_group_info_p") == "1" else False
+    
+    plan_list = brand_profile_ninja.get_brand_profile_plan_list(brand_profile_id, menu_group_info_p)
 
-    query = text("""
-        SELECT brand_profile_id
-        FROM brand_profile
-        WHERE brand_profile_id = :brand_profile_id
-        AND meta_status = :meta_status
-    """)
-    with db_engine.connect() as conn:
-        result = conn.execute(query, brand_profile_id=brand_profile_id, meta_status="active").fetchone()
-
-    if result:
-        plan_list = plan_ninja.get_plan_list_by_brand_profile(brand_profile_id)
-
-        response_body = {
-            "data": plan_list,
-            "action": "get_plans_by_brand_profile",
-            "status": "successful"
-        }
-    else:
-        response_body = {
-            "data": [],
-            "action": "get_plans_by_brand_profile",
-            "status": "successful",
-            "message": "No data found"
-        }
+    response_body = {
+        "data": {
+            "brand_profile_id": brand_profile_id,
+            "plan_list": plan_list
+        },
+        "action": "get_plans_by_brand_profile",
+        "status": "successful"
+    }
     return jsonify(response_body)

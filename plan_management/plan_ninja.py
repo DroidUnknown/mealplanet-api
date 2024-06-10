@@ -3,23 +3,44 @@ from sqlalchemy import text
 from utils import jqutils
 from menu_group_management import menu_group_ninja
 
-def check_plan_availability(external_plan_id, plan_id=None):
-    db_engine = jqutils.get_db_engine()
-
+def check_plan_availability(plan_name, plan_id=None):
     plan_id_filter = ""
     if plan_id:
         plan_id_filter = "AND plan_id != :plan_id"
+
+    db_engine = jqutils.get_db_engine()
+    
     query = text(f"""
         SELECT plan_id
         FROM plan
-        WHERE external_plan_id = :external_plan_id
+        WHERE plan_name = :plan_name
         {plan_id_filter}
         AND meta_status = :meta_status
     """)
     with db_engine.connect() as conn:
-        result = conn.execute(query, external_plan_id=external_plan_id, plan_id=plan_id, meta_status="active").fetchone()
+        result = conn.execute(query, plan_name=plan_name, plan_id=plan_id, meta_status="active").fetchone()
 
     return 0 if result else 1
+
+def add_plan(brand_profile_id, one_plan, creation_user_id):
+    plan_name = one_plan["plan_name"]
+    
+    plan_name_available = check_plan_availability(plan_name)
+    if not plan_name_available:
+        return False
+    
+    db_engine = jqutils.get_db_engine()
+    
+    query = text("""
+        INSERT INTO plan (plan_name, brand_profile_id, external_plan_id, meta_status, creation_user_id)
+        VALUES (:plan_name, :brand_profile_id, :external_plan_id, :meta_status, :creation_user_id)
+    """)
+    with db_engine.connect() as conn:
+        plan_id = conn.execute(query, plan_name=plan_name, brand_profile_id=brand_profile_id, external_plan_id=external_plan_id,
+                meta_status="active", creation_user_id=creation_user_id).lastrowid
+        assert plan_id, "unable to create plan_id"
+    
+    return plan_id
 
 def add_plans(brand_profile_id, plan_list, creation_user_id):
     dict_list = []

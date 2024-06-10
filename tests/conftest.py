@@ -37,37 +37,37 @@ def landscape():
     migrator = DataMigrationManager('testportalprofileservice', debug=True)
     migrator.run()
     
-    # delete all users from keycloak
-    keycloak_utils.delete_all_users()
+    # # delete all users from keycloak
+    # keycloak_utils.delete_all_users()
     
-    keycloak_utils.delete_all_policies()
+    # keycloak_utils.delete_all_policies()
     
-    db_engine = jqutils.get_db_engine('testportalprofileservice')
-    with db_engine.connect() as conn:
+    # db_engine = jqutils.get_db_engine('testportalprofileservice')
+    # with db_engine.connect() as conn:
     
-        with open('tests/testdata/users.json', 'r') as fp:
-            user_list = json.load(fp)
+    #     with open('tests/testdata/users.json', 'r') as fp:
+    #         user_list = json.load(fp)
 
-            for one_user in user_list:
-                first_name = one_user['first_name']
-                last_name = one_user['last_name']
-                phone_nr = one_user['phone_nr']
-                email = one_user['email']
-                username = one_user['username']
-                password = one_user['password']
-                allowed_resource_list = one_user['allowed_resource_list']
+    #         for one_user in user_list:
+    #             first_name = one_user['first_name']
+    #             last_name = one_user['last_name']
+    #             phone_nr = one_user['phone_nr']
+    #             email = one_user['email']
+    #             username = one_user['username']
+    #             password = one_user['password']
+    #             allowed_resource_list = one_user['allowed_resource_list']
                 
-                user_id, policy_id, keycloak_user_id = create_user_on_keycloak_and_database(conn, username, password, first_name, last_name, email, phone_nr)
+    #             user_id, policy_id, keycloak_user_id = create_user_on_keycloak_and_database(conn, username, password, first_name, last_name, email, phone_nr)
         
-        with open('tests/testdata/landscape.json', 'r') as fp:
-            data = json.load(fp)
-            for table_name in data:
-                rows = data[table_name]
-                for one_row in rows:
-                    one_row["meta_status"] = "active"
-                    one_row["creation_user_id"] = 1
-                    query, params = jqutils.jq_prepare_insert_statement(table_name, one_row)
-                    conn.execute(query, params)
+    #     with open('tests/testdata/landscape.json', 'r') as fp:
+    #         data = json.load(fp)
+    #         for table_name in data:
+    #             rows = data[table_name]
+    #             for one_row in rows:
+    #                 one_row["meta_status"] = "active"
+    #                 one_row["creation_user_id"] = 1
+    #                 query, params = jqutils.jq_prepare_insert_statement(table_name, one_row)
+    #                 conn.execute(query, params)
 
 @pytest.fixture(scope="session", autouse=True)
 def content_team_headers():
