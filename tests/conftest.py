@@ -37,37 +37,35 @@ def landscape():
     migrator = DataMigrationManager('testportalprofileservice', debug=True)
     migrator.run()
     
-    # # delete all users from keycloak
-    # keycloak_utils.delete_all_users()
+    # delete all users from keycloak
+    keycloak_utils.delete_all_users()
     
-    # keycloak_utils.delete_all_policies()
+    db_engine = jqutils.get_db_engine('testportalprofileservice')
+    with db_engine.connect() as conn:
     
-    # db_engine = jqutils.get_db_engine('testportalprofileservice')
-    # with db_engine.connect() as conn:
-    
-    #     with open('tests/testdata/users.json', 'r') as fp:
-    #         user_list = json.load(fp)
+        with open('tests/testdata/users.json', 'r') as fp:
+            user_list = json.load(fp)
 
-    #         for one_user in user_list:
-    #             first_name = one_user['first_name']
-    #             last_name = one_user['last_name']
-    #             phone_nr = one_user['phone_nr']
-    #             email = one_user['email']
-    #             username = one_user['username']
-    #             password = one_user['password']
-    #             allowed_resource_list = one_user['allowed_resource_list']
+            for one_user in user_list:
+                first_name = one_user['first_name']
+                last_name = one_user['last_name']
+                phone_nr = one_user['phone_nr']
+                email = one_user['email']
+                username = one_user['username']
+                password = one_user['password']
+                allowed_resource_list = one_user['allowed_resource_list']
                 
-    #             user_id, policy_id, keycloak_user_id = create_user_on_keycloak_and_database(conn, username, password, first_name, last_name, email, phone_nr)
+                user_id, policy_id, keycloak_user_id = create_user_on_keycloak_and_database(conn, username, password, first_name, last_name, email, phone_nr, allowed_resource_list=allowed_resource_list)
         
-    #     with open('tests/testdata/landscape.json', 'r') as fp:
-    #         data = json.load(fp)
-    #         for table_name in data:
-    #             rows = data[table_name]
-    #             for one_row in rows:
-    #                 one_row["meta_status"] = "active"
-    #                 one_row["creation_user_id"] = 1
-    #                 query, params = jqutils.jq_prepare_insert_statement(table_name, one_row)
-    #                 conn.execute(query, params)
+        with open('tests/testdata/landscape.json', 'r') as fp:
+            data = json.load(fp)
+            for table_name in data:
+                rows = data[table_name]
+                for one_row in rows:
+                    one_row["meta_status"] = "active"
+                    one_row["creation_user_id"] = 1
+                    query, params = jqutils.jq_prepare_insert_statement(table_name, one_row)
+                    conn.execute(query, params)
 
 @pytest.fixture(scope="session", autouse=True)
 def content_team_headers():
@@ -75,7 +73,7 @@ def content_team_headers():
         
     }
 
-def create_user_on_keycloak_and_database(conn, username, password, first_name, last_name, email, phone_nr):
+def create_user_on_keycloak_and_database(conn, username, password, first_name, last_name, email, phone_nr, allowed_resource_list=[]):
     
     # create user on keycloak
     keycloak_user_id = keycloak_utils.create_user(username, password, first_name, last_name, email)
@@ -101,10 +99,10 @@ def create_user_on_keycloak_and_database(conn, username, password, first_name, l
         "policy_name": username,
         "policy_type": "user",
         "logic": "POSITIVE",
-        "decision_strategy": "UNANIMOUS",
+        "decision_strategy": "AFFIRMATIVE",
     }
     query, params = jqutils.jq_prepare_insert_statement('policy', policy_dict)
-    print(query)
+    
     policy_id = conn.execute(query, params).lastrowid
     assert policy_id, "Failed to create policy for user"
     
@@ -116,13 +114,16 @@ def create_user_on_keycloak_and_database(conn, username, password, first_name, l
     query, params = jqutils.jq_prepare_insert_statement('policy_user_map', policy_user_map_dict)
     result = conn.execute(query, params).lastrowid
     assert result, "Failed to attach user to policy"
-    attach_user_to_policies(conn, keycloak_user_id, [username])
+    
+    if allowed_resource_list:
+        attach_user_to_policies(conn, keycloak_user_policy_id, allowed_resource_list)
+        
     return user_id, policy_id, keycloak_user_id
 
-def attach_user_to_policies(conn, keycloak_user_id, policy_name_list):
+def attach_user_to_policies(conn, policy_id, policy_name_list):
     
     # attach user to correct policies on keycloak
-    keycloak_utils.attach_user_to_policies(keycloak_user_id, policy_name_list)
+    keycloak_utils.attach_user_to_policies(policy_id, policy_name_list)
     
     # attach user to correct policies in database
     query = text("""

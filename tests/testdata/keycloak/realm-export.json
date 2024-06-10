@@ -1,6 +1,6 @@
 {
-  "id": "e28c3282-9ecb-4d3f-8292-fa941374ab58",
-  "realm": "Istio",
+  "id": "63732224-7ecd-484f-ae39-2b8b49eae70e",
+  "realm": "mealplanet",
   "displayName": "",
   "displayNameHtml": "",
   "notBefore": 0,
@@ -67,7 +67,7 @@
       },
       {
         "id": "2e87eb94-b902-4a3e-9c62-8ffb2f8586ac",
-        "name": "default-roles-istio",
+        "name": "default-roles-codify-test",
         "description": "${role_default-roles}",
         "composite": true,
         "composites": {
@@ -320,7 +320,7 @@
       ],
       "security-admin-console": [],
       "admin-cli": [],
-      "Istio": [
+      "codify-test": [
         {
           "id": "b8ee9afd-818b-4ac2-9732-bfcae4763f71",
           "name": "uma_protection",
@@ -462,7 +462,7 @@
   "groups": [],
   "defaultRole": {
     "id": "2e87eb94-b902-4a3e-9c62-8ffb2f8586ac",
-    "name": "default-roles-istio",
+    "name": "default-roles-codify-test",
     "description": "${role_default-roles}",
     "composite": true,
     "clientRole": false,
@@ -511,18 +511,18 @@
     {
       "id": "d8e97219-e19f-4a3d-9108-19f28c6296e7",
       "createdTimestamp": 1717594052510,
-      "username": "service-account-istio",
+      "username": "service-account-codify-test",
       "enabled": true,
       "totp": false,
       "emailVerified": false,
-      "serviceAccountClientId": "Istio",
+      "serviceAccountClientId": "codify-test",
       "disableableCredentialTypes": [],
       "requiredActions": [],
       "realmRoles": [
-        "default-roles-istio"
+        "default-roles-codify-test"
       ],
       "clientRoles": {
-        "Istio": [
+        "codify-test": [
           "uma_protection"
         ]
       },
@@ -541,7 +541,7 @@
       "realmRoles": [
         "uma_authorization",
         "offline_access",
-        "default-roles-istio",
+        "default-roles-codify-test",
         "CRM-USER",
         "codify-admin"
       ],
@@ -581,7 +581,7 @@
           "view-groups",
           "view-consent"
         ],
-        "Istio": [
+        "codify-test": [
           "view-users",
           "manage-users",
           "view-events",
@@ -730,13 +730,13 @@
       "clientId": "account",
       "name": "${client_account}",
       "rootUrl": "${authBaseUrl}",
-      "baseUrl": "/realms/Istio/account/",
+      "baseUrl": "/realms/codify-test/account/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/realms/Istio/account/*"
+        "/realms/codify-test/account/*"
       ],
       "webOrigins": [],
       "notBefore": 0,
@@ -774,13 +774,13 @@
       "clientId": "account-console",
       "name": "${client_account-console}",
       "rootUrl": "${authBaseUrl}",
-      "baseUrl": "/realms/Istio/account/",
+      "baseUrl": "/realms/codify-test/account/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/realms/Istio/account/*"
+        "/realms/codify-test/account/*"
       ],
       "webOrigins": [],
       "notBefore": 0,
@@ -901,9 +901,9 @@
       ]
     },
     {
-      "id": "4a596c9c-e5f6-45ae-aa59-a5e3e653a472",
-      "clientId": "Istio",
-      "name": "Istio",
+      "id": "4fcc23ed-438a-440c-92f2-2be3ecdff306",
+      "clientId": "codify-test",
+      "name": "codify-test",
       "description": "",
       "rootUrl": "http://localhost:5176/*",
       "adminUrl": "",
@@ -912,7 +912,7 @@
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
-      "secret": "gPBibxwzWhHMjk5t3O3T7lqErSlI1bU1",
+      "secret": "hABibxwzWhHMjk5t3O3T7lqErSlI1bU1",
       "redirectUris": [
         "*"
       ],
@@ -1776,13 +1776,13 @@
       "clientId": "security-admin-console",
       "name": "${client_security-admin-console}",
       "rootUrl": "${authAdminUrl}",
-      "baseUrl": "/admin/Istio/console/",
+      "baseUrl": "/admin/codify-test/console/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/admin/Istio/console/*"
+        "/admin/codify-test/console/*"
       ],
       "webOrigins": [
         "+"
