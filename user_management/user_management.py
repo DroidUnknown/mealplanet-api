@@ -564,7 +564,7 @@ def get_user(user_id):
 
     query = text("""
         SELECT u.keycloak_user_id, u.username, u.first_names_en, u.last_name_en, u.first_names_ar, u.last_name_ar, u.phone_nr, u.email,
-        uim.image_bucket_name, uim.image_object_key
+        uim.user_image_map_id, uim.image_bucket_name, uim.image_object_key
         FROM user u
         LEFT JOIN user_image_map uim ON u.user_id = uim.user_id
         WHERE u.user_id = :user_id
@@ -627,6 +627,10 @@ def get_user(user_id):
     user_image_url = None
     if user_result["image_bucket_name"] and user_result["image_object_key"]:
         user_image_url = jqutils.create_presigned_get_url(user_result["image_bucket_name"], user_result["image_object_key"], expiration=3600)
+
+        # remove image_bucket_name and image_object_key from user_dict
+        del user_dict["image_bucket_name"]
+        del user_dict["image_object_key"]
 
     user_dict["user_image_url"] = user_image_url
 
