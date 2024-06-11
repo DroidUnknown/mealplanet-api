@@ -937,7 +937,7 @@ def initiate_forgot_password_request():
                 },
             subject=f"Forgot Password",
                 text=f"Hi,\n\nYou can reset your password. Your OTP is: {otp}\n\nRegards,\nMP Team",
-                html=f"Hi,\n\nYou can reset your password. Your OTP is: {otp}\n\nRegards,\nMP Team",
+                html=f"Hi,<br><br>You can reset your password. Your OTP is: {otp}<br><br>Regards,<br>MP Team",
             )
 
     # update otp status
