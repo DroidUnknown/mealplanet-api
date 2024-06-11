@@ -93,7 +93,7 @@ def add_user():
 
     # generate verification link
     fe_base_url = os.getenv("FE_PORTAL_WEB_URL")
-    verification_link = fe_base_url + "/user-signup/" + str(user_id)
+    verification_link = f"{fe_base_url}/user-signup/{user_id}?otp={otp}"
     
     # send OTP to user email
     if os.getenv("MOCK_AWS_NOTIFICATIONS") != "1":
@@ -104,8 +104,8 @@ def add_user():
                     "ToAddresses": [email],
                 },
             subject=f"OTP Verification Link",
-                text=f"Hi,\n\nYou can verify your otp by opening this link: {verification_link}. Your OTP is: {otp}\n\nRegards,\nMP Team",
-                html=f"Hi,\n\nYou can verify your otp by opening this link: {verification_link}. Your OTP is: {otp}\n\nRegards,\nMP Team",
+                text=f"Hi,\n\nYou can verify your otp by opening this link: {verification_link}.\n\nRegards,\nMP Team",
+                html=f"Hi,<br><br>You can verify your otp by opening this link: <a href='{verification_link}'>{verification_link}</a>.<br><br>Regards,<br>MP Team",
             )
 
     # update OTP status to sent
