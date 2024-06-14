@@ -136,15 +136,23 @@ def add_user():
     one_time_password_id = jqutils.create_new_single_db_entry(one_dict, "one_time_password")
 
     # generate verification link
-    # fe_base_url = os.getenv("FE_PORTAL_WEB_URL")
-    # verification_link = f"{fe_base_url}/user-signup/{user_id}?otp={otp}"
+    fe_base_url = os.getenv("FE_PORTAL_WEB_URL")
+    verification_link = f"{fe_base_url}/user-signup/{user_id}?otp={otp}"
     
+    name = first_names_en + " " + last_name_en
+
     # send OTP to user email
     if os.getenv("MOCK_AWS_NOTIFICATIONS") != "1":
         email_templates = jqutils.get_email_templates("user_signup")
 
         html_template = email_templates['html']['body']
         text_template = email_templates['txt']['body']
+
+        html_template = html_template.replace("[NAME]", name.title())
+        html_template = html_template.replace("[LINK]", verification_link)
+
+        text_template = text_template.replace("[NAME]", name.title())
+        text_template = text_template.replace("[LINK]", verification_link)
 
         if contact_method == 'email':
             aws_utils.publish_email(
