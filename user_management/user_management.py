@@ -103,7 +103,7 @@ def add_user():
                 destination={
                     "ToAddresses": [email],
                 },
-            subject=f"OTP Verification Link",
+            subject=f"Welcome to MealPlanet’s Portal!",
                 text=f"Hi,\n\nYou can verify your otp by opening this link: {verification_link}.\n\nRegards,\nMP Team",
                 html=f"Hi,<br><br>You can verify your otp by opening this link: <a href='{verification_link}'>{verification_link}</a>.<br><br>Regards,<br>MP Team",
             )
@@ -641,6 +641,7 @@ def get_user(user_id):
             JOIN module_access ma ON ubpma.module_access_id = ma.module_access_id
             JOIN module m ON ma.module_id = m.module_id
             WHERE ubpma.user_id = :user_id
+                     
             AND ubpma.meta_status = :meta_status
         """)
         with db_engine.connect() as conn:

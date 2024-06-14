@@ -14,7 +14,6 @@ admin_username = os.getenv("KEYCLOAK_ADMIN_USERNAME")
 admin_password = os.getenv("KEYCLOAK_ADMIN_PASSWORD")
 client_uuid = os.getenv("KEYCLOAK_CLIENT_UUID")
 
-
 keycloak_client_openid = None
 keycloak_admin_openid = None
 
@@ -76,7 +75,6 @@ def delete_all_users(exception_list=["codify-admin"]):
         if username not in exception_list:
             disassociate_user_from_policies(user_id)
             keycloak_admin_openid.delete_user(user_id=user_id)
-            
 
 def delete_user(user_id):
     keycloak_admin_openid = get_keycloak_admin_openid()
