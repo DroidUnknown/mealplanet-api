@@ -206,8 +206,8 @@ def add_user_image(user_id):
                 SELECT ubpma.brand_profile_id, bf.brand_profile_name
                 FROM user_brand_profile_module_access ubpma
                 JOIN brand_profile bf ON ubpma.brand_profile_id = bf.brand_profile_id
-                WHERE user_id = :user_id
-                AND meta_status = :meta_status
+                WHERE ubpma.user_id = :user_id
+                AND ubpma.meta_status = :meta_status
             """)
             with db_engine.connect() as conn:
                 result = conn.execute(query, user_id=user_id, meta_status='active').fetchone()
@@ -292,8 +292,8 @@ def update_user_image(user_id):
                 SELECT ubpma.brand_profile_id, bf.brand_profile_name
                 FROM user_brand_profile_module_access ubpma
                 JOIN brand_profile bf ON ubpma.brand_profile_id = bf.brand_profile_id
-                WHERE user_id = :user_id
-                AND meta_status = :meta_status
+                WHERE ubpma.user_id = :user_id
+                AND ubpma.meta_status = :meta_status
             """)
             with db_engine.connect() as conn:
                 result = conn.execute(query, user_id=user_id, meta_status='active').fetchone()
