@@ -143,6 +143,8 @@ class User(Model):
     phone_nr = Column(String(32))
     email = Column(String(128))
 
+    all_brand_profile_access_p = Column(Boolean)
+
 class UserImageMap(Model):
     __tablename__ = 'user_image_map'
     

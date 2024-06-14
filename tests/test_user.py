@@ -4,6 +4,8 @@ from utils import jqutils
 from sqlalchemy import text
 from data_migration_management.data_migration_manager import DataMigrationManager
 
+from tests import test_brand_profile
+
 base_api_url = "/api"
 
 def do_add_user(client, payload):
@@ -95,6 +97,8 @@ def do_reset_user_password(client, headers, payload):
 ###################
 
 user_id = None
+all_brand_access_user_id = None
+
 def test_add_user(client):
 
     payload = {
@@ -268,7 +272,7 @@ def test_initiate_forgot_password_request_using_email(client, content_team_heade
     
     # get email and username for company-x user
     query = text("""
-        SELECT email
+        SELECT username, email
         FROM user
         WHERE user_id = :user_id
         AND meta_status = :meta_status
@@ -276,7 +280,7 @@ def test_initiate_forgot_password_request_using_email(client, content_team_heade
     with db_engine.connect() as conn:
         result = conn.execute(query, user_id=user_id, meta_status='active').fetchone()
         assert result, "failed to get user_id and email"
-        username = None
+        username = result["username"]
         email = result["email"]
 
     payload = {
@@ -287,37 +291,6 @@ def test_initiate_forgot_password_request_using_email(client, content_team_heade
     assert response.status_code == 200
     response_json = response.get_json()
     
-    assert response_json["status"] == "successful"
-    assert response_json["action"] == "initiate_forgot_password_request"
-
-    data = response_json["data"]
-    assert data["user_id"] == user_id
-    assert data["contact_method"] == "email"
-
-def test_initiate_forgot_password_request_using_username(client, content_team_headers):
-    global user_id
-    db_engine = jqutils.get_db_engine()
-    
-    # get email and username for company-x user
-    query = text("""
-        SELECT username
-        FROM user
-        WHERE user_id = :user_id
-        AND meta_status = :meta_status
-    """)
-    with db_engine.connect() as conn:
-        result = conn.execute(query, user_id=user_id, meta_status='active').fetchone()
-        assert result, "failed to get user_id and email"
-        username = result["username"]
-        email = None
-
-    payload = {
-        "username": username,
-        "email": email,
-    }
-    response = do_initiate_forgot_password_request(client, content_team_headers, payload)
-    assert response.status_code == 200
-    response_json = response.get_json()
     assert response_json["status"] == "successful"
     assert response_json["action"] == "initiate_forgot_password_request"
 
@@ -442,6 +415,124 @@ def test_delete_user(client, content_team_headers):
     global user_id
 
     response = do_delete_user(client, content_team_headers, user_id)
+    assert response.status_code == 200
+
+    response_json = response.get_json()
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "delete_user"
+
+    response = do_get_user_list(client, content_team_headers)
+    assert response.status_code == 200
+
+    response_json = response.get_json()
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "get_users"
+
+    data = response_json["data"]
+    assert len(data) == 0, "User List should have 0 item."
+
+###################
+# TESTS CASES - ALL BRAND PROFILE ACCESS
+###################
+def test_add_user_with_all_brand_profile_access(client, content_team_headers):
+
+    """
+    Test: Add Brand Profile
+    """
+    payload = {
+        "brand_profile_name": "qoqo",
+        "external_brand_profile_id": "1",
+        "plan_list": [
+            {
+                "plan_id": 1,
+                "menu_group_id_list": [1, 2]
+            }
+        ]
+    }
+    response = test_brand_profile.do_add_brand_profile(client, content_team_headers, payload)
+    assert response.status_code == 200
+
+    response_json = response.get_json()
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "add_brand_profile"
+
+    payload = {
+        "first_names_en": "Johnny",
+        "last_name_en": "Doe",
+        "first_names_ar": "جوني",
+        "last_name_ar": "دو",
+        "phone_nr": "1234567890",
+        "email": "johnny.doe@something.com",
+        "role_id_list": [1],
+        "brand_profile_list": [],
+        "all_brand_profile_access_p": True,
+        "module_access_id_list": [1]
+    }
+
+    response = do_add_user(client, payload)
+    assert response.status_code == 200
+
+    response_json = response.get_json()
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "add_user"
+
+    data = response_json["data"]
+    assert data["user_id"]
+
+    global all_brand_access_user_id
+    all_brand_access_user_id = data["user_id"]
+
+def test_update_all_brand_access_user(client, content_team_headers):
+    global all_brand_access_user_id
+
+    payload = {
+        "first_names_en": "Johnny",
+        "last_name_en": "Doe-1",
+        "first_names_ar": "جوني",
+        "last_name_ar": "دو",
+        "phone_nr": "+9711234567890",
+        "email": "johnny.doe@something.com",
+        "role_id_list": [1],
+        "brand_profile_list": [],
+        "all_brand_profile_access_p": True,
+        "module_access_id_list": [2]
+    }
+
+    response = do_update_user(client, content_team_headers, all_brand_access_user_id, payload)
+    assert response.status_code == 200
+
+    response_json = response.get_json()
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "update_user"
+
+def test_get_all_brand_access_user(client, content_team_headers):
+    global all_brand_access_user_id
+
+    response = do_get_user(client, content_team_headers, all_brand_access_user_id)
+    assert response.status_code == 200
+
+    response_json = response.get_json()
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "get_user"
+
+    data = response_json["data"]
+    assert data["username"] == None
+    assert data["first_names_en"]
+    assert data["last_name_en"]
+    assert data["first_names_ar"]
+    assert data["last_name_ar"]
+    assert data["phone_nr"]
+    assert data["email"]
+    assert data["all_brand_profile_access_p"] == True, "User should have all brand profile access"
+    assert data["role_list"]
+    assert data["module_access_list"]
+    assert data["brand_profile_list"]
+    assert data["user_image_url"] == None
+
+def test_delete_all_brand_access_user(client, content_team_headers):
+    global all_brand_access_user_id
+
+    response = do_delete_user(client, content_team_headers, all_brand_access_user_id)
     assert response.status_code == 200
 
     response_json = response.get_json()

@@ -29,6 +29,8 @@ def add_user():
     email = request_json["email"]
     role_id_list = request_json["role_id_list"]
     brand_profile_list = request_json["brand_profile_list"]
+    all_brand_profile_access_p = request_json.get("all_brand_profile_access_p", False)
+    module_access_id_list = request_json.get("module_access_id_list", [])
 
     one_dict = {
         "first_names_en": first_names_en,
@@ -37,6 +39,7 @@ def add_user():
         "last_name_ar": last_name_ar,
         "phone_nr": phone_nr,
         "email": email,
+        "all_brand_profile_access_p": all_brand_profile_access_p,
         "meta_status": "active",
         "creation_user_id": g.user_id
     }
@@ -52,20 +55,61 @@ def add_user():
         }
         jqutils.create_new_single_db_entry(one_dict, "user_role_map")
 
-    for brand_profile in brand_profile_list:
-        brand_profile_id = brand_profile["brand_profile_id"]
-        module_access_id_list = brand_profile["module_access_id_list"]
+    if all_brand_profile_access_p:
 
         for module_access_id in module_access_id_list:
 
             one_dict = {
                 "user_id": user_id,
-                "brand_profile_id": brand_profile_id,
+                "brand_profile_id": None,
                 "module_access_id": module_access_id,
                 "meta_status": "active",
                 "creation_user_id": g.user_id
             }
+
             jqutils.create_new_single_db_entry(one_dict, "user_brand_profile_module_access")
+
+        # get all brand profiles
+        db_engine = jqutils.get_db_engine()
+
+        query = text("""
+            SELECT brand_profile_id
+            FROM brand_profile
+            WHERE meta_status = :meta_status
+        """)
+        with db_engine.connect() as conn:
+            result = conn.execute(query, meta_status="active").fetchall()
+
+        brand_profile_id_list = [row["brand_profile_id"] for row in result]
+
+        for brand_profile_id in brand_profile_id_list:
+            for module_access_id in module_access_id_list:
+
+                one_dict = {
+                    "user_id": user_id,
+                    "brand_profile_id": brand_profile_id,
+                    "module_access_id": module_access_id,
+                    "meta_status": "active",
+                    "creation_user_id": g.user_id
+                }
+                jqutils.create_new_single_db_entry(one_dict, "user_brand_profile_module_access")
+
+    else:
+            
+        for brand_profile in brand_profile_list:
+            brand_profile_id = brand_profile["brand_profile_id"]
+            module_access_id_list = brand_profile["module_access_id_list"]
+
+            for module_access_id in module_access_id_list:
+
+                one_dict = {
+                    "user_id": user_id,
+                    "brand_profile_id": brand_profile_id,
+                    "module_access_id": module_access_id,
+                    "meta_status": "active",
+                    "creation_user_id": g.user_id
+                }
+                jqutils.create_new_single_db_entry(one_dict, "user_brand_profile_module_access")
 
     # create OTP request
     otp = str(uuid.uuid4())
@@ -481,6 +525,8 @@ def update_user(user_id):
     email = request_json["email"]
     role_id_list = request_json["role_id_list"]
     brand_profile_list = request_json["brand_profile_list"]
+    all_brand_profile_access_p = request_json.get("all_brand_profile_access_p", False)
+    module_access_id_list = request_json.get("module_access_id_list", [])
 
     one_dict = {
         "first_names_en": first_names_en,
@@ -489,6 +535,7 @@ def update_user(user_id):
         "last_name_ar": last_name_ar,
         "phone_nr": phone_nr,
         "email": email,
+        "all_brand_profile_access_p": all_brand_profile_access_p,
         "meta_status": "active",
         "modification_user_id": g.user_id,
         "modification_timestamp": jqutils.get_utc_datetime()
@@ -538,52 +585,122 @@ def update_user(user_id):
         }
         jqutils.create_new_single_db_entry(one_dict, "user_role_map")
 
-    # delete existing user brand profile module access
-    query = text("""
-        SELECT user_brand_profile_module_access_id
-        FROM user_brand_profile_module_access
-        WHERE user_id = :user_id
-        AND meta_status = :meta_status
-    """)
-    with db_engine.connect() as conn:
-        result = conn.execute(query, user_id=user_id, meta_status="active").fetchall()
-
-    user_brand_profile_module_access_id_list = [row["user_brand_profile_module_access_id"] for row in result]
-
-    for user_brand_profile_module_access_id in user_brand_profile_module_access_id_list:
+    if all_brand_profile_access_p:
+            
+            # delete existing user brand profile module access
+            query = text("""
+                SELECT user_brand_profile_module_access_id
+                FROM user_brand_profile_module_access
+                WHERE user_id = :user_id
+                AND brand_profile_id IS NULL
+                AND meta_status = :meta_status
+            """)
+            with db_engine.connect() as conn:
+                result = conn.execute(query, user_id=user_id, meta_status="active").fetchall()
     
-        one_dict = {
-            "meta_status": "deleted",
-            "deletion_user_id": g.user_id,
-            "deletion_timestamp": jqutils.get_utc_datetime()
-        }
+            user_brand_profile_module_access_id_list = [row["user_brand_profile_module_access_id"] for row in result]
+    
+            for user_brand_profile_module_access_id in user_brand_profile_module_access_id_list:
+            
+                one_dict = {
+                    "meta_status": "deleted",
+                    "deletion_user_id": g.user_id,
+                    "deletion_timestamp": jqutils.get_utc_datetime()
+                }
+    
+                condition = {
+                    "user_brand_profile_module_access_id": str(user_brand_profile_module_access_id)
+                }
+    
+                jqutils.update_single_db_entry(one_dict, "user_brand_profile_module_access", condition)
+    
+            # add new user brand profile module access
+            for module_access_id in module_access_id_list:
+    
+                one_dict = {
+                    "user_id": user_id,
+                    "brand_profile_id": None,
+                    "module_access_id": module_access_id,
+                    "meta_status": "active",
+                    "creation_user_id": g.user_id
+                }
+    
+                jqutils.create_new_single_db_entry(one_dict, "user_brand_profile_module_access")
+    
+            # get all brand profiles
+            db_engine = jqutils.get_db_engine()
+    
+            query = text("""
+                SELECT brand_profile_id
+                FROM brand_profile
+                WHERE meta_status = :meta_status
+            """)
+            with db_engine.connect() as conn:
+                result = conn.execute(query, meta_status="active").fetchall()
+    
+            brand_profile_id_list = [row["brand_profile_id"] for row in result]
+    
+            for brand_profile_id in brand_profile_id_list:
+                for module_access_id in module_access_id_list:
+    
+                    one_dict = {
+                        "user_id": user_id,
+                        "brand_profile_id": brand_profile_id,
+                        "module_access_id": module_access_id,
+                        "meta_status": "active",
+                        "creation_user_id": g.user_id
+                    }
+                    jqutils.create_new_single_db_entry(one_dict, "user_brand_profile_module_access")
 
-        condition = {
-            "user_brand_profile_module_access_id": str(user_brand_profile_module_access_id)
-        }
+    else:
 
-        jqutils.update_single_db_entry(one_dict, "user_brand_profile_module_access", condition)
+        # delete existing user brand profile module access
+        query = text("""
+            SELECT user_brand_profile_module_access_id
+            FROM user_brand_profile_module_access
+            WHERE user_id = :user_id
+            AND meta_status = :meta_status
+        """)
+        with db_engine.connect() as conn:
+            result = conn.execute(query, user_id=user_id, meta_status="active").fetchall()
 
-    # add new user brand profile module access
-    for brand_profile in brand_profile_list:
-        brand_profile_id = brand_profile["brand_profile_id"]
-        module_access_id_list = brand_profile["module_access_id_list"]
+        user_brand_profile_module_access_id_list = [row["user_brand_profile_module_access_id"] for row in result]
 
-        for module_access_id in module_access_id_list:
-
+        for user_brand_profile_module_access_id in user_brand_profile_module_access_id_list:
+        
             one_dict = {
-                "user_id": user_id,
-                "brand_profile_id": brand_profile_id,
-                "module_access_id": module_access_id,
-                "meta_status": "active",
-                "creation_user_id": g.user_id
+                "meta_status": "deleted",
+                "deletion_user_id": g.user_id,
+                "deletion_timestamp": jqutils.get_utc_datetime()
             }
-            jqutils.create_new_single_db_entry(one_dict, "user_brand_profile_module_access")
+
+            condition = {
+                "user_brand_profile_module_access_id": str(user_brand_profile_module_access_id)
+            }
+
+            jqutils.update_single_db_entry(one_dict, "user_brand_profile_module_access", condition)
+
+        # add new user brand profile module access
+        for brand_profile in brand_profile_list:
+            brand_profile_id = brand_profile["brand_profile_id"]
+            module_access_id_list = brand_profile["module_access_id_list"]
+
+            for module_access_id in module_access_id_list:
+
+                one_dict = {
+                    "user_id": user_id,
+                    "brand_profile_id": brand_profile_id,
+                    "module_access_id": module_access_id,
+                    "meta_status": "active",
+                    "creation_user_id": g.user_id
+                }
+                jqutils.create_new_single_db_entry(one_dict, "user_brand_profile_module_access")
 
     # update user in keycloak
     keycloak_user_id = jqutils.get_column_by_id(user_id, "keycloak_user_id", "user")
         
-    keycloak_utils.update_user(keycloak_user_id, first_names_en, last_name_en, email)
+    if keycloak_user_id:
+        keycloak_utils.update_user(keycloak_user_id, first_names_en, last_name_en, email)
 
     response_body = {
         "action": "update_user",
@@ -597,7 +714,7 @@ def get_user(user_id):
 
     query = text("""
         SELECT u.keycloak_user_id, u.username, u.first_names_en, u.last_name_en, u.first_names_ar, u.last_name_ar, u.phone_nr, u.email,
-        uim.user_image_map_id, uim.image_bucket_name, uim.image_object_key
+        uim.user_image_map_id, uim.image_bucket_name, uim.image_object_key, all_brand_profile_access_p
         FROM user u
         LEFT JOIN user_image_map uim ON u.user_id = uim.user_id
         WHERE u.user_id = :user_id
@@ -634,6 +751,23 @@ def get_user(user_id):
 
         user_dict["role_list"] = [dict(row) for row in result]
 
+        all_brand_profile_access_p = user_dict["all_brand_profile_access_p"]
+
+        if all_brand_profile_access_p:
+
+            query = text("""
+                SELECT ma.module_access_id, m.module_id, m.module_name, ma.access_level
+                FROM module_access ma
+                JOIN module m ON ma.module_id = m.module_id
+                WHERE ma.meta_status = :meta_status
+            """)
+            with db_engine.connect() as conn:
+                result = conn.execute(query, meta_status="active").fetchall()
+
+            module_access_list = [dict(row) for row in result]
+
+            user_dict["module_access_list"] = module_access_list
+
         query = text("""
             SELECT ubpma.brand_profile_id, ubpma.module_access_id, bp.brand_profile_name as brand_name, m.module_id, m.module_name, ma.module_access_id, ma.access_level
             FROM user_brand_profile_module_access ubpma
@@ -641,7 +775,7 @@ def get_user(user_id):
             JOIN module_access ma ON ubpma.module_access_id = ma.module_access_id
             JOIN module m ON ma.module_id = m.module_id
             WHERE ubpma.user_id = :user_id
-                     
+            AND ubpma.brand_profile_id IS NOT NULL
             AND ubpma.meta_status = :meta_status
         """)
         with db_engine.connect() as conn:
@@ -713,8 +847,10 @@ def delete_user(user_id):
     if result:
         keycloak_user_id = result["keycloak_user_id"]
 
-        # Delete user from keycloak
-        keycloak_utils.delete_user(keycloak_user_id)
+        if keycloak_user_id:
+            
+            # Delete user from keycloak
+            keycloak_utils.delete_user(keycloak_user_id)
 
         # Delete user from DB
         one_dict = {
