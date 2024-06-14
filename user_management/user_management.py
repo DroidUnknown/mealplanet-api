@@ -635,7 +635,7 @@ def get_user(user_id):
         user_dict["role_list"] = [dict(row) for row in result]
 
         query = text("""
-            SELECT ubpma.brand_profile_id, ubpma.module_access_id, bp.brand_name, m.module_id, m.module_name, ma.module_access_id, ma.access_level
+            SELECT ubpma.brand_profile_id, ubpma.module_access_id, bp.brand_profile_name as brand_name, m.module_id, m.module_name, ma.module_access_id, ma.access_level
             FROM user_brand_profile_module_access ubpma
             JOIN brand_profile bp ON ubpma.brand_profile_id = bp.brand_profile_id
             JOIN module_access ma ON ubpma.module_access_id = ma.module_access_id
