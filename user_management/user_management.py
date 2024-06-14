@@ -766,6 +766,7 @@ def get_user(user_id):
 
         all_brand_profile_access_p = user_dict["all_brand_profile_access_p"]
 
+        module_access_list = []
         if all_brand_profile_access_p:
 
             query = text("""
@@ -782,7 +783,7 @@ def get_user(user_id):
 
             module_access_list = [dict(row) for row in result]
 
-            user_dict["module_access_list"] = module_access_list
+        user_dict["module_access_list"] = module_access_list
 
         query = text("""
             SELECT ubpma.brand_profile_id, ubpma.module_access_id, bp.brand_profile_name as brand_name, m.module_id, m.module_name, ma.module_access_id, ma.access_level
