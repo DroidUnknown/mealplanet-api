@@ -136,14 +136,15 @@ def add_user():
     one_time_password_id = jqutils.create_new_single_db_entry(one_dict, "one_time_password")
 
     # generate verification link
-    fe_base_url = os.getenv("FE_PORTAL_WEB_URL")
-    verification_link = f"{fe_base_url}/user-signup/{user_id}?otp={otp}"
+    # fe_base_url = os.getenv("FE_PORTAL_WEB_URL")
+    # verification_link = f"{fe_base_url}/user-signup/{user_id}?otp={otp}"
     
     # send OTP to user email
     if os.getenv("MOCK_AWS_NOTIFICATIONS") != "1":
-        # attach footer to email
-        with open("templates/email_footer.html", "r") as file:
-            email_footer = file.read()
+        email_templates = jqutils.get_email_templates("user_signup")
+
+        html_template = email_templates['html']['body']
+        text_template = email_templates['txt']['body']
 
         if contact_method == 'email':
             aws_utils.publish_email(
@@ -151,9 +152,9 @@ def add_user():
                 destination={
                     "ToAddresses": [email],
                 },
-            subject=f"Welcome to MealPlanet’s Portal!",
-            text=f"Hello {first_names_en},\n\nWelcome to MealPlanet’s Portal. You’ve been invited to access the portal.\n\n\n\nPlease use this link to access the portal and create your username and password: {verification_link}\n\n\n\nThank you,\nMealPlanet",
-            html=f"Hello {first_names_en},<br><br>Welcome to MealPlanet’s Portal. You’ve been invited to access the portal.<br><br><br><br>Please use this link to access the portal and create your username and password: <a href='{verification_link}'>LINK</a><br><br><br><br>Thank you,<br>MealPlanet<br><br>{email_footer}"
+                subject=email_templates['html']['subject'],
+                text=text_template,
+                html=html_template
             )
 
     # update OTP status to sent

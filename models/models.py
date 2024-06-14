@@ -252,3 +252,15 @@ class MenuGroup(Model):
     menu_group_name = Column(String(128))
 
 # ----------------------------------------------------------------------------------------------------------------------
+class EmailTemplate(Model):
+    __tablename__ = 'email_template'
+
+    email_template_id = Column(Integer, primary_key=True)
+    email_template_name = Column(String(128))
+
+    email_subject = Column(String(128))
+    email_template_type = Column(String(128)) # e.g. user_signup, forgot_password etc.
+    email_template_format = Column(String(128)) # html, txt
+
+    bucket_name = Column(String(128))
+    object_key = Column(String(128))
