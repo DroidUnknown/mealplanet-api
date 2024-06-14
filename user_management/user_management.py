@@ -769,7 +769,7 @@ def get_user(user_id):
         if all_brand_profile_access_p:
 
             query = text("""
-                SELECT
+                SELECT ubpma.module_access_id, m.module_id, m.module_name, ma.module_access_id, ma.access_level
                 FROM user_brand_profile_module_access ubpma
                 JOIN module_access ma ON ubpma.module_access_id = ma.module_access_id
                 JOIN module m ON ma.module_id = m.module_id
