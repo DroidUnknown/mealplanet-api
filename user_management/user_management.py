@@ -203,7 +203,7 @@ def add_user_image(user_id):
 
             # Get brand profile details
             query = text(f"""
-                SELECT ubpma.brand_profile_id, bf.brand_name
+                SELECT ubpma.brand_profile_id, bf.brand_profile_name
                 FROM user_brand_profile_module_access ubpma
                 JOIN brand_profile bf ON ubpma.brand_profile_id = bf.brand_profile_id
                 WHERE user_id = :user_id
@@ -213,11 +213,11 @@ def add_user_image(user_id):
                 result = conn.execute(query, user_id=user_id, meta_status='active').fetchone()
                 assert result, "failed to get brand profile details"
 
-            brand_name = result['brand_name']
+            brand_profile_name = result['brand_profile_name']
 
             file_extension = file_name.rsplit('.', 1)[1].lower()
             image_bucket_name = os.getenv("S3_BUCKET_NAME")
-            image_object_key = f"brand-images/{brand_name}/user-images/{user_id}/{file_name}.{file_extension}"
+            image_object_key = f"brand-images/{brand_profile_name}/user-images/{user_id}/{file_name}.{file_extension}"
 
             # Upload image to S3 if not mocking
             if os.getenv("MOCK_S3_UPLOAD") != '1':
@@ -289,7 +289,7 @@ def update_user_image(user_id):
 
             # Get brand profile details
             query = text(f"""
-                SELECT ubpma.brand_profile_id, bf.brand_name
+                SELECT ubpma.brand_profile_id, bf.brand_profile_name
                 FROM user_brand_profile_module_access ubpma
                 JOIN brand_profile bf ON ubpma.brand_profile_id = bf.brand_profile_id
                 WHERE user_id = :user_id
@@ -299,11 +299,11 @@ def update_user_image(user_id):
                 result = conn.execute(query, user_id=user_id, meta_status='active').fetchone()
                 assert result, "failed to get brand profile details"
 
-            brand_name = result['brand_name']
+            brand_profile_name = result['brand_profile_name']
 
             file_extension = file_name.rsplit('.', 1)[1].lower()
             image_bucket_name = os.getenv("S3_BUCKET_NAME")
-            image_object_key = f"brand-images/{brand_name}/user-images/{user_id}/{file_name}.{file_extension}"
+            image_object_key = f"brand-images/{brand_profile_name}/user-images/{user_id}/{file_name}.{file_extension}"
 
             # Upload image to S3 if not mocking
             if os.getenv("MOCK_S3_UPLOAD") != '1':
@@ -786,7 +786,7 @@ def get_user(user_id):
         user_dict["module_access_list"] = module_access_list
 
         query = text("""
-            SELECT ubpma.brand_profile_id, ubpma.module_access_id, bp.brand_profile_name as brand_name, m.module_id, m.module_name, ma.module_access_id, ma.access_level
+            SELECT ubpma.brand_profile_id, ubpma.module_access_id, bp.brand_profile_name as brand_profile_name, m.module_id, m.module_name, ma.module_access_id, ma.access_level
             FROM user_brand_profile_module_access ubpma
             JOIN brand_profile bp ON ubpma.brand_profile_id = bp.brand_profile_id
             JOIN module_access ma ON ubpma.module_access_id = ma.module_access_id
@@ -806,7 +806,7 @@ def get_user(user_id):
             if not brand_profile:
                 brand_profile = {
                     "brand_profile_id": brand_profile_id,
-                    "brand_name": row["brand_name"],
+                    "brand_profile_name": row["brand_profile_name"],
                     "module_access_list": []
                 }
                 brand_profile_list.append(brand_profile)
