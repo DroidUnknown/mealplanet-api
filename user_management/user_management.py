@@ -605,7 +605,6 @@ def update_user(user_id):
                 SELECT user_brand_profile_module_access_id
                 FROM user_brand_profile_module_access
                 WHERE user_id = :user_id
-                AND brand_profile_id IS NULL
                 AND meta_status = :meta_status
             """)
             with db_engine.connect() as conn:
