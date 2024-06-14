@@ -141,6 +141,10 @@ def add_user():
     
     # send OTP to user email
     if os.getenv("MOCK_AWS_NOTIFICATIONS") != "1":
+        # attach footer to email
+        with open("templates/email_footer.html", "r") as file:
+            email_footer = file.read()
+
         if contact_method == 'email':
             aws_utils.publish_email(
                 source="haseeb.ahmed@globalvertices.com",
@@ -148,8 +152,8 @@ def add_user():
                     "ToAddresses": [email],
                 },
             subject=f"Welcome to MealPlanet’s Portal!",
-                text=f"Hi,\n\nYou can verify your otp by opening this link: {verification_link}.\n\nRegards,\nMP Team",
-                html=f"Hi,<br><br>You can verify your otp by opening this link: <a href='{verification_link}'>{verification_link}</a>.<br><br>Regards,<br>MP Team",
+            text=f"Hello {first_names_en},\n\nWelcome to MealPlanet’s Portal. You’ve been invited to access the portal.\n\n\n\nPlease use this link to access the portal and create your username and password: {verification_link}\n\n\n\nThank you,\nMealPlanet",
+            html=f"Hello {first_names_en},<br><br>Welcome to MealPlanet’s Portal. You’ve been invited to access the portal.<br><br><br><br>Please use this link to access the portal and create your username and password: <a href='{verification_link}'>LINK</a><br><br><br><br>Thank you,<br>MealPlanet<br><br>{email_footer}"
             )
 
     # update OTP status to sent
@@ -1073,8 +1077,8 @@ def initiate_forgot_password_request():
                     "ToAddresses": [email],
                 },
             subject=f"Forgot Password",
-                text=f"Hi,\n\nYou can reset your password. Your OTP is: {otp}\n\nRegards,\nMP Team",
-                html=f"Hi,<br><br>You can reset your password. Your OTP is: {otp}<br><br>Regards,<br>MP Team",
+                text=f"Hi,\n\nYou can reset your password. Your OTP is: {otp}\n\nRegards,\nThank you,\nMealPlanet",
+                html=f"Hi,<br><br>You can reset your password. Your OTP is: {otp}<br><br>Regards,<br>Thank you,<br>MealPlanet"
             )
 
     # update otp status
