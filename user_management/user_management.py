@@ -769,13 +769,16 @@ def get_user(user_id):
         if all_brand_profile_access_p:
 
             query = text("""
-                SELECT ma.module_access_id, m.module_id, m.module_name, ma.access_level
-                FROM module_access ma
+                SELECT
+                FROM user_brand_profile_module_access ubpma
+                JOIN module_access ma ON ubpma.module_access_id = ma.module_access_id
                 JOIN module m ON ma.module_id = m.module_id
-                WHERE ma.meta_status = :meta_status
+                WHERE ubpma.user_id = :user_id
+                AND ubpma.brand_profile_id IS NULL
+                AND ubpma.meta_status = :meta_status
             """)
             with db_engine.connect() as conn:
-                result = conn.execute(query, meta_status="active").fetchall()
+                result = conn.execute(query, user_id=user_id, meta_status="active").fetchall()
 
             module_access_list = [dict(row) for row in result]
 
