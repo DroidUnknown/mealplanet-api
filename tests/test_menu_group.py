@@ -92,7 +92,6 @@ def test_add_menu_group(client, content_team_headers):
     }
     response = do_add_menu_group(client, content_team_headers, payload)
     assert response.status_code == 200
-    
     response_json = response.get_json()
     assert response_json["status"] == "successful"
     
@@ -105,7 +104,6 @@ def test_add_menu_group(client, content_team_headers):
     # validate that same menu group name cannot be added again
     response = do_add_menu_group(client, content_team_headers, payload)
     assert response.status_code == 200
-    
     response_json = response.get_json()
     assert response_json["status"] == "failed"
     assert response_json["message"] == "Menu group name already in use."
@@ -129,14 +127,12 @@ def test_bulk_add_menu_groups(client, content_team_headers):
     }
     response = do_bulk_add_menu_groups(client, content_team_headers, payload)
     assert response.status_code == 200
-    
     response_json = response.get_json()
     assert response_json["status"] == "successful"
 
     # validate that same menu group name cannot be added again
     response = do_bulk_add_menu_groups(client, content_team_headers, payload)
     assert response.status_code == 200
-    
     response_json = response.get_json()
     assert response_json["status"] == "failed"
     assert response_json["message"] == "Menu group name already in use."
@@ -156,7 +152,6 @@ def test_bulk_add_menu_groups(client, content_team_headers):
     }
     response = do_bulk_add_menu_groups(client, content_team_headers, payload)
     assert response.status_code == 200
-    
     response_json = response.get_json()
     assert response_json["status"] == "failed"
     assert response_json["message"] == "Duplicate menu group names found in menu_group_list."
@@ -181,7 +176,6 @@ def test_check_menu_group_name_availability(client, content_team_headers):
     }
     response = do_check_menu_group_name_availability(client, content_team_headers, payload)
     assert response.status_code == 200
-    
     response_json = response.get_json()
     assert response_json["status"] == "successful"
     
@@ -196,7 +190,6 @@ def test_get_menu_group(client, content_team_headers):
     
     response = do_get_menu_group(client, content_team_headers, menu_group_id)
     assert response.status_code == 200
-    
     response_json = response.get_json()
     assert response_json["status"] == "successful"
     
@@ -227,7 +220,6 @@ def test_update_menu_group(client, content_team_headers):
     # validate the updated data
     response = do_get_menu_group(client, content_team_headers, menu_group_id)
     assert response.status_code == 200
-    
     response_json = response.get_json()
     assert response_json["status"] == "successful"
     
@@ -242,7 +234,6 @@ def test_get_menu_groups(client, content_team_headers, existing_menu_group_count
     """
     response = do_get_menu_groups(client, content_team_headers)
     assert response.status_code == 200
-    
     response_json = response.get_json()
     assert response_json["status"] == "successful"
     
@@ -261,7 +252,6 @@ def test_delete_menu_group(client, content_team_headers, existing_menu_group_cou
     
     response = do_delete_menu_group(client, content_team_headers, menu_group_id)
     assert response.status_code == 200
-    
     response_json = response.get_json()
     assert response_json["status"] == "successful"
     
@@ -271,7 +261,6 @@ def test_delete_menu_group(client, content_team_headers, existing_menu_group_cou
     # validate that the menu group has been deleted
     response = do_get_menu_groups(client, content_team_headers)
     assert response.status_code == 200
-    
     response_json = response.get_json()
     assert response_json["status"] == "successful"
     
