@@ -250,6 +250,7 @@ class MenuGroup(Model):
 
     menu_group_id = Column(Integer, primary_key=True)
     menu_group_name = Column(String(128))
+    external_menu_group_id = Column(String(128))
 
 # ----------------------------------------------------------------------------------------------------------------------
 class EmailTemplate(Model):
