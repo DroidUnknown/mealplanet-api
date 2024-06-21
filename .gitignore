@@ -47,6 +47,5 @@ test_asd.py
 !workers/sqs_listener/__init__.py
 
 google-credentials.json
-iblinkx-service-account.json
 
 db-data/

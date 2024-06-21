@@ -260,3 +260,13 @@ def extract_text_from_image(image_file):
         extracted_data = "Mock extracted data"
     
     return extracted_data
+
+def get_file_data_from_s3(bucket_name, object_key):
+    s3_client = boto3.client('s3')
+    try:
+        file_data = s3_client.get_object(Bucket=bucket_name, Key=object_key)['Body'].read()
+        file_data = file_data.decode()
+    except ClientError as error:
+        logging.error(error)
+        file_data = None
+    return file_data

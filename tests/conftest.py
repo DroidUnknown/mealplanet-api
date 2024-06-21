@@ -8,7 +8,7 @@ load_dotenv(override=True)
 
 from data_migration_management.data_migration_manager import DataMigrationManager
 from models import models, archive_models
-from utils import jqutils, keycloak_utils
+from utils import jqutils, keycloak_utils, jqsecurity
 
 @pytest.fixture(scope="session", autouse=True)
 def flask_app():
@@ -66,6 +66,27 @@ def landscape():
                     one_row["creation_user_id"] = 1
                     query, params = jqutils.jq_prepare_insert_statement(table_name, one_row)
                     conn.execute(query, params)
+
+    # LOAD SERVER KEYS
+    password_protector_key = jqsecurity.read_symmetric_key_from_file('tests/testdata/test-password-protector.key')
+
+    with db_engine.connect() as conn:
+        query = text("""
+            insert into portal_profile_service_secret (key_algorithm, version, key_name, description, symmetric_key, meta_status) 
+            values (:key_algorithm, :version, :key_name, :description, :symmetric_key, :meta_status)
+        """)
+        result = conn.execute(query, key_algorithm='aes', version=1, key_name='password-protector-key',
+                                description='password-protector-key', symmetric_key=password_protector_key, meta_status='active')
+
+    server_token_private_key = jqsecurity.read_key_bytes_from_file('tests/testdata/server-key.private')
+    server_token_public_key = jqsecurity.read_key_bytes_from_file('tests/testdata/server-key.public')
+    with db_engine.connect() as conn:
+        query = text("""
+            insert into portal_profile_service_secret (key_algorithm, version, key_name, description, private_key, public_key, meta_status) 
+            values (:key_algorithm, :version, :key_name, :description, :private_key, :public_key, :meta_status)
+        """)
+        result = conn.execute(query, key_algorithm='rsa', version=1, key_name='token-protector-key', description='token-protector-key',
+                                private_key=server_token_private_key, public_key=server_token_public_key, meta_status='active')
 
 @pytest.fixture(scope="session", autouse=True)
 def content_team_headers():

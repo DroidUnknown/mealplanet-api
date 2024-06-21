@@ -14,7 +14,6 @@ admin_username = os.getenv("KEYCLOAK_ADMIN_USERNAME")
 admin_password = os.getenv("KEYCLOAK_ADMIN_PASSWORD")
 client_uuid = os.getenv("KEYCLOAK_CLIENT_UUID")
 
-
 keycloak_client_openid = None
 keycloak_admin_openid = None
 
@@ -76,7 +75,12 @@ def delete_all_users(exception_list=["codify-admin"]):
         if username not in exception_list:
             disassociate_user_from_policies(user_id)
             keycloak_admin_openid.delete_user(user_id=user_id)
-            
+
+def delete_user(user_id):
+    keycloak_admin_openid = get_keycloak_admin_openid()
+
+    # Delete a user
+    keycloak_admin_openid.delete_user(user_id=user_id)
 
 def create_user(username, password, first_name="", last_name="", email="", enabled=True):
     keycloak_admin_openid = get_keycloak_admin_openid()
@@ -96,6 +100,27 @@ def create_user(username, password, first_name="", last_name="", email="", enabl
     })
     
     return keycloak_user_id
+
+def update_user(user_id, first_name="", last_name="", email=""):
+    keycloak_admin_openid = get_keycloak_admin_openid()
+    
+    keycloak_admin_openid.update_user(user_id, {
+        "firstName": first_name,
+        "lastName": last_name,
+        "email": email
+    })
+
+def update_user_password(user_id, password):
+    keycloak_admin_openid = get_keycloak_admin_openid()
+    
+    keycloak_admin_openid.set_user_password(user_id, password, temporary=False)
+
+def get_user(user_id):
+    keycloak_admin_openid = get_keycloak_admin_openid()
+    
+    user = keycloak_admin_openid.get_user(user_id)
+    
+    return user
 
 def delete_all_policies():
     keycloak_admin_openid = get_keycloak_admin_openid()

@@ -28,7 +28,7 @@ class MetaDataColumn(Column):
 
 class Model(Base):
     __abstract__ = True
-    __bind_key__ = 'payment_api'
+    __bind_key__ = 'portal_profile_service'
 
     meta_status = MetaDataColumn(String(16), default=text("active"))  # active, inactive, deleted
     tags = MetaDataColumn(JSON)
@@ -42,6 +42,19 @@ class Model(Base):
     insertion_timestamp = MetaDataColumn(DATETIME(fsp=6), nullable=False, server_default=text("CURRENT_TIMESTAMP(6)"))
     modification_timestamp = MetaDataColumn(DATETIME(fsp=6), nullable=False, server_default=text("CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)"))
     deletion_timestamp = MetaDataColumn(DATETIME(fsp=6))
+
+class PaymentApiSecret(Model):
+    __tablename__ = 'portal_profile_service_secret'
+
+    portal_profile_service_secret_id = Column(Integer, primary_key=True)
+    key_algorithm = Column(String(64))
+    version = Column(Integer)
+    key_name = Column(String(64))
+    description = Column(String(128))
+    private_key = Column(String(6000))
+    public_key = Column(String(3000))
+    symmetric_key = Column(String(3000))
+    data = Column(String(2048))
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -120,13 +133,17 @@ class User(Model):
     user_id = Column(Integer, primary_key=True)
     keycloak_user_id = Column(String(256))
 
+    username = Column(String(128))
     first_names_en = Column(String(128))
     last_name_en = Column(String(128))
     first_names_ar = Column(String(128))
     last_name_ar = Column(String(128))
-
+    
+    password = Column(String(128))
     phone_nr = Column(String(32))
     email = Column(String(128))
+
+    all_brand_profile_access_p = Column(Boolean)
 
 class UserImageMap(Model):
     __tablename__ = 'user_image_map'
@@ -146,12 +163,47 @@ class UserRoleMap(Model):
     user_id = Column(Integer)
     role_id = Column(Integer)
 
+class UserBrandProfileModuleAccess(Model):
+    __tablename__ = 'user_brand_profile_module_access'
+    
+    user_brand_profile_module_access_id = Column(Integer, primary_key=True)
+    
+    user_id = Column(Integer)
+    brand_profile_id = Column(Integer)
+    module_access_id = Column(Integer)
+
+class OneTimePassword(Model):
+    __tablename__ = 'one_time_password'
+
+    one_time_password_id = Column(Integer, primary_key=True)
+    user_id = Column(Integer)
+    
+    intent = Column(String(32))  # user_signup, user_forgot_password
+    contact_method = Column(String(32))  # email, sms
+
+    otp = Column(String(128))
+    otp_request_count = Column(Integer)
+    
+    otp_requested_timestamp = Column(DATETIME(fsp=6))
+    otp_expiry_timestamp = Column(DATETIME(fsp=6))
+    otp_verified_timestamp = Column(DATETIME(fsp=6))
+
+    otp_status = Column(String(32))  # pending, sent, verified, expired
+
 class Module(Model):
     __tablename__ = 'module'
     
     module_id = Column(Integer, primary_key=True)
     module_name = Column(String(128)) # menu-management, kitchen-provider, delivery-provider
     module_description = Column(String(128))
+
+class ModuleAccess(Model):
+    __tablename__ = 'module_access'
+    
+    module_access_id = Column(Integer, primary_key=True)
+    
+    module_id = Column(Integer)
+    access_level = Column(String(32)) #admin, content, member
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -200,3 +252,15 @@ class MenuGroup(Model):
     menu_group_name = Column(String(128))
 
 # ----------------------------------------------------------------------------------------------------------------------
+class EmailTemplate(Model):
+    __tablename__ = 'email_template'
+
+    email_template_id = Column(Integer, primary_key=True)
+    email_template_name = Column(String(128))
+
+    email_subject = Column(String(128))
+    email_template_type = Column(String(128)) # e.g. user_signup, forgot_password etc.
+    email_template_format = Column(String(128)) # html, txt
+
+    bucket_name = Column(String(128))
+    object_key = Column(String(128))
