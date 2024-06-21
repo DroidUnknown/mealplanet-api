@@ -1,11 +1,15 @@
 import json
+import pytest
+
+from sqlalchemy import text
+from utils import jqutils
 
 base_api_url = "/api"
 
 ##########################
 # TEST - BRAND PROFILE
 ########################## 
-def do_check_brand_profile_availability(client, headers, payload):
+def do_check_brand_profile_name_availability(client, headers, payload):
     """
     CHECK BRAND PROFILE AVAILABILITY
     """
@@ -65,10 +69,29 @@ def do_bulk_update_brand_profile_plan(client, headers, brand_profile_id, payload
     return response
 
 ##########################
-# TEST CASES
+# GLOBALS
 ########################## 
 brand_profile_id = None
 
+##########################
+# FIXTURES
+##########################
+@pytest.fixture(scope="module", autouse=True)
+def existing_brand_profile_count():
+    db_engine = jqutils.get_db_engine()
+    
+    query = text("""
+        SELECT COUNT(1) AS cnt
+        FROM brand_profile
+        WHERE meta_status = :meta_status
+    """)
+    with db_engine.connect() as conn:
+        result = conn.execute(query, meta_status="active").fetchone()
+        return result["cnt"]
+
+##########################
+# TEST CASES
+########################## 
 def test_add_brand_profile(client, content_team_headers):
     """
     Test: Add Brand Profile
@@ -78,7 +101,8 @@ def test_add_brand_profile(client, content_team_headers):
         "external_brand_profile_id": "1",
         "plan_list": [
             {
-                "plan_id": 1,
+                "plan_name": "breakfast + lunch + dinner",
+                "external_plan_id": "1",
                 "menu_group_id_list": [1, 2]
             }
         ]
@@ -93,6 +117,14 @@ def test_add_brand_profile(client, content_team_headers):
     global brand_profile_id
     response_data = response_json["data"]
     brand_profile_id = response_data["brand_profile_id"]
+    
+    # validate that same brand profile name cannot be added again
+    response = do_add_brand_profile(client, content_team_headers, payload)
+    assert response.status_code == 200
+    
+    response_json = response.get_json()
+    assert response_json["status"] == "failed"
+    assert response_json["message"] == "Brand profile name already in use."
 
 def test_brand_profile_availability(client, content_team_headers):
     """
@@ -101,11 +133,11 @@ def test_brand_profile_availability(client, content_team_headers):
     payload = {
         "brand_profile_name": "qoqo"
     }
-    response = do_check_brand_profile_availability(client, content_team_headers, payload)
+    response = do_check_brand_profile_name_availability(client, content_team_headers, payload)
     assert response.status_code == 200
     response_json = json.loads(response.data)
     assert response_json["status"] == "successful"
-    assert response_json["action"] == "check_brand_profile_availability"
+    assert response_json["action"] == "check_brand_profile_name_availability"
 
     response_data = response_json["data"]
     assert response_data["availability_p"] == 0
@@ -164,27 +196,6 @@ def test_get_brand_profile_list(client, content_team_headers):
     assert response_json["action"] == "get_brand_profiles"
     response_data = response_json["data"]
     assert len(response_data) == 1, "Brand Profile List should have 1 item."
-
-def test_delete_brand_profile(client, content_team_headers):
-    """
-    Test: Delete Brand Profile
-    """
-    response = do_delete_brand_profile(client, content_team_headers, brand_profile_id)
-    assert response.status_code == 200
-    response_json = json.loads(response.data)
-    assert response_json["status"] == "successful"
-    assert response_json["action"] == "delete_brand_profile"
-
-    """
-    Test: Get Brand Profile List
-    """
-    response = do_get_brand_profile_list(client, content_team_headers)
-    assert response.status_code == 200
-    response_json = json.loads(response.data)
-    assert response_json["status"] == "successful"
-    assert response_json["action"] == "get_brand_profiles"
-    response_data = response_json["data"]
-    assert len(response_data) == 0, "Brand Profile List should have 0 item."
 
 def test_get_plans_by_brand_profile(client, content_team_headers):
     """
@@ -250,3 +261,24 @@ def test_bulk_update_brand_profile_plan(client, content_team_headers):
     # response_json = json.loads(response.data)
     # assert response_json["status"] == "successful"
     # assert response_json["action"] == "bulk_update_brand_profile_plan"
+
+def test_delete_brand_profile(client, content_team_headers):
+    """
+    Test: Delete Brand Profile
+    """
+    response = do_delete_brand_profile(client, content_team_headers, brand_profile_id)
+    assert response.status_code == 200
+    response_json = json.loads(response.data)
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "delete_brand_profile"
+
+    """
+    Test: Get Brand Profile List
+    """
+    response = do_get_brand_profile_list(client, content_team_headers)
+    assert response.status_code == 200
+    response_json = json.loads(response.data)
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "get_brand_profiles"
+    response_data = response_json["data"]
+    assert len(response_data) == 0, "Brand Profile List should have 0 item."
