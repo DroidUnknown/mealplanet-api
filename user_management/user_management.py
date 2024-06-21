@@ -1,15 +1,12 @@
 import os
-import json
-import traceback
-import logging
-import uuid
 import re
+import uuid
+import logging
 
-from datetime import datetime, timedelta
 from sqlalchemy import text
+from datetime import datetime, timedelta
 from flask import Blueprint, request, jsonify, g
-from utils import keycloak_utils, jqutils, jqimage_uploader, aws_utils, jqsecurity
-from data_migration_management.data_migration_manager import DataMigrationManager
+from utils import keycloak_utils, jqutils, jqimage_uploader, aws_utils
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(format='%(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -398,10 +395,6 @@ def verify_user_otp(user_id):
     intent = request_json["intent"]
 
     db_engine = jqutils.get_db_engine()
-    
-    # encrypt password and update user
-    password_manager = DataMigrationManager()
-    encrypted_password = password_manager.encrypt_password(password)
 
     db_engine = jqutils.get_db_engine()
     
@@ -467,12 +460,11 @@ def verify_user_otp(user_id):
                     query = text("""
                         UPDATE user
                         SET keycloak_user_id = :keycloak_user_id,
-                        username = :username,
-                        password = :password
+                        username = :username
                         WHERE user_id = :user_id
                     """)
                     with db_engine.connect() as conn:
-                        conn.execute(query, keycloak_user_id=keycloak_user_id, username=username, password=encrypted_password, user_id=user_id)
+                        conn.execute(query, keycloak_user_id=keycloak_user_id, username=username, user_id=user_id)
 
                     response_body = {
                         "data": {
@@ -1007,7 +999,7 @@ def initiate_forgot_password_request():
     
     # check if user exists
     query = text("""
-        SELECT user_id, username, password, email
+        SELECT user_id, username, keycloak_user_id, email
         FROM user
         WHERE username = :username
         AND email = :email
@@ -1026,11 +1018,11 @@ def initiate_forgot_password_request():
     
     user_id = result["user_id"]
     username = result["username"]
-    encoded_password = result["password"]
+    keycloak_user_id = result["keycloak_user_id"]
     email = result["email"]
     contact_method = "email"
 
-    if encoded_password is None:
+    if not keycloak_user_id:
         response_body = {
             "data": {},
             "action": "initiate_forgot_password_request",
@@ -1199,20 +1191,6 @@ def reset_user_password():
             "message": "OTP not valid or already processed",
         }
         return jsonify(response_body)
-    
-    # encrypt password and update user
-    password_manager = DataMigrationManager()
-    encrypted_password = password_manager.encrypt_password(password)
-
-    query = text("""
-        UPDATE user
-        SET password = :password
-        WHERE user_id = :user_id
-        AND meta_status = :meta_status
-    """)
-    with db_engine.connect() as conn:
-        result = conn.execute(query, password=encrypted_password, user_id=user_id, meta_status='active').rowcount
-        assert result, "password update error"
     
     # update otp status
     otp_status = 'verified'

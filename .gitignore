@@ -19,15 +19,6 @@ lab.py
 
 # A folder for saving anything you don't want committed
 tmp/
-my_lab.py
-
-# All tests ending with _lab.py won't be committed.
-# Developers are encrouraged to write their own tests eg. test_mohsin_lab.py
-tests/*_lab.py
-
-tests/testdata/server-key.private
-tests/testdata/server-key.public
-test-password-protector.key
 
 ####Git history ignored while making a commit####
 .history/

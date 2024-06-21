@@ -2,7 +2,6 @@ import json
 
 from utils import jqutils
 from sqlalchemy import text
-from data_migration_management.data_migration_manager import DataMigrationManager
 
 from tests import test_brand_profile
 
@@ -369,17 +368,6 @@ def test_reset_password_using_otp_successful(client, content_team_headers):
         assert result, "failed to get otp"
         otp = result["otp"]
     
-    query = text("""
-        SELECT password
-        FROM user
-        WHERE user_id = :user_id
-        AND meta_status = :meta_status
-    """)
-    with db_engine.connect() as conn:
-        result = conn.execute(query, user_id=user_id, meta_status='active').fetchone()
-        assert result, "failed to get password"
-        old_password = result["password"]
-    
     payload = {
         "otp": otp,
         "password": "654321"
@@ -392,24 +380,6 @@ def test_reset_password_using_otp_successful(client, content_team_headers):
 
     data = response_json["data"]
     assert data["user_id"] == user_id
-
-    query = text("""
-        SELECT password
-        FROM user
-        WHERE user_id = :user_id
-        AND meta_status = :meta_status
-    """)
-    with db_engine.connect() as conn:
-        result = conn.execute(query, user_id=user_id, meta_status='active').fetchone()
-        assert result, "failed to get password"
-        new_password = result["password"]
-    
-    assert old_password != new_password, "password should've been updated"
-
-    password_manager = DataMigrationManager()
-    decrypted_password = password_manager.decrypt_password(new_password.encode())
-
-    assert decrypted_password.decode() == payload["password"], "password should've been updated to the new one"
 
 def test_delete_user(client, content_team_headers):
     global user_id
