@@ -211,12 +211,14 @@ def delete_menu_group(menu_group_id):
         
         existing_meta_status = result["meta_status"]
         if existing_meta_status != "deleted":
+            action_timestamp = jqutils.get_utc_datetime()
+            
             query = text("""
                 UPDATE menu_group
-                SET meta_status = :meta_status, deletion_user_id = :deletion_user_id
+                SET meta_status = :meta_status, deletion_user_id = :deletion_user_id, deletion_timestamp = :deletion_timestamp
                 WHERE menu_group_id = :menu_group_id
             """)
-            result = conn.execute(query, menu_group_id=menu_group_id, deletion_user_id=g.user_id, meta_status="deleted").rowcount
+            result = conn.execute(query, menu_group_id=menu_group_id, deletion_user_id=g.user_id, deletion_timestamp=action_timestamp, meta_status="deleted").rowcount
             assert result, f"menu_group with id {menu_group_id} not found"
    
     response_body = {
