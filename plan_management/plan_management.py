@@ -304,6 +304,7 @@ def get_menu_groups_by_plan(plan_id):
     
     response_body = {
         "data": {
+            "plan_id": plan_id,
             "menu_group_list": menu_group_list
         },
         "action": "get_menu_groups_by_plan",
