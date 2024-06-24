@@ -54,6 +54,13 @@ def do_get_menu_groups_by_plan(client, content_team_headers, plan_id):
     response = client.get(base_api_url + f"/plan/{plan_id}/menu-groups", headers=content_team_headers)
     return response
 
+def do_get_menu_groups_by_plan(client, content_team_headers, plan_id):
+    """
+    Get menu groups by plan
+    """
+    response = client.get(base_api_url + f"/plan/{plan_id}/menu-groups", headers=content_team_headers)
+    return response
+
 def do_delete_plan(client, content_team_headers, plan_id):
     """
     Delete plan
@@ -142,6 +149,38 @@ def test_get_plan(client, content_team_headers):
     assert response_data["brand_profile_id"] == brand_profile_id
     assert len(response_data["menu_group_list"]) == 2
 
+def test_get_menu_groups_by_plan(client, content_team_headers, existing_plan_count):
+    """
+    Test: Get Menu Groups by Plan
+    """
+    response = do_get_menu_groups_by_plan(client, content_team_headers, plan_id)
+    assert response.status_code == 200
+    response_json = json.loads(response.data)
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "get_menu_groups_by_plan"
+
+    response_data = response_json["data"]
+    expected_plan_count = existing_plan_count + 1
+    assert len(response_data) == expected_plan_count, f"Menu groups list should have {expected_plan_count} items."
+
+def test_get_plans(client, content_team_headers, existing_plan_count):
+    """
+    Test: Get plans
+    """
+    brand_profile_id_list = [brand_profile_id]
+    response = do_get_plans(client, content_team_headers, brand_profile_id_list)
+    assert response.status_code == 200
+    response_json = json.loads(response.data)
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "get_plans"
+
+    response_data = response_json["data"]
+    assert len(response_data) == 1, f"Brand profiles list should be only have 1 item."
+    
+    brand_profile = response_data[0]
+    expected_plan_count = existing_plan_count + 1
+    assert len(brand_profile["plan_list"]) == expected_plan_count, f"Plan list should have {expected_plan_count} items."
+
 def test_update_plan(client, content_team_headers):
     """
     Test: Update Plan
@@ -169,24 +208,6 @@ def test_update_plan(client, content_team_headers):
 
     response_data = response_json["data"]
     assert response_data["plan_name"] == "Breakfast"
-
-def test_get_plans(client, content_team_headers, existing_plan_count):
-    """
-    Test: Get plans
-    """
-    brand_profile_id_list = [brand_profile_id]
-    response = do_get_plans(client, content_team_headers, brand_profile_id_list)
-    assert response.status_code == 200
-    response_json = json.loads(response.data)
-    assert response_json["status"] == "successful"
-    assert response_json["action"] == "get_plans"
-
-    response_data = response_json["data"]
-    assert len(response_data) == 1, f"Brand profiles list should be only have 1 item."
-    
-    brand_profile = response_data[0]
-    expected_plan_count = existing_plan_count + 1
-    assert len(brand_profile["plan_list"]) == expected_plan_count, f"Plan list should have {expected_plan_count} items."
 
 def test_delete_plan(client, content_team_headers, existing_plan_count):
     """

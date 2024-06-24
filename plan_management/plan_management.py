@@ -288,17 +288,15 @@ def get_menu_groups_by_plan(plan_id):
     db_engine = jqutils.get_db_engine()
     
     query = text("""
-        SELECT mg.menu_group_id, mg.menu_group_name, mg.external_menu_group_id
+        SELECT pmgm.plan_menu_group_map_id, mg.menu_group_id, mg.menu_group_name, mg.external_menu_group_id
         FROM (
-            SELECT brand_profile_plan_map_id
-            FROM brand_profile_plan_map
+            SELECT plan_menu_group_map_id, menu_group_id
+            FROM plan_menu_group_map
             WHERE plan_id = :plan_id
             AND meta_status = :meta_status
-        ) bppm
-        JOIN brand_profile_plan_menu_group_map bpmgm ON bppm.brand_profile_plan_map_id = bpmgm.brand_profile_plan_map_id
-        JOIN menu_group mg ON bpmgm.menu_group_id = mg.menu_group_id
-        WHERE bpmgm.meta_status = :meta_status
-        AND mg.meta_status = :meta_status
+        ) pmgm
+        JOIN menu_group mg ON pmgm.menu_group_id = mg.menu_group_id
+        WHERE mg.meta_status = :meta_status
     """)
     with db_engine.connect() as conn:
         results = conn.execute(query, plan_id=plan_id, meta_status="active").fetchall()
