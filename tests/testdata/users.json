@@ -14,7 +14,7 @@
     },
     {
         "first_name": "basiligo",
-        "last_name": "",
+        "last_name": "owner",
         "phone_nr": "+9714812785",
         "email": "basiligo@something.com",
         "username": "basiligo",
@@ -47,5 +47,14 @@
             "basiligo:1:delivery-provider:member",
             "healthy-cup:2:delivery-provider:member"
         ]
+    },
+    {
+        "first_name": "test",
+        "last_name": "user",
+        "phone_nr": "+9715245444",
+        "email": "test.user@something.com",
+        "username": "test.user",
+        "password": "test123",
+        "allowed_resource_list": []
     }
 ]

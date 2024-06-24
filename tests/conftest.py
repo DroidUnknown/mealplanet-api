@@ -47,15 +47,17 @@ def landscape():
             user_list = json.load(fp)
 
             for one_user in user_list:
-                first_name = one_user['first_name']
-                last_name = one_user['last_name']
-                phone_nr = one_user['phone_nr']
-                email = one_user['email']
-                username = one_user['username']
-                password = one_user['password']
+                userdata = {
+                    "first_name": one_user['first_name'],
+                    "last_name": one_user['last_name'],
+                    "phone_nr": one_user['phone_nr'],
+                    "email": one_user['email'],
+                    "username": one_user['username'],
+                    "password": one_user['password']
+                }
                 allowed_resource_list = one_user['allowed_resource_list']
                 
-                user_id, policy_id, keycloak_user_id = create_user_on_keycloak_and_database(conn, username, password, first_name, last_name, email, phone_nr, allowed_resource_list=allowed_resource_list)
+                user_id, policy_id, keycloak_user_id = create_user_on_keycloak_and_database(conn, userdata, allowed_resource_list=allowed_resource_list)
         
         with open('tests/testdata/landscape.json', 'r') as fp:
             data = json.load(fp)
@@ -73,18 +75,21 @@ def content_team_headers():
         
     }
 
-def create_user_on_keycloak_and_database(conn, username, password, first_name, last_name, email, phone_nr, allowed_resource_list=[]):
+def create_user_on_keycloak_and_database(conn, userdata, allowed_resource_list=[]):
+    username = userdata["username"]
     
     # create user on keycloak
-    keycloak_user_id = keycloak_utils.create_user(username, password, first_name, last_name, email)
+    keycloak_user_id = keycloak_utils.create_user(userdata["username"], userdata["password"], userdata["first_name"], userdata["last_name"], userdata["email"])
     
     # create user in database
     user_dict = {
         "keycloak_user_id": keycloak_user_id,
-        "first_names_en": first_name,
-        "last_name_en": last_name,
-        "phone_nr": phone_nr,
-        "email": email,
+        "first_names_en": userdata["first_name"],
+        "last_name_en": userdata["last_name"],
+        "phone_nr": userdata["phone_nr"],
+        "email": userdata["email"],
+        "meta_status": "active",
+        "creation_user_id": 1,
     }
     query, params = jqutils.jq_prepare_insert_statement('user', user_dict)
     user_id = conn.execute(query, params).lastrowid
