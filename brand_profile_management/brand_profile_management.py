@@ -149,7 +149,7 @@ def get_brand_profile(brand_profile_id):
             image_object_key = result["image_object_key"]
             
             assert image_bucket_name and image_object_key, "unable to generate image_url"
-            image_url = jqutils.get_s3_image_url(image_bucket_name, image_object_key)
+            image_url = jqutils.create_presigned_get_url(image_bucket_name, image_object_key)
             
             brand_profile_detail["brand_profile_image_list"].append({
                 "brand_profile_image_id": brand_profile_image_id,
