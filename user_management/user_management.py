@@ -706,6 +706,37 @@ def verify_user_otp(user_id):
         }
         return jsonify(response_body)
 
+@user_management_blueprint.route('/user/<user_id>/resend-otp', methods=['POST'])
+def resend_user_otp(user_id):
+    user_id = int(user_id)
+    
+    request_json = request.get_json()
+    intent = request_json["intent"]
+        
+    # resend email to user for completing signup
+    success, message = user_ninja.resend_one_time_password(user_id, intent, g.user_id)
+    
+    if not success:
+        response_body = {
+            "data": {
+                "user_id": user_id
+            },
+            "action": "resend_user_otp",
+            "status": "failed",
+            "message": message
+        }
+    else:
+        response_body = {
+            "data": {
+                "user_id": user_id,
+                "one_time_password_id": message
+            },
+            "action": "resend_user_otp",
+            "status": "successful"
+        }
+    
+    return jsonify(response_body)
+
 # Forgot / Reset password
 #--------------------------------------------
 @user_management_blueprint.route('/forgot-password', methods = ['POST'])

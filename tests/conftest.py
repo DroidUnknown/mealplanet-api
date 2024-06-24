@@ -37,6 +37,9 @@ def landscape():
     migrator = DataMigrationManager('testportalprofileservice', debug=True)
     migrator.run()
     
+    assert os.getenv("MYSQL_IP_ADDRESS") in ["localhost", "127.0.0.1"], "tests can only be run locally"
+    assert "127.0.0.1" in os.getenv("KEYCLOAK_SERVER_URL"), "tests can only be run locally"
+    
     # delete all users from keycloak
     keycloak_utils.delete_all_users()
     

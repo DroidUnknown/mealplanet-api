@@ -55,6 +55,13 @@ def do_verify_user_otp(client, headers, user_id, payload):
     response = client.post(base_api_url + f"/user/{user_id}/verify-otp", headers=headers, json=payload)
     return response
 
+def do_resend_user_otp(client, headers, user_id, payload):
+    """
+    Resend user otp
+    """
+    response = client.post(base_api_url + f"/user/{user_id}/resend-otp", headers=headers, json=payload)
+    return response
+
 def do_initiate_forgot_password_request(client, headers, payload):
     """
     Initiate forgot password request
@@ -145,6 +152,17 @@ def test_check_username_availability(client, content_team_headers):
     data = response_json["data"]
     assert data["available_p"] == True, "Username should be available"
 
+def test_resend_valid_user_otp(client, content_team_headers):    
+    payload = {
+        "intent": "user_signup"
+    }
+    response = do_resend_user_otp(client, content_team_headers, user_id, payload)
+    assert response.status_code == 200
+    
+    response_json = response.get_json()
+    assert response_json["status"] == "successful", response_json["message"]
+    assert response_json["action"] == "resend_user_otp"
+
 def test_get_user_before_complete_signup(client, content_team_headers):
     global user_id
 
@@ -222,7 +240,7 @@ def test_verify_user_otp(client, content_team_headers):
 
     otp = result["otp"]
     otp_request_count = result["otp_request_count"]
-    assert otp_request_count == 0
+    assert otp_request_count == 1
 
     payload = {
         "username": "john.doe",
@@ -239,6 +257,18 @@ def test_verify_user_otp(client, content_team_headers):
 
     data = response_json["data"]
     assert data["username"]
+
+def test_resend_invalid_user_otp(client, content_team_headers):
+    payload = {
+        "intent": "user_signup"
+    }
+    response = do_resend_user_otp(client, content_team_headers, user_id, payload)
+    assert response.status_code == 200
+    
+    response_json = response.get_json()
+    assert response_json["status"] == "failed"
+    assert response_json["action"] == "resend_user_otp"
+    assert response_json["message"] == "No pending OTP request found"
 
 def test_get_user_after_complete_signup(client, content_team_headers):
     global user_id
