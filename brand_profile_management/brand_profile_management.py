@@ -34,7 +34,9 @@ def add_brand_profile():
     available_p = brand_profile_ninja.check_brand_profile_name_availability(brand_profile_name)
     if not available_p:
         response_body = {
-            "data": {},
+            "data": {
+                "brand_profile_name": brand_profile_name
+            },
             "action": "add_brand_profile",
             "status": "failed",
             "message": "Brand profile name already in use."
@@ -175,7 +177,9 @@ def update_brand_profile(brand_profile_id):
     available_p = brand_profile_ninja.check_brand_profile_name_availability(brand_profile_name, brand_profile_id)
     if not available_p:
         response_body = {
-            "data": {},
+            "data": {
+                "brand_profile_name": brand_profile_name
+            },
             "action": "update_brand_profile",
             "status": "failed",
             "message": "brand profile name already in use"
@@ -219,7 +223,9 @@ def update_brand_profile(brand_profile_id):
                 available_p = plan_ninja.check_plan_name_availability(plan_name, brand_profile_id)
                 if not available_p:
                     response_body = {
-                        "data": {},
+                        "data": {
+                            "plan_name": plan_name
+                        },
                         "action": "update_brand_profile",
                         "status": "failed",
                         "message": "plan name already in use"

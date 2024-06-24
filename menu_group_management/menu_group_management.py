@@ -32,7 +32,9 @@ def add_menu_group():
     availabile_p = menu_group_ninja.check_menu_group_name_availability(menu_group_name)
     if not availabile_p:
         response_body = {
-            "data": {},
+            "data": {
+                "menu_group_name": menu_group_name
+            },
             "action": "add_menu_group",
             "status": "failed",
             "message": "Menu group name already in use."
@@ -82,7 +84,9 @@ def bulk_add_menu_groups():
         availabile_p = menu_group_ninja.check_menu_group_name_availability(menu_group_name)
         if not availabile_p:
             response_body = {
-                "data": {},
+                "data": {
+                    "menu_group_name": menu_group_name
+                },
                 "action": "bulk_add_menu_groups",
                 "status": "failed",
                 "message": "Menu group name already in use."
@@ -168,7 +172,9 @@ def update_menu_group(menu_group_id):
     availabile_p = menu_group_ninja.check_menu_group_name_availability(menu_group_name, menu_group_id)
     if not availabile_p:
         response_body = {
-            "data": {},
+            "data": {
+                "menu_group_name": menu_group_name
+            },
             "action": "update_menu_group",
             "status": "failed",
             "message": "Menu group name already in use."

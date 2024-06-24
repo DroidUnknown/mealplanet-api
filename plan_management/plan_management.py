@@ -36,7 +36,9 @@ def add_plan():
     availabile_p = plan_ninja.check_plan_name_availability(plan_name, brand_profile_id)
     if not availabile_p:
         response_body = {
-            "data": {},
+            "data": {
+                "plan_name": plan_name
+            },
             "action": "add_plan",
             "status": "failed",
             "message": "Plan name already in use."
@@ -107,7 +109,9 @@ def update_plan(plan_id):
     availabile_p = plan_ninja.check_plan_name_availability(plan_name, brand_profile_id, plan_id)
     if not availabile_p:
         response_body = {
-            "data": {},
+            "data": {
+                "plan_name": plan_name
+            },
             "action": "update_plan",
             "status": "failed",
             "message": "Plan name already in use."
