@@ -47,7 +47,7 @@ def add_plan():
 
     with db_engine.connect() as conn:
         query = text("""
-            INSERT INTO PLAN (brand_profile_id, plan_name, external_plan_id, meta_status, creation_user_id)
+            INSERT INTO plan (brand_profile_id, plan_name, external_plan_id, meta_status, creation_user_id)
             VALUES (:brand_profile_id, :plan_name, :external_plan_id, :meta_status, :creation_user_id)
         """)
         plan_id = conn.execute(query, brand_profile_id=brand_profile_id, plan_name=plan_name, external_plan_id=external_plan_id,

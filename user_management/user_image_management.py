@@ -48,8 +48,8 @@ def add_user_image():
     db_engine = jqutils.get_db_engine()
 
     query = text("""
-        INSERT INTO user_image(user_id, image_type, image_bucket_name, image_object_key, meta_status, creation_user_id)
-        VALUES(:user_id, :image_type, :image_bucket_name, :image_object_key, :meta_status, :creation_user_id)
+        INSERT INTO user_image (user_id, image_type, image_bucket_name, image_object_key, meta_status, creation_user_id)
+        VALUES (:user_id, :image_type, :image_bucket_name, :image_object_key, :meta_status, :creation_user_id)
     """)
     with db_engine.connect() as conn:
         user_image_id = conn.execute(query, user_id=user_id, image_type=image_type, image_bucket_name=image_bucket_name, image_object_key=image_object_key, meta_status='active', creation_user_id=g.user_id).lastrowid

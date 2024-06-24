@@ -48,8 +48,8 @@ def add_brand_profile_image():
     db_engine = jqutils.get_db_engine()
 
     query = text("""
-        INSERT INTO brand_profile_image(brand_profile_id, image_type, image_bucket_name, image_object_key, meta_status, creation_user_id)
-        VALUES(:brand_profile_id, :image_type, :image_bucket_name, :image_object_key, :meta_status, :creation_user_id)
+        INSERT INTO brand_profile_image (brand_profile_id, image_type, image_bucket_name, image_object_key, meta_status, creation_user_id)
+        VALUES (:brand_profile_id, :image_type, :image_bucket_name, :image_object_key, :meta_status, :creation_user_id)
     """)
     with db_engine.connect() as conn:
         brand_profile_image_id = conn.execute(query, brand_profile_id=brand_profile_id, image_type=image_type, image_bucket_name=image_bucket_name, image_object_key=image_object_key, meta_status='active', creation_user_id=g.user_id).lastrowid

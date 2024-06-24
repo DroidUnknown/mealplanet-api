@@ -46,8 +46,8 @@ def add_user():
         
         # create user
         query = text("""
-            INSERT INTO user(first_names_en, last_name_en, first_names_ar, last_name_ar, phone_nr, email, all_brand_profile_access_p, meta_status, creation_user_id)
-            VALUES(:first_names_en, :last_name_en, :first_names_ar, :last_name_ar, :phone_nr, :email, :all_brand_profile_access_p, :meta_status, :creation_user_id)
+            INSERT INTO user (first_names_en, last_name_en, first_names_ar, last_name_ar, phone_nr, email, all_brand_profile_access_p, meta_status, creation_user_id)
+            VALUES (:first_names_en, :last_name_en, :first_names_ar, :last_name_ar, :phone_nr, :email, :all_brand_profile_access_p, :meta_status, :creation_user_id)
         """)
         user_id = conn.execute(query, first_names_en=first_names_en, last_name_en=last_name_en, first_names_ar=first_names_ar, last_name_ar=last_name_ar,
                     phone_nr=phone_nr, email=email, all_brand_profile_access_p=all_brand_profile_access_p, meta_status="active", creation_user_id=g.user_id).lastrowid
@@ -62,7 +62,7 @@ def add_user():
             query_params = query_params[:-1]
             
             query = text(f"""
-                INSERT INTO user_role_map(user_id, role_id, meta_status, creation_user_id)
+                INSERT INTO user_role_map (user_id, role_id, meta_status, creation_user_id)
                 VALUES {query_params}
             """)
             results = conn.execute(query).rowcount
@@ -78,7 +78,7 @@ def add_user():
                 query_params = query_params[:-1]
                 
                 query = text(f"""
-                    INSERT INTO user_brand_profile_module_access(user_id, brand_profile_id, module_access_id, meta_status, creation_user_id)
+                    INSERT INTO user_brand_profile_module_access (user_id, brand_profile_id, module_access_id, meta_status, creation_user_id)
                     VALUES {query_params}
                 """)
                 results = conn.execute(query).rowcount
@@ -98,7 +98,7 @@ def add_user():
                 query_params = query_params[:-1]
                 
                 query = text(f"""
-                    INSERT INTO user_brand_profile_module_access(user_id, brand_profile_id, module_access_id, meta_status, creation_user_id)
+                    INSERT INTO user_brand_profile_module_access (user_id, brand_profile_id, module_access_id, meta_status, creation_user_id)
                     VALUES {query_params}
                 """)
                 results = conn.execute(query).rowcount
@@ -512,6 +512,7 @@ def delete_user(user_id):
                 keycloak_utils.disassociate_user_from_policies(keycloak_user_id)
                 keycloak_utils.delete_user(keycloak_user_id)
                 
+                # Remove keycloak id from database to prevent re-deletion on keycloak
                 query = text("""
                     UPDATE user
                     SET keycloak_user_id = :keycloak_user_id,

@@ -169,7 +169,7 @@ def update_menu_group(menu_group_id):
     if not availabile_p:
         response_body = {
             "data": {},
-            "action": "add_menu_group",
+            "action": "update_menu_group",
             "status": "failed",
             "message": "Menu group name already in use."
         }

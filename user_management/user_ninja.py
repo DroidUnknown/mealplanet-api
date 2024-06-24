@@ -47,11 +47,11 @@ def send_user_signup_email(userdata, creation_user_id):
     db_engine = jqutils.get_db_engine()
 
     query = text("""
-        INSERT INTO one_time_password(
+        INSERT INTO one_time_password (
             user_id, intent, contact_method, otp, otp_request_count, otp_requested_timestamp,
             otp_expiry_timestamp, otp_status, meta_status, creation_user_id
         )
-        VALUES(
+        VALUES (
             :user_id, :intent, :contact_method, :otp, :otp_request_count, :otp_requested_timestamp,
             :otp_expiry_timestamp, :otp_status, :meta_status, :creation_user_id
         )
