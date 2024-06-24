@@ -240,20 +240,13 @@ def update_brand_profile(brand_profile_id):
             else:
                 plan_ninja.update_plan(plan_id, plan_name, external_plan_id, menu_group_id_list, g.user_id)
         
-        query_params = ""
+        # Add new plans to the brand_profile
         for one_plan in plan_list_to_be_added:
             plan_name = one_plan["plan_name"]
             external_plan_id = one_plan["external_plan_id"]
-            query_params += f"({brand_profile_id}, '{one_plan['plan_name']}', '{one_plan['external_plan_id']}', 'active', {g.user_id}),"
-        
-        if query_params:
-            query_params = query_params[:-1]
-            query = text(f"""
-                INSERT INTO plan (brand_profile_id, plan_name, external_plan_id, meta_status, creation_user_id)
-                VALUES {query_params}
-            """)
-            results = conn.execute(query).rowcount
-            assert results == len(plan_list_to_be_added), "unable to create new plans"
+            menu_group_id_list = one_plan["menu_group_id_list"]
+            plan_id = plan_ninja.add_plan(brand_profile_id, plan_name, external_plan_id, menu_group_id_list, g.user_id)
+            assert plan_id, f"unable to create plan_id for plan_name: {plan_name}"
         
         # Delete plans that are not in the plan_list anymore
         expected_plan_id_list = [one_plan["plan_id"] for one_plan in plan_list if one_plan["plan_id"] is not None]
