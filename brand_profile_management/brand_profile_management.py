@@ -259,20 +259,14 @@ def update_brand_profile(brand_profile_id):
         expected_plan_id_list = [one_plan["plan_id"] for one_plan in plan_list if one_plan["plan_id"] is not None]
         plan_id_list_to_be_deleted = list(set(existing_plan_id_list) - set(expected_plan_id_list))
         
-        print(expected_plan_id_list)
-        print(existing_plan_id_list)
-        
         if plan_id_list_to_be_deleted:
             query = text("""
-                UPDATE plan_menu_group_map
+                UPDATE plan
                 SET meta_status = :meta_status, deletion_user_id = :deletion_user_id, deletion_timestamp = :deletion_timestamp
                 WHERE plan_id IN :plan_id_list
             """)
             result = conn.execute(query, meta_status="deleted", deletion_user_id=g.user_id, deletion_timestamp=jqutils.get_utc_datetime(),
                             plan_id_list=plan_id_list_to_be_deleted).rowcount
-            
-            print(result)
-            print(len(plan_id_list_to_be_deleted))
             assert result == len(plan_id_list_to_be_deleted), "unable to delete plan_menu_group_map"
 
     response_body = {
