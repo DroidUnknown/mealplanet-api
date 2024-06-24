@@ -207,7 +207,7 @@ def update_brand_profile(brand_profile_id):
         results = conn.execute(query, brand_profile_id=brand_profile_id, meta_status="active").fetchall()
         existing_plan_id_list = [row["plan_id"] for row in results]
         
-        # figure out plan_list to be added, updated and deleted
+        # figure out plan_list to be added or updated
         plan_list_to_be_added = []
         for one_plan in plan_list:
             plan_id = one_plan["plan_id"]
@@ -228,11 +228,30 @@ def update_brand_profile(brand_profile_id):
         for one_plan in plan_list_to_be_added:
             plan_name = one_plan["plan_name"]
             external_plan_id = one_plan["external_plan_id"]
-            query_params += f"({brand_profile_id}, '{one_plan['plan_name']}', '{one_plan['external_plan_id']}', 'active', {g.user_id}),"    
+            query_params += f"({brand_profile_id}, '{one_plan['plan_name']}', '{one_plan['external_plan_id']}', 'active', {g.user_id}),"
         
-        # figure out plan_list to be deleted
+        if query_params:
+            query_params = query_params[:-1]
+            query = text(f"""
+                INSERT INTO plan (brand_profile_id, plan_name, external_plan_id, meta_status, creation_user_id)
+                VALUES {query_params}
+            """)
+            results = conn.execute(query).rowcount
+            assert results == len(plan_list_to_be_added), "unable to create new plans"
+        
+        # Delete plans that are not in the plan_list anymore
         expected_plan_id_list = [one_plan["plan_id"] for one_plan in plan_list if one_plan["plan_id"] is not None]
-        plan_list_to_be_deleted = list(set(existing_plan_id_list) - set(expected_plan_id_list))
+        plan_id_list_to_be_deleted = list(set(existing_plan_id_list) - set(expected_plan_id_list))
+        
+        if plan_id_list_to_be_deleted:
+            query = text("""
+                UPDATE plan_menu_group_map
+                SET meta_status = :meta_status, deletion_user_id = :deletion_user_id, deletion_timestamp = :deletion_timestamp
+                WHERE plan_id IN :plan_id_list
+            """)
+            result = conn.execute(query, meta_status="deleted", deletion_user_id=g.user_id, deletion_timestamp=jqutils.get_utc_datetime(),
+                            plan_id_list=plan_id_list_to_be_deleted).rowcount
+            assert result == len(plan_id_list_to_be_deleted), "unable to delete plan_menu_group_map"
 
     response_body = {
         "data": {

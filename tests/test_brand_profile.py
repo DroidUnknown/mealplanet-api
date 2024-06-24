@@ -234,7 +234,7 @@ def test_get_plans_by_brand_profile(client, content_team_headers):
     plan_list = response_data["plan_list"]
     
     assert brand_profile_id
-    assert len(plan_list) == 1, "plan list should have 1 item."
+    assert len(plan_list) == 2, "plan list should have 2 item."
 
 def test_get_plans_by_brand_profile_with_menu_group_info(client, content_team_headers):
     """
@@ -254,7 +254,7 @@ def test_get_plans_by_brand_profile_with_menu_group_info(client, content_team_he
     plan_list = response_data["plan_list"]
     
     assert brand_profile_id
-    assert len(plan_list) == 1, "plan list should have 1 item."
+    assert len(plan_list) == 2, "plan list should have 2 items."
     assert len(plan_list[0]["menu_group_list"]) == 2, "menu group list should have 2 items."
 
 def test_delete_brand_profile(client, content_team_headers, existing_brand_profile_count):
