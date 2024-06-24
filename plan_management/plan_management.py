@@ -232,24 +232,56 @@ def delete_plan(plan_id):
 
 @plan_management_blueprint.route('/plans', methods=['GET'])
 def get_plans():
+    request_args = request.args
+    brand_profile_id_list = request_args.get("brand_profile_id_list")
+    
+    brand_profile_id_filter_statement = ""
+    if brand_profile_id_list:
+        brand_profile_id_list = brand_profile_id_list.split(",")
+        brand_profile_id_filter_statement = "AND brand_profile_id IN :brand_profile_id_list"
+    
     db_engine = jqutils.get_db_engine()
 
-    query = text("""
-        SELECT plan_id, external_plan_id, brand_profile_id, plan_name
-        FROM plan
-        WHERE meta_status = :meta_status
+    query = text(f"""
+        SELECT p.plan_id, p.plan_name, p.external_plan_id, bp.brand_profile_id, bp.brand_profile_name, bp.external_brand_profile_id
+        FROM (
+            SELECT plan_id, plan_name, external_plan_id, brand_profile_id
+            FROM plan
+            WHERE meta_status = :meta_status
+            {brand_profile_id_filter_statement}
+        ) p
+        JOIN brand_profile bp ON p.brand_profile_id = bp.brand_profile_id
+        WHERE bp.meta_status = :meta_status
     """)
     with db_engine.connect() as conn:
-        result = conn.execute(query, meta_status="active").fetchall()
+        results = conn.execute(query, brand_profile_id_list=brand_profile_id_list, meta_status="active").fetchall()
+        
+        brand_profile_id_plan_map = {}
+        for one_plan in results:
+            brand_profile_id = one_plan["brand_profile_id"]
+            
+            if brand_profile_id not in brand_profile_id_plan_map:
+                brand_profile_id_plan_map[brand_profile_id] = {
+                    "brand_profile_id": brand_profile_id,
+                    "brand_profile_name": one_plan["brand_profile_name"],
+                    "external_brand_profile_id": one_plan["external_brand_profile_id"],
+                    "plan_list": []
+                }
+            
+            brand_profile_id_plan_map[brand_profile_id]["plan_list"].append({
+                "plan_id": one_plan["plan_id"],
+                "plan_name": one_plan["plan_name"],
+                "external_plan_id": one_plan["external_plan_id"],
+            })
 
     response_body = {
-        "data": [dict(row) for row in result],
+        "data": brand_profile_id_plan_map.values(),
         "action": "get_plans",
         "status": "successful"
     }
     return jsonify(response_body)
 
-@plan_management_blueprint.route('/plan/<plan_id>/menu-group', methods=['GET'])
+@plan_management_blueprint.route('/plan/<plan_id>/menu-groups', methods=['GET'])
 def get_menu_groups_by_plan(plan_id):
     menu_group_id = int(menu_group_id)
     
