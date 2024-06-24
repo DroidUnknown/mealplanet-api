@@ -11,11 +11,11 @@ def check_brand_profile_name_availability():
     request_json = request.get_json()
     brand_profile_name = request_json["brand_profile_name"]
 
-    availability_p = brand_profile_ninja.check_brand_profile_name_availability(brand_profile_name)
+    available_p = brand_profile_ninja.check_brand_profile_name_availability(brand_profile_name)
 
     response_body = {
         "data": {
-            "availability_p": availability_p
+            "available_p": available_p
         },
         "action": "check_brand_profile_name_availability",
         "status": "successful"

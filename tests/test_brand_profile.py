@@ -140,7 +140,7 @@ def test_brand_profile_availability(client, content_team_headers):
     assert response_json["action"] == "check_brand_profile_name_availability"
 
     response_data = response_json["data"]
-    assert response_data["availability_p"] == 0
+    assert response_data["available_p"] == 0
 
 def test_get_brand_profile(client, content_team_headers):
     """

@@ -1,104 +1,107 @@
 import json
+import pytest
 
 from utils import jqutils
 from sqlalchemy import text
 
-from tests import test_brand_profile
-
 base_api_url = "/api"
 
-def do_add_user(client, payload):
+def do_add_user(client, headers, payload):
     """
-    ADD USER
+    Add user
     """
-    response = client.post(base_api_url + "/user", json=payload)
+    response = client.post(base_api_url + "/user", json=payload, headers=headers)
     return response
 
-def do_add_user_image(client, headers, user_id, payload):
+def do_check_username_availability(client, headers, payload):
     """
-    ADD USER IMAGE
+    Get username availability
     """
-    response = client.post(base_api_url + f"/user/{user_id}/upload-image", headers=headers, data=payload)
-    return response
-
-def do_update_user_image(client, headers, user_id, payload):
-    """
-    UPDATE USER IMAGE
-    """
-    response = client.put(base_api_url + f"/user/{user_id}/upload-image", headers=headers, data=payload)
-    return response
-
-def do_get_username_availablity(client, headers, payload):
-    """
-    GET USERNAME AVAILABILITY
-    """
-    response = client.post(base_api_url + "/username-availability", json=payload)
-    return response
-
-def do_verify_user_otp(client, headers, user_id, payload):
-    """
-    VERIFY USER OTP
-    """
-    response = client.post(base_api_url + f"/user/{user_id}/verify-otp", headers=headers, json=payload)
+    response = client.post(base_api_url + "/username-availability", json=payload, headers=headers)
     return response
 
 def do_get_user(client, headers, user_id):
     """
-    GET USER
+    Get user
     """
     response = client.get(base_api_url + f"/user/{user_id}", headers=headers)
     return response
 
+def do_get_users(client, headers):
+    """
+    Get users
+    """
+    response = client.get(base_api_url + "/users", headers=headers)
+    return response
+
 def do_update_user(client, headers, user_id, payload):
     """
-    UPDATE USER
+    Update user
     """
     response = client.put(base_api_url + f"/user/{user_id}", headers=headers, json=payload)
     return response
 
 def do_delete_user(client, headers, user_id):
     """
-    DELETE USER
+    Delete user
     """
     response = client.delete(base_api_url + f"/user/{user_id}", headers=headers)
     return response
 
-def do_get_user_list(client, headers):
+def do_verify_user_otp(client, headers, user_id, payload):
     """
-    GET USER LIST
+    Verify user otp
     """
-    response = client.get(base_api_url + "/users", headers=headers)
+    response = client.post(base_api_url + f"/user/{user_id}/verify-otp", headers=headers, json=payload)
     return response
 
 def do_initiate_forgot_password_request(client, headers, payload):
     """
-    INITIATE FORGOT PASSWORD REQUEST
+    Initiate forgot password request
     """
     response = client.post(f'{base_api_url}/forgot-password', headers=headers, json=payload)
     return response
 
 def do_get_forgot_password_request(client, headers, otp):
     """
-    GET FORGOT PASSWORD REQUEST
+    Get forgot password request
     """
     response = client.get(f'{base_api_url}/forgot-password/{otp}', headers=headers)
     return response
 
 def do_reset_user_password(client, headers, payload):
     """
-    RESET USER PASSWORD
+    Reset user password
     """
-    response = client.post(f'{base_api_url}/reset-password', json=payload)
+    response = client.post(f'{base_api_url}/reset-password', headers=headers, json=payload)
     return response
+
+##########################
+# GLOBALS
+########################## 
+user_id = None
+all_brand_access_user_id = None
+
+##########################
+# FIXTURES
+##########################
+@pytest.fixture(scope="module", autouse=True)
+def existing_user_count():
+    db_engine = jqutils.get_db_engine()
+    
+    query = text("""
+        SELECT COUNT(1) AS cnt
+        FROM user
+        WHERE meta_status = :meta_status
+    """)
+    with db_engine.connect() as conn:
+        result = conn.execute(query, meta_status="active").fetchone()
+        return result["cnt"]
 
 ###################
 # TESTS CASES
 ###################
-
-user_id = None
-all_brand_access_user_id = None
-
-def test_add_user(client):
+def test_add_user(client, content_team_headers):
 
     payload = {
         "first_names_en": "John",
@@ -115,7 +118,7 @@ def test_add_user(client):
             }
         ]
     }
-    response = do_add_user(client, payload)
+    response = do_add_user(client, content_team_headers, payload)
     assert response.status_code == 200
     
     response_json = response.get_json()
@@ -128,49 +131,80 @@ def test_add_user(client):
     global user_id
     user_id = data["user_id"]
 
-def test_add_user_image(client, content_team_headers):
-    global user_id
-    payload = {
-        "image_type": "profile"
-    }
-    response = do_add_user_image(client, content_team_headers, user_id, payload)
-    assert response.status_code == 200
-
-    response_json = response.get_json()
-    assert response_json["status"] == "successful"
-    assert response_json["action"] == "add_user_image"
-
-    data = response_json["data"]
-    assert data["user_image_url"] == None
-
-def test_update_user_image(client, content_team_headers):
-    global user_id
-    payload = {
-        "image_type": "profile"
-    }
-    response = do_update_user_image(client, content_team_headers, user_id, payload)
-    assert response.status_code == 200
-
-    response_json = response.get_json()
-    assert response_json["status"] == "successful"
-    assert response_json["action"] == "update_user_image"
-
-    data = response_json["data"]
-    assert data["user_image_url"] == None
-
-def test_get_username_availablity(client, content_team_headers):
+def test_check_username_availability(client, content_team_headers):
     payload = {
         "username": "john.doe"
     }
-    response = do_get_username_availablity(client, content_team_headers, payload)
+    response = do_check_username_availability(client, content_team_headers, payload)
     assert response.status_code == 200
 
     response_json = response.get_json()
     assert response_json["status"] == "successful"
-    assert response_json["action"] == "get_username_availability"
+    assert response_json["action"] == "check_username_availability"
 
     data = response_json["data"]
     assert data["available_p"] == True, "Username should be available"
+
+def test_get_user_before_complete_signup(client, content_team_headers):
+    global user_id
+
+    response = do_get_user(client, content_team_headers, user_id)
+    assert response.status_code == 200
+
+    response_json = response.get_json()
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "get_user"
+
+    data = response_json["data"]
+    assert data["username"] is None
+    assert data["first_names_en"]
+    assert data["last_name_en"]
+    assert data["first_names_ar"]
+    assert data["last_name_ar"]
+    assert data["phone_nr"]
+    assert data["email"]
+    assert data["role_list"]
+    assert data["brand_profile_list"]
+
+def test_get_users(client, content_team_headers, existing_user_count):
+    """
+    Test: Get Users
+    """
+    response = do_get_users(client, content_team_headers)
+    assert response.status_code == 200
+    
+    response_json = json.loads(response.data)
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "get_users"
+    
+    response_data = response_json["data"]
+    expected_user_count = existing_user_count + 1
+    assert len(response_data) == expected_user_count, f"User List should have {expected_user_count} item."
+
+def test_update_user(client, content_team_headers):
+    global user_id
+
+    payload = {
+        "first_names_en": "John",
+        "last_name_en": "Doe-1",
+        "first_names_ar": "جون",
+        "last_name_ar": "دو",
+        "phone_nr": "+9711234567890",
+        "email": "john.doe@something.com",
+        "role_id_list": [1],
+        "brand_profile_list": [
+            {
+                "brand_profile_id": 1,
+                "module_access_id_list": [1]
+            }
+        ]
+    }
+    response = do_update_user(client, content_team_headers, user_id, payload)
+    assert response.status_code == 200
+
+    response_json = response.get_json()
+    assert response_json["status"] == "successful"
+    assert response_json["action"] == "update_user"
 
 def test_verify_user_otp(client, content_team_headers):
     global user_id
@@ -206,7 +240,7 @@ def test_verify_user_otp(client, content_team_headers):
     data = response_json["data"]
     assert data["username"]
 
-def test_get_user(client, content_team_headers):
+def test_get_user_after_complete_signup(client, content_team_headers):
     global user_id
 
     response = do_get_user(client, content_team_headers, user_id)
@@ -226,44 +260,6 @@ def test_get_user(client, content_team_headers):
     assert data["email"]
     assert data["role_list"]
     assert data["brand_profile_list"]
-    assert data["user_image_url"] == None
-
-def test_get_user_list(client, content_team_headers):
-    """
-    Test: Get User List
-    """
-    response = do_get_user_list(client, content_team_headers)
-    assert response.status_code == 200
-    response_json = json.loads(response.data)
-    assert response_json["status"] == "successful"
-    assert response_json["action"] == "get_users"
-    response_data = response_json["data"]
-    assert len(response_data) == 1, "User List should have 1 item."
-
-def test_update_user(client, content_team_headers):
-    global user_id
-
-    payload = {
-        "first_names_en": "John",
-        "last_name_en": "Doe-1",
-        "first_names_ar": "جون",
-        "last_name_ar": "دو",
-        "phone_nr": "+9711234567890",
-        "email": "john.doe@something.com",
-        "role_id_list": [1],
-        "brand_profile_list": [
-            {
-                "brand_profile_id": 1,
-                "module_access_id_list": [1]
-            }
-        ]
-    }
-    response = do_update_user(client, content_team_headers, user_id, payload)
-    assert response.status_code == 200
-
-    response_json = response.get_json()
-    assert response_json["status"] == "successful"
-    assert response_json["action"] == "update_user"
 
 def test_initiate_forgot_password_request_using_email(client, content_team_headers):
     global user_id
@@ -381,7 +377,7 @@ def test_reset_password_using_otp_successful(client, content_team_headers):
     data = response_json["data"]
     assert data["user_id"] == user_id
 
-def test_delete_user(client, content_team_headers):
+def test_delete_user(client, content_team_headers, existing_user_count):
     global user_id
 
     response = do_delete_user(client, content_team_headers, user_id)
@@ -391,7 +387,7 @@ def test_delete_user(client, content_team_headers):
     assert response_json["status"] == "successful"
     assert response_json["action"] == "delete_user"
 
-    response = do_get_user_list(client, content_team_headers)
+    response = do_get_users(client, content_team_headers)
     assert response.status_code == 200
 
     response_json = response.get_json()
@@ -399,33 +395,12 @@ def test_delete_user(client, content_team_headers):
     assert response_json["action"] == "get_users"
 
     data = response_json["data"]
-    assert len(data) == 0, "User List should have 0 item."
+    assert len(data) == existing_user_count, f"User List should have {existing_user_count} item."
 
-###################
+##########################################
 # TESTS CASES - ALL BRAND PROFILE ACCESS
-###################
+##########################################
 def test_add_user_with_all_brand_profile_access(client, content_team_headers):
-
-    """
-    Test: Add Brand Profile
-    """
-    payload = {
-        "brand_profile_name": "qoqo",
-        "external_brand_profile_id": "1",
-        "plan_list": [
-            {
-                "plan_id": 1,
-                "menu_group_id_list": [1, 2]
-            }
-        ]
-    }
-    response = test_brand_profile.do_add_brand_profile(client, content_team_headers, payload)
-    assert response.status_code == 200
-
-    response_json = response.get_json()
-    assert response_json["status"] == "successful"
-    assert response_json["action"] == "add_brand_profile"
-
     payload = {
         "first_names_en": "Johnny",
         "last_name_en": "Doe",
@@ -439,7 +414,7 @@ def test_add_user_with_all_brand_profile_access(client, content_team_headers):
         "module_access_id_list": [1]
     }
 
-    response = do_add_user(client, payload)
+    response = do_add_user(client, content_team_headers, payload)
     assert response.status_code == 200
 
     response_json = response.get_json()
@@ -497,9 +472,8 @@ def test_get_all_brand_access_user(client, content_team_headers):
     assert data["role_list"]
     assert data["module_access_list"]
     assert data["brand_profile_list"]
-    assert data["user_image_url"] == None
 
-def test_delete_all_brand_access_user(client, content_team_headers):
+def test_delete_all_brand_access_user(client, content_team_headers, existing_user_count):
     global all_brand_access_user_id
 
     response = do_delete_user(client, content_team_headers, all_brand_access_user_id)
@@ -509,7 +483,7 @@ def test_delete_all_brand_access_user(client, content_team_headers):
     assert response_json["status"] == "successful"
     assert response_json["action"] == "delete_user"
 
-    response = do_get_user_list(client, content_team_headers)
+    response = do_get_users(client, content_team_headers)
     assert response.status_code == 200
 
     response_json = response.get_json()
@@ -517,4 +491,4 @@ def test_delete_all_brand_access_user(client, content_team_headers):
     assert response_json["action"] == "get_users"
 
     data = response_json["data"]
-    assert len(data) == 0, "User List should have 0 item."
+    assert len(data) == existing_user_count, f"User List should have {existing_user_count} item."

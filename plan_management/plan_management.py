@@ -13,11 +13,11 @@ def check_plan_name_availability():
     plan_name = request_json["plan_name"]
     brand_profile_id = request_json["brand_profile_id"]
 
-    availability_p = plan_ninja.check_plan_name_availability(plan_name, brand_profile_id)
+    available_p = plan_ninja.check_plan_name_availability(plan_name, brand_profile_id)
 
     response_body = {
         "data": {
-            "availability_p": availability_p
+            "available_p": available_p
         },
         "action": "check_plan_name_availability",
         "status": "successful"

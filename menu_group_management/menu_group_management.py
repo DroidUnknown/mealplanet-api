@@ -11,11 +11,11 @@ def check_menu_group_name_availability():
 
     menu_group_name = request_data["menu_group_name"]
 
-    availability_p = menu_group_ninja.check_menu_group_name_availability(menu_group_name)
+    available_p = menu_group_ninja.check_menu_group_name_availability(menu_group_name)
 
     response_body = {
         "data": {
-            "availability_p": availability_p
+            "available_p": available_p
         },
         "action": "check_menu_group_name_availability",
         "status": "successful"

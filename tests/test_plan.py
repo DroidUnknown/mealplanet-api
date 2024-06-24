@@ -123,7 +123,7 @@ def test_check_plan_name_availability(client, content_team_headers):
     assert response_json["action"] == "check_plan_name_availability"
 
     response_data = response_json["data"]
-    assert response_data["availability_p"] == 0
+    assert response_data["available_p"] == 0
 
 def test_get_plan(client, content_team_headers):
     """
