@@ -18,6 +18,7 @@ from plan_management.plan_management import plan_management_blueprint
 from menu_group_management.menu_group_management import menu_group_management_blueprint
 from access_management.access_management import access_management_blueprint
 from user_management.user_management import user_management_blueprint
+from user_management.user_image_management import user_image_management_blueprint
 from module_management.module_management import module_management_blueprint
 from role_management.role_management import role_management_blueprint
 
@@ -50,6 +51,7 @@ app.register_blueprint(plan_management_blueprint, url_prefix=base_api_url)
 app.register_blueprint(menu_group_management_blueprint, url_prefix=base_api_url)
 app.register_blueprint(access_management_blueprint, url_prefix=base_api_url)
 app.register_blueprint(user_management_blueprint, url_prefix=base_api_url)
+app.register_blueprint(user_image_management_blueprint, url_prefix=base_api_url)
 app.register_blueprint(module_management_blueprint, url_prefix=base_api_url)
 app.register_blueprint(role_management_blueprint, url_prefix=base_api_url)
 

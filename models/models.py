@@ -131,13 +131,13 @@ class User(Model):
 
     all_brand_profile_access_p = Column(Boolean)
 
-class UserImageMap(Model):
-    __tablename__ = 'user_image_map'
+class UserImage(Model):
+    __tablename__ = 'user_image'
     
-    user_image_map_id = Column(Integer, primary_key=True)
-    
+    user_image_id = Column(Integer, primary_key=True)
     user_id = Column(Integer)
-    image_type = Column(String(32)) #profile
+
+    image_type = Column(String(32)) # profile-picture
     image_bucket_name = Column(String(128))
     image_object_key = Column(String(128))
 
@@ -200,7 +200,7 @@ class BrandProfile(Model):
     brand_profile_name = Column(String(128))
     external_brand_profile_id = Column(String(128))
 
-class BrandProfileImageMap(Model):
+class BrandProfileImage(Model):
     __tablename__ = 'brand_profile_image'
 
     brand_profile_image_id = Column(Integer, primary_key=True)
