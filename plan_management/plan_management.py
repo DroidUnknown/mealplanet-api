@@ -283,7 +283,7 @@ def get_plans():
 
 @plan_management_blueprint.route('/plan/<plan_id>/menu-groups', methods=['GET'])
 def get_menu_groups_by_plan(plan_id):
-    menu_group_id = int(menu_group_id)
+    plan_id = int(plan_id)
     
     db_engine = jqutils.get_db_engine()
     
