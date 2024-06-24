@@ -199,7 +199,7 @@ def update_brand_profile(brand_profile_id):
 
         # get existing plan_id_list
         query = text("""
-            SELECT plan_id
+            SELECT plan_id, plan_name
             FROM plan
             WHERE brand_profile_id = :brand_profile_id
             AND meta_status = :meta_status
@@ -216,9 +216,19 @@ def update_brand_profile(brand_profile_id):
             menu_group_id_list = one_plan["menu_group_id_list"]
             
             if plan_id is None:
+                available_p = plan_ninja.check_plan_name_availability(plan_name, brand_profile_id)
+                if not available_p:
+                    response_body = {
+                        "data": {},
+                        "action": "update_brand_profile",
+                        "status": "failed",
+                        "message": "plan name already in use"
+                    }
+                    return jsonify(response_body)
+                
                 plan_list_to_be_added.append({
-                    "plan_name": one_plan["plan_name"],
-                    "external_plan_id": one_plan["external_plan_id"],
+                    "plan_name": plan_name,
+                    "external_plan_id": external_plan_id,
                     "menu_group_id_list": list(set(menu_group_id_list))
                 })
             else:
