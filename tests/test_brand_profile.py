@@ -72,6 +72,7 @@ def do_bulk_update_brand_profile_plan(client, headers, brand_profile_id, payload
 # GLOBALS
 ########################## 
 brand_profile_id = None
+plan_id = None
 
 ##########################
 # FIXTURES
@@ -157,6 +158,9 @@ def test_get_brand_profile(client, content_team_headers):
     
     assert len(response_data["plan_list"]) == 1, "plan list should have 1 item."
     assert len(response_data["plan_list"][0]["menu_group_list"]) == 2, "menu group list should have 2 items."
+    
+    global plan_id
+    plan_id = response_data["plan_list"][0]["plan_id"]
 
 def test_update_brand_profile(client, content_team_headers):
     """
@@ -165,6 +169,20 @@ def test_update_brand_profile(client, content_team_headers):
     payload = {
         "brand_profile_name": "tolpin",
         "external_brand_profile_id": "2",
+        "plan_list": [
+            {
+                "plan_id": plan_id,
+                "plan_name": "Weight Loss",
+                "external_plan_id": "P-001",
+                "menu_group_id_list": [3, 2]
+            },
+            {
+                "plan_id": None,
+                "plan_name": "Keto Diet",
+                "external_plan_id": "P-002",
+                "menu_group_id_list": [1, 2, 3]
+            }
+        ]
     }
     response = do_update_brand_profile(client, content_team_headers, brand_profile_id, payload)
     assert response.status_code == 200

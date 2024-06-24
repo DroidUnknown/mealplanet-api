@@ -23,14 +23,14 @@ def check_brand_profile_name_availability(brand_profile_name, brand_profile_id=N
 def get_brand_profile_plan_list(brand_profile_id, menu_group_info_p=False):    
     db_engine = jqutils.get_db_engine()
     
-    # get plans associated with brand_profile
-    query = text("""
-        SELECT plan_id, plan_name, external_plan_id
-        FROM plan
-        WHERE brand_profile_id = :brand_profile_id
-        AND meta_status = :meta_status
-    """)
     with db_engine.connect() as conn:
+        # get plans associated with brand_profile
+        query = text("""
+            SELECT plan_id, plan_name, external_plan_id
+            FROM plan
+            WHERE brand_profile_id = :brand_profile_id
+            AND meta_status = :meta_status
+        """)
         results = conn.execute(query, brand_profile_id=brand_profile_id, meta_status="active").fetchall()
         plan_list = [dict(row) for row in results]
         

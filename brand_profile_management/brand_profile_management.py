@@ -3,6 +3,7 @@ from sqlalchemy import text
 
 from utils import jqutils
 from brand_profile_management import brand_profile_ninja
+from plan_management import plan_ninja
 
 brand_profile_management_blueprint = Blueprint('brand_profile_management', __name__)
 
@@ -169,6 +170,7 @@ def update_brand_profile(brand_profile_id):
 
     brand_profile_name = request_json["brand_profile_name"]
     external_brand_profile_id = request_json["external_brand_profile_id"]
+    plan_list = request_json["plan_list"]
 
     available_p = brand_profile_ninja.check_brand_profile_name_availability(brand_profile_name, brand_profile_id)
     if not available_p:
@@ -182,19 +184,56 @@ def update_brand_profile(brand_profile_id):
 
     db_engine = jqutils.get_db_engine()
     
-    # update brand profile details
-    query = text("""
-        UPDATE brand_profile
-        SET external_brand_profile_id = :external_brand_profile_id,
-            brand_profile_name = :brand_profile_name,
-            modification_user_id = :modification_user_id
-        WHERE brand_profile_id = :brand_profile_id
-        AND meta_status = :meta_status
-    """)
     with db_engine.connect() as conn:
+        # update brand profile details
+        query = text("""
+            UPDATE brand_profile
+            SET external_brand_profile_id = :external_brand_profile_id,
+                brand_profile_name = :brand_profile_name,
+                modification_user_id = :modification_user_id
+            WHERE brand_profile_id = :brand_profile_id
+            AND meta_status = :meta_status
+        """)
         result = conn.execute(query, external_brand_profile_id=external_brand_profile_id, brand_profile_name=brand_profile_name, modification_user_id=g.user_id, brand_profile_id=brand_profile_id, meta_status="active").rowcount
         assert result, "unable to update brand profile"
-   
+
+        # get existing plan_id_list
+        query = text("""
+            SELECT plan_id
+            FROM plan
+            WHERE brand_profile_id = :brand_profile_id
+            AND meta_status = :meta_status
+        """)
+        results = conn.execute(query, brand_profile_id=brand_profile_id, meta_status="active").fetchall()
+        existing_plan_id_list = [row["plan_id"] for row in results]
+        
+        # figure out plan_list to be added, updated and deleted
+        plan_list_to_be_added = []
+        for one_plan in plan_list:
+            plan_id = one_plan["plan_id"]
+            plan_name = one_plan["plan_name"]
+            external_plan_id = one_plan["external_plan_id"]
+            menu_group_id_list = one_plan["menu_group_id_list"]
+            
+            if plan_id is None:
+                plan_list_to_be_added.append({
+                    "plan_name": one_plan["plan_name"],
+                    "external_plan_id": one_plan["external_plan_id"],
+                    "menu_group_id_list": list(set(menu_group_id_list))
+                })
+            else:
+                plan_ninja.update_plan(plan_id, plan_name, external_plan_id, menu_group_id_list, g.user_id)
+        
+        query_params = ""
+        for one_plan in plan_list_to_be_added:
+            plan_name = one_plan["plan_name"]
+            external_plan_id = one_plan["external_plan_id"]
+            query_params += f"({brand_profile_id}, '{one_plan['plan_name']}', '{one_plan['external_plan_id']}', 'active', {g.user_id}),"    
+        
+        # figure out plan_list to be deleted
+        expected_plan_id_list = [one_plan["plan_id"] for one_plan in plan_list if one_plan["plan_id"] is not None]
+        plan_list_to_be_deleted = list(set(existing_plan_id_list) - set(expected_plan_id_list))
+
     response_body = {
         "data": {
             "brand_profile_id": brand_profile_id
