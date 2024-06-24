@@ -1,3 +1,5 @@
-plan_name|external_plan_id|meta_status
-weight loss|1|active
-keto diet|2|active
+plan_name|external_plan_id|brand_profile_id|meta_status
+weight loss|1|1|active
+keto diet|2|1|active
+weight loss|1|2|active
+keto diet|2|2|active

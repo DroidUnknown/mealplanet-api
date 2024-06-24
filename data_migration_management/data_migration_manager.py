@@ -28,16 +28,19 @@ class DataMigrationManager:
     def upload_base_data(self):
         self.log("\nUploading base data:")
         
-        # self.log("> Uploading module.. ", False)
-        # jqutils.upload_csv("module", self.top_path + "module.csv")
-        self.log("> Uploading module_access.. ", False)
-        jqutils.upload_csv("module_access", self.top_path + "module_access.csv")
-        self.log("Done\n> Uploading role.. ", False)
-        jqutils.upload_csv("role", self.top_path + "role.csv")
+        self.log("> Uploading brand_profile.. ", False)
+        jqutils.upload_csv("brand_profile", self.top_path + "brand_profile.csv")
         self.log("Done\n> Uploading plan.. ", False)
         jqutils.upload_csv("plan", self.top_path + "plan.csv")
         self.log("Done\n> Uploading menu_group.. ", False)
         jqutils.upload_csv("menu_group", self.top_path + "menu_group.csv")
+        
+        # self.log("> Uploading module.. ", False)
+        # jqutils.upload_csv("module", self.top_path + "module.csv")
+        self.log("Done\n> Uploading module_access.. ", False)
+        jqutils.upload_csv("module_access", self.top_path + "module_access.csv")
+        self.log("Done\n> Uploading role.. ", False)
+        jqutils.upload_csv("role", self.top_path + "role.csv")
         self.log("Done\n")
 
     def log(self, message, new_line=True):
