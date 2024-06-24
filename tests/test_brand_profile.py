@@ -185,7 +185,7 @@ def test_update_brand_profile(client, content_team_headers):
     response_data = response_json["data"]
     assert response_data["brand_profile_name"] == "tolpin"
 
-def test_get_brand_profile_list(client, content_team_headers):
+def test_get_brand_profile_list(client, content_team_headers, existing_brand_profile_count):
     """
     Test: Get Brand Profile List
     """
@@ -194,8 +194,10 @@ def test_get_brand_profile_list(client, content_team_headers):
     response_json = json.loads(response.data)
     assert response_json["status"] == "successful"
     assert response_json["action"] == "get_brand_profiles"
+    
     response_data = response_json["data"]
-    assert len(response_data) == 1, "Brand Profile List should have 1 item."
+    expected_brand_profile_count = existing_brand_profile_count + 1
+    assert len(response_data) == expected_brand_profile_count, f"Brand Profile List should have {expected_brand_profile_count} items."
 
 def test_get_plans_by_brand_profile(client, content_team_headers):
     """
@@ -218,7 +220,7 @@ def test_get_plans_by_brand_profile(client, content_team_headers):
 
 def test_get_plans_by_brand_profile_with_menu_group_info(client, content_team_headers):
     """
-    Test: Get Brand Profile Plans Without Menu Group Info
+    Test: Get Brand Profile Plans With Menu Group Info
     """
     global brand_profile_id
     
@@ -237,32 +239,7 @@ def test_get_plans_by_brand_profile_with_menu_group_info(client, content_team_he
     assert len(plan_list) == 1, "plan list should have 1 item."
     assert len(plan_list[0]["menu_group_list"]) == 2, "menu group list should have 2 items."
 
-def test_bulk_update_brand_profile_plan(client, content_team_headers):
-    """
-    Test: Bulk Update Brand Profile Plans
-    """
-    payload = {
-        "plan_list": [
-            {
-                "brand_profile_plan_map_id": 1,
-                "plan_id": 1,
-                "menu_group_id_list": [1, 3]
-            },
-            {
-                "brand_profile_plan_map_id": None,
-                "plan_id": 2,
-                "menu_group_id_list": [1]
-            }
-        ]
-    }
-    # response = do_bulk_update_brand_profile_plan(client, content_team_headers, brand_profile_id, payload)
-    # assert response.status_code == 200
-    
-    # response_json = json.loads(response.data)
-    # assert response_json["status"] == "successful"
-    # assert response_json["action"] == "bulk_update_brand_profile_plan"
-
-def test_delete_brand_profile(client, content_team_headers):
+def test_delete_brand_profile(client, content_team_headers, existing_brand_profile_count):
     """
     Test: Delete Brand Profile
     """
@@ -281,4 +258,4 @@ def test_delete_brand_profile(client, content_team_headers):
     assert response_json["status"] == "successful"
     assert response_json["action"] == "get_brand_profiles"
     response_data = response_json["data"]
-    assert len(response_data) == 0, "Brand Profile List should have 0 item."
+    assert len(response_data) == existing_brand_profile_count, "Brand Profile List should have {existing_brand_profile_count} item."
