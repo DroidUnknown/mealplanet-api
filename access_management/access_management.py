@@ -18,15 +18,15 @@ def login():
     username = request_json["username"]
     password = request_json["password"]
     
-    keycloak_admin_openid = keycloak_utils.get_keycloak_admin_openid()
+    keycloak_client_openid = keycloak_utils.get_keycloak_client_openid()
 
     # Authenticate user with Keycloak
     try:
-        token = keycloak_admin_openid.token(username, password)
-        rpt_token = keycloak_utils.get_rpt_token(keycloak_admin_openid)
+        token = keycloak_client_openid.token(username, password)
+        rpt_token = keycloak_utils.get_rpt_token(keycloak_client_openid)
         
         try:
-            permissions = keycloak_admin_openid.uma_permissions(token["access_token"])
+            permissions = keycloak_client_openid.uma_permissions(token["access_token"])
         except Exception as e:
             permissions = []
         
