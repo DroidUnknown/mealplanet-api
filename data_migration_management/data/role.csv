@@ -1,5 +1,5 @@
-role_name|meta_status
-mp-team|active
-brand-owner|active
-kitchen-partner|active
-delivery-partner|active
+role_name|keycloak_realm_role_id|meta_status
+mp-team|15fd8b57-eea2-4ff1-bf09-309a1a51129e|active
+brand-owner|18aa231d-ae20-4627-b0ee-15109f5f0200|active
+kitchen-partner|6859e691-2557-4bac-9f23-a0974f08c7d6|active
+delivery-partner|2b83f723-1f00-4e4e-9b47-98c805792103|active

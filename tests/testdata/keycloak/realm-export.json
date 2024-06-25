@@ -53,7 +53,7 @@
         "description": "crm user",
         "composite": false,
         "clientRole": false,
-        "containerId": "e28c3282-9ecb-4d3f-8292-fa941374ab58",
+        "containerId": "63732224-7ecd-484f-ae39-2b8b49eae70e",
         "attributes": {}
       },
       {
@@ -62,7 +62,7 @@
         "description": "${role_uma_authorization}",
         "composite": false,
         "clientRole": false,
-        "containerId": "e28c3282-9ecb-4d3f-8292-fa941374ab58",
+        "containerId": "63732224-7ecd-484f-ae39-2b8b49eae70e",
         "attributes": {}
       },
       {
@@ -83,7 +83,7 @@
           }
         },
         "clientRole": false,
-        "containerId": "e28c3282-9ecb-4d3f-8292-fa941374ab58",
+        "containerId": "63732224-7ecd-484f-ae39-2b8b49eae70e",
         "attributes": {}
       },
       {
@@ -92,7 +92,43 @@
         "description": "",
         "composite": false,
         "clientRole": false,
-        "containerId": "e28c3282-9ecb-4d3f-8292-fa941374ab58",
+        "containerId": "63732224-7ecd-484f-ae39-2b8b49eae70e",
+        "attributes": {}
+      },
+      {
+        "id": "15fd8b57-eea2-4ff1-bf09-309a1a51129e",
+        "name": "mp-team",
+        "description": "",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "63732224-7ecd-484f-ae39-2b8b49eae70e",
+        "attributes": {}
+      },
+      {
+        "id": "18aa231d-ae20-4627-b0ee-15109f5f0200",
+        "name": "brand-owner",
+        "description": "",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "63732224-7ecd-484f-ae39-2b8b49eae70e",
+        "attributes": {}
+      },
+      {
+        "id": "6859e691-2557-4bac-9f23-a0974f08c7d6",
+        "name": "kitchen-partner",
+        "description": "",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "63732224-7ecd-484f-ae39-2b8b49eae70e",
+        "attributes": {}
+      },
+      {
+        "id": "2b83f723-1f00-4e4e-9b47-98c805792103",
+        "name": "delivery-partner",
+        "description": "",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "63732224-7ecd-484f-ae39-2b8b49eae70e",
         "attributes": {}
       },
       {
@@ -101,7 +137,7 @@
         "description": "${role_offline-access}",
         "composite": false,
         "clientRole": false,
-        "containerId": "e28c3282-9ecb-4d3f-8292-fa941374ab58",
+        "containerId": "63732224-7ecd-484f-ae39-2b8b49eae70e",
         "attributes": {}
       }
     ],
@@ -466,7 +502,7 @@
     "description": "${role_default-roles}",
     "composite": true,
     "clientRole": false,
-    "containerId": "e28c3282-9ecb-4d3f-8292-fa941374ab58"
+    "containerId": "63732224-7ecd-484f-ae39-2b8b49eae70e"
   },
   "requiredCredentials": [
     "password"

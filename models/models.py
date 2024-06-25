@@ -113,6 +113,7 @@ class Role(Model):
 
     role_id = Column(Integer, primary_key=True)
     role_name = Column(String(64), nullable=False)  # mp-team, brand-owner, kitchen-partner, delivery-partner
+    keycloak_realm_role_id = Column(String(256))
 
 class User(Model):
     __tablename__ = 'user'
