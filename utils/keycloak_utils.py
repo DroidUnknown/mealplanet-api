@@ -146,7 +146,7 @@ def create_user_policy(username):
     
     return keycloak_user_policy_id["id"]
 
-def attach_user_to_policies(associate_policy_id, policy_name_list):
+def attach_user_to_policies(associate_policy_id, policy_id_list):
     keycloak_admin_openid = get_keycloak_admin_openid()
     
     policy_list = keycloak_admin_openid.get_client_authz_permissions(client_uuid)
@@ -155,12 +155,12 @@ def attach_user_to_policies(associate_policy_id, policy_name_list):
     existing_policy_id_list = [policy["id"] for policy in existing_policy_list]
     assert associate_policy_id in existing_policy_id_list, f"Policy {associate_policy_id} not found"
     
-    existing_policy_name_list = []
+    existing_policy_id_list = []
     for one_policy in policy_list:
         cand_policy_id = one_policy["id"]
         cand_policy_name = one_policy["name"]
-        existing_policy_name_list.append(cand_policy_name)
-        if cand_policy_name in policy_name_list:
+        existing_policy_id_list.append(cand_policy_id)
+        if cand_policy_id in policy_id_list:
             
             existing_associated_policies = keycloak_admin_openid.get_client_authz_permission_associated_policies(client_uuid, cand_policy_id)
             existing_associated_resources = keycloak_admin_openid.get_client_authz_policy_resources(client_uuid, cand_policy_id)
@@ -184,8 +184,8 @@ def attach_user_to_policies(associate_policy_id, policy_name_list):
                 
                 keycloak_admin_openid.update_client_authz_resource_permission(payload, client_uuid, cand_policy_id)
       
-    for one_policy_name in policy_name_list:
-        assert one_policy_name in existing_policy_name_list, f"Policy {one_policy_name} not found"
+    for one_policy_id in policy_id_list:
+        assert one_policy_id in existing_policy_id_list, f"Policy id {one_policy_id} not found"
     
 def disassociate_user_from_policies(user_id):
     keycloak_admin_openid = get_keycloak_admin_openid()
@@ -229,4 +229,20 @@ def disassociate_user_from_policies(user_id):
                 keycloak_admin_openid.update_client_authz_resource_permission(payload, client_uuid, one_policy["id"])
                 
         keycloak_admin_openid.delete_client_authz_policy(client_uuid, policy_id)
+
+def assign_realm_roles_to_user(keycloak_user_id, keycloak_realm_role_id_list):
+    keycloak_admin_openid = get_keycloak_admin_openid()
     
+    # get available role_mappings
+    available_role_mapping_list = keycloak_admin_openid.get_realm_roles()
+    
+    role_list = []
+    for keycloak_realm_role_id in keycloak_realm_role_id_list:
+        found_role_p = False
+        for role in available_role_mapping_list:
+            if role["id"] == keycloak_realm_role_id:
+                role_list.append(role)
+                found_role_p = True
+        assert found_role_p, f"Role {keycloak_realm_role_id} not found"
+    
+    keycloak_admin_openid.assign_realm_roles(keycloak_user_id, role_list)

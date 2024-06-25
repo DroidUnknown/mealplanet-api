@@ -10,6 +10,9 @@
             "all:*:menu-management:admin",
             "all:*:kitchen-provider:admin",
             "all:*:delivery-provider:admin"
+        ],
+        "role_name_list": [
+            "mp-team"
         ]
     },
     {
@@ -22,6 +25,9 @@
         "allowed_resource_list": [
             "basiligo:1:menu-management:content",
             "basiligo:1:kitchen-provider:content"
+        ],
+        "role_name_list": [
+            "brand-owner"
         ]
     },
     {
@@ -34,6 +40,9 @@
         "allowed_resource_list": [
             "basiligo:1:kitchen-provider:member",
             "healthy-cup:2:kitchen-provider:member"
+        ],
+        "role_name_list": [
+            "kitchen-partner"
         ]
     },
     {
@@ -46,6 +55,9 @@
         "allowed_resource_list": [
             "basiligo:1:delivery-provider:member",
             "healthy-cup:2:delivery-provider:member"
+        ],
+        "role_name_list": [
+            "delivery-partner"
         ]
     },
     {
@@ -55,6 +67,9 @@
         "email": "test.user@something.com",
         "username": "test.user",
         "password": "test123",
-        "allowed_resource_list": []
+        "allowed_resource_list": [],
+        "role_name_list": [
+            "mp-team"
+        ]
     }
 ]

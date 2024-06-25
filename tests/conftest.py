@@ -45,6 +45,16 @@ def landscape():
     
     db_engine = jqutils.get_db_engine('testportalprofileservice')
     with db_engine.connect() as conn:
+        
+        with open('tests/testdata/landscape.json', 'r') as fp:
+            data = json.load(fp)
+            for table_name in data:
+                rows = data[table_name]
+                for one_row in rows:
+                    one_row["meta_status"] = "active"
+                    one_row["creation_user_id"] = 1
+                    query, params = jqutils.jq_prepare_insert_statement(table_name, one_row)
+                    conn.execute(query, params)
     
         with open('tests/testdata/users.json', 'r') as fp:
             user_list = json.load(fp)
@@ -59,18 +69,9 @@ def landscape():
                     "password": one_user['password']
                 }
                 allowed_resource_list = one_user['allowed_resource_list']
+                role_name_list = one_user['role_name_list']
                 
-                user_id, policy_id, keycloak_user_id = create_user_on_keycloak_and_database(conn, userdata, allowed_resource_list=allowed_resource_list)
-        
-        with open('tests/testdata/landscape.json', 'r') as fp:
-            data = json.load(fp)
-            for table_name in data:
-                rows = data[table_name]
-                for one_row in rows:
-                    one_row["meta_status"] = "active"
-                    one_row["creation_user_id"] = 1
-                    query, params = jqutils.jq_prepare_insert_statement(table_name, one_row)
-                    conn.execute(query, params)
+                user_id, policy_id, keycloak_user_id = create_user_on_keycloak_and_database(conn, userdata, allowed_resource_list=allowed_resource_list, role_name_list=role_name_list)
 
 @pytest.fixture(scope="session", autouse=True)
 def content_team_headers():
@@ -78,7 +79,7 @@ def content_team_headers():
         
     }
 
-def create_user_on_keycloak_and_database(conn, userdata, allowed_resource_list=[]):
+def create_user_on_keycloak_and_database(conn, userdata, allowed_resource_list=[], role_name_list=[]):
     username = userdata["username"]
     
     # create user on keycloak
@@ -108,6 +109,8 @@ def create_user_on_keycloak_and_database(conn, userdata, allowed_resource_list=[
         "policy_type": "user",
         "logic": "POSITIVE",
         "decision_strategy": "AFFIRMATIVE",
+        "meta_status": "active",
+        "creation_user_id": 1,
     }
     query, params = jqutils.jq_prepare_insert_statement('policy', policy_dict)
     
@@ -117,31 +120,95 @@ def create_user_on_keycloak_and_database(conn, userdata, allowed_resource_list=[
     # attach user to policy
     policy_user_map_dict = {
         "policy_id": policy_id,
-        "user_id": user_id
+        "user_id": user_id,
+        "meta_status": "active",
+        "creation_user_id": 1,
     }
     query, params = jqutils.jq_prepare_insert_statement('policy_user_map', policy_user_map_dict)
     result = conn.execute(query, params).lastrowid
     assert result, "Failed to attach user to policy"
     
     if allowed_resource_list:
-        attach_user_to_policies(conn, keycloak_user_policy_id, allowed_resource_list)
+        assign_policies_to_user(conn, user_id, keycloak_user_policy_id, allowed_resource_list)
+    
+    if role_name_list:
+        assign_realm_roles_to_user(conn, user_id, keycloak_user_id, role_name_list)
         
     return user_id, policy_id, keycloak_user_id
 
-def attach_user_to_policies(conn, policy_id, policy_name_list):
+def assign_policies_to_user(conn, user_id, keycloak_user_policy_id, policy_name_list):
     
-    # attach user to correct policies on keycloak
-    keycloak_utils.attach_user_to_policies(policy_id, policy_name_list)
-    
-    # attach user to correct policies in database
+    # get policies from database
     query = text("""
-        SELECT policy_id, policy_name
+        SELECT policy_id, policy_name, keycloak_policy_id
         FROM policy
         WHERE policy_name IN :policy_name_list
         AND policy_type = :policy_type
         AND meta_status = :meta_status
     """)
     results = conn.execute(query, policy_name_list=policy_name_list, policy_type="resource", meta_status="active").fetchall()
-    # assert results, "Failed to find policies"
+    assert results, "Failed to find policies"
     
-    # TODO: implement this
+    policy_name_id_map = {}
+    keycloak_policy_id_list = []
+    for one_policy in results:
+        policy_id = one_policy["policy_id"]
+        policy_name = one_policy["policy_name"]
+        keycloak_policy_id = one_policy["keycloak_policy_id"]
+        
+        policy_name_id_map[policy_name] = policy_id
+        keycloak_policy_id_list.append(keycloak_policy_id)
+    
+    # attach user to correct policies on keycloak
+    keycloak_utils.attach_user_to_policies(keycloak_user_policy_id, keycloak_policy_id_list)
+    
+    # attach user to correct policies in database
+    for policy_name in policy_name_list:
+        policy_id = policy_name_id_map[policy_name]
+        policy_user_map_dict = {
+            "policy_id": policy_id,
+            "user_id": user_id,
+            "meta_status": "active",
+            "creation_user_id": 1,
+        }
+        query, params = jqutils.jq_prepare_insert_statement('policy_user_map', policy_user_map_dict)
+        result = conn.execute(query, params).lastrowid
+        assert result, "Failed to attach user to policy"
+
+def assign_realm_roles_to_user(conn, user_id, keycloak_user_id, role_name_list):
+    
+    # get roles from database
+    query = text("""
+        SELECT role_id, role_name, keycloak_realm_role_id
+        FROM role
+        WHERE role_name IN :role_name_list
+        AND meta_status = :meta_status
+    """)
+    results = conn.execute(query, role_name_list=role_name_list, meta_status="active").fetchall()
+    assert results, "Failed to find roles"
+    
+    role_name_id_map = {}
+    keycloak_realm_role_id_list = []
+    for one_role in results:
+        role_id = one_role["role_id"]
+        role_name = one_role["role_name"]
+        keycloak_realm_role_id = one_role["keycloak_realm_role_id"]
+        
+        role_name_id_map[role_name] = role_id
+        keycloak_realm_role_id_list.append(keycloak_realm_role_id)
+    
+    # attach realm roles to user on keycloak
+    keycloak_utils.assign_realm_roles_to_user(keycloak_user_id, keycloak_realm_role_id_list)
+    
+    # attach realm roles to user in database
+    for role_name in role_name_list:
+        role_id = role_name_id_map[role_name]
+        user_role_map_dict = {
+            "user_id": user_id,
+            "role_id": role_id,
+            "meta_status": "active",
+            "creation_user_id": 1,
+        }
+        query, params = jqutils.jq_prepare_insert_statement('user_role_map', user_role_map_dict)
+        result = conn.execute(query, params).lastrowid
+        assert result, "Failed to attach user to role"

@@ -216,23 +216,23 @@
             "resource_type": "role",
             "module_id": 3,
             "uri": "healthy-cup:2:delivery-provider:admin"
-          },
-          {
+        },
+        {
             "keycloak_resource_id": "e16f921e-557c-4231-8730-a9b9a3d92851",
             "resource_name": "healthy-cup:2:delivery-provider:content",
             "display_name_en": "healthy-cup:2:delivery-provider:content",
             "resource_type": "role",
             "module_id": 3,
             "uri": "healthy-cup:2:delivery-provider:content"
-          },
-          {
+        },
+        {
             "keycloak_resource_id": "d349431d-b090-4bc6-9088-768024163021",
             "resource_name": "healthy-cup:2:delivery-provider:member",
             "display_name_en": "healthy-cup:2:delivery-provider:member",
             "resource_type": "role",
             "module_id": 3,
             "uri": "healthy-cup:2:delivery-provider:member"
-          }
+        }
     ],
     "resource_scope_map": [
         { "resource_id": 1, "scope_id": 2 },
@@ -270,189 +270,189 @@
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "f5c109c3-6d0b-4238-ae0b-789bc7814335",
             "policy_name": "basiligo:1:menu-management:content",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "2fcb32ad-f6a1-4030-8975-b90990c20b88",
             "policy_name": "basiligo:1:menu-management:member",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "c83028e1-47e6-49b6-9960-2caac0e9e5f6",
             "policy_name": "all:*:menu-management:admin",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "29181a74-c17a-407d-a0d5-a70b532d1c6f",
             "policy_name": "all:*:menu-management:content",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "9ba3466d-6864-48da-b1f5-072f1d918ce9",
             "policy_name": "all:*:menu-management:member",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "4b48e726-6e77-4a70-8c91-25594121136d",
             "policy_name": "healthy-cup:2:menu-management:admin",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "ddb591da-b026-40db-ab25-c6b5275c99b0",
             "policy_name": "healthy-cup:2:menu-management:content",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "ce9bfdcc-c439-4292-80c1-809c60b96584",
             "policy_name": "healthy-cup:2:menu-management:member",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "073f7314-9a4b-4b51-8553-05608d3519c4",
             "policy_name": "basiligo:1:kitchen-provider:admin",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "efc8943c-6804-4517-afe0-9904b224f162",
             "policy_name": "basiligo:1:kitchen-provider:content",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "bf7369de-786b-4d23-8758-107fb1896edc",
             "policy_name": "basiligo:1:kitchen-provider:member",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "24600224-eb8c-407c-a66d-5e56764acc94",
             "policy_name": "all:*:kitchen-provider:admin",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "9a3bbddd-ce3d-4c04-ae4d-f8cf4a517a8e",
             "policy_name": "all:*:kitchen-provider:content",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "5bfe0877-ffb6-42d9-95d9-525997c985e6",
             "policy_name": "all:*:kitchen-provider:member",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "1382bc49-0df2-48d7-862c-1bf5886c5704",
             "policy_name": "healthy-cup:2:kitchen-provider:admin",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "89ffb34e-1055-4845-9268-c4c7eef27d73",
             "policy_name": "healthy-cup:2:kitchen-provider:content",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "99219b49-768a-4bf8-8041-2f03f9a7e92b",
             "policy_name": "healthy-cup:2:kitchen-provider:member",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "d3b68931-6ea5-4030-9d8f-f48e7ce37202",
             "policy_name": "all:*:delivery-provider:admin",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "cdc4e70e-5508-437d-acca-6a8e176faf7f",
             "policy_name": "all:*:delivery-provider:content",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "e947bbaf-a926-4431-96e3-116c52999f89",
             "policy_name": "all:*:delivery-provider:member",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "24b86c55-0ad0-4612-9f6a-4c1fe43ef253",
             "policy_name": "basiligo:1:delivery-provider:admin",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "df4e1e82-4ba1-4ce8-9bea-9aa2f004d3a2",
             "policy_name": "basiligo:1:delivery-provider:content",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "91a1541b-a22e-4fe0-867a-579381b3b1c7",
             "policy_name": "basiligo:1:delivery-provider:member",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "b0b79a0d-c553-464a-b9d3-ed17a00108fb",
             "policy_name": "healthy-cup:2:delivery-provider:admin",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "604720fb-4168-4f9a-9be8-431457b331ae",
             "policy_name": "healthy-cup:2:delivery-provider:content",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          },
-          {
+        },
+        {
             "keycloak_policy_id": "270d4b48-e538-43cb-82fe-24d755738c1d",
             "policy_name": "healthy-cup:2:delivery-provider:member",
             "policy_type": "resource",
             "logic": "POSITIVE",
             "decision_strategy": "AFFIRMATIVE"
-          }
+        }
     ],
     "policy_resource_map": [
         { "policy_id": 1, "resource_id": 1 },
@@ -485,13 +485,45 @@
     ],
     "module": [
         {
-            "module_name": "menu-management"
+            "module_name": "menu-management",
+            "module_description": "all menu management related operations"
         },
         {
-            "module_name": "kitchen-provider"
+            "module_name": "kitchen-provider",
+            "module_description": "all kitchen provider related operations"
         },
         {
-            "module_name": "delivery-provider"
+            "module_name": "delivery-provider",
+            "module_description": "all delivery provider related operations"
+        }
+    ],
+    "module_access": [
+        { "module_id": 1, "access_level": "admin" },
+        { "module_id": 1, "access_level": "content" },
+        { "module_id": 1, "access_level": "member" },
+        { "module_id": 2, "access_level": "admin" },
+        { "module_id": 2, "access_level": "content" },
+        { "module_id": 2, "access_level": "member" },
+        { "module_id": 3, "access_level": "admin" },
+        { "module_id": 3, "access_level": "content" },
+        { "module_id": 3, "access_level": "member" }
+    ],
+    "role": [
+        {
+            "role_name": "mp-team",
+            "keycloak_realm_role_id": "15fd8b57-eea2-4ff1-bf09-309a1a51129e"
+        },
+        {
+            "role_name": "brand-owner",
+            "keycloak_realm_role_id": "18aa231d-ae20-4627-b0ee-15109f5f0200"
+        },
+        {
+            "role_name": "kitchen-partner",
+            "keycloak_realm_role_id": "6859e691-2557-4bac-9f23-a0974f08c7d6"
+        },
+        {
+            "role_name": "delivery-partner",
+            "keycloak_realm_role_id": "2b83f723-1f00-4e4e-9b47-98c805792103"
         }
     ]
 }
