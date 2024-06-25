@@ -140,4 +140,5 @@ class ExtendApi(Api):
 api = ExtendApi(app, catch_all_404s=True)  # pylint: disable=invalid-name
 
 if __name__ == '__main__':
-    app.run(debug=app.debug, port=8000, host='0.0.0.0')
+    port = os.getenv('PORT', 8000)
+    app.run(debug=app.debug, port=port, host='0.0.0.0')
