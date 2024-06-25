@@ -34,13 +34,8 @@ class DataMigrationManager:
         jqutils.upload_csv("plan", self.top_path + "plan.csv")
         self.log("Done\n> Uploading menu_group.. ", False)
         jqutils.upload_csv("menu_group", self.top_path + "menu_group.csv")
-        
-        # self.log("> Uploading module.. ", False)
-        # jqutils.upload_csv("module", self.top_path + "module.csv")
-        self.log("Done\n> Uploading module_access.. ", False)
-        jqutils.upload_csv("module_access", self.top_path + "module_access.csv")
-        self.log("Done\n> Uploading role.. ", False)
-        jqutils.upload_csv("role", self.top_path + "role.csv")
+        self.log("Done\n> Uploading plan_menu_group_map.. ", False)
+        jqutils.upload_csv("plan_menu_group_map", self.top_path + "plan_menu_group_map.csv")
         self.log("Done\n")
 
     def log(self, message, new_line=True):
