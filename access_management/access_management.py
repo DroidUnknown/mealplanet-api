@@ -23,12 +23,13 @@ def login():
     # Authenticate user with Keycloak
     try:
         token = keycloak_client_openid.token(username, password)
-        rpt_token = keycloak_utils.get_rpt_token(keycloak_client_openid)
         
         try:
             permissions = keycloak_client_openid.uma_permissions(token["access_token"])
         except Exception as e:
             permissions = []
+        
+        rpt_token = keycloak_utils.get_rpt_token(keycloak_client_openid)
         
         return jsonify({
             'data': {
