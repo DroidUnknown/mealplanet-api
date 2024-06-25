@@ -54,12 +54,10 @@ def get_keycloak_admin_openid(master_p=False):
 
 def get_rpt_token(keycloak_client_openid):
     try:
-        token = keycloak_client_openid.token(
+        rpt_token = keycloak_client_openid.token(
             grant_type='urn:ietf:params:oauth:grant-type:uma-ticket',
             audience=realm_name
         )
-        rpt_token = token['access_token']
-        
         return rpt_token
     except Exception as e:
         raise e
