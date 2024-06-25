@@ -31,6 +31,38 @@ def check_username_validity(username):
      
     return True if validity else False
 
+def get_email_templates(email_template_type):
+    db_engine = jqutils.get_db_engine()
+    
+    query = text("""
+        SELECT email_template_format, email_subject, bucket_name, object_key
+        FROM email_template
+        WHERE email_template_type = :email_template_type
+        AND meta_status = :meta_status
+    """)
+    with db_engine.connect() as conn:
+        result = conn.execute(query, email_template_type=email_template_type, meta_status="active").fetchall()
+        assert result, f"Template not found for type: {email_template_type}"
+
+    templates = {}
+
+    for one_row in result:
+        bucket_name = one_row['bucket_name']
+        object_key = one_row['object_key']
+        
+        if os.getenv("MOCK_AWS_NOTIFICATIONS") != "1":
+            template = aws_utils.get_file_data_from_s3(bucket_name, object_key)
+        else:
+            with open(f"tests/testdata/templates/user-signup/{object_key}", "r") as text_data:
+                template = text_data.read()
+
+        templates[one_row['email_template_format']] = {
+            'subject': one_row['email_subject'],
+            'body': template
+        }
+
+    return templates
+
 def send_user_signup_email(userdata, creation_user_id):
 
     user_id = userdata["user_id"]
@@ -71,28 +103,27 @@ def send_user_signup_email(userdata, creation_user_id):
         name += " " + userdata["last_name_en"]
 
     # send OTP to user email
-    if os.getenv("MOCK_AWS_NOTIFICATIONS") != "1":
-        email_templates = jqutils.get_email_templates("user_signup")
+    email_templates = get_email_templates("user_signup")
 
-        html_template = email_templates['html']['body']
-        text_template = email_templates['txt']['body']
+    html_template = email_templates['html']['body']
+    text_template = email_templates['txt']['body']
 
-        html_template = html_template.replace("[NAME]", name.title())
-        html_template = html_template.replace("[LINK]", verification_link)
+    html_template = html_template.replace("[NAME]", name.title())
+    html_template = html_template.replace("[LINK]", verification_link)
 
-        text_template = text_template.replace("[NAME]", name.title())
-        text_template = text_template.replace("[LINK]", verification_link)
+    text_template = text_template.replace("[NAME]", name.title())
+    text_template = text_template.replace("[LINK]", verification_link)
 
-        if contact_method == 'email':
-            aws_utils.publish_email(
-                source="haseeb.ahmed@globalvertices.com",
-                destination={
-                    "ToAddresses": [userdata["email"]],
-                },
-                subject=email_templates['html']['subject'],
-                text=text_template,
-                html=html_template
-            )
+    if contact_method == 'email':
+        aws_utils.publish_email(
+            source="haseeb.ahmed@globalvertices.com",
+            destination={
+                "ToAddresses": [userdata["email"]],
+            },
+            subject=email_templates['html']['subject'],
+            text=text_template,
+            html=html_template
+        )
 
     # update OTP status to sent
     query = text("""
@@ -148,28 +179,27 @@ def resend_one_time_password(user_id, intent, modification_user_id, contact_meth
         name += " " + last_name_en
 
     # send OTP to user email
-    if os.getenv("MOCK_AWS_NOTIFICATIONS") != "1":
-        email_templates = jqutils.get_email_templates("user_signup")
+    email_templates = get_email_templates("user_signup")
 
-        html_template = email_templates['html']['body']
-        text_template = email_templates['txt']['body']
+    html_template = email_templates['html']['body']
+    text_template = email_templates['txt']['body']
 
-        html_template = html_template.replace("[NAME]", name.title())
-        html_template = html_template.replace("[LINK]", verification_link)
+    html_template = html_template.replace("[NAME]", name.title())
+    html_template = html_template.replace("[LINK]", verification_link)
 
-        text_template = text_template.replace("[NAME]", name.title())
-        text_template = text_template.replace("[LINK]", verification_link)
+    text_template = text_template.replace("[NAME]", name.title())
+    text_template = text_template.replace("[LINK]", verification_link)
 
-        if contact_method == 'email':
-            aws_utils.publish_email(
-                source="haseeb.ahmed@globalvertices.com",
-                destination={
-                    "ToAddresses": [email],
-                },
-                subject=email_templates['html']['subject'],
-                text=text_template,
-                html=html_template
-            )
+    if contact_method == 'email':
+        aws_utils.publish_email(
+            source="haseeb.ahmed@globalvertices.com",
+            destination={
+                "ToAddresses": [email],
+            },
+            subject=email_templates['html']['subject'],
+            text=text_template,
+            html=html_template
+        )
 
     # update OTP to sent
     query = text("""

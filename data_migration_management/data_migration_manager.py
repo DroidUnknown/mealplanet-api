@@ -36,6 +36,10 @@ class DataMigrationManager:
         jqutils.upload_csv("menu_group", self.top_path + "menu_group.csv")
         self.log("Done\n> Uploading plan_menu_group_map.. ", False)
         jqutils.upload_csv("plan_menu_group_map", self.top_path + "plan_menu_group_map.csv")
+        
+        self.log("Done\n> Uploading email_template.. ", False)
+        jqutils.upload_csv("email_template", self.top_path + "email_template.csv")
+        
         self.log("Done\n")
 
     def log(self, message, new_line=True):

@@ -1,0 +1,3 @@
+email_template_name|email_subject|email_template_type|email_template_format|bucket_name|object_key|meta_status
+user signup email txt|Welcome to MealPlanet’s Portal!|user_signup|txt|test-bucket|user-signup-email-template.txt|active
+user signup email html|Welcome to MealPlanet’s Portal!|user_signup|html|test-bucket|user-signup-email-template.html|active

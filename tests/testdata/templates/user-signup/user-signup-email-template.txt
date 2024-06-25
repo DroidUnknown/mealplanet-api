@@ -1,0 +1,10 @@
+Hello [NAME],
+
+Welcome to MealPlanet's Portal. You have been invited to access the portal.
+
+Please use this link to access the portal and create your username and password: 
+
+[LINK]
+
+Thank you!
+MealPlanet Team

@@ -758,38 +758,3 @@ def create_archive_record(table_name, record_id):
 
     status = create_new_single_db_entry(one_row_data[0],"archive_"+table_name,True)
     return status
-
-def get_email_templates(email_template_type):
-    db_engine = get_db_engine()
-    query = text("""
-        SELECT email_template_format, email_subject, bucket_name, object_key
-        FROM email_template
-        WHERE email_template_type = :email_template_type
-        AND meta_status = :meta_status
-    """)
-    with db_engine.connect() as conn:
-        result = conn.execute(query, email_template_type=email_template_type, meta_status="active").fetchall()
-        assert result, f"Template not found for type: {email_template_type}"
-
-    templates = {}
-
-    for one_row in result:
-        if os.getenv("MOCK_AWS_NOTIFICATIONS") != "1":
-            template = aws_utils.get_file_data_from_s3(one_row['bucket_name'], one_row['object_key'])
-            templates[one_row['email_template_format']] = {
-                'subject': one_row['email_subject'],
-                'body': template
-            }
-        else:
-            templates = {
-                'html': {
-                    'subject': 'test_subject',
-                    'body': 'test_body'
-                },
-                'txt': {
-                    'subject': 'test_subject',
-                    'body': 'test_body'
-                }
-            }
-
-    return templates
