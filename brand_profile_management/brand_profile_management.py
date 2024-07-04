@@ -346,13 +346,31 @@ def get_brand_profiles():
     db_engine = jqutils.get_db_engine()
 
     query = text("""
-        SELECT brand_profile_id, external_brand_profile_id, brand_profile_name
-        FROM brand_profile
-        WHERE meta_status = :meta_status
+        SELECT bf.brand_profile_id, bf.external_brand_profile_id, bf.brand_profile_name,
+        bfi.brand_profile_image_id, bfi.image_type, bfi.image_bucket_name, bfi.image_object_key
+        FROM brand_profile bf
+        LEFT JOIN brand_profile_image bfi ON bf.brand_profile_id = bfi.brand_profile_id
+        WHERE bf.meta_status = :meta_status
     """)
     with db_engine.connect() as conn:
         results = conn.execute(query, meta_status="active").fetchall()
         brand_profile_list = [dict(row) for row in results]
+
+    for one_brand_profile in brand_profile_list:
+        if one_brand_profile["brand_profile_image_id"]:
+            brand_profile_image_id = one_brand_profile["brand_profile_image_id"]
+            image_type = one_brand_profile["image_type"]
+            image_bucket_name = one_brand_profile["image_bucket_name"]
+            image_object_key = one_brand_profile["image_object_key"]
+            
+            assert image_bucket_name and image_object_key, "unable to generate image_url"
+            image_url = jqutils.create_presigned_get_url(image_bucket_name, image_object_key)
+            
+            one_brand_profile["brand_profile_image"] = {
+                "brand_profile_image_id": brand_profile_image_id,
+                "image_type": image_type,
+                "image_url": image_url
+            }
 
     response_body = {
         "data": brand_profile_list,
