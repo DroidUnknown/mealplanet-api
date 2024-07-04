@@ -53,14 +53,11 @@ def get_keycloak_admin_openid(master_p=False):
     return keycloak_admin_openid
 
 def get_rpt_token(keycloak_client_openid):
-    try:
-        rpt_token = keycloak_client_openid.token(
-            grant_type='urn:ietf:params:oauth:grant-type:uma-ticket',
-            audience=client_id
-        )
-        return rpt_token
-    except Exception as e:
-        raise e
+    rpt_token = keycloak_client_openid.token(
+        grant_type='urn:ietf:params:oauth:grant-type:uma-ticket',
+        audience=client_id
+    )
+    return rpt_token
 
 def delete_all_users(exception_list=["codify-admin"]):
     keycloak_admin_openid = get_keycloak_admin_openid()

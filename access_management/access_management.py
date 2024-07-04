@@ -25,19 +25,16 @@ def login():
         token = keycloak_client_openid.token(username, password)
         
         try:
-            permissions = keycloak_client_openid.uma_permissions(token["access_token"])
+            token = keycloak_utils.get_rpt_token(keycloak_client_openid)
         except Exception as e:
-            permissions = []
-        
-        rpt_token = keycloak_utils.get_rpt_token(keycloak_client_openid)
+            pass
         
         return jsonify({
             'data': {
-                'access_token': rpt_token['access_token'],
-                'expires_in': rpt_token['expires_in'],
-                'refresh_token': rpt_token['refresh_token'],
-                'refresh_expires_in': rpt_token['refresh_expires_in'],
-                'permissions': permissions,
+                'access_token': token['access_token'],
+                'expires_in': token['expires_in'],
+                'refresh_token': token['refresh_token'],
+                'refresh_expires_in': token['refresh_expires_in']
             },
             'status': 'successful',
             'action': 'login',
@@ -62,10 +59,6 @@ def refresh():
     # Refresh token with Keycloak
     try:
         token = keycloak_client_openid.refresh_token(refresh_token)
-        try:
-            permissions = keycloak_client_openid.uma_permissions(token["access_token"])
-        except Exception as e:
-            permissions = []
         
         return jsonify({
             'data': {
@@ -73,7 +66,6 @@ def refresh():
                 'expires_in': token['expires_in'],
                 'refresh_token': token['refresh_token'],
                 'refresh_expires_in': token['refresh_expires_in'],
-                'permissions': permissions,
             },
             'action': 'refresh',
             'status': 'successful',
